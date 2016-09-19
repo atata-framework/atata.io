@@ -1,0 +1,27 @@
+name: Atata Framework
+
+# Dependencies
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  auto_ids: true
+
+# Permalinks
+permalink: pretty
+
+author:
+  name: Yevgeniy Shunevych
+  github: YevgeniyShunevych
+
+baseurl: https://atata-framework.github.io
+
+nav-links:
+  Getting Started: "getting-started"
+  Components: "components"
+
+exclude:
+  - LICENSE
+  - README.md
+
+repo: https://github.com/atata-framework
