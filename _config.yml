@@ -19,9 +19,15 @@ baseurl: https://atata-framework.github.io
 nav-links:
   Getting Started: "getting-started"
   Components: "components"
+  Control Finding: "control-finding"
+  Triggers: "triggers"
 
 exclude:
   - LICENSE
   - README.md
+  - atata-framework.github.io.sln
+  - compilerconfig.json
+  - compilerconfig.json.defaults
+  - .gitignore
 
 repo: https://github.com/atata-framework
