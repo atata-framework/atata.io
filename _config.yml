@@ -14,7 +14,8 @@ author:
   name: Yevgeniy Shunevych
   github: YevgeniyShunevych
 
-baseurl: https://atata-framework.github.io
+baseurl: ""
+url: ""
 
 nav-links:
   Getting Started: "getting-started"
