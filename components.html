@@ -1,0 +1,8 @@
+﻿---
+layout: default
+title: "Components"
+---
+<h1>Components</h1>
+{% for item in site.components %}
+{% include "components/" + item + ".html" %}
+{% endfor %}

@@ -22,6 +22,10 @@ nav-links:
   Control Finding: "control-finding"
   Triggers: "triggers"
 
+components:
+  - text-input
+  - password-input
+
 exclude:
   - LICENSE
   - README.md
