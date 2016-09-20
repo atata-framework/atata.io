@@ -2,8 +2,23 @@
 layout: default
 title: Components
 ---
-<h1>{{ page.title }}</h1>
-{% for item in site.components %}
-{% assign itemPath = "components/" | append: item | append: ".html" %}
-{% include {{ itemPath }} %}
-{% endfor %}
+<div class="row">
+    <div class="col-md-9" role="main">
+        <h1 class="page-header">{{ page.title }}</h1>
+        {% for item in site.components %}
+        {% assign itemPath = "components/" | append: item[1] | append: ".html" %}{% include {{ itemPath }} %}
+        {% endfor %}
+    </div>
+    <div class="col-md-3" role="complementary">
+        <nav class="ad-sidebar hidden-print hidden-sm hidden-xs affix">
+            <ul class="nav">
+                {% for item in site.components %}
+                <li>
+                    <a href="#{{ item[1] }}">{{ item[0] }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>
+
