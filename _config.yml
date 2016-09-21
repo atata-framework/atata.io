@@ -17,7 +17,7 @@ author:
 baseurl: ""
 url: ""
 
-nav-links:
+nav_links:
   Getting Started: "getting-started"
   Components: "components"
   Control Finding: "control-finding"

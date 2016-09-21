@@ -13,9 +13,9 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        {% for link in site.nav-links %}
+        {% for link in site.nav_links %}
         <li>
-          <a href="{{ site.baseurl }}/{{ link[1] }}">{{ link[0] }}</a>
+          <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>
         </li>
         {% endfor %}
       </ul>
