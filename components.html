@@ -6,7 +6,11 @@ title: Components
     <div class="col-md-9" role="main">
         <h1 class="page-header">{{ page.title }}</h1>
         {% for item in site.components %}
-        {% assign itemPath = "components/" | append: item[1] | append: ".html" %}{% include {{ itemPath }} %}
+        {% assign item_downcase = item  | downcase %}
+        <h2 id="{{ item_downcase }}">{{ item }}</h2>
+        {% assign item_path = "components/" | append: item_downcase  | append: ".md" %}
+        {% capture item-include %}{% include {{ item_path }} %}{% endcapture %}
+        {{ item-include | markdownify }}
         {% endfor %}
     </div>
     <div class="col-md-3" role="complementary">
@@ -14,7 +18,7 @@ title: Components
             <ul class="nav at-docs-sidenav">
                 {% for item in site.components %}
                 <li>
-                    <a href="#{{ item[1] }}">{{ item[0] }}</a>
+                    <a href="#{{ item | downcase }}">{{ item }}</a>
                 </li>
                 {% endfor %}
             </ul>

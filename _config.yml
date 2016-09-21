@@ -24,8 +24,8 @@ nav-links:
   Triggers: "triggers"
 
 components:
-  TextInput: "text-input"
-  PasswordInput: "password-input"
+  - TextInput
+  - PasswordInput
 
 exclude:
   - LICENSE
