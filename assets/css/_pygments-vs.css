@@ -1,0 +1,33 @@
+.highlighter-rouge .hll { background-color: #ffffcc }
+.highlighter-rouge .c { color: #008000 } /* Comment */
+.highlighter-rouge .err { border: 1px solid #FF0000 } /* Error */
+.highlighter-rouge .k { color: #0000ff } /* Keyword */
+.highlighter-rouge .cm { color: #008000 } /* Comment.Multiline */
+.highlighter-rouge .cp { color: #0000ff } /* Comment.Preproc */
+.highlighter-rouge .c1 { color: #008000 } /* Comment.Single */
+.highlighter-rouge .cs { color: #008000 } /* Comment.Special */
+.highlighter-rouge .ge { font-style: italic } /* Generic.Emph */
+.highlighter-rouge .gh { font-weight: bold } /* Generic.Heading */
+.highlighter-rouge .gp { font-weight: bold } /* Generic.Prompt */
+.highlighter-rouge .gs { font-weight: bold } /* Generic.Strong */
+.highlighter-rouge .gu { font-weight: bold } /* Generic.Subheading */
+.highlighter-rouge .kc { color: #0000ff } /* Keyword.Constant */
+.highlighter-rouge .kd { color: #0000ff } /* Keyword.Declaration */
+.highlighter-rouge .kn { color: #0000ff } /* Keyword.Namespace */
+.highlighter-rouge .kp { color: #0000ff } /* Keyword.Pseudo */
+.highlighter-rouge .kr { color: #0000ff } /* Keyword.Reserved */
+.highlighter-rouge .kt { color: #2b91af } /* Keyword.Type */
+.highlighter-rouge .s { color: #a31515 } /* Literal.String */
+.highlighter-rouge .nc { color: #2b91af } /* Name.Class */
+.highlighter-rouge .ow { color: #0000ff } /* Operator.Word */
+.highlighter-rouge .sb { color: #a31515 } /* Literal.String.Backtick */
+.highlighter-rouge .sc { color: #a31515 } /* Literal.String.Char */
+.highlighter-rouge .sd { color: #a31515 } /* Literal.String.Doc */
+.highlighter-rouge .s2 { color: #a31515 } /* Literal.String.Double */
+.highlighter-rouge .se { color: #a31515 } /* Literal.String.Escape */
+.highlighter-rouge .sh { color: #a31515 } /* Literal.String.Heredoc */
+.highlighter-rouge .si { color: #a31515 } /* Literal.String.Interpol */
+.highlighter-rouge .sx { color: #a31515 } /* Literal.String.Other */
+.highlighter-rouge .sr { color: #a31515 } /* Literal.String.Regex */
+.highlighter-rouge .s1 { color: #a31515 } /* Literal.String.Single */
+.highlighter-rouge .ss { color: #a31515 } /* Literal.String.Symbol */
