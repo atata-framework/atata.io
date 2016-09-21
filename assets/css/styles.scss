@@ -1,5 +1,6 @@
 ﻿body {
     margin-bottom: 40px;
+    position: relative;
 
     > .container {
         padding: 60px 15px 0;
@@ -18,14 +19,6 @@
     }
 }
 
-.ad-sidebar .nav > li > a {
-    color: #767676;
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 4px 20px;
-}
-
 h1 {
     margin-top: 0;
 }
@@ -35,3 +28,7 @@ h1 {
 }
 
 @import "sidebar";
+
+.at-docs-sidebar.affix {
+    top: 78px;
+}
