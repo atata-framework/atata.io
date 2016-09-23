@@ -20,8 +20,8 @@
 h1 {
     margin-top: 0;
 
-    .page-header {
-        margin: 0;
+    &.page-header {
+        margin-top: 0;
     }
 }
 

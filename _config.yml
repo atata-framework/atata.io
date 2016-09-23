@@ -27,6 +27,7 @@ components:
   - Page
   - TextInput
   - PasswordInput
+  - CheckBox
 
 exclude:
   - LICENSE
