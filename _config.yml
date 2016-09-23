@@ -21,8 +21,9 @@ url: ""
 nav_links:
   Getting Started: "getting-started"
   Components: "components"
-  Control Finding: "control-finding"
+  Finding: "finding"
   Triggers: "triggers"
+  Advanced: "advanced"
 
 components:
   - Page
