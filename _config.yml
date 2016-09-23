@@ -1,4 +1,4 @@
-name: Atata Framework
+name: Atata
 
 # Dependencies
 markdown: kramdown
@@ -38,4 +38,5 @@ exclude:
   - compilerconfig.json.defaults
   - .gitignore
 
-repo: https://github.com/atata-framework
+links:
+    atata_github: https://github.com/atata-framework/atata
