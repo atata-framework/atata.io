@@ -8,7 +8,8 @@ title: Components
         <p class="lead">Atata Framework contains the list of classes that represents mostly used HTML components.</p>
         {% for item in site.components %}
         {% assign item_downcase = item  | downcase %}
-        <h2 id="{{ item_downcase }}" class="page-header">{{ item }}</h2>
+        <a id="{{ item_downcase }}" class="header-anchor"></a>
+        <h2 class="page-header">{{ item }}</h2>
         {% assign item_path = "components/" | append: item_downcase  | append: ".md" %}
         {% capture item-include %}{% include {{ item_path }} %}{% endcapture %}
         {{ item-include | markdownify }}

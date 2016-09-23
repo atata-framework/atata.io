@@ -25,6 +25,11 @@ h1 {
     }
 }
 
+.header-anchor {
+    padding-top: 24px;
+    margin-top: -24px;
+}
+
 .at-docs-container {
     min-height: 800px;
 }
@@ -44,6 +49,7 @@ dl {
         margin-top: 4px;
         margin-bottom: 2px;
     }
+
     dd {
         display: inline-block;
         margin-bottom: 4px;

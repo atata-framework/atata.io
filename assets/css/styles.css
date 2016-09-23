@@ -16,6 +16,10 @@ h1 {
   h1.page-header {
     margin-top: 0; }
 
+.header-anchor {
+  padding-top: 24px;
+  margin-top: -24px; }
+
 .at-docs-container {
   min-height: 800px; }
 
