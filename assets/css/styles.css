@@ -29,6 +29,7 @@ h1 {
  * Scrollspy and affixed enhanced navigation to highlight sections and secondary
  * sections of docs content.
  */
+/*$sidebar-color: #563d7c;*/
 /* By default it's not affixed in mobile views, so undo that */
 .at-docs-sidebar.affix {
   position: static; }
@@ -53,19 +54,19 @@ h1 {
 .at-docs-sidebar .nav > li > a:hover,
 .at-docs-sidebar .nav > li > a:focus {
   padding-left: 19px;
-  color: #563d7c;
+  color: #D35D2E;
   text-decoration: none;
   background-color: transparent;
-  border-left: 1px solid #563d7c; }
+  border-left: 1px solid #D35D2E; }
 
 .at-docs-sidebar .nav > .active > a,
 .at-docs-sidebar .nav > .active:hover > a,
 .at-docs-sidebar .nav > .active:focus > a {
   padding-left: 18px;
   font-weight: bold;
-  color: #563d7c;
+  color: #D35D2E;
   background-color: transparent;
-  border-left: 2px solid #563d7c; }
+  border-left: 2px solid #D35D2E; }
 
 /* Nav: second level (shown on .active) */
 .at-docs-sidebar .nav .nav {
@@ -129,6 +130,10 @@ dl {
   dl dd {
     display: inline-block;
     margin-bottom: 4px; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  background-color: inherit;
+  color: #D35D2E; }
 
 .highlighter-rouge .hll {
   background-color: #ffffcc; }

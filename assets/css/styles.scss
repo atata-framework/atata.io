@@ -56,5 +56,10 @@ dl {
     }
 }
 
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    background-color: inherit;
+    color: #D35D2E;
+}
+
 @import "pygments-default";
 @import "pygments-vs";

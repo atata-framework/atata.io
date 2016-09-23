@@ -5,6 +5,9 @@
  * sections of docs content.
  */
 
+/*$sidebar-color: #563d7c;*/
+$sidebar-color: #D35D2E;
+
 /* By default it's not affixed in mobile views, so undo that */
 .at-docs-sidebar.affix {
     position: static;
@@ -34,10 +37,10 @@
 .at-docs-sidebar .nav > li > a:hover,
 .at-docs-sidebar .nav > li > a:focus {
     padding-left: 19px;
-    color: #563d7c;
+    color: $sidebar-color;
     text-decoration: none;
     background-color: transparent;
-    border-left: 1px solid #563d7c;
+    border-left: 1px solid $sidebar-color;
 }
 
 .at-docs-sidebar .nav > .active > a,
@@ -45,9 +48,9 @@
 .at-docs-sidebar .nav > .active:focus > a {
     padding-left: 18px;
     font-weight: bold;
-    color: #563d7c;
+    color: $sidebar-color;
     background-color: transparent;
-    border-left: 2px solid #563d7c;
+    border-left: 2px solid $sidebar-color;
 }
 
 /* Nav: second level (shown on .active) */
