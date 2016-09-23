@@ -13,9 +13,8 @@
 
 h1 {
   margin-top: 0; }
-
-.page-header {
-  margin: 0; }
+  h1 .page-header {
+    margin: 0; }
 
 .at-docs-container {
   min-height: 800px; }
