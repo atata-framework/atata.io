@@ -28,6 +28,7 @@ components:
   - TextInput
   - PasswordInput
   - CheckBox
+  - TextArea
 
 exclude:
   - LICENSE
