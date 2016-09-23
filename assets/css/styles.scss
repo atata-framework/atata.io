@@ -66,6 +66,19 @@ dl {
     color: #D35D2E;
 }
 
+$navbar-padding-horizontal: 8px;
+
+@media (min-width: 768px) {
+    .navbar-default .navbar-nav a {
+        padding-left: $navbar-padding-horizontal;
+        padding-right: $navbar-padding-horizontal;
+    }
+
+    .navbar-default .navbar-header a {
+        padding-right: $navbar-padding-horizontal;
+    }
+}
+
 .home-header {
     text-align: center;
     font-size: 76px;

@@ -140,6 +140,13 @@ dl {
   background-color: inherit;
   color: #D35D2E; }
 
+@media (min-width: 768px) {
+  .navbar-default .navbar-nav a {
+    padding-left: 8px;
+    padding-right: 8px; }
+  .navbar-default .navbar-header a {
+    padding-right: 8px; } }
+
 .home-header {
   text-align: center;
   font-size: 76px;
