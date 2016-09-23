@@ -66,5 +66,15 @@ dl {
     color: #D35D2E;
 }
 
+.home-header {
+    text-align: center;
+    font-size: 76px;
+    margin-top: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #465C66;
+}
+
 @import "pygments-default";
 @import "pygments-vs";

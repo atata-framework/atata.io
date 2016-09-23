@@ -1,4 +1,10 @@
 ---
 layout: default
 ---
-<h1 class="page-header">{{ site.name }}</h1>
+<img src="/assets/images/atata_logo.png" class="center-block">
+<h1 class="home-header">{{ site.name | upcase }}</h1>
+<p class="text-center text-muted">
+    {{ site.short_description }}<br><br>
+    <a class="btn btn-default" href="/getting-started/">Get Started</a>
+    <a class="btn btn-default" href="{{ site.links.atata_nuget }}">NuGet Package</a>
+</p>
