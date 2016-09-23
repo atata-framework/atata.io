@@ -1,4 +1,4 @@
-<p class="lead">Represents the text input control. Handles any input with type="text" or without type attribute defined.</p>
+Represents the text input control. Handles any input element with type="text" or without the type attribute defined.
 
 ```html
 <input type="text" id="first-name">

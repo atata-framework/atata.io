@@ -1,4 +1,4 @@
-<p class="lead">Represents the password input control.</p>
+Represents the password input control.
 
 ```html
 <input type="password">
