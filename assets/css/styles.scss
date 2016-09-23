@@ -35,5 +35,20 @@ h1 {
     top: 78px;
 }
 
+dl {
+    margin-bottom: 0;
+
+    dt {
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 4px;
+        margin-bottom: 2px;
+    }
+    dd {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+}
+
 @import "pygments-default";
 @import "pygments-vs";
