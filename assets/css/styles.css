@@ -11,10 +11,8 @@
   .footer > .container {
     padding-top: 10px; }
 
-h1 {
-  margin-top: 0; }
-  h1.page-header {
-    margin-top: 0; }
+h1.page-header {
+  margin-top: 20px; }
 
 .header-anchor {
   padding-top: 24px;
