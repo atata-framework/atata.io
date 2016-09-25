@@ -53,3 +53,5 @@ layout: default
         <p>Atata.Bootstrap and Atata.KendoUI packages already have a lot of ready to use components.</p>
     </div>
 </div>
+{% capture usage-include %}{% include usage.md %}{% endcapture %}
+{{ usage-include | markdownify }}
