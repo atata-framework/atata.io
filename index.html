@@ -1,13 +1,16 @@
 ---
 layout: default
 ---
-<img src="/assets/images/atata_logo.png" alt="Atata logo" class="center-block">
+<div class="logo-container">
+    <img src="/assets/images/atata_logo.png" alt="Atata logo">
+</div>
 <h1 class="home-header">{{ site.name | upcase }}</h1>
-<p class="text-center text-muted">
-    {{ site.short_description }}<br><br>
-    <a class="btn btn-default" href="/getting-started/">Get Started</a>
-    <a class="btn btn-default" href="{{ site.links.atata_nuget }}">NuGet Package</a>
+<p class="text-center text-muted home-description">
+    <span style="color: white">{{ site.short_description }}</span><br><br>
+    <a class="btn btn-default btn-outline-inverse" href="/getting-started/">Get Started</a>
+    <a class="btn btn-default btn-outline-inverse" href="{{ site.links.atata_nuget }}">NuGet Package</a>
 </p>
+<div class="home-top-background"></div>
 <div class="row">
     <div class="col-sm-4">
         <h3>WebDriver</h3>

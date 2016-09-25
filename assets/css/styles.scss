@@ -83,6 +83,27 @@ $navbar-padding-horizontal: 8px;
     text-align: center;
     font-size: 76px;
     margin-top: 14px;
+    color: white;
+}
+
+.home-top-background {
+    position: absolute;
+    left: 0;
+    top: 138px;
+    right: 0;
+    height: 220px;
+    background-color: #d35d2e;
+    z-index: -1;
+}
+
+.home-description {
+    margin-bottom: 26px;
+}
+
+.logo-container {
+    background-color: white;
+    width: 100px;
+    margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
