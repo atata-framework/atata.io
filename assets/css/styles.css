@@ -138,6 +138,9 @@ dl {
   background-color: inherit;
   color: #D35D2E; }
 
+.navbar-default .navbar-nav > .active {
+  border-bottom: 2px solid #D35D2E; }
+
 @media (min-width: 768px) {
   .navbar-default .navbar-nav a {
     padding-left: 8px;
@@ -157,7 +160,7 @@ dl {
   top: 138px;
   right: 0;
   height: 220px;
-  background-color: #d35d2e;
+  background-color: #D35D2E;
   z-index: -1; }
 
 .home-description {

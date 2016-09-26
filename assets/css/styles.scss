@@ -52,6 +52,8 @@ dl {
     }
 }
 
+$primary-color: #D35D2E;
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -59,7 +61,11 @@ dl {
 .navbar-default .navbar-header.active > a:focus,
 .navbar-default .navbar-header.active > a:hover {
     background-color: inherit;
-    color: #D35D2E;
+    color: $primary-color;
+}
+
+.navbar-default .navbar-nav > .active {
+    border-bottom: 2px solid $primary-color;
 }
 
 $navbar-padding-horizontal: 8px;
@@ -88,7 +94,7 @@ $navbar-padding-horizontal: 8px;
     top: 138px;
     right: 0;
     height: 220px;
-    background-color: #d35d2e;
+    background-color: $primary-color;
     z-index: -1;
 }
 
