@@ -1,6 +1,7 @@
 ### Define Page Object Class
 
 ```cs
+using Atata;
 using _ = SampleApp.AutoTests.SignInPage;
 
 namespace SampleApp.AutoTests
@@ -22,12 +23,13 @@ namespace SampleApp.AutoTests
 ### Implement Test
 
 ```cs
+using Atata;
 using NUnit.Framework;
 
 namespace SampleApp.AutoTests
 {
     [TestFixture]
-    public class SignInTest : AutoTest
+    public class SignInTest
     {
         [SetUp]
         public void SetUp()
