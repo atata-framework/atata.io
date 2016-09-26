@@ -1,3 +1,14 @@
+### Define Settings
+
+Global settings are applied via assembly attributes. Add `AtataSettings.cs` file in the root of the project.
+
+```cs
+using Atata;
+
+[assembly: Culture("en-us")]
+[assembly: VerifyTitleSettings(Format = "{0} - Atata Sample App")]
+```
+
 ### Define Page Object Class
 
 ```cs
@@ -22,6 +33,8 @@ namespace SampleApp.AutoTests
 
 ### Implement Test
 
+The following sample uses additional [NUnit](https://www.nuget.org/packages/NUnit) and [ChromeDriver](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver) NuGet packages.
+
 ```cs
 using Atata;
 using NUnit.Framework;
@@ -35,19 +48,25 @@ namespace SampleApp.AutoTests
         public void SetUp()
         {
             AtataContext.Build().
-                UseFirefox().
+                UseChrome().
                 UseBaseUrl("http://atata-framework.github.io/atata-sample-app/#!/").
                 UseNUnitTestName().
                 UseNUnitTestContextLogging().
                 SetUp();
         }
 
+        [TearDown]
+        public void TearDown()
+        {
+            AtataContext.Current.CleanUp();
+        }
+
         [Test]
         public void SignIn()
         {
             Go.To<SignInPage>().
-                Email.Set("example@mail.com").
-                Password.Set("password").
+                Email.Set("admin@mail.com").
+                Password.Set("abc123").
                 SignIn();
         }
     }
