@@ -32,6 +32,11 @@ components:
   - CheckBox
   - TextArea
 
+getting_started:
+  - Demo
+  - Usage
+  - Logging
+
 exclude:
   - LICENSE
   - README.md

@@ -1,5 +1,3 @@
-<h2 class="page-header">Usage</h2>
-
 ### Define Page Object Class
 
 ```cs
