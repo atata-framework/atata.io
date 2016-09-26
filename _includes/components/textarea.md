@@ -5,6 +5,7 @@ Represents the text area control.
 </textarea>
 ```
 ```cs
+using Atata;
 using _ = SampleApp.SamplePage;
 
 namespace SampleApp

@@ -30,6 +30,7 @@ components:
   - TextInput
   - PasswordInput
   - CheckBox
+  - RadioButton
   - TextArea
 
 getting_started:

@@ -9,6 +9,7 @@ Represents the checkbox control.
 </label>
 ```
 ```cs
+using Atata;
 using _ = SampleApp.SamplePage;
 
 namespace SampleApp

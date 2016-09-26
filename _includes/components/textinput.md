@@ -4,6 +4,7 @@ Represents the text input control. Handles any input element with type="text" or
 <input type="text" id="first-name">
 ```
 ```cs
+using Atata;
 using _ = SampleApp.SamplePage;
 
 namespace SampleApp

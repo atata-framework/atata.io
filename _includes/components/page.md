@@ -1,6 +1,7 @@
 Represents the whole HTML page. Uses the body tag as a scope.
 
 ```cs
+using Atata;
 using _ = SampleApp.SamplePage;
 
 namespace SampleApp

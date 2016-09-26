@@ -4,6 +4,7 @@ Represents the password input control.
 <input type="password">
 ```
 ```cs
+using Atata;
 using _ = SampleApp.SamplePage;
 
 namespace SampleApp
