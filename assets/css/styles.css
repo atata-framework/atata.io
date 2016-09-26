@@ -171,6 +171,13 @@ dl {
 h1, h2, h3, h4, h5, h6 {
   color: #465C66; }
 
+code[lang=ps] {
+  padding: 20px;
+  background-color: black;
+  color: white;
+  display: block;
+  margin-bottom: 10px; }
+
 .highlighter-rouge .hll {
   background-color: #ffffcc; }
 

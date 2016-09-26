@@ -42,4 +42,5 @@ exclude:
 
 links:
     atata_github: https://github.com/atata-framework/atata
-    atata_nuget: https://www.nuget.org/packages/Atata/
+    atata_nuget: https://www.nuget.org/packages/Atata
+    atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras
