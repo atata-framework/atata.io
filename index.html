@@ -7,8 +7,8 @@ layout: default
 <h1 class="home-header">{{ site.name | upcase }}</h1>
 <p class="text-center text-muted home-description">
     <span style="color: white">{{ site.short_description }}</span><br><br>
-    <a class="btn btn-default btn-outline-inverse" href="/getting-started/">Get Started</a>
-    <a class="btn btn-default btn-outline-inverse" href="{{ site.links.atata_nuget }}">NuGet Package</a>
+    <a class="btn btn-default" href="/getting-started/">Get Started</a>
+    <a class="btn btn-default" href="{{ site.links.atata_nuget }}">NuGet Package</a>
 </p>
 <div class="home-top-background"></div>
 <div class="row">
@@ -54,5 +54,5 @@ layout: default
     </div>
 </div>
 <h2 class="page-header">Usage</h2>
-{% capture usage-include %}{% include getting-started/usage.md %}{% endcapture %}
+{% capture usage-include %}{% include usage.md %}{% endcapture %}
 {{ usage-include | markdownify }}

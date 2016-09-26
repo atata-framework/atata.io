@@ -1,6 +1,6 @@
 ### Define Settings
 
-Global settings are applied via assembly attributes. Add `AtataSettings.cs` file in the root of the project.
+Global settings are applied via assembly attributes. Add `AtataSettings.cs` file to the project.
 
 ```cs
 using Atata;
