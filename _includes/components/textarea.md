@@ -23,3 +23,5 @@ Go.To<SamplePage>().
     Description.Append(" text").
     Description.Should.Equal("some text");
 ```
+
+Supports `[Format]`, `[Culture]` and `[RandomizeStringSettings]` settings attributes.

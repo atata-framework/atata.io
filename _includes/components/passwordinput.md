@@ -23,3 +23,5 @@ Go.To<SamplePage>().
     Password.SetRandom(out password).
     Password.Should.Equal(password);
 ```
+
+Supports `[Format]`, `[Culture]` and `[RandomizeStringSettings]` settings attributes.

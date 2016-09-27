@@ -21,3 +21,5 @@ Go.To<SamplePage>().
     Description.Should.Exist().
     Description.Should.Contain("description text");
 ```
+
+Supports `[Format]` and `[Culture]` settings attributes.

@@ -29,6 +29,7 @@ components:
   - Page
   - TextInput
   - PasswordInput
+  - DateInput
   - CheckBox
   - RadioButton
   - TextArea
