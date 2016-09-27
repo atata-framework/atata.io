@@ -1,4 +1,4 @@
-Represents the password input control.
+Represents the password input control. By default finds by label.
 
 ```html
 <input type="password">

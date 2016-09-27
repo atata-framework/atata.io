@@ -32,6 +32,7 @@ components:
   - CheckBox
   - RadioButton
   - TextArea
+  - H1-H6
 
 getting_started:
   - Demo

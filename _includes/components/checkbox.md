@@ -1,4 +1,4 @@
-Represents the checkbox control.
+Represents the checkbox control. By default finds by label.
 
 ```html
 <label class="checkbox-inline">
