@@ -1,4 +1,4 @@
-Represents the text area control. By default finds by label.
+Represents the text area control. By default is being searched by the label.
 
 ```html
 <textarea name="description">

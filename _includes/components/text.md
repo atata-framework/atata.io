@@ -1,4 +1,4 @@
-Represents any element containing text content. By default finds by label.
+Represents any element containing text content. By default is being searched by the label (if is declared in the class inherited from `TableRow`, then by column header).
 
 ```html
 <p id="description">Some description text</p>
