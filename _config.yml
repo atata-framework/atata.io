@@ -36,6 +36,7 @@ components:
   - TextInput
   - PasswordInput
   - DateInput
+  - TimeInput
   - CheckBox
   - RadioButton
   - TextArea
