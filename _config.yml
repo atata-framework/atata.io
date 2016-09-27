@@ -25,6 +25,12 @@ nav_links:
   Triggers: "triggers"
   Advanced: "advanced"
 
+getting_started:
+  - Introduction
+  - Demo
+  - Usage
+  - Logging
+
 components:
   - Page
   - TextInput
@@ -35,11 +41,6 @@ components:
   - TextArea
   - Text
   - H1-H6
-
-getting_started:
-  - Demo
-  - Usage
-  - Logging
 
 exclude:
   - LICENSE
