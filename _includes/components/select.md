@@ -11,6 +11,7 @@ Represents the select control. By default is being searched by the label. It is 
 ```
 
 Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
+{:class="info"}
 
 There are different approaches to configure `Select` control.
 

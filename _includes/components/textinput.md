@@ -24,4 +24,5 @@ Go.To<SamplePage>().
     FirstName.Should.BeNull();
 ```
 
-Supports `[Format]`, `[Culture]` and `[RandomizeStringSettings]` settings attributes.
+Supports `[Format]` and `[RandomizeStringSettings]` settings attributes.
+{:class="info"}

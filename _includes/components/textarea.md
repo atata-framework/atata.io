@@ -24,4 +24,5 @@ Go.To<SamplePage>().
     Description.Should.Equal("some text");
 ```
 
-Supports `[Format]`, `[Culture]` and `[RandomizeStringSettings]` settings attributes.
+Supports `[Format]` and `[RandomizeStringSettings]` settings attributes.
+{:class="info"}

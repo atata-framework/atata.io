@@ -25,3 +25,4 @@ Go.To<SamplePage>().
 ```
 
 Supports `[Format]`, `[Culture]` and `[RandomizeNumberSettings]` settings attributes.
+{:class="info"}

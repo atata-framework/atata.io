@@ -22,4 +22,5 @@ Go.To<SamplePage>().
     Description.Should.Contain("description text");
 ```
 
-Supports `[Format]` and `[Culture]` settings attributes.
+Supports `[Format]` settings attribute.
+{:class="info"}
