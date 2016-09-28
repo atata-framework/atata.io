@@ -42,6 +42,7 @@ components:
   - CheckBox
   - RadioButton
   - TextArea
+  - Content
   - Text
   - H1-H6
 
