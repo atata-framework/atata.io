@@ -1,4 +1,4 @@
-Represents the select control.
+Represents the select control. It is possible to select an option by text or value. By default selects by text.
 
 ```html
 <select id="brand">
@@ -10,7 +10,13 @@ Represents the select control.
 </select> 
 ```
 
-The given select can be described with the following enum:
+Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
+
+There are different approaches to configure `Select` control.
+
+### Select Using Enum
+
+The above select can be described with the following enum:
 
 ```cs
 public enum CarBrand
@@ -24,11 +30,7 @@ public enum CarBrand
 }
 ```
 
-Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
-
-There are two ways to select the options: by value and by text. By default selects by text.
-
-### Select By Text Using Enum
+#### Select By Text
 
 ```cs
 using Atata;
@@ -50,9 +52,9 @@ Go.To<SamplePage>().
     Brand.Should.Equal(CarBrand.Audi);
 ```
 
-### Select By Value Using Enum
+#### Select By Value
 
-You just need to mark the select property with `SelectByValueAttribute` and optionaly set settings like `Case` or `Format`.
+You just need to mark the select property with `[SelectByValue]` attribute and optionaly set settings like `Case` or `Format`.
 
 ```cs
 using Atata;
@@ -63,8 +65,66 @@ namespace SampleApp
     public class SamplePage : Page<_>
     {
         [FindById]
-        [SelectByValueAttribute(TermCase.Lower)]
+        [SelectByValue(TermCase.Lower)]
         public Select<CarBrand, _> Brand { get; private set; }
     }
 }
+```
+
+`TermCase.Lower` is defined in `SelectByValue` attribute because option values are lowercase in this example (e.g. volvo).
+
+### Select Using String
+
+To use string variant of control don't pass data generic type argument, just use `Select<_>` (or alternatively `Select<string, _>`).
+
+```cs
+using Atata;
+using _ = SampleApp.SamplePage;
+
+namespace SampleApp
+{
+    public class SamplePage : Page<_>
+    {
+        [FindById]
+        public Select<_> Brand { get; private set; }
+    }
+}
+```
+```cs
+Go.To<SamplePage>().
+    Brand.Set("Audi").
+    Brand.Should.Equal("Audi");
+```
+
+### Select Using Int
+
+It is also possible to select an option by `int` and other types. The following sample shows how to select using `int` type together with the formatting.
+
+```html
+<select id="priority">
+  <option value="1">Priority 1</option>
+  <option value="2">Priority 2</option>
+  <option value="3">Priority 3</option>
+  <option value="4">Priority 4</option>
+  <option value="5">Priority 5</option>
+</select> 
+```
+```cs
+using Atata;
+using _ = SampleApp.SamplePage;
+
+namespace SampleApp
+{
+    public class SamplePage : Page<_>
+    {
+        [FindById]
+        [Format("Priority {0}")]
+        public Select<int, _> Priority { get; private set; }
+    }
+}
+```
+```cs
+Go.To<SamplePage>().
+    Priority.Set(3).
+    Priority.Should.Equal(3);
 ```
