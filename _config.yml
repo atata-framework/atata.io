@@ -35,6 +35,7 @@ components:
   - Page
   - TextInput
   - PasswordInput
+  - NumberInput
   - DateInput
   - TimeInput
   - Select

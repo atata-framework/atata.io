@@ -1,4 +1,4 @@
-Represents the select control. It is possible to select an option by text or value. By default selects by text.
+Represents the select control. By default is being searched by the label. It is possible to select an option by text or value. By default selects by text. By default is being searched by the label.
 
 ```html
 <select id="brand">
