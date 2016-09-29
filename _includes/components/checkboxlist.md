@@ -1,6 +1,6 @@
 Represents the checkbox list control (a set of `<input type="checkbox">`). By default is being searched by the name.
 
-Concrete checkbox items can be found by label or value. By default finds the items by the name. Use `[FindItemByValue]` attribute to find the items by the value.
+Concrete checkbox items can be found by the label or value. By default finds the items by the name. Use `[FindItemByValue]` attribute to find the items by the value.
 {:class="info"}
 
 ```html
