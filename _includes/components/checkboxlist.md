@@ -53,3 +53,11 @@ Go.To<SamplePage>().
 
 Supports `[Format]`, `[Culture]`, `[FindItemByLabel]` and `[FindItemByValue]` settings attributes.
 {:class="info"}
+
+### Methods
+
+Name | Description
+---- | -----------
+`Check(T value)` | Checks the checkbox by specified value.
+`Uncheck(T value)` | Unchecks the checkbox by specified value.
+{:class="table table-members"}

@@ -1,4 +1,7 @@
-Represents the date input control. By default is being searched by the label. The default format is `"d"` (short date pattern, e.g. 6/15/2009). Handles any `input` element with `type="date"`, `type="text"` or without the type attribute defined.
+Represents the date input control. By default is being searched by the label. Handles any `input` element with `type="date"`, `type="text"` or without the type attribute defined.
+
+The default format is `"d"` (short date pattern, e.g. 6/15/2009).
+{:class="info"}
 
 ```html
 <input type="date" id="birthday">

@@ -1,4 +1,4 @@
-Represents the select control. By default is being searched by the label. It is possible to select an option by text or value. By default selects by text. By default is being searched by the label.
+Represents the select control. By default is being searched by the label. It is possible to select an option by text or value. By default selects by the text.
 
 ```html
 <select id="brand">
@@ -9,9 +9,6 @@ Represents the select control. By default is being searched by the label. It is 
   <option value="audi">Audi</option>
 </select> 
 ```
-
-Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
-{:class="info"}
 
 There are different approaches to configure `Select` control.
 
@@ -129,3 +126,6 @@ Go.To<SamplePage>().
     Priority.Set(3).
     Priority.Should.Equal(3);
 ```
+
+Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
+{:class="info"}
