@@ -42,6 +42,7 @@ components:
   - CheckBox
   - CheckBoxList
   - RadioButton
+  - RadioButtonList
   - TextArea
   - Content
   - Text
