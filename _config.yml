@@ -32,6 +32,7 @@ getting_started:
   - Logging
 
 components:
+  - UIComponent
   - Page
   - TextInput
   - PasswordInput
