@@ -36,19 +36,16 @@ h1.page-header {
     top: 78px;
 }
 
-dl {
-    margin-bottom: 0;
+table.table-members {
+    td:nth-child(1) {
+        @media (min-width : 480px) {
+            width: 170px;
+        }
 
-    dt {
-        font-size: 15px;
-        font-weight: bold;
-        margin-top: 4px;
-        margin-bottom: 2px;
-    }
-
-    dd {
-        display: inline-block;
-        margin-bottom: 4px;
+        code {
+            background: none;
+            font-size: 1em;
+        }
     }
 }
 
@@ -123,12 +120,12 @@ code[lang=ps] {
 
 p.warning {
     border-left: 4px solid #FF923F;
-    padding: 6px 12px
+    padding: 6px 12px;
 }
 
 p.info {
     border-left: 4px solid #1F90AD;
-    padding: 6px 12px
+    padding: 6px 12px;
 }
 
 @import "pygments-default";

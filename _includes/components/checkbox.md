@@ -31,3 +31,18 @@ Go.To<SamplePage>().
     Option2.Uncheck().
     Option2.Should.Not.BeChecked();
 ```
+
+### Properties
+
+Name | Description
+---- | -----------
+`IsChecked` | Gets the `DataProvider<bool, TOwner>` instance of the checked state value.
+{:class="table table-members"}
+
+### Methods
+
+Name | Description
+---- | -----------
+`Check()` | Checks the control.
+`Uncheck()` | Unchecks the control.
+{:class="table table-members"}

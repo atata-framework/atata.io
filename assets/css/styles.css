@@ -118,16 +118,13 @@ h1.page-header {
 .at-docs-sidebar.affix {
   top: 78px; }
 
-dl {
-  margin-bottom: 0; }
-  dl dt {
-    font-size: 15px;
-    font-weight: bold;
-    margin-top: 4px;
-    margin-bottom: 2px; }
-  dl dd {
-    display: inline-block;
-    margin-bottom: 4px; }
+@media (min-width: 480px) {
+  table.table-members td:nth-child(1) {
+    width: 170px; } }
+
+table.table-members td:nth-child(1) code {
+  background: none;
+  font-size: 1em; }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
