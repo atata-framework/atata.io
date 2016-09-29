@@ -45,6 +45,7 @@ components:
   - RadioButtonList
   - TextArea
   - Button
+  - Link
   - Content
   - Text
   - H1-H6
