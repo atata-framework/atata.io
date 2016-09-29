@@ -17,18 +17,8 @@ namespace SampleApp
 
 ### Properties
 
-PageTitle
-: Gets the title of the current HTML page.
-
-```cs
-Go.To<SamplePage>().
-    PageTitle.Should.StartWith("Some Title");
-```
-
-PageUrl
-: Gets the URL of the current HTML page.
-
-```cs
-Go.To<SamplePage>().
-    PageUrl.Should.EndWith("/some-page?id=123987");
-```
+Name | Description | Usage Example
+---- | -----------
+`PageTitle` | Gets the title of the current HTML page. | `PageTitle.Should.StartWith("Some Title")`
+`PageUrl` | Gets the URL of the current HTML page. | `PageUrl.Should.EndWith("/some-page?id=123987")`
+{:class="table table-members"}
