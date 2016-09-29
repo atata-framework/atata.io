@@ -1,4 +1,4 @@
-Represents any element containing content. By default is being searched by the label (if is declared in the class inherited from `TableRow`, then by column header).
+Represents any HTML element containing content. By default is being searched by the label (if is declared in the class inherited from `TableRow`, then by column header).
 
 ### Using Enum
 

@@ -46,6 +46,7 @@ components:
   - TextArea
   - Button
   - Link
+  - Clickable
   - Content
   - Text
   - H1-H6

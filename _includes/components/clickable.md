@@ -1,13 +1,13 @@
-Represents the `<a>` link control. By default is being searched by the content.
+Represents any HTML element. By default is being searched by the id attribute.
 
 ```html
-<a href="/items/create">Create</a>
+<div id="open-button">Open</div>
 ```
 
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
-### LinkControl
+### ClickableControl
 
 ```cs
 using Atata;
@@ -17,18 +17,17 @@ namespace SampleApp
 {
     public class SamplePage : Page<_>
     {
-        public LinkControl<_> Create { get; private set; }
+        [FindById("open-button")]
+        public ClickableControl<_> OpenButton { get; private set; }
     }
 }
 ```
 ```cs
 Go.To<SamplePage>().
-    Create.Click();
+    OpenButton.Click();
 ```
 
-### Link Delegate
-
-It is recommended to use `Link` delegate as it simplifies the usage by refusing `Click` and `ClickAndGo` methods.
+### Clickable Delegate
 
 ```cs
 using Atata;
@@ -38,16 +37,17 @@ namespace SampleApp
 {
     public class SamplePage : Page<_>
     {
-        public Link<_> Create { get; private set; }
+        [FindById("open-button")]
+        public Clickable<_> Open { get; private set; }
     }
 }
 ```
 ```cs
 Go.To<SamplePage>().
-    Create();
+    Open();
 ```
 
-As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Create.Should().Exist()`.
+As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Open.Should().Exist()`.
 {:class="warning"}
 
 ### Navigation
@@ -62,29 +62,29 @@ namespace SampleApp
 {
     public class ItemsPage : Page<_>
     {
-        public Link<ItemCreationPage, _> Create { get; private set; }
+        public Clickable<ItemPage, _> Open { get; private set; }
     }
 }
 ```
 ```cs
 using Atata;
-using _ = SampleApp.ItemCreationPage;
+using _ = SampleApp.ItemPage;
 
 namespace SampleApp
 {
-    public class ItemCreationPage : Page<_>
+    public class ItemPage : Page<_>
     {
-        public LinkControl<ItemsPage, _> GoBack { get; private set; }
+        public ClickableControl<ItemsPage, _> GoBack { get; private set; }
     }
 }
 ```
 ```cs
 Go.To<SamplePage1>().
-    Create().
+    Open().
         GoBack.ClickAndGo();
 ```
 
-Note that `Create` delegate property is being used as the method that returns the instance of `ItemCreationPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `LinkControl` class type.
+Note that `Open` delegate property is being used as the method that returns the instance of `ItemPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `ClickableControl` class type.
 {:class="info"}
 
 ### Methods

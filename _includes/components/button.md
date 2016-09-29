@@ -13,7 +13,7 @@ or
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
-### Button Control
+### ButtonControl
 
 ```cs
 using Atata;
