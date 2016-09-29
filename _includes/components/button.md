@@ -4,6 +4,12 @@ Represents the button control. By default is being searched by the content and v
 <button>Save</button>
 ```
 
+or
+
+```html
+<input type="button" value="Save">
+```
+
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
@@ -86,3 +92,10 @@ Go.To<SamplePage1>().
 
 Note that `Save` delegate property is being used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `ButtonControl` class type.
 {:class="info"}
+
+### Methods
+
+Name | Description
+---- | -----------
+`ClickAndGo()` | Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
+{:class="table table-members"}

@@ -86,3 +86,10 @@ Go.To<SamplePage1>().
 
 Note that `Create` delegate property is being used as the method that returns the instance of `ItemCreationPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `LinkControl` class type.
 {:class="info"}
+
+### Methods
+
+Name | Description
+---- | -----------
+`ClickAndGo()` | Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
+{:class="table table-members"}
