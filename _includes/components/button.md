@@ -4,6 +4,9 @@ Represents the button control. By default is being searched by the content and v
 <button>Save</button>
 ```
 
+Supports `[GoTemporarily]` settings attribute.
+{:class="info"}
+
 ### Button Control
 
 ```cs
@@ -47,5 +50,39 @@ Go.To<SamplePage>().
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Save.Should().Exist()`.
 {:class="warning"}
 
-Supports `[GoTemporarily]` settings attribute.
+### Navigation
+
+It is possible to pass another gereric argument of `PageObject` type, meaning that after the click the navigation to this `PageObject` should be performed. Works the same way for the control and delegate.
+
+```cs
+using Atata;
+using _ = SampleApp.SamplePage1;
+
+namespace SampleApp
+{
+    public class SamplePage1 : Page<_>
+    {
+        public Button<SamplePage2, _> Save { get; private set; }
+    }
+}
+```
+```cs
+using Atata;
+using _ = SampleApp.SamplePage2;
+
+namespace SampleApp
+{
+    public class SamplePage2 : Page<_>
+    {
+        public ButtonControl<SamplePage1, _> GoBack { get; private set; }
+    }
+}
+```
+```cs
+Go.To<SamplePage1>().
+    Save().
+        GoBack.ClickAndGo();
+```
+
+Note that `Save` delegate property is being used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `ButtonControl` class type.
 {:class="info"}
