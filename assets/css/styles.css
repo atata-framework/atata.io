@@ -126,6 +126,9 @@ table.table-members td:nth-child(1) code {
   background: none;
   font-size: 1em; }
 
+table.table-members code {
+  white-space: nowrap; }
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover,

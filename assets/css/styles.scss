@@ -47,6 +47,10 @@ table.table-members {
             font-size: 1em;
         }
     }
+
+    code {
+        white-space: nowrap;
+    }
 }
 
 $primary-color: #D35D2E;
