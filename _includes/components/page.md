@@ -1,5 +1,15 @@
 Represents the whole HTML page. Is the main base class to inherit for the pages. Uses the body tag as a scope.
 
+### Syntax
+
+```cs
+[PageObjectDefinition(ComponentTypeName = "page", IgnoreNameEndings = "Page,PageObject")]
+public class Page<TOwner> : PageObject<TOwner>
+    where TOwner : Page<TOwner>
+```
+
+### Example
+
 ```cs
 using Atata;
 using _ = SampleApp.SamplePage;

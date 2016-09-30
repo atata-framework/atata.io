@@ -1,11 +1,18 @@
 Represents the base class for the page objects.
 
+### Syntax
+
+```cs
+public abstract class PageObject<TOwner> : UIComponent<TOwner>, IPageObject<TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
 ### Properties
 
 Name | Description | Usage Example
----- | -----------
-`PageTitle` | Gets the title of the current HTML page. | `PageTitle.Should.StartWith("Some Title")`
-`PageUrl` | Gets the URL of the current HTML page. | `PageUrl.Should.EndWith("/some-page?id=123987")`
+---- | ----------- | -------------
+`PageTitle` | Gets the DataProvider instance for the title of the current HTML page. | `PageTitle.Should.StartWith("Some Title")`
+`PageUrl` | Gets the DataProvider instance for the URL of the current HTML page. | `PageUrl.Should.EndWith("/some-page?id=123987")`
 {:class="table table-members"}
 
 ### Methods

@@ -33,6 +33,7 @@ getting_started:
 
 components:
   - UIComponent
+  - Control
   - PageObject
   - Page
   - TextInput
