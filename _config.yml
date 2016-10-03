@@ -39,6 +39,7 @@ components:
   - Control
   - PageObject
   - Page
+  - PopupWindow
   - TextInput
   - PasswordInput
   - NumberInput
