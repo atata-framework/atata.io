@@ -54,6 +54,7 @@ components:
   - Button
   - Link
   - Clickable
+  - Table
   - Content
   - Text
   - H1-H6
