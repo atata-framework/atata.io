@@ -51,3 +51,11 @@ Go.To<SamplePage>().
     Products.Rows[x => x.Name == "Item 1"].Delete().
     Products.Rows[x => x.Name == "Item 1"].Should.Not.Exist();
 ```
+
+### Properties
+
+Name | Description | Usage Example
+---- | ----------- | -------------
+`Rows` | Gets the rows list. | `Rows.Should.HaveCount(2)`
+`Headers` | Gets the headers list. | `Headers.Should.ContainHavingContent(TermMatch.Equals, "Name", "Amount")`
+{:.table.table-members}
