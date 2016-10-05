@@ -61,6 +61,7 @@ components:
   - H1-H6
 
 finding:
+  - Terms
   - FindById
 
 exclude:
