@@ -45,6 +45,10 @@ namespace SampleApp
     }
 }
 ```
+
+By default the properties of the type `Content` and inherited (e.g. `Name` and `Amount`) that are declared in the class inherited from `TableRow` are being searched by the column header.
+{:.info}
+
 ``` cs
 Go.To<SamplePage>().
     Products.Rows[x => x.Name == "Item 1"].Amount.Should.Equal(5).
