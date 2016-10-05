@@ -1,30 +1,7 @@
 ---
-layout: default
+layout: page
 title: Components
+items: components
 ---
-<div class="row">
-    <div class="col-md-9" role="main">
-        <h1 class="page-header">{{ page.title }}</h1>
-        <p class="lead">Atata Framework contains the list of classes that represents mostly used HTML components.</p>
-        {% for item in site.components %}
-        {% assign item_downcase = item  | downcase %}
-        <a id="{{ item_downcase }}" class="header-anchor"></a>
-        <h2 class="page-header">{{ item }}</h2>
-        {% assign item_path = "components/" | append: item_downcase  | append: ".md" %}
-        {% capture item-include %}{% include {{ item_path }} %}{% endcapture %}
-        {{ item-include | markdownify }}
-        {% endfor %}
-    </div>
-    <div class="col-md-3" role="complementary">
-        <nav class="at-docs-sidebar hidden-print hidden-sm hidden-xs affix">
-            <ul class="nav at-docs-sidenav">
-                {% for item in site.components %}
-                <li>
-                    <a href="#{{ item | downcase }}">{{ item }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </div>
-</div>
-
+<p class="lead">Atata Framework contains the list of classes that represents mostly used HTML components.</p>
+{% include pageparts.html %}

@@ -1,0 +1,9 @@
+{% assign items = site[page.items] %}
+{% for item in items %}
+{% assign item_downcase = item  | downcase %}
+<a id="{{ item_downcase }}" class="header-anchor"></a>
+<h2 class="page-header">{{ item }}</h2>
+{% assign item_path = page.items | append: "/" | append: item_downcase  | append: ".md" %}
+{% capture item-include %}{% include {{ item_path }} %}{% endcapture %}
+{{ item-include | markdownify }}
+{% endfor %}

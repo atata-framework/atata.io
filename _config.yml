@@ -28,7 +28,7 @@ nav_links:
   Triggers: "triggers"
   Advanced: "advanced"
 
-getting_started:
+getting-started:
   - Introduction
   - Demo
   - Usage
@@ -59,6 +59,9 @@ components:
   - Text
   - Number
   - H1-H6
+
+finding:
+  - FindById
 
 exclude:
   - LICENSE

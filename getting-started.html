@@ -1,48 +1,26 @@
 ---
-layout: default
+layout: page
 title: Getting Started
+items: getting-started
 ---
-<div class="row">
-    <div class="col-md-9" role="main">
-        <h1 class="page-header">{{ page.title }}</h1>
-        <p class="lead">
-            To get started just install the <a href="{{ site.links.atata_nuget }}">Atata NuGet package</a>.
-        </p>
-        <code lang="ps">
-            PM> Install-Package Atata
-        </code>
-        <p>
-            The Atata package depends on the following packages:
-            <ul>
-                <li>
-                    <a href="https://www.nuget.org/packages/Selenium.WebDriver">Selenium.WebDriver</a>
-                </li>
-                <li>
-                    <a href="https://www.nuget.org/packages/Selenium.Support">Selenium.Support</a>
-                </li>
-                <li>
-                    <a href="{{ site.links.atata_webdriverextras_nuget }}">Atata.WebDriverExtras</a>
-                </li>
-            </ul>
-        </p>
-        {% for item in site.getting_started %}
-        {% assign item_downcase = item  | downcase %}
-        <a id="{{ item_downcase }}" class="header-anchor"></a>
-        <h2 class="page-header">{{ item }}</h2>
-        {% assign item_path = "getting-started/" | append: item_downcase  | append: ".md" %}
-        {% capture item-include %}{% include {{ item_path }} %}{% endcapture %}
-        {{ item-include | markdownify }}
-        {% endfor %}
-    </div>
-    <div class="col-md-3" role="complementary">
-        <nav class="at-docs-sidebar hidden-print hidden-sm hidden-xs affix">
-            <ul class="nav at-docs-sidenav">
-                {% for item in site.getting_started %}
-                <li>
-                    <a href="#{{ item | downcase }}">{{ item }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </div>
-</div>
+<p class="lead">
+    To get started just install the <a href="{{ site.links.atata_nuget }}">Atata NuGet package</a>.
+</p>
+<code lang="ps">
+    PM> Install-Package Atata
+</code>
+<p>
+    The Atata package depends on the following packages:
+    <ul>
+        <li>
+            <a href="https://www.nuget.org/packages/Selenium.WebDriver">Selenium.WebDriver</a>
+        </li>
+        <li>
+            <a href="https://www.nuget.org/packages/Selenium.Support">Selenium.Support</a>
+        </li>
+        <li>
+            <a href="{{ site.links.atata_webdriverextras_nuget }}">Atata.WebDriverExtras</a>
+        </li>
+    </ul>
+</p>
+{% include pageparts.html %}
