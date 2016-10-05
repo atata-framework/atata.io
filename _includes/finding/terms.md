@@ -16,14 +16,6 @@ public TextInput<_> FirstName { get; private set; }
 
 The enumeration that specifies the term match approach. By default all find attributes use `Equals` value.
 
-Available options:
-
-* Inherit
-* Contains
-* Equals
-* StartsWith
-* EndsWith
-
 ```html
 <input type="text" id="ctl00$MainContent$FirstName">
 ```
@@ -32,11 +24,19 @@ Available options:
 public TextInput<_> FirstName { get; private set; }
 ```
 
+#### Options
+
+* Inherit
+* Contains
+* Equals
+* StartsWith
+* EndsWith
+
 ### TermCase
 
 The enumeration that specifies the term case. Each find attribute specifies its default term case.
 
-The following example applies finding by `"first_name"` id:
+The following example applies finding by `first_name` id:
 
 ```cs
 [FindById(TermCase.Snake)]
