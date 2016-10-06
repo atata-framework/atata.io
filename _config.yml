@@ -66,9 +66,11 @@ finding:
       - TermMatch
       - TermCase
       - Multiple Terms
-  - name: FindById
-  - name: FindByName
-  - name: FindByClass
+  - name: Find Attributes
+    items:
+      - FindById
+      - FindByName
+      - FindByClass
   - name: TermFindSettings
 
 exclude:
