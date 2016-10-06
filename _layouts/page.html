@@ -7,15 +7,6 @@ layout: default
         {{ content }}
     </div>
     <div class="col-md-3" role="complementary">
-        <nav class="at-docs-sidebar hidden-print hidden-sm hidden-xs affix">
-            <ul class="nav at-docs-sidenav">
-                {% assign menu_items = site[page.items] %}
-                {% for item in menu_items %}
-                <li>
-                    <a href="#{{ item | downcase }}">{{ item }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
+        {% include sidebar.html %}
     </div>
 </div>

@@ -29,43 +29,47 @@ nav_links:
   Advanced: "advanced"
 
 getting-started:
-  - Introduction
-  - Demo
-  - Usage
-  - Logging
+  - name: Introduction
+  - name: Demo
+  - name: Usage
+  - name: Logging
 
 components:
-  - UIComponent
-  - Control
-  - PageObject
-  - Page
-  - PopupWindow
-  - TextInput
-  - PasswordInput
-  - NumberInput
-  - DateInput
-  - TimeInput
-  - Select
-  - CheckBox
-  - CheckBoxList
-  - RadioButton
-  - RadioButtonList
-  - TextArea
-  - Button
-  - Link
-  - Clickable
-  - Table
-  - Content
-  - Text
-  - Number
-  - H1-H6
+  - name: UIComponent
+  - name: Control
+  - name: PageObject
+  - name: Page
+  - name: PopupWindow
+  - name: TextInput
+  - name: PasswordInput
+  - name: NumberInput
+  - name: DateInput
+  - name: TimeInput
+  - name: Select
+  - name: CheckBox
+  - name: CheckBoxList
+  - name: RadioButton
+  - name: RadioButtonList
+  - name: TextArea
+  - name: Button
+  - name: Link
+  - name: Clickable
+  - name: Table
+  - name: Content
+  - name: Text
+  - name: Number
+  - name: H1-H6
 
 finding:
-  - Terms
-  - FindById
-  - FindByName
-  - FindByClass
-  - TermFindSettings
+  - name: Terms
+    items:
+      - TermMatch
+      - TermCase
+      - Multiple Terms
+  - name: FindById
+  - name: FindByName
+  - name: FindByClass
+  - name: TermFindSettings
 
 exclude:
   - LICENSE
