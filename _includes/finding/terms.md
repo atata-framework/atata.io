@@ -65,7 +65,7 @@ Name | Description | Example
 {% include termcasemember.md name="Snake" %} | Uses undersore ('_') and lower case. | `some_term`
 {:.table.table-members}
 
-### Multiple Values
+### Multiple Terms
 It is also possible to set multiple terms for the control finding.
 
 For example on the same form can have the save button with the different text values: "Create" for the new entity and "Update" for the existing one.
