@@ -134,3 +134,9 @@ p.info {
 
 @import "pygments-default";
 @import "pygments-vs";
+
+.highlighter-rouge {
+    >pre.highlight {
+        background-color: white;
+    }
+}

@@ -588,4 +588,6 @@ p.info {
   color: #a31515; }
 
 /* Literal.String.Symbol */
+.highlighter-rouge > pre.highlight {
+  background-color: white; }
 
