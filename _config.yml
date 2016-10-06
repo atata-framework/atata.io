@@ -63,6 +63,8 @@ components:
 finding:
   - Terms
   - FindById
+  - FindByName
+  - FindByClass
 
 exclude:
   - LICENSE
