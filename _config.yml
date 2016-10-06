@@ -65,6 +65,7 @@ finding:
   - FindById
   - FindByName
   - FindByClass
+  - TermFindSettings
 
 exclude:
   - LICENSE
