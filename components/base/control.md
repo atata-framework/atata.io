@@ -1,6 +1,6 @@
 Represents the base class for controls.
 
-### Syntax
+#### Syntax
 
 ```cs
 [ControlDefinition("*", ComponentTypeName = "control")]
@@ -8,14 +8,14 @@ public class Control<TOwner> : UIComponent<TOwner>, IControl<TOwner>
     where TOwner : PageObject<TOwner>
 ```
 
-### Properties
+#### Properties
 
 Name | Description | Usage Example
 ---- | ----------- | -------------
 `IsEnabled` | Gets the DataProvider instance for the value indicating whether the control is enabled. | `IsEnabled.Should.BeTrue()`, `IsEnabled == true`
 {:.table.table-members}
 
-### Methods
+#### Methods
 
 Name | Description
 ---- | -----------

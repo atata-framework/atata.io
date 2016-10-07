@@ -1,6 +1,6 @@
 Represents the base class for UI components (page objects and controls).
 
-### Syntax
+#### Syntax
 
 There are 2 `UIComponent` classes. The generic one is inherited from the non-generic:
 
@@ -18,7 +18,7 @@ public abstract class UIComponent<TOwner> : UIComponent, IUIComponent<TOwner>
 `TOwner` is the type of the owner page object. Declaring any control or page object requires specifying `TOwner`.
 {:.info}
 
-### Properties
+#### Properties
 
 Name | Description | Usage Example
 ---- | ----------- | -------------
@@ -28,7 +28,7 @@ Name | Description | Usage Example
 `Should` | Gets the verification provider that gives a set of verification extension methods.  | `Should.Exist()`
 {:.table.table-members}
 
-### Methods
+#### Methods
 
 Name | Description
 ---- | -----------

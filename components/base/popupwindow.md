@@ -1,6 +1,6 @@
 Represents the base class for the popup window page objects.
 
-### Syntax
+#### Syntax
 
 ```cs
 [PageObjectDefinition(ComponentTypeName = "window", IgnoreNameEndings = "PopupWindow,Window,Popup")]
@@ -8,7 +8,7 @@ public abstract class PopupWindow<TOwner> : PageObject<TOwner>
     where TOwner : PopupWindow<TOwner>
 ```
 
-### Example
+#### Example
 
 The example of [Bootsrap's Modal](http://getbootstrap.com/javascript/#modals) class:
 

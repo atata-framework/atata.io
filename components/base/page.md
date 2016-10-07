@@ -1,6 +1,6 @@
 Represents the whole HTML page. Is the main base class to inherit for the pages. Uses the body tag as a scope.
 
-### Syntax
+#### Syntax
 
 ```cs
 [PageObjectDefinition(ComponentTypeName = "page", IgnoreNameEndings = "Page,PageObject")]
@@ -8,7 +8,7 @@ public class Page<TOwner> : PageObject<TOwner>
     where TOwner : Page<TOwner>
 ```
 
-### Example
+#### Example
 
 ```cs
 using Atata;

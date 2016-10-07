@@ -35,16 +35,20 @@ getting-started:
   - name: Logging
 
 components:
-  - name: UIComponent
-  - name: Control
-  - name: PageObject
-  - name: Page
-  - name: PopupWindow
-  - name: TextInput
-  - name: PasswordInput
-  - name: NumberInput
-  - name: DateInput
-  - name: TimeInput
+  - name: Base
+    items:
+      - UIComponent
+      - Control
+      - PageObject
+      - Page
+      - PopupWindow
+  - name: Inputs
+    items:
+      - TextInput
+      - PasswordInput
+      - NumberInput
+      - DateInput
+      - TimeInput
   - name: Select
   - name: CheckBox
   - name: CheckBoxList
@@ -56,9 +60,11 @@ components:
   - name: Clickable
   - name: Table
   - name: Content
-  - name: Text
-  - name: Number
-  - name: H1-H6
+    items:
+      - Using Enum
+      - Text
+      - Number
+      - H1-H6
 
 finding:
   - name: Terms

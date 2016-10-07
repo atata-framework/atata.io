@@ -1,13 +1,13 @@
 Represents the base class for the page objects.
 
-### Syntax
+#### Syntax
 
 ```cs
 public abstract class PageObject<TOwner> : UIComponent<TOwner>, IPageObject<TOwner>
     where TOwner : PageObject<TOwner>
 ```
 
-### Properties
+#### Properties
 
 Name | Description | Usage Example
 ---- | ----------- | -------------
@@ -15,7 +15,7 @@ Name | Description | Usage Example
 `PageUrl` | Gets the DataProvider instance for the URL of the current HTML page. | `PageUrl.Should.EndWith("/some-page?id=123987")`
 {:class="table table-members"}
 
-### Methods
+#### Methods
 
 Name | Description
 ---- | -----------
