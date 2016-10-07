@@ -15,8 +15,10 @@ h1.page-header {
   margin-top: 20px; }
 
 .header-anchor {
-  padding-top: 24px;
-  margin-top: -24px; }
+  position: relative;
+  display: block;
+  top: -60px;
+  visibility: hidden; }
 
 .at-docs-container {
   min-height: 800px; }

@@ -22,8 +22,10 @@ h1.page-header {
 }
 
 .header-anchor {
-    padding-top: 24px;
-    margin-top: -24px;
+    position: relative;
+    display: block;
+    top: -60px;
+    visibility: hidden;
 }
 
 .at-docs-container {
@@ -136,7 +138,7 @@ p.info {
 @import "pygments-vs";
 
 .highlighter-rouge {
-    >pre.highlight {
+    > pre.highlight {
         background-color: white;
     }
 }
