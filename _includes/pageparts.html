@@ -8,7 +8,7 @@
 {{ item-include | markdownify }}
     {% for sub_item in item.items %}
     {% assign sub_item_downcase = sub_item | downcase %}
-<a id="{{ item_downcase | append: "-" | append: sub_item_downcase | replace: " ", "-" }}" class="header-anchor"></a>
+<a id="{{ sub_item_downcase | replace: " ", "-" }}" class="header-anchor"></a>
 <h3>{{ sub_item }}</h3>
     {% assign sub_item_path = item_downcase | append: "/" | append: sub_item_downcase | replace: " ", "-" | append: ".md" %}
     {% capture sub_item-include %}{% include_relative {{ sub_item_path }} %}{% endcapture %}

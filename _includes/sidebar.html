@@ -9,7 +9,7 @@
                 {% assign sub_menu_items = item.items %}
                 {% for sub_item in sub_menu_items %}
                 <li>
-                    <a href="#{{ item.name | append: "-" | append: sub_item | replace: " ", "-" | downcase }}">{{ sub_item }}</a>
+                    <a href="#{{ sub_item | replace: " ", "-" | downcase }}">{{ sub_item }}</a>
                 </li>
                 {% endfor %}
             </ul>

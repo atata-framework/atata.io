@@ -61,7 +61,7 @@ components:
   - name: Table
   - name: Content
     items:
-      - Using Enum
+      - Enum Content
       - Text
       - Number
       - H1-H6
