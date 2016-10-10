@@ -79,6 +79,9 @@ finding:
       - FindByClass
   - name: TermFindSettings
 
+triggers:
+  - name: VerifyTitle
+
 exclude:
   - LICENSE
   - README.md

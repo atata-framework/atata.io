@@ -5,7 +5,7 @@ Represents the `<a>` link control. By default is being searched by the content.
 ```
 
 Supports `[GoTemporarily]` settings attribute.
-{:class="info"}
+{:.info}
 
 ### LinkControl
 
