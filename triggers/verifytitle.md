@@ -1,15 +1,9 @@
-Specifies the verification of the page title when the page object is initialized. If no value is specifed, uses the class name as the expected value with the `TermCase.Title` casing applied.
+Specifies the verification of the page title. By default occurs during the page object initialization. If no value is specifed, uses the class name as the expected value with the `TermCase.Title` casing applied.
 
 ```cs
-using Atata;
-using _ = SampleApp.SamplePage;
-
-namespace SampleApp
+[VerifyTitle]
+public class ProductDetailsPage : Page<_> 
 {
-    [VerifyTitle]
-    public class ProductDetailsPage : Page<_>
-    {
-    }
 }
 ```
 

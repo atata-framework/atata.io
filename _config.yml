@@ -81,6 +81,7 @@ finding:
 
 triggers:
   - name: VerifyTitle
+  - name: VerifyContent
 
 exclude:
   - LICENSE
