@@ -8,4 +8,3 @@ public class SamplePage : Page<_>
 ```
 
 The example verifies that the page content should contain text: "Some text" and "Another text".
-{:.info}

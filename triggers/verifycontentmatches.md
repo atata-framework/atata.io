@@ -11,4 +11,3 @@ public class SamplePage : Page<_>
 ```
 
 The example verifies that the page content should contain the text: "Primary" or "Secondary". Also, verifies that the content of `SomeLink` should start with "Start" text and end with "end".
-{:.info}

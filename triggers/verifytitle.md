@@ -8,4 +8,3 @@ public class ProductDetailsPage : Page<_>
 ```
 
 The example verifies that the page title should equal "Product Details".
-{:.info}

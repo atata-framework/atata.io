@@ -83,6 +83,7 @@ triggers:
   - name: VerifyTitle
   - name: VerifyContent
   - name: VerifyContentMatches
+  - name: Wait
 
 exclude:
   - LICENSE
