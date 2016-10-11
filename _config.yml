@@ -84,6 +84,7 @@ triggers:
   - name: VerifyContent
   - name: VerifyContentMatches
   - name: Wait
+  - name: LogInfo
 
 exclude:
   - LICENSE
