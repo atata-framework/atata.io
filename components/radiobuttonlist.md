@@ -1,6 +1,6 @@
-Represents the radio button list control (a set of `<input type="radio">`). By default is being searched by the name.
+Represents the radio button list control (a set of `<input type="radio">`). Default search is performed by the name.
 
-Concrete radio button items can be found by the label or value. By default finds the items by the label. Use `[FindItemByValue]` attribute to find the items by the value.
+Specified radio button items can be found by the label or value. By default finds the items by the label. Use `[FindItemByValue]` attribute to find the items by the value.
 {:class="info"}
 
 ```html

@@ -1,4 +1,4 @@
-Represents the `<a>` link control. By default is being searched by the content.
+Represents the `<a>` link control. Default search is performed by the content.
 
 ```html
 <a href="/items/create">Create</a>

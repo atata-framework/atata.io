@@ -21,7 +21,7 @@ public abstract class BSModal<TOwner> : PopupWindow<TOwner>
 }
 ```
 
-Implementation of the concrete modal having the title "Some Modal":
+Implementation of the specific modal having the title "Some Modal":
 
 ```cs
 using Atata;

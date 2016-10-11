@@ -32,6 +32,6 @@ Name | Description | Usage Example
 
 Name | Description
 ---- | -----------
-`Exists(SearchOptions options = null)` | Determines whether the component exists. If `options` is set to null, uses SearchOptions.Safely().
-`Missing(SearchOptions options = null)` | Determines whether the component is missing. If `options` is set to null, uses SearchOptions.Safely().
+`Exists(SearchOptions options = null)` | Determines whether the component exists. If `options` is set to null, then it uses `SearchOptions.Safely()`.
+`Missing(SearchOptions options = null)` | Determines whether the component is missing. If `options` is set to null, then it uses `SearchOptions.Safely()`.
 {:.table.table-members}

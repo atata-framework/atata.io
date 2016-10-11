@@ -1,4 +1,4 @@
-Represents the time input control. By default is being searched by the label. Handles any `input` element with `type="time"`, `type="text"` or without the type attribute defined.
+Represents the time input control. Default search is performed by the label. Handles any `input` element with `type="time"`, `type="text"` or without the defined type attribute.
 
 ```html
 <input type="time" id="eventTime">

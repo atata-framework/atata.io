@@ -1,4 +1,4 @@
-Represents the select control. By default is being searched by the label. It is possible to select an option by the text or value. By default selects by the text.
+Represents the select control. By default is being searched by the label. It is possible to select an option by the text or value. Default selection is performed by text.
 
 ```html
 <select id="brand">
@@ -52,7 +52,7 @@ Go.To<SamplePage>().
 
 #### Select By Value
 
-You just need to mark the select property with `[SelectByValue]` attribute and optionaly set settings like `Case` or `Format`.
+You just need to mark the select property with `[SelectByValue]` attribute and optionally set settings like `Case` or `Format`.
 
 ```cs
 using Atata;
@@ -73,7 +73,7 @@ namespace SampleApp
 
 ### Select Using String
 
-To use string variant of control don't pass data generic type argument, just use `Select<_>` (or alternatively `Select<string, _>`).
+Don't pass data generic type argument to use string variant of control, simply use `Select<_>` (or alternatively `Select<string, _>`).
 
 ```cs
 using Atata;

@@ -1,6 +1,6 @@
-Specifies the settings to apply for the concrete finding strategy of control. Applies to the class (inheritor of UIComponent) and assembly.
+Defines the settings to apply for the specified finding strategy of control. Applies to the class (inheritor of UIComponent) and assembly.
 
-For example, if all `name` attributes in the site are formatted lowercase without the separator, you can apply the folowing attribute for the tests assembly:
+For example, if all `name` attributes in the site are formatted lowercase without the separator, you can apply the following attribute for the tests assembly:
 
 ```cs
 [assembly: TermFindSettings(FindTermBy.Name, Case = TermCase.LowerMerged)]
@@ -24,4 +24,4 @@ namespace SampleApp
 }
 ```
 
-The above example will find `FirstName` field by label containing text "First name:" and `LastName` by "Last name:".
+The above example will find `FirstName` field by the label containing text "First name:" and `LastName` by "Last name:".

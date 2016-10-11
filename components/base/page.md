@@ -1,4 +1,4 @@
-Represents the whole HTML page. Is the main base class to inherit for the pages. Uses the body tag as a scope.
+Represents the whole HTML page and is the main base class to inherit for the pages. Uses the `<body>` tag as a scope.
 
 #### Syntax
 

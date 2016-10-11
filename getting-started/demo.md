@@ -1,4 +1,4 @@
-The [Demo Project](https://github.com/atata-framework/atata-sample-app-tests) tests application demonstates different testing approaches and features of the Atata framework.
+The [Demo Project](https://github.com/atata-framework/atata-sample-app-tests) tests application demonstrates different testing approaches and features of the Atata framework.
 
 ### Features
 * Atata test initialization and settings set-up
@@ -6,7 +6,7 @@ The [Demo Project](https://github.com/atata-framework/atata-sample-app-tests) te
 * Controls finding
 * Data input and verification
 * Validation messages verification
-* Usage of the triggers
+* Use of the triggers
 * Interaction with the pop-ups (Bootstrap modal) and alerts
 * Work with the tables
 * Logging

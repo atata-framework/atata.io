@@ -1,4 +1,4 @@
-Represents the radio button control. By default is being searched by the label.
+Represents the radio button control. Default search is performed by the label.
 
 ```html
 <label>

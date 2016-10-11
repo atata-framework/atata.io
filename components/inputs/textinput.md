@@ -1,4 +1,4 @@
-Represents the text input control. By default is being searched by the label. Handles any `input` element with `type="text"` or without the type attribute defined.
+Represents the text input control. Default search is performed by the label. Handles any `input` element with `type="text"` or without the defined type attribute.
 
 ```html
 <input type="text" id="first-name">

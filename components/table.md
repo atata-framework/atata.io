@@ -1,4 +1,4 @@
-Represents the table control. By default is being searched the first occurrence.
+Represents the table control. Default search finds the first occuring table.
 
 ```html
 <table>
@@ -46,7 +46,7 @@ namespace SampleApp
 }
 ```
 
-By default the properties of the type `Content` and inherited (e.g. `Name` and `Amount`) that are declared in the class inherited from `TableRow` are being searched by the column header.
+Default search of the properties of the type `Content` and inherited (e.g. `Name` and `Amount`) that are declared in the class inherited from `TableRow` is performed by the column header.
 {:.info}
 
 ``` cs

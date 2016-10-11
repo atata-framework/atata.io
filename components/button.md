@@ -1,4 +1,4 @@
-Represents the button control. By default is being searched by the content and value (`button` by content text and `input` by `value` attribute). Handles any `input` element with `type="button"`, `type="submit"`, `type="reset"` or `button` element.
+Represents the button control. Default search is performed by the content and value (`button` by content text and `input` by `value` attribute). Handles any `input` element with `type="button"`, `type="submit"`, `type="reset"` or `button` element.
 
 ```html
 <button>Save</button>
@@ -34,7 +34,7 @@ Go.To<SamplePage>().
 
 ### Button Delegate
 
-It is recommended to use `Button` delegate as it simplifies the usage by refusing `Click` and `ClickAndGo` methods.
+It is recommended to use `Button` delegate as it simplifies the use by eliminating `Click` and `ClickAndGo` methods.
 
 ```cs
 using Atata;
@@ -58,7 +58,7 @@ As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` propert
 
 ### Navigation
 
-It is possible to pass another gereric argument of `PageObject` type, meaning that after the click the navigation to this `PageObject` should be performed. Works the same way for the control and delegate.
+It is possible to pass another generic argument of `PageObject` type, meaning that after the click on the button the navigation to this `PageObject` is performed. It works the same way for the control and delegate.
 
 ```cs
 using Atata;
@@ -90,7 +90,7 @@ Go.To<SamplePage1>().
         GoBack.ClickAndGo();
 ```
 
-Note that `Save` delegate property is being used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `ButtonControl` class type.
+Note that `Save` delegate property is used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is required to call `ClickAndGo` method as it is a property of `ButtonControl` class type.
 {:class="info"}
 
 ### Methods
