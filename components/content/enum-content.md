@@ -32,4 +32,4 @@ Go.To<SamplePage>().
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.
-{:class="info"}
+{:.info}

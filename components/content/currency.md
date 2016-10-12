@@ -1,4 +1,4 @@
-Represents any element containing currency content. Default search is performed by the label (if is declared in the class inherited from `TableRow`, then by column header).
+Represents any element containing currency content. Default search is performed by the label. The default format is `"C2"` (e.g. $123.45).
 
 ```html
 <span id="price">$1,054.50</span>
@@ -22,4 +22,4 @@ Go.To<SamplePage>().
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.
-{:class="info"}
+{:.info}

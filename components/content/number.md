@@ -1,4 +1,4 @@
-Represents any element containing number content. Default search is performed by the label (if is declared in the class inherited from `TableRow`, then by column header).
+Represents any element containing number content. Default search is performed by the label.
 
 ```html
 <span id="amount">15</span>
@@ -22,4 +22,4 @@ Go.To<SamplePage>().
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.
-{:class="info"}
+{:.info}
