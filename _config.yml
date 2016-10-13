@@ -66,6 +66,7 @@ components:
       - Number
       - Currency
       - Date
+      - Time
       - H1-H6
 
 control-search:
