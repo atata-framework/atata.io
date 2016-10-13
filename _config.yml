@@ -63,11 +63,12 @@ components:
     items:
       - Enum Content
       - Text
+      - H1-H6
       - Number
       - Currency
       - Date
       - Time
-      - H1-H6
+      - DateTime
 
 control-search:
   - name: Terms
