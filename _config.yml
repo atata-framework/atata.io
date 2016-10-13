@@ -87,6 +87,7 @@ triggers:
   - name: VerifyTitle
   - name: VerifyContent
   - name: VerifyContentMatches
+  - name: VerifyExists
   - name: Wait
   - name: LogInfo
   - name: Screenshot
