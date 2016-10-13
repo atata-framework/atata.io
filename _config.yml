@@ -95,6 +95,7 @@ triggers:
   - name: PressKeys
   - name: PressEnter
   - name: PressTab
+  - name: ScrollDown
   - name: ClickParent
   - name: HoverParent
 
