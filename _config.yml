@@ -92,6 +92,7 @@ triggers:
   - name: CloseAlertBox
   - name: CloseConfirmBox
   - name: ClickParent
+  - name: HoverParent
 
 exclude:
   - LICENSE
