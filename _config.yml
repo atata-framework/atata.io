@@ -91,6 +91,7 @@ triggers:
   - name: LogInfo
   - name: CloseAlertBox
   - name: CloseConfirmBox
+  - name: PressKeys
   - name: ClickParent
   - name: HoverParent
 
