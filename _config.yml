@@ -92,6 +92,7 @@ triggers:
   - name: CloseAlertBox
   - name: CloseConfirmBox
   - name: PressKeys
+  - name: PressEnter
   - name: ClickParent
   - name: HoverParent
 
