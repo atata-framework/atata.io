@@ -90,6 +90,7 @@ triggers:
   - name: Wait
   - name: LogInfo
   - name: CloseAlertBox
+  - name: CloseConfirmBox
   - name: ClickParent
 
 exclude:
