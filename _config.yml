@@ -89,6 +89,7 @@ triggers:
   - name: VerifyContentMatches
   - name: Wait
   - name: LogInfo
+  - name: ClickParent
 
 exclude:
   - LICENSE
