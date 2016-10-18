@@ -5,6 +5,6 @@ public class SampleControl<TOwner> : Control<TOwner>
     where TOwner : PageObject<TOwner>
 {
     [HoverParent]
-    public Button<_> SubItem { get; private set; }
+    public Button<TOwner> SubItem { get; private set; }
 }
 ```
