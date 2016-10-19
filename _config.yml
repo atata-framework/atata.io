@@ -85,6 +85,7 @@ control-search:
 
 triggers:
   - name: VerifyTitle
+  - name: VerifyH1-H6
   - name: VerifyContent
   - name: VerifyContentMatches
   - name: VerifyExists
