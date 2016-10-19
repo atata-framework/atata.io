@@ -91,6 +91,7 @@ triggers:
   - name: VerifyExists
   - name: VerifyMissing
   - name: Wait
+  - name: WaitForElement
   - name: LogInfo
   - name: Screenshot
   - name: CloseAlertBox

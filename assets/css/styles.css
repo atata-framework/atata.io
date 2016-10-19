@@ -14,6 +14,9 @@
 h1.page-header {
   margin-top: 20px; }
 
+h4 {
+  margin-top: 20px; }
+
 .header-anchor {
   position: relative;
   display: block;
@@ -128,8 +131,23 @@ table.table-members td:nth-child(1) code {
   background: none;
   font-size: 1em; }
 
+table.table-members td:nth-child(1) span[title=Required] {
+  color: red;
+  float: right; }
+
 table.table-members code {
   white-space: nowrap; }
+
+@media (min-width: 480px) {
+  table.table-members.table-parameters td:nth-child(2) {
+    width: 170px; } }
+
+table.table-members.table-parameters td:nth-child(2) a {
+  text-decoration: underline; }
+
+table.table-members.table-parameters td:nth-child(2) code {
+  color: #2B91AF;
+  background: none; }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,

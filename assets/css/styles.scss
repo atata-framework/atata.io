@@ -21,6 +21,10 @@ h1.page-header {
     margin-top: 20px;
 }
 
+h4 {
+    margin-top: 20px;
+}
+
 .header-anchor {
     position: relative;
     display: block;
@@ -48,10 +52,32 @@ table.table-members {
             background: none;
             font-size: 1em;
         }
+
+        span[title=Required] {
+            color: red;
+            float: right;
+        }
     }
 
     code {
         white-space: nowrap;
+    }
+
+    &.table-parameters {
+        td:nth-child(2) {
+            @media (min-width : 480px) {
+                width: 170px;
+            }
+
+            a {
+                text-decoration: underline;
+            }
+
+            code {
+                color: #2B91AF;
+                background: none;
+            }
+        }
     }
 }
 
