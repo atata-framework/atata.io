@@ -89,6 +89,7 @@ triggers:
       - Trigger
       - TriggerEvents
       - TriggerPriority
+      - TriggerScope
   - name: VerifyTitle
   - name: VerifyH1-H6
   - name: VerifyContent
