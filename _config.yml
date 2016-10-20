@@ -87,7 +87,9 @@ control-search:
       - FindById
       - FindByName
       - FindByClass
-  - name: TermFindSettings
+  - name: Settings Attributes
+    items:
+      - TermFindSettings
 
 triggers:
   - name: General
