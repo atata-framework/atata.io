@@ -52,7 +52,7 @@ h4 {
 table.table-members {
     td:nth-child(1) {
         @media (min-width : 480px) {
-            width: 170px;
+            width: 160px;
         }
 
         code {
@@ -73,7 +73,7 @@ table.table-members {
     &.table-members-with-type {
         td:nth-child(2) {
             @media (min-width : 480px) {
-                width: 170px;
+                width: 160px;
             }
 
             a {

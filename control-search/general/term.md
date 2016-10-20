@@ -11,3 +11,20 @@ public TextInput<_> FirstName { get; private set; }
 [Term("some-input")]
 public TextInput<_> FirstName { get; private set; }
 ```
+
+#### Parameters
+
+Name | Type | Description
+---- | ---- | -----------
+`termCase` | [`TermCase`](#termcase) | The term case.
+`match` | [`TermMatch`](#termmatch) | The match.
+`values` | `string[]`{:.simple} | The term values.
+{:.table.table-members.table-members-with-type}
+
+#### Properties
+
+Name | Type | Description
+---- | ---- | -----------
+`Format` | `string`{:.simple} | Gets or sets the format.
+`CutEnding` | `bool`{:.simple} | Gets or sets a value indicating whether the name should be cut considering the `IgnoreNameEndings` property value of `[ControlDefinition]` and `[PageObjectDefinition]` attributes. The default value is true.
+{:.table.table-members.table-members-with-type}
