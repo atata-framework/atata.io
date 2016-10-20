@@ -63,7 +63,7 @@ table.table-members {
         white-space: nowrap;
     }
 
-    &.table-parameters {
+    &.table-members-with-type {
         td:nth-child(2) {
             @media (min-width : 480px) {
                 width: 170px;
@@ -76,6 +76,10 @@ table.table-members {
             code {
                 color: #2B91AF;
                 background: none;
+
+                &.simple {
+                    color: #0000FF;
+                }
             }
         }
     }

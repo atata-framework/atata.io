@@ -15,11 +15,11 @@ The example after the click on `Refresh` button waits for element with class "bu
 Name | Type | Description
 ---- | ---- | -----------
 `waitBy`<span title="Required">*</span> | [`WaitBy`](#waitby) | The kind of the element selector to wait for.
-`selector`<span title="Required">*</span> | `string` | The selector.
+`selector`<span title="Required">*</span> | `string`{:.simple} | The selector.
 `until` | [`WaitUntil`](#waituntil) | The waiting approach. The default is `MissingOrHidden`.
-`on` | `TriggerEvents` | The trigger events. The default is `AfterClick`.
-`priority` | `TriggerPriority` | The priority. The default is `Medium`.
-{:.table.table-members.table-parameters}
+`on` | [`TriggerEvents`](#triggerevents) | The trigger events. The default is `AfterClick`.
+`priority` | [`TriggerPriority`](#triggerpriority) | The priority. The default is `Medium`.
+{:.table.table-members.table-members-with-type}
 
 #### Properties
 

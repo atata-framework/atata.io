@@ -84,6 +84,10 @@ control-search:
   - name: TermFindSettings
 
 triggers:
+  - name: General
+    items:
+      - Trigger
+      - TriggerEvents
   - name: VerifyTitle
   - name: VerifyH1-H6
   - name: VerifyContent

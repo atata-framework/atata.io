@@ -1,4 +1,4 @@
-Represents the base class for controls.
+Represents the base class for the controls.
 
 #### Syntax
 
