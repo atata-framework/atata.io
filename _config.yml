@@ -102,6 +102,7 @@ triggers:
     items:
       - Wait
       - WaitForElement
+      - WaitForJQueryAjax
   - name: Performing
     items:
       - LogInfo
