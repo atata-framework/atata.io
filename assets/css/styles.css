@@ -157,6 +157,17 @@ table.table-members.table-members-with-type td:nth-child(2) code {
   table.table-members.table-members-with-type td:nth-child(2) code.simple {
     color: #0000FF; }
 
+.class-reference {
+  color: #2B91AF;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  text-decoration: underline; }
+
+a.enum-value-reference:focus, a.enum-value-reference:hover {
+  text-decoration: none; }
+
+a.enum-value-reference code {
+  text-decoration: underline; }
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover,

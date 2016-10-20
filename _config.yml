@@ -81,6 +81,7 @@ control-search:
   - name: Base Attributes
     items:
       - FindAttribute
+      - TermFindAttribute
   - name: Find Attributes
     items:
       - FindById

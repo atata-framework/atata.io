@@ -49,6 +49,8 @@ h4 {
     top: 78px;
 }
 
+$class-color: #2B91AF;
+
 table.table-members {
     td:nth-child(1) {
         @media (min-width : 480px) {
@@ -81,7 +83,7 @@ table.table-members {
             }
 
             code {
-                color: #2B91AF;
+                color: $class-color;
                 background: none;
 
                 &.simple {
@@ -89,6 +91,22 @@ table.table-members {
                 }
             }
         }
+    }
+}
+
+.class-reference {
+    color: $class-color;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    text-decoration: underline;
+}
+
+a.enum-value-reference {
+    &:focus,&:hover {
+        text-decoration: none;
+    }
+
+    code {
+        text-decoration: underline;
     }
 }
 

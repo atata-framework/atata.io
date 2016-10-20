@@ -1,0 +1,1 @@
+﻿[{{ include.name }}](#{{ include.name | downcase }}){:.class-reference}

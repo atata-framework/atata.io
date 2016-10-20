@@ -1,0 +1,1 @@
+﻿[`{{ include.name }}`](#termcase-{{ include.name | downcase }}){:.enum-value-reference}
