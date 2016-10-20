@@ -77,6 +77,9 @@ control-search:
       - TermMatch
       - TermCase
       - Multiple Terms
+  - name: Base Attributes
+    items:
+      - FindAttribute
   - name: Find Attributes
     items:
       - FindById
