@@ -1,4 +1,7 @@
-The enumeration that specifies the term match approach. By default all find attributes use `Equals` value.
+The enumeration that specifies the match approach for the term finding.
+
+By default all find attributes use `Equals` value.
+{:.info}
 
 ```html
 <input type="text" id="ctl00$MainContent$FirstName">
