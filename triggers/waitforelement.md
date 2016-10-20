@@ -39,14 +39,14 @@ Name | Description
 
 The enumeration that specifies the kind of the element selector for the waiting.
 
-| Value |
-| ----- |
-| `Id` |
-| `Name` |
-| `Class` |
-| `Css` |
-| `XPath` |
-{:.table.table-members}
+Value | Description
+----- | -----------
+`Id` | Uses the id selector kind.
+`Name` | Uses the name selector kind.
+`Class` | Uses the class selector kind.
+`Css` | Uses the CSS selector kind.
+`XPath` | Uses the XPath selector kind.
+{:.table.table-members.table-condensed}
 
 <a id="waituntil" class="header-anchor"></a>
 
@@ -65,4 +65,4 @@ Value | Description
 `VisibleAndMissing` | Waits until the element will be visible and than until it will be missing.
 `MissingAndVisible` | Waits until the element will be missing and than until it will be visible.
 `HiddenAndVisible` | Waits until the element will be hidden and than until it will be visible.
-{:.table.table-members}
+{:.table.table-members.table-condensed}

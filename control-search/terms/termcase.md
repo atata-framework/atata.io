@@ -7,10 +7,8 @@ The following example applies finding by `first_name` id:
 public TextInput<_> FirstName { get; private set; }
 ```
 
-#### Options
-
-Name | Description | Example
----- | ----------- | -------------
+Value | Description | Example
+----- | ----------- | -------
 {% include termcasemember.md name="Inherit" %} | Uses the inherited case or none if missing. |
 {% include termcasemember.md name="None" %} | Doesn't apply the case. |
 {% include termcasemember.md name="Title" %} | Uses title case. | `Some Term`
@@ -27,4 +25,4 @@ Name | Description | Example
 {% include termcasemember.md name="PascalKebab" %} | Uses dash ('-') and pascal case. | `Some-Term`
 {% include termcasemember.md name="PascalHyphenKebab" %} | Uses hyphen ('‐') and pascal case. | `Some‐Term`
 {% include termcasemember.md name="Snake" %} | Uses undersore ('_') and lower case. | `some_term`
-{:.table.table-members}
+{:.table.table-members.table-condensed}

@@ -8,10 +8,11 @@ The enumeration that specifies the term match approach. By default all find attr
 public TextInput<_> FirstName { get; private set; }
 ```
 
-#### Options
-
-* Inherit
-* Contains
-* Equals
-* StartsWith
-* EndsWith
+Value | Description
+----- | -----------
+`Inherit` | Uses the inherited match or the default one.
+`Contains` | Checks whether the text contains the specified term.
+`Equals` | Checks whether the text equals the specified term.
+`StartsWith` | Checks whether the text starts with the specified term.
+`EndsWith` | Checks whether the text ends with the specified term.
+{:.table.table-members.table-condensed}
