@@ -71,8 +71,9 @@ components:
       - DateTime
 
 control-search:
-  - name: Terms
+  - name: General
     items:
+      - Term
       - TermMatch
       - TermCase
       - Multiple Terms

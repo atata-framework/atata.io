@@ -1,1 +1,1 @@
-﻿<a id="termcase-{{ include.name | downcase }}" class="member-header-anchor"></a>`{{ include.name }}`
+﻿<a id="termcase-{{ include.name | downcase }}" class="member-anchor"></a>`{{ include.name }}`

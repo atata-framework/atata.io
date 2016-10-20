@@ -1,0 +1,1 @@
+**Term** - in the scope of Atata is the text that is used to find a control. It can be id, name, class, etc.

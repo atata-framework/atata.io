@@ -1,4 +1,4 @@
-**Term** - in the scope of Atata is the text that is used to find a control. It can be id, name, class, etc.
+The attribute that specifies the term(s) to use for the control search.
 
 In the both following examples `some-input` is the term that is used for the control search:
 

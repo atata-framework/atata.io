@@ -32,6 +32,13 @@ h4 {
     visibility: hidden;
 }
 
+.member-anchor {
+    position: relative;
+    display: inline-block;
+    top: -72px;
+    visibility: hidden;
+}
+
 .at-docs-container {
     min-height: 800px;
 }
