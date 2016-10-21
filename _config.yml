@@ -49,11 +49,11 @@ components:
       - NumberInput
       - DateInput
       - TimeInput
+      - CheckBox
+      - CheckBoxList
+      - RadioButton
+      - RadioButtonList
   - name: Select
-  - name: CheckBox
-  - name: CheckBoxList
-  - name: RadioButton
-  - name: RadioButtonList
   - name: TextArea
   - name: Button
   - name: Link

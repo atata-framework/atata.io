@@ -25,8 +25,8 @@ public enum SomeOptions
 }
 ```
 
-Do not forget to mark `enum` with `[Flags]` attribute.
-{:class="warning"}
+Do not forget to mark the enumeration with the `[Flags]` attribute.
+{:.warning}
 
 ```cs
 using Atata;
@@ -52,12 +52,12 @@ Go.To<SamplePage>().
 ```
 
 Supports `[Format]`, `[Culture]`, `[FindItemByLabel]` and `[FindItemByValue]` settings attributes.
-{:class="info"}
+{:.info}
 
-### Methods
+#### Methods
 
 Name | Description
 ---- | -----------
 `Check(T value)` | Checks the checkbox by specified value.
 `Uncheck(T value)` | Unchecks the checkbox by specified value.
-{:class="table table-members"}
+{:.table.table-members}

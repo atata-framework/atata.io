@@ -1,7 +1,7 @@
 Represents the radio button list control (a set of `<input type="radio">`). Default search is performed by the name.
 
 Specified radio button items can be found by the label or value. By default finds the items by the label. Use `[FindItemByValue]` attribute to find the items by the value.
-{:class="info"}
+{:.info}
 
 ```html
 <label>
@@ -15,7 +15,7 @@ Specified radio button items can be found by the label or value. By default find
 </label>
 ```
 
-### Using Enum
+#### Using Enum
 
 ```cs
 public enum SomeOption
@@ -45,7 +45,7 @@ Go.To<SamplePage>().
     Options.Should.Equal(SomeOptions.OptionB);
 ```
 
-### Using String
+#### Using String
 
 ```cs
 using Atata;
@@ -69,4 +69,4 @@ Go.To<SamplePage>().
 ```
 
 Supports `[Format]`, `[Culture]`, `[FindItemByLabel]` and `[FindItemByValue]` settings attributes.
-{:class="info"}
+{:.info}
