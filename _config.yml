@@ -74,9 +74,9 @@ control-search:
   - name: General
     items:
       - Term
+      - Multiple Terms
       - TermMatch
       - TermCase
-      - Multiple Terms
       - ScopeSource
   - name: Base Attributes
     items:
