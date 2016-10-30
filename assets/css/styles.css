@@ -135,7 +135,9 @@ h4 {
 
 table.table-members td:nth-child(1) code {
   background: none;
-  font-size: 1em; }
+  font-size: 1em;
+  padding-left: 1px;
+  padding-right: 1px; }
 
 table.table-members td:nth-child(1) span[title=Required] {
   color: red;
@@ -153,7 +155,10 @@ table.table-members.table-members-with-type td:nth-child(2) a {
 
 table.table-members.table-members-with-type td:nth-child(2) code {
   color: #2B91AF;
-  background: none; }
+  background: none;
+  font-size: 1em;
+  padding-left: 1px;
+  padding-right: 1px; }
   table.table-members.table-members-with-type td:nth-child(2) code.simple {
     color: #0000FF; }
 

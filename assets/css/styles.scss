@@ -60,6 +60,8 @@ table.table-members {
         code {
             background: none;
             font-size: 1em;
+            padding-left: 1px;
+            padding-right: 1px;
         }
 
         span[title=Required] {
@@ -85,6 +87,9 @@ table.table-members {
             code {
                 color: $class-color;
                 background: none;
+                font-size: 1em;
+                padding-left: 1px;
+                padding-right: 1px;
 
                 &.simple {
                     color: #0000FF;
@@ -101,7 +106,7 @@ table.table-members {
 }
 
 a.enum-value-reference {
-    &:focus,&:hover {
+    &:focus, &:hover {
         text-decoration: none;
     }
 
