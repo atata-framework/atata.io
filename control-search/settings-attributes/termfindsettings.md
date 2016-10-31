@@ -24,4 +24,4 @@ namespace SampleApp
 }
 ```
 
-The above example will find `FirstName` field by the label containing text "First name:" and `LastName` by "Last name:".
+The above example will find `FirstName` control by the label containing text "First name:" and `LastName` by "Last name:".
