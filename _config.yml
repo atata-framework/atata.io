@@ -91,6 +91,7 @@ control-search:
       - FindByCss
       - FindByLabel
       - FindByContent
+      - FindByChildContent
       - FindByAttribute
   - name: Settings Attributes
     items:
