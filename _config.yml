@@ -88,6 +88,7 @@ control-search:
       - FindByName
       - FindByClass
       - FindByXPath
+      - FindByLabel
       - FindByContent
   - name: Settings Attributes
     items:
