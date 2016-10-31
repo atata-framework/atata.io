@@ -96,6 +96,7 @@ control-search:
       - FindByValue
       - FindByPlaceholder
       - FindByTitle
+      - FindFirst
   - name: Settings Attributes
     items:
       - TermFindSettings

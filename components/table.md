@@ -1,4 +1,4 @@
-Represents the table control. Default search finds the first occuring table.
+Represents the table control. Default search finds the first occurring table.
 
 ```html
 <table>
