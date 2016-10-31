@@ -94,6 +94,7 @@ control-search:
       - FindByChildContent
       - FindByAttribute
       - FindByPlaceholder
+      - FindByTitle
   - name: Settings Attributes
     items:
       - TermFindSettings
