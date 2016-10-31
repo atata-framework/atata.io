@@ -15,19 +15,22 @@ Inherited from {% include clsref.md name="FindAttribute" %}.
 public TextInput<_> FirstName { get; private set; }
 ```
 
-Or using inner XPath:
+Also can be found using inner XPath or the attribute condition:
 
 ```html
 <div id="container">
-    <a href="#">
+    <a href="prev">
         <span class="left-arrow"></span>
     </a>
-    <a href="#">
+    <a href="next">
         <span class="right-arrow"></span>
     </a>
 </div>
 ```
 ```cs
+[FindByXPath("@href='prev'")]
+public Link<_> Previous { get; private set; }
+
 [FindByXPath("[span[@class='right-arrow']]")]
 public Link<_> Next { get; private set; }
 ```
