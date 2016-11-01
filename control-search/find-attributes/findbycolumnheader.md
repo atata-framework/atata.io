@@ -14,7 +14,7 @@ Inherited from {% include clsref.md name="TermFindAttribute" %}.
     <tbody>
         <tr>
             <td>Some Item</td>
-            <td>5</td>
+            <td>50</td>
         </tr>
     </tbody>
 </table>

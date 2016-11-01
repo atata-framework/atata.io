@@ -102,6 +102,7 @@ control-search:
       - FindFirst
       - FindByIndex
       - FindByColumnHeader
+      - FindByColumnIndex
   - name: Settings Attributes
     items:
       - TermFindSettings
