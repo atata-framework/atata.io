@@ -1,7 +1,7 @@
 Represents the table control. Default search finds the first occurring table.
 
 ```html
-<table>
+<table id="products">
     <thead>
         <tr>
             <th>Name</th>
