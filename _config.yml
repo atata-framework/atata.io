@@ -96,6 +96,7 @@ control-search:
       - FindByChildContent
       - FindByAttribute
       - FindByValue
+      - FindByContentOrValue
       - FindByPlaceholder
       - FindByTitle
       - FindFirst
