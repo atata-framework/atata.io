@@ -90,6 +90,7 @@ control-search:
       - FindByXPath
       - FindByCss
       - FindByLabel
+      - FindByFieldSet
       - FindByContent
       - FindByChildContent
       - FindByAttribute
