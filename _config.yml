@@ -91,6 +91,7 @@ control-search:
       - FindByCss
       - FindByLabel
       - FindByFieldSet
+      - FindByDescriptionTerm
       - FindByContent
       - FindByChildContent
       - FindByAttribute
