@@ -6,4 +6,4 @@ It basically consists of the following concepts:
 - Attributes of the control search
 - Settings attributes
 - Triggers
-- Verification methods
+- Verification attributes and methods
