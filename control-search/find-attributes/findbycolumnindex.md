@@ -12,7 +12,6 @@ Inherited from {% include clsref.md name="FindAttribute" %}.
         </tr>
     </tbody>
 </table>
-
 ```
 ```cs
 public Table<ProductTableRow, _> Products { get; private set; }
