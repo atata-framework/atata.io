@@ -59,6 +59,7 @@ namespace SampleApp.AutoTests
                 UseBaseUrl("http://atata-framework.github.io/atata-sample-app/#!/").
                 UseNUnitTestName().
                 UseNUnitTestContextLogging().
+                LogNUnitError().
                 SetUp();
         }
 
