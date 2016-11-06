@@ -1,4 +1,7 @@
-Defines the settings to apply for the specified finding strategy of control. Applies to the class (inheritor of UIComponent) and assembly.
+Defines the term settings to apply for the specified finding strategy of a control.
+
+Inherited from {% include clsref.md name="FindSettingsAttribute" %}.
+{:.info}
 
 For example, if all `name` attributes in the site are formatted lowercase without the separator, you can apply the following attribute for the tests assembly:
 
