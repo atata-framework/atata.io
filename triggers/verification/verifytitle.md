@@ -8,3 +8,12 @@ public class ProductDetailsPage : Page<_>
 ```
 
 The example verifies that the page title should equal "Product Details".
+
+#### VerifyTitleSettings
+Defines the settings to apply for the `VerifyTitleAttribute` trigger.
+
+For example, set the default title format:
+
+```cs
+[assembly: VerifyTitleSettings(Format = "{0} - Atata Sample App")]
+```
