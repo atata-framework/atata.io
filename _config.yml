@@ -36,7 +36,7 @@ getting-started:
       - Define Settings
       - Define Page Object Class
       - Implement Test
-      - Log
+      - View Log
   - name: Set Up
 
 components:
