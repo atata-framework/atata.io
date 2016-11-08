@@ -162,6 +162,11 @@ table.table-members.table-members-with-type td:nth-child(2) code {
   table.table-members.table-members-with-type td:nth-child(2) code.simple {
     color: #0000FF; }
 
+table.table-members.table-members-fixed-col-1 td:nth-child(1) {
+  width: 320px; }
+  table.table-members.table-members-fixed-col-1 td:nth-child(1) code {
+    white-space: normal; }
+
 .class-reference {
   color: #2B91AF;
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace;

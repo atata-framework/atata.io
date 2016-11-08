@@ -97,6 +97,16 @@ table.table-members {
             }
         }
     }
+
+    &.table-members-fixed-col-1 {
+        td:nth-child(1) {
+            width: 320px;
+
+            code {
+                white-space: normal;
+            }
+        }
+    }
 }
 
 .class-reference {

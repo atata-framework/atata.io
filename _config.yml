@@ -33,6 +33,7 @@ getting-started:
   - name: Demo
   - name: Usage
   - name: Logging
+  - name: Set Up
 
 components:
   - name: Base
