@@ -38,6 +38,10 @@ getting-started:
       - Implement Test
       - View Log
   - name: Set Up
+    items:
+      - Driver
+      - Driver Configuration
+      - Other
 
 components:
   - name: Base
