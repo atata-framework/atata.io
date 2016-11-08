@@ -32,7 +32,11 @@ getting-started:
   - name: Introduction
   - name: Demo
   - name: Usage
-  - name: Logging
+    items:
+      - Define Settings
+      - Define Page Object Class
+      - Implement Test
+      - Log
   - name: Set Up
 
 components:
