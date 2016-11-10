@@ -41,6 +41,7 @@ getting-started:
     items:
       - Driver
       - Driver Configuration
+      - Log
       - Other
 
 components:
