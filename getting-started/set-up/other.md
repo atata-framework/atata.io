@@ -1,7 +1,7 @@
 Name | Description
 ---- | -----------
-`UseBaseUrl(string baseUrl)` | Specifies the base URL.
-`UseTestName(string name)` | Specifies the name of the test.
+`UseBaseUrl(string baseUrl)` | Sets the base URL.
+`UseTestName(string name)` | Sets the name of the test.
 `UseNUnitTestName()` | Defines that the name of the test should be taken from the NUnit test.
 `UseRetryTimeout(TimeSpan timeout)` | Sets the retry timeout for a search of element/control.
 `UseRetryInterval(TimeSpan interval)` | Sets the retry interval for a search of element/control.
