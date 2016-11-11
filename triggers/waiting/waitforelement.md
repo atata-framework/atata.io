@@ -28,9 +28,9 @@ Name | Description
 `ScopeSource` | Gets or sets the scope source.
 `ThrowOnPresenceFailure` | Gets or sets a value indicating whether to throw the exception on the presence (exists or visible) failure. The default value is true.
 `ThrowOnAbsenceFailure` | Gets or sets a value indicating whether to throw the exception on the absence (missing or hidden) failure. The default value is true.
-`PresenceTimeout` | Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `RetrySettings.Timeout.TotalSeconds`.
-`AbsenceTimeout` | Gets or sets the absence (missing or hidden) timeout in seconds. The default value is taken from `RetrySettings.Timeout.TotalSeconds`.
-`RetryInterval` | Gets or sets the retry interval. The default value is taken from `RetrySettings.RetryInterval.TotalSeconds`.
+`PresenceTimeout` | Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
+`AbsenceTimeout` | Gets or sets the absence (missing or hidden) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
+`RetryInterval` | Gets or sets the retry interval. The default value is taken from `AtataContext.Current.RetryInterval.TotalSeconds`.
 {:.table.table-members}
 
 <a id="waitby" class="header-anchor"></a>
