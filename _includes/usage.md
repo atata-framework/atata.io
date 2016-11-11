@@ -6,9 +6,9 @@ using _ = SampleApp.AutoTests.SignInPage;
 
 namespace SampleApp.AutoTests
 {
+    [Url("signin")]
     [VerifyTitle]
     [VerifyH1]
-    [NavigateTo("signin")]
     public class SignInPage : Page<_>
     {
         public TextInput<_> Email { get; private set; }
