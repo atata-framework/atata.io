@@ -29,6 +29,7 @@ nav_links:
   #Advanced: "advanced"
 
 getting-started:
+  - name: Installation
   - name: Introduction
   - name: Demo
   - name: Usage
