@@ -46,6 +46,9 @@ getting-started:
       - Log Configuration
       - Screenshots
       - Other
+  - name: Navigation
+    items:
+      - Go
 
 components:
   - name: Base
