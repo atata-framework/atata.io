@@ -49,6 +49,7 @@ getting-started:
   - name: Navigation
     items:
       - Go
+      - Transition
 
 components:
   - name: Base

@@ -239,6 +239,13 @@ p.info {
   border-left: 4px solid #1F90AD;
   padding: 6px 12px; }
 
+p.file-name {
+  margin-bottom: 0;
+  font-style: italic;
+  padding-left: 6px; }
+  p.file-name code {
+    background-color: transparent; }
+
 .highlighter-rouge .hll {
   background-color: #ffffcc; }
 

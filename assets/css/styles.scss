@@ -204,6 +204,16 @@ p.info {
     padding: 6px 12px;
 }
 
+p.file-name {
+    margin-bottom: 0;
+    font-style: italic;
+    padding-left: 6px;
+
+    code {
+        background-color: transparent;
+    }
+}
+
 @import "pygments-default";
 @import "pygments-vs";
 
