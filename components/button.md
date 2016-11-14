@@ -13,7 +13,7 @@ or
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
-### ButtonControl
+### Button Control
 
 ```cs
 using Atata;
@@ -23,7 +23,7 @@ namespace SampleApp
 {
     public class SamplePage : Page<_>
     {
-        public ButtonControl<_> Save { get; private set; }
+        public Button<_> Save { get; private set; }
     }
 }
 ```
@@ -44,7 +44,7 @@ namespace SampleApp
 {
     public class SamplePage : Page<_>
     {
-        public Button<_> Save { get; private set; }
+        public ButtonDelegate<_> Save { get; private set; }
     }
 }
 ```
@@ -54,7 +54,7 @@ Go.To<SamplePage>().
 ```
 
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Save.Should().Exist()`.
-{:class="warning"}
+{:.warning}
 
 ### Navigation
 
@@ -68,7 +68,7 @@ namespace SampleApp
 {
     public class SamplePage1 : Page<_>
     {
-        public Button<SamplePage2, _> Save { get; private set; }
+        public ButtonDelegate<SamplePage2, _> Save { get; private set; }
     }
 }
 ```
@@ -80,7 +80,7 @@ namespace SampleApp
 {
     public class SamplePage2 : Page<_>
     {
-        public ButtonControl<SamplePage1, _> GoBack { get; private set; }
+        public Button<SamplePage1, _> GoBack { get; private set; }
     }
 }
 ```
@@ -98,4 +98,4 @@ Note that `Save` delegate property is used as the method that returns the instan
 Name | Description
 ---- | -----------
 `ClickAndGo()` | Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
-{:class="table table-members"}
+{:.table.table-members}

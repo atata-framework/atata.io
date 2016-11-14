@@ -7,7 +7,7 @@ Represents any HTML element. Default search is performed by the id attribute.
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
-### ClickableControl
+### Clickable Control
 
 ```cs
 using Atata;
@@ -18,7 +18,7 @@ namespace SampleApp
     public class SamplePage : Page<_>
     {
         [FindById("open-button")]
-        public ClickableControl<_> OpenButton { get; private set; }
+        public Clickable<_> OpenButton { get; private set; }
     }
 }
 ```
@@ -38,7 +38,7 @@ namespace SampleApp
     public class SamplePage : Page<_>
     {
         [FindById("open-button")]
-        public Clickable<_> Open { get; private set; }
+        public ClickableDelegate<_> Open { get; private set; }
     }
 }
 ```
@@ -48,7 +48,7 @@ Go.To<SamplePage>().
 ```
 
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Open.Should().Exist()`.
-{:class="warning"}
+{:.warning}
 
 ### Navigation
 
@@ -62,7 +62,7 @@ namespace SampleApp
 {
     public class ItemsPage : Page<_>
     {
-        public Clickable<ItemPage, _> Open { get; private set; }
+        public ClickableDelegate<ItemPage, _> Open { get; private set; }
     }
 }
 ```
@@ -74,7 +74,7 @@ namespace SampleApp
 {
     public class ItemPage : Page<_>
     {
-        public ClickableControl<ItemsPage, _> GoBack { get; private set; }
+        public Clickable<ItemsPage, _> GoBack { get; private set; }
     }
 }
 ```
@@ -92,4 +92,4 @@ Note that `Open` delegate property is being used as the method that returns the 
 Name | Description
 ---- | -----------
 `ClickAndGo()` | Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
-{:class="table table-members"}
+{:.table.table-members}

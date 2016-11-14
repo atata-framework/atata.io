@@ -74,9 +74,9 @@ namespace SampleApp
 string userName;
 
 Go.To<UsersPage>().
-    New(). // Navigates to UserEditorPage.
+    New.ClickAndGo(). // Navigates to UserEditorPage.
         Name.SetRandom(out userName).
-        Save(). // Clicking the Save button navigates back to UsersPage.
+        Save.ClickAndGo(). // Clicking the Save button navigates back to UsersPage.
     Users.Rows[x => x.Name == userName].ClickAndGo(). // Clicking the row navigates to UserDetailsPage.
         Name.Should.Equal(userName);
 ```

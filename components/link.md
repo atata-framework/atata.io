@@ -7,7 +7,7 @@ Represents the `<a>` link control. Default search is performed by the content.
 Supports `[GoTemporarily]` settings attribute.
 {:.info}
 
-### LinkControl
+### Link Control
 
 ```cs
 using Atata;
@@ -17,7 +17,7 @@ namespace SampleApp
 {
     public class SamplePage : Page<_>
     {
-        public LinkControl<_> Create { get; private set; }
+        public Link<_> Create { get; private set; }
     }
 }
 ```
@@ -38,7 +38,7 @@ namespace SampleApp
 {
     public class SamplePage : Page<_>
     {
-        public Link<_> Create { get; private set; }
+        public LinkDelegate<_> Create { get; private set; }
     }
 }
 ```
@@ -48,7 +48,7 @@ Go.To<SamplePage>().
 ```
 
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Create.Should().Exist()`.
-{:class="warning"}
+{:.warning}
 
 ### Navigation
 
@@ -62,7 +62,7 @@ namespace SampleApp
 {
     public class ItemsPage : Page<_>
     {
-        public Link<ItemCreationPage, _> Create { get; private set; }
+        public LinkDelegate<ItemCreationPage, _> Create { get; private set; }
     }
 }
 ```
@@ -74,7 +74,7 @@ namespace SampleApp
 {
     public class ItemCreationPage : Page<_>
     {
-        public LinkControl<ItemsPage, _> GoBack { get; private set; }
+        public Link<ItemsPage, _> GoBack { get; private set; }
     }
 }
 ```
@@ -92,4 +92,4 @@ Note that `Create` delegate property is being used as the method that returns th
 Name | Description
 ---- | -----------
 `ClickAndGo()` | Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
-{:class="table table-members"}
+{:.table.table-members}
