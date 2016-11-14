@@ -197,11 +197,15 @@ a.enum-value-reference code {
   .navbar-default .navbar-header a {
     padding-right: 8px; } }
 
-.home-header {
+h1.home-header {
   text-align: center;
   font-size: 76px;
   margin-top: 14px;
   color: white; }
+
+@media (min-width: 480px) {
+  h2.home-header {
+    text-align: center; } }
 
 .home-top-background {
   position: absolute;
