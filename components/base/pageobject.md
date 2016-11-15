@@ -23,4 +23,6 @@ Name | Description
 `GoBack<TOther>(TOther previousPageObject = null)` | Navigates back to the previous page.
 `GoForward<TOther>(TOther nextPageObject = null)` | Navigates forward to the next page.
 `CloseWindow()` | Closes the current window.
+`Wait(TimeSpan time)` | Waits the specified time.
+`Wait(double seconds)` | Waits the specified time in seconds.
 {:.table.table-members}
