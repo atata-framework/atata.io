@@ -22,8 +22,8 @@ public abstract class UIComponent<TOwner> : UIComponent, IUIComponent<TOwner>
 
 Name | Description | Usage Example
 ---- | ----------- | -------------
-`Attributes` | Gets the scope element's attributes. | `Attributes["value"] == 1`
-`Css` | Gets the scope element's CSS properties. | `Css["width"] > 400`
+`Attributes` | Gets the `UIComponentAttributeProvider<TOwner>` instance that provides an access to the scope element's attributes. | `Attributes["value"].Should.Equal("val")`
+`Css` | Gets the `UIComponentCssProvider<TOwner>` instance that provides an access to the scope element's CSS properties. | `Css["display"].Should.Equal("block")`
 `Content` | Gets the DataProvider instance for the text content. | `Content.Should.Contain("some value")`
 `Should` | Gets the verification provider that gives a set of verification extension methods.  | `Should.Exist()`
 {:.table.table-members}
