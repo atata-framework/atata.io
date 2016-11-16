@@ -14,4 +14,5 @@ Name | Type | Description
 `On` | [`TriggerEvents`](#triggerevents) | Gets or sets the trigger events.
 `Priority` | [`TriggerPriority`](#triggerpriority) | Gets or sets the priority. The default value is `Medium`.
 `AppliesTo` | [`TriggerScope`](#triggerscope) | Gets or sets the scope to apply the trigger to. The default value is `Self`.
+`IsDefinedAtComponentLevel` | `bool`{:.simple} | Gets a value indicating whether this trigger is defined at the component level.
 {:.table.table-members.table-members-with-type}
