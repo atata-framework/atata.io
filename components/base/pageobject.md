@@ -26,3 +26,6 @@ Name | Description
 `Wait(TimeSpan time)` | Waits the specified time.
 `Wait(double seconds)` | Waits the specified time in seconds.
 {:.table.table-members}
+
+Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+{:.info}

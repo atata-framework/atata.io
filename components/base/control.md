@@ -25,3 +25,6 @@ Name | Description
 `DoubleClick()` | Double-clicks the control.
 `RightClick()` | Right-clicks the control.
 {:.table.table-members}
+
+Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
+{:.info}

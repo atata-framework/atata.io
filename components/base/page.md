@@ -24,3 +24,6 @@ namespace SampleApp
     }
 }
 ```
+
+Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+{:.info}

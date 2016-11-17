@@ -36,5 +36,5 @@ namespace SampleApp
 }
 ```
 
-Supports `[PageObjectDefinition]`, `[WindowTitleElementDefinition]`, `[ControlFinding]` and `[TermFindSettings]` settings attributes.
-{:class="info"}
+Inherited class supports `[PageObjectDefinition]`, `[WindowTitleElementDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+{:.info}
