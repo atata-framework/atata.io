@@ -52,7 +52,7 @@ getting-started:
       - Transition
 
 components:
-  - name: Base
+  - name: Base Components
     items:
       - UIComponent
       - Control
