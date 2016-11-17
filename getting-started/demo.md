@@ -1,4 +1,4 @@
-[The Demo Project](https://github.com/atata-framework/atata-sample-app-tests) tests application demonstrates different testing approaches and features of the Atata framework.
+[The Demo Project](https://github.com/atata-framework/atata-sample-app-tests) tests application demonstrates different testing approaches and features of the Atata framework. It uses [Atata Sample App](https://atata-framework.github.io/atata-sample-app/#!/) ([repository](https://github.com/atata-framework/atata-sample-app)) as a testing website and NUnit 3 as a test engine.
 
 ### Features
 * Atata test initialization and settings set-up
