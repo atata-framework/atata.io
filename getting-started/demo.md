@@ -1,4 +1,4 @@
-The [Demo Project](https://github.com/atata-framework/atata-sample-app-tests) tests application demonstrates different testing approaches and features of the Atata framework.
+[The Demo Project](https://github.com/atata-framework/atata-sample-app-tests) tests application demonstrates different testing approaches and features of the Atata framework.
 
 ### Features
 * Atata test initialization and settings set-up
