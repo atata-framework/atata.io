@@ -21,6 +21,6 @@ public class CustomControl<TOwner> : Control<TOwner>
 
 Name | Type | Description
 ---- | ---- | -----------
-`ControlType` | `Type` | Gets or sets the type of the control (e.g.: `typeof(LinkControl<>)`, `typeof(EditableField<,>)`).
+`ControlType` | `Type` | Gets or sets the type of the control (e.g.: `typeof(Link<>)`, `typeof(EditableField<,>)`).
 `ParentComponentType` | `Type` | Gets or sets the type of the parent component.
 {:.table.table-members.table-members-with-type}
