@@ -9,7 +9,6 @@ public TextInput<_> FirstName { get; private set; }
 
 Value | Description | Example
 ----- | ----------- | -------
-{% include termcasemember.md name="Inherit" %} | Uses the inherited case or none if missing. |
 {% include termcasemember.md name="None" %} | Doesn't apply the case. |
 {% include termcasemember.md name="Title" %} | Uses title case. | `Some Term`
 {% include termcasemember.md name="Sentence" %} | Uses sentence case. | `Some term`
