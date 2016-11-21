@@ -5,7 +5,6 @@ By default all find attributes use `Parent` value, meaning that every control is
 
 Value | Description
 ----- | -----------
-`Inherit` | Uses the inherited value.
 `Parent` | Uses the parent's scope.
 `Grandparent` | Uses the grandparent's (the parent of the parent) scope.
 `PageObject` | Uses the owner page object's scope.
