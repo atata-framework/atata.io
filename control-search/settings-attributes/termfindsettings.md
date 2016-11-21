@@ -17,7 +17,7 @@ using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
-    [TermFindSettings(FindTermBy.Label, TermMatch.Contains, TermCase.Sentence, Format = "{0}:")]
+    [TermFindSettings(FindTermBy.Label, Match = TermMatch.Contains, Case = TermCase.Sentence, Format = "{0}:")]
     public class SamplePage : Page<_>
     {
         public TextInput<_> FirstName { get; private set; }
