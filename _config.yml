@@ -94,6 +94,7 @@ control-search:
       - Multiple Terms
       - TermMatch
       - TermCase
+      - Visibility
       - ScopeSource
   - name: Base Attributes
     items:
