@@ -84,7 +84,7 @@ Go.To<SamplePage1>().
         GoBack.ClickAndGo();
 ```
 
-Note that `Open` delegate property is being used as the method that returns the instance of `ItemPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `ClickableControl` class type.
+Note that `Open` delegate property is being used as the method that returns the instance of `ItemPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `Clickable` class type.
 {:class="info"}
 
 ### Methods

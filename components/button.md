@@ -90,7 +90,7 @@ Go.To<SamplePage1>().
         GoBack.ClickAndGo();
 ```
 
-Note that `Save` delegate property is used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is required to call `ClickAndGo` method as it is a property of `ButtonControl` class type.
+Note that `Save` delegate property is used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is required to call `ClickAndGo` method as it is a property of `Button` class type.
 {:class="info"}
 
 ### Methods

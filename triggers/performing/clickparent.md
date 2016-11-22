@@ -24,7 +24,7 @@ Bootstrap's dropdown control can be defined wth the following class:
 [ControlDefinition(ContainingClass = "dropdown", ComponentTypeName = "dropdown")]
 [ControlFinding(FindTermBy.ChildContent)]
 [ClickParent(AppliesTo = TriggerScope.Children)]
-public class BSDropdown<TOwner> : ClickableControl<TOwner>
+public class BSDropdown<TOwner> : Clickable<TOwner>
     where TOwner : PageObject<TOwner>
 {
 }

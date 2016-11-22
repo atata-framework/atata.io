@@ -17,7 +17,7 @@ Name | Type | Description
 Name | Type | Description
 ---- | ---- | -----------
 `Format` | `string`{:.simple} | Gets or sets the format.
-`CutEnding` | `bool`{:.simple} | Gets or sets a value indicating whether the name should be cut considering the `IgnoreNameEndings` property value of `[ControlDefinition]` and `[PageObjectDefinition]` attributes. The default value is true.
+`CutEnding` | `bool`{:.simple} | Gets or sets a value indicating whether the name should be cut considering the `IgnoreNameEndings` property value of `[ControlDefinition]` and `[PageObjectDefinition]` attributes. The default value is `true`.
 `DefaultCase` | [`TermCase`](#termcase) | Gets the default term case. It is protected abstract property that should be overridden to specify the most suitable value.
-`DefaultMatch` | [`TermMatch`](#termmatch) | Gets the default match. The default value is Equals. It is protected virtual property that can be overridden.
+`DefaultMatch` | [`TermMatch`](#termmatch) | Gets the default match. The default value is `Equals`. It is protected virtual property that can be overridden.
 {:.table.table-members.table-members-with-type}
