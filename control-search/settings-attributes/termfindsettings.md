@@ -36,4 +36,5 @@ Name | Type | Description
 `Case` | [`TermCase`](#termcase) | Gets or sets the term case.
 `Match` | [`TermMatch`](#termmatch) | Gets or sets the match.
 `Format` | `string`{:.simple} | Gets or sets the format.
+`CutEnding` | `bool`{:.simple} | Gets or sets a value indicating whether the name should be cut considering the `IgnoreNameEndings` property value of `[ControlDefinition]` and `[PageObjectDefinition]` attributes. The default value is true.
 {:.table.table-members.table-members-with-type}
