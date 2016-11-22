@@ -60,9 +60,11 @@ Value | Description
 `Hidden` | Waits until the element will be hidden.
 `MissingOrHidden` | Waits until the element will be missing or hidden.
 `Visible` | Waits until the element will be visible.
-`Exists` | Waits until the element will exist.
-`VisibleAndHidden` | Waits until the element will be visible and than until it will be hidden.
-`VisibleAndMissing` | Waits until the element will be visible and than until it will be missing.
-`MissingAndVisible` | Waits until the element will be missing and than until it will be visible.
-`HiddenAndVisible` | Waits until the element will be hidden and than until it will be visible.
+`VisibleOrHidden` | Waits until the element will be visible or hidden.
+`VisibleThenHidden` | Waits until the element will be visible and then until it will be hidden.
+`VisibleThenMissing` | Waits until the element will be visible and then until it will be missing.
+`VisibleThenMissingOrHidden` | Waits until the element will be visible and then until it will be missing or hidden.
+`MissingThenVisible` | Waits until the element will be missing and then until it will be visible.
+`HiddenThenVisible` | Waits until the element will be hidden and then until it will be visible.
+`MissingOrHiddenThenVisible` | Waits until the element will be missing or hidden and then until it will be visible.
 {:.table.table-members.table-condensed}
