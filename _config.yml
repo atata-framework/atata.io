@@ -31,13 +31,13 @@ nav_links:
 getting-started:
   - name: Installation
   - name: Introduction
-  - name: Demo
   - name: Usage
     items:
       - Define Settings
       - Define Page Object Class
       - Implement Test
       - View Log
+  - name: Demo
   - name: Set Up
     items:
       - Driver
