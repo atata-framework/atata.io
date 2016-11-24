@@ -210,9 +210,9 @@ h1.home-header {
 .home-top-background {
   position: absolute;
   left: 0;
-  top: 138px;
+  top: 162px;
   right: 0;
-  height: 220px;
+  height: 228px;
   background-color: #D35D2E;
   z-index: -1; }
 
@@ -221,8 +221,9 @@ h1.home-header {
 
 .logo-container {
   background-color: white;
-  width: 100px;
-  margin: 0 auto; }
+  width: 128px;
+  margin: 0 auto;
+  padding-bottom: 4px; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #465C66; }
