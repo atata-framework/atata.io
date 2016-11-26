@@ -66,6 +66,7 @@ components:
       - NumberInput
       - DateInput
       - TimeInput
+      - HiddenInput
       - CheckBox
       - CheckBoxList
       - RadioButton
