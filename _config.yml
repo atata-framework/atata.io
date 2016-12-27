@@ -176,3 +176,5 @@ links:
     atata_github: https://github.com/atata-framework/atata
     atata_nuget: https://www.nuget.org/packages/Atata
     atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras
+    atata_bootstrap_nuget: https://www.nuget.org/packages/Atata.Bootstrap
+    atata_kendoui_nuget: https://www.nuget.org/packages/Atata.KendoUI
