@@ -11,5 +11,5 @@ The Atata package depends on the following packages:
 * [Selenium.Support](https://www.nuget.org/packages/Selenium.Support)
 * [Atata.WebDriverExtras]({{ site.links.atata_webdriverextras_nuget }})
 
-You might need also to install a driver package for the specific browser: [Selenium.WebDriver.ChromeDriver](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver/), [Selenium.WebDriver.IEDriver](https://www.nuget.org/packages/Selenium.WebDriver.IEDriver/), etc.
+You might need also to install a driver package for the specific browser: [WebDriver.ChromeDriver.win32](https://www.nuget.org/packages/WebDriver.ChromeDriver.win32/), [WebDriver.IEDriverServer.win32](https://www.nuget.org/packages/WebDriver.IEDriverServer.win32/), etc.
 {:.info}
