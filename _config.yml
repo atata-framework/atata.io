@@ -82,6 +82,7 @@ components:
       - Enum Content
       - Text
       - H1-H6
+      - Label
       - Number
       - Currency
       - Date
