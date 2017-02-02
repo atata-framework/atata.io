@@ -22,9 +22,10 @@ public abstract class UIComponent<TOwner> : UIComponent, IUIComponent<TOwner>
 
 Name | Description | Usage Example
 ---- | ----------- | -------------
-`Attributes` | Gets the `UIComponentAttributeProvider<TOwner>` instance that provides an access to the scope element's attributes. | `Attributes["value"].Should.Equal("val")`
+`Attributes` | Gets the `UIComponentAttributeProvider<TOwner>` instance that provides an access to the scope element's attributes. | `Attributes.Class.Should.Contain("some-class")` or `Attributes["data-value"].Should.Equal("val")`
 `Css` | Gets the `UIComponentCssProvider<TOwner>` instance that provides an access to the scope element's CSS properties. | `Css["display"].Should.Equal("block")`
-`Content` | Gets the DataProvider instance for the text content. | `Content.Should.Contain("some value")`
+`IsVisible` | Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the control is visible. | `IsVisible.Should.BeTrue()`
+`Content` | Gets the `DataProvider<string, TOwner>` instance for the text content. | `Content.Should.Contain("some value")`
 `Should` | Gets the verification provider that gives a set of verification extension methods.  | `Should.Exist()`
 {:.table.table-members}
 
