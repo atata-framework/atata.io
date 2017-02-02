@@ -1,4 +1,4 @@
-Indicates that the scroll down should be performed on the specified event. By default occurs before any action.
+Indicates that the scroll down should be performed on the specified event. By default occurs before any access to the component.
 
 ```cs
 public class SamplePage : Page<_>
