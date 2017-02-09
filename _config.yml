@@ -159,6 +159,7 @@ triggers:
       - CloseConfirmBox
       - PressKeys
       - PressEnter
+      - PressEscape
       - PressTab
       - ScrollDown
       - ScrollUp
