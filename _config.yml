@@ -41,7 +41,6 @@ getting-started:
   - name: Set Up
     items:
       - Driver
-      - Driver Configuration
       - Logging
       - Screenshots
       - Other
