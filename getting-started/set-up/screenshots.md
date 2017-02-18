@@ -18,7 +18,7 @@ The list of extension methods to configure `FileScreenshotConsumer`:
 
 Name | Description
 ---- | -----------
-`With(ImageFormat imageFormat)` | Specifies the image format of the log consumer.
+`With(ScreenshotImageFormat imageFormat)` | Specifies the image format of the log consumer.
 `WithFolderPath(Func<string> folderPathBuilder)` | Specifies the folder path builder of the log consumer.
 `WithFileName(Func<ScreenshotInfo, string> fileNameBuilder)` | Specifies the file name builder of the log consumer.
 `WithFilePath(Func<ScreenshotInfo, string> filePathBuilder)` | Specifies the file path builder of the log consumer.
