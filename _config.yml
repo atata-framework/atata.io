@@ -42,8 +42,7 @@ getting-started:
     items:
       - Driver
       - Driver Configuration
-      - Log
-      - Log Configuration
+      - Logging
       - Screenshots
       - Other
   - name: Navigation
