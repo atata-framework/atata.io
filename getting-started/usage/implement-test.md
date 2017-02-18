@@ -1,4 +1,4 @@
-The following sample uses additional [NUnit](https://www.nuget.org/packages/NUnit) and [ChromeDriver](https://www.nuget.org/packages/WebDriver.ChromeDriver.win32/) NuGet packages.
+The following sample uses additional [NUnit](https://www.nuget.org/packages/NUnit/) and [ChromeDriver](https://www.nuget.org/packages/WebDriver.ChromeDriver.win32/) NuGet packages.
 {:.warning}
 
 ```cs
@@ -17,8 +17,10 @@ namespace SampleApp.AutoTests
                 UseChrome().
                 UseBaseUrl("http://atata-framework.github.io/atata-sample-app/#!/").
                 UseNUnitTestName().
-                UseNUnitTestContextLogging().
+                AddNUnitTestContextLogging().
+                AddScreenshotFileSaving().
                 LogNUnitError().
+                TakeScreenshotOnNUnitError().
                 SetUp();
         }
 
