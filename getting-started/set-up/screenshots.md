@@ -14,7 +14,7 @@ By deafault `AddScreenshotFileSaving` method configures `FileScreenshotConsumer`
 * File name format: `$"{screenshotInfo.Number:D2} - {screenshotInfo.PageObjectFullName}{screenshotInfo.Title?.Prepend(" - ")}"`
 * Image format: `Png`.
 
-Here are the extension methods to configure the `FileScreenshotConsumer`:
+The list of extension methods to configure `FileScreenshotConsumer`:
 
 Name | Description
 ---- | -----------
@@ -24,7 +24,7 @@ Name | Description
 `WithFilePath(Func<ScreenshotInfo, string> filePathBuilder)` | Specifies the file path builder of the log consumer.
 {:.table.table-members}
 
-#### Examples
+#### Usage
 
 The below example configures `FileScreenshotConsumer` to use separate folder for each test:
 
@@ -37,7 +37,7 @@ AtataContext.Build().
     SetUp();
 ```
 
-If you do need to take a screenshot only on test failure, you may configure `FileScreenshotConsumer` to save all screenshot files to the same folder:
+If you need to take a screenshot only on test failure, you may configure `FileScreenshotConsumer` to save all screenshot files to the same folder:
 
 ``` cs
 AtataContext.Build().
