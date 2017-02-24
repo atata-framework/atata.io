@@ -7,8 +7,8 @@ PM> Install-Package Atata
 
 The Atata package depends on the following packages:
 
-* [Selenium.WebDriver](https://www.nuget.org/packages/Selenium.WebDriver)
-* [Selenium.Support](https://www.nuget.org/packages/Selenium.Support)
+* [Selenium.WebDriver](https://www.nuget.org/packages/Selenium.WebDriver/)
+* [Selenium.Support](https://www.nuget.org/packages/Selenium.Support/)
 * [Atata.WebDriverExtras]({{ site.links.atata_webdriverextras_nuget }})
 
 You might need also to install a driver package for the specific browser: [WebDriver.ChromeDriver.win32](https://www.nuget.org/packages/WebDriver.ChromeDriver.win32/), [WebDriver.IEDriverServer.win32](https://www.nuget.org/packages/WebDriver.IEDriverServer.win32/), etc.
