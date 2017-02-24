@@ -212,12 +212,29 @@ h1.home-header {
   left: 0;
   top: 162px;
   right: 0;
-  height: 228px;
+  height: 227px;
   background-color: #D35D2E;
   z-index: -1; }
 
 .home-description {
-  margin-bottom: 26px; }
+  margin-bottom: 14px; }
+
+.home-links-background {
+  position: absolute;
+  background-color: #EEEEEE;
+  left: 0;
+  right: 0;
+  height: 496px;
+  z-index: -2; }
+  @media (min-width: 768px) {
+    .home-links-background {
+      height: 135px; } }
+
+.home-links a {
+  display: inline-block;
+  margin-bottom: 3px; }
+  .home-links a img {
+    height: 20px; }
 
 .logo-container {
   background-color: white;
