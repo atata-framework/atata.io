@@ -704,7 +704,8 @@ p.file-name {
   width: 555px;
   height: 335px;
   border: 1px solid #ccc;
-  border-radius: 4px; }
+  border-radius: 4px;
+  margin-bottom: 10px; }
 
 .home-usage-section span.glyphicon {
   position: absolute;
@@ -712,4 +713,8 @@ p.file-name {
   top: 149px;
   font-size: 2.5em;
   color: #1F90AD; }
+
+.btn-get-started {
+  margin-top: 20px;
+  margin-bottom: 16px; }
 

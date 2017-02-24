@@ -309,6 +309,7 @@ p.file-name {
         height: 335px;
         border: 1px solid #ccc;
         border-radius: 4px;
+        margin-bottom: 10px;
     }
 
     span.glyphicon {
@@ -318,4 +319,9 @@ p.file-name {
         font-size: 2.5em;
         color: #1F90AD;
     }
+}
+
+.btn-get-started {
+    margin-top: 20px;
+    margin-bottom: 16px;
 }
