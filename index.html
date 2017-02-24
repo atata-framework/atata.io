@@ -121,5 +121,23 @@ layout: default
     </div>
 </div>
 <h2 class="page-header home-header">Usage</h2>
-    {% capture usage-include %}{% include usage.md %}{% endcapture %}
-{{ usage-include | markdownify }}
+<h3>Define Page Object Class</h3>
+<div class="row home-usage-section">
+    <div class="col-lg-6">
+        {% capture usage-pageobject-include %}{% include usage-pageobject.md %}{% endcapture %}
+        {{ usage-pageobject-include | markdownify }}
+    </div>
+    <div class="col-lg-6 hidden-xs">
+        <img src="./assets/images/usage-pageobject.png" alt="Sign in page"/>
+    </div>
+</div>
+<h3>Implement Test</h3>
+<div class="row home-usage-section">
+    <div class="col-lg-6">
+        {% capture usage-test-include %}{% include usage-test.md %}{% endcapture %}
+        {{ usage-test-include | markdownify }}
+    </div>
+    <div class="col-lg-6 hidden-xs">
+        <img src="./assets/images/usage-test.png" alt="Sign in page with filled data" />
+    </div>
+</div>

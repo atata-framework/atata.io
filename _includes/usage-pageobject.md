@@ -1,5 +1,3 @@
-### Define Page Object Class
-
 ```cs
 using Atata;
 using _ = SampleApp.AutoTests.SignInPage;
@@ -17,18 +15,5 @@ namespace SampleApp.AutoTests
 
         public Button<_> SignIn { get; private set; }
     }
-}
-```
-
-### Implement Test
-
-```cs
-[Test]
-public void SignIn()
-{
-    Go.To<SignInPage>().
-        Email.Set("admin@mail.com").
-        Password.Set("abc123").
-        SignIn.Click();
 }
 ```

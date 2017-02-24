@@ -696,3 +696,13 @@ p.file-name {
   40%, 80% {
     transform: rotate(10deg); } }
 
+@media (min-width: 1200px) {
+  .home-usage-section pre.highlight {
+    height: 335px; } }
+
+.home-usage-section img {
+  width: 555px;
+  height: 335px;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
+

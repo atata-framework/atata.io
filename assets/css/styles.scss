@@ -198,6 +198,7 @@ h1.home-header {
     a {
         display: inline-block;
         margin-bottom: 3px;
+
         img {
             height: 20px;
         }
@@ -293,5 +294,20 @@ p.file-name {
 
     40%,80% {
         transform: rotate(10deg);
+    }
+}
+
+.home-usage-section {
+    @media (min-width: 1200px) {
+        pre.highlight {
+            height: 335px;
+        }
+    }
+
+    img {
+        width: 555px;
+        height: 335px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
     }
 }
