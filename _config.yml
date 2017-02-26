@@ -33,6 +33,7 @@ getting-started:
   - name: Introduction
   - name: Usage
     items:
+      - Create Project
       - Define Settings
       - Define Page Object Class
       - Implement Test
