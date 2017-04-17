@@ -8,7 +8,7 @@ Name | Description
 
 #### File Screenshots Configuration
 
-By deafault `AddScreenshotFileSaving` method configures `FileScreenshotConsumer` with the following settings:
+By default `AddScreenshotFileSaving` method configures `FileScreenshotConsumer` with the following settings:
 
 * Folder path: `$@"Logs\{AtataContext.BuildStart:yyyy-MM-dd HH_mm_ss}\{AtataContext.Current.TestName}"`
 * File name format: `$"{screenshotInfo.Number:D2} - {screenshotInfo.PageObjectFullName}{screenshotInfo.Title?.Prepend(" - ")}"`
