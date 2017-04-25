@@ -9,7 +9,7 @@ For example, it is possible to replace the default strategy of control search wi
 Or set another scope source for a custom control:
 
 ```cs
-[FindSettings(FindTermBy.Label, ScopeScouce = ScopeSource.PageObject)]
+[FindSettings(FindTermBy.Label, ScopeSource = ScopeSource.PageObject)]
 public class LoginControl<TOwner> : Control<TOwner>
     where TOwner : PageObject<TOwner>
 {
