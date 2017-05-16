@@ -89,6 +89,7 @@ components:
       - DateTime
   - name: Lists
     items:
+      - ListItem
       - UnorderedList
       - OrderedList
 
