@@ -87,6 +87,9 @@ components:
       - Date
       - Time
       - DateTime
+  - name: Lists
+    items:
+      - UnorderedList
 
 control-search:
   - name: General
