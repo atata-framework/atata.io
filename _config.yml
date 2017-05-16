@@ -90,6 +90,7 @@ components:
   - name: Lists
     items:
       - UnorderedList
+      - OrderedList
 
 control-search:
   - name: General
