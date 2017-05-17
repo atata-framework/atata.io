@@ -94,6 +94,7 @@ components:
       - ListItem
       - UnorderedList
       - OrderedList
+  - name: Frame
 
 control-search:
   - name: General
