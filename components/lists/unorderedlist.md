@@ -1,5 +1,8 @@
 Represents the unordered list control (`<ul>`). Default search finds the first occurring `<ul>` element.
 
+Inherited from {% include clsref.md name="ItemsControl" %}.
+{:.info}
+
 ```html
 <div>
     <ul id="simple">

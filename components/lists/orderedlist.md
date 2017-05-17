@@ -1,5 +1,8 @@
 Represents the ordered list control (`<ol>`). Default search finds the first occurring `<ol>` element.
 
+Inherited from {% include clsref.md name="ItemsControl" %}.
+{:.info}
+
 ```html
 <div>
     <ol id="simple">
