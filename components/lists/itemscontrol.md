@@ -46,7 +46,7 @@ Go.To<SamplePage>().
     });
 ```
 
-### Properties
+#### Properties
 
 Name | Description | Usage Example
 ---- | ----------- | -------------
