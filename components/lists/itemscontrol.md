@@ -26,7 +26,7 @@ namespace SampleApp
         [ControlDefinition("div", ContainingClass = "product", ComponentTypeName = "product item")]
         public class ProductItem : Control<_>
         {
-            public H1<_> Title { get; private set; }
+            public H4<_> Title { get; private set; }
 
             [FindByXPath("span")]
             public Text<_> Description { get; private set; }
