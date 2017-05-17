@@ -23,6 +23,7 @@ namespace SampleApp
         [FindById]
         public ItemsControl<ProductItem, _> Products { get; private set; }
 
+        [ControlDefinition("div", ContainingClass = "product", ComponentTypeName = "product item")]
         public class ProductItem : Control<_>
         {
             public H1<_> Title { get; private set; }
