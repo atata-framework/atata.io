@@ -58,6 +58,7 @@ components:
       - PageObject
       - Page
       - PopupWindow
+      - Field
   - name: Inputs
     items:
       - TextInput
