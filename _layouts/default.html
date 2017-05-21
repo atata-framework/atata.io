@@ -5,8 +5,10 @@
 </head>
 <body>
     {% include nav.html %}
-    <div class="container at-docs-container">
-        {{ content }}
+    <div class="at-docs-container">
+        <div class="container">
+            {{ content }}
+        </div>
     </div>
     {% include footer.html %}
     {% include scripts.html %}

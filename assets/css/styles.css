@@ -1,12 +1,15 @@
 ﻿body {
-  position: relative; }
-  body > .container {
-    padding: 60px 15px 0; }
+  position: relative;
+  background-color: #f7f7f7; }
+  body > .at-docs-container {
+    background-color: white;
+    padding-bottom: 14px; }
+    body > .at-docs-container > .container {
+      padding: 60px 15px 0; }
 
 .footer {
   width: 100%;
   height: 40px;
-  margin-top: 14px;
   background-color: #f7f7f7; }
   .footer > .container {
     padding-top: 10px; }
@@ -201,7 +204,9 @@ h1.home-header {
   text-align: center;
   font-size: 76px;
   margin-top: 14px;
-  color: white; }
+  color: white;
+  position: relative;
+  z-index: 2; }
 
 @media (min-width: 480px) {
   h2.home-header {
@@ -214,10 +219,12 @@ h1.home-header {
   right: 0;
   height: 227px;
   background-color: #D35D2E;
-  z-index: -1; }
+  z-index: 1; }
 
 .home-description {
-  margin-bottom: 14px; }
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2; }
 
 .home-links-background {
   position: absolute;
@@ -225,7 +232,7 @@ h1.home-header {
   left: 0;
   right: 0;
   height: 496px;
-  z-index: -2; }
+  z-index: 0; }
   @media (min-width: 768px) {
     .home-links-background {
       height: 135px; } }
@@ -240,7 +247,9 @@ h1.home-header {
   background-color: white;
   width: 128px;
   margin: 0 auto;
-  padding-bottom: 4px; }
+  padding-bottom: 4px;
+  position: relative;
+  z-index: 2; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #465C66; }
