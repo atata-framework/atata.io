@@ -336,3 +336,15 @@ p.file-name {
     margin-top: 20px;
     margin-bottom: 16px;
 }
+
+.tutorial-list {
+    li {
+        margin-bottom: 10px;
+
+        a {
+            font-size: 1.2em;
+            font-weight: bold;
+            display: block;
+        }
+    }
+}
