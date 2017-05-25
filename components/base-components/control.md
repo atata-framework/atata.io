@@ -19,11 +19,11 @@ Name | Description | Usage Example
 
 Name | Description
 ---- | -----------
-`Click()` | Clicks the control.
-`Hover()` | Hovers the control.
-`Focus()` | Focuses the control.
-`DoubleClick()` | Double-clicks the control.
-`RightClick()` | Right-clicks the control.
+`Click()` | Clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+`Hover()` | Hovers the control. Also executes `TriggerEvents.BeforeHover` and `TriggerEvents.AfterHover` triggers.
+`Focus()` | Focuses the control. Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` triggers.
+`DoubleClick()` | Double-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+`RightClick()` | Right-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 {:.table.table-members}
 
 Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
