@@ -17,7 +17,14 @@ Inherited class can support `[Format]`, `[Culture]` and other settings attribute
 
 Name | Description
 ---- | -----------
-`Value` | Gets the value.
+`Value` | Gets the value. Also executes `TriggerEvents.BeforeGet` and `TriggerEvents.AfterGet` triggers.
+{:.table.table-members}
+
+#### Methods
+
+Name | Description
+---- | -----------
+`Get(out T value)` | Gets the value and records it to `value` parameter.
 {:.table.table-members}
 
 #### Example
@@ -49,7 +56,7 @@ public class RadioButton<TOwner> : Field<bool, TOwner>
 string textFieldValue;
 
 Go.To<SomePage>().
-    SomeTextField.Get(out fieldValue). // Read the field value to the variable.
+    SomeTextField.Get(out textFieldValue). // Read the field value to the variable.
     SomeTextField.Should.Equal("some value"). // Verify the field value.
     SomeNumberField.Should.BeGreater(10). // Verify the field value.
     SomeRadioButton.Check(). // Check the radio button.
