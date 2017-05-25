@@ -61,6 +61,7 @@ components:
       - Page
       - PopupWindow
       - Field
+      - EditableField
   - name: Inputs
     items:
       - TextInput
