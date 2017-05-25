@@ -1,4 +1,4 @@
-Represents the base class for the page objects.
+Represents the base class for the page objects. Also executes `TriggerEvents.Init` and `TriggerEvents.DeInit` triggers.
 
 #### Syntax
 
