@@ -28,6 +28,7 @@ Name | Description | Usage Example
 `IsVisible` | Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the control is visible. | `IsVisible.Should.BeTrue()`
 `Content` | Gets the `DataProvider<string, TOwner>` instance for the text content. | `Content.Should.Contain("some value")`
 `Should` | Gets the verification provider that gives a set of verification extension methods. | `Should.Exist()`, `Should.BeHidden()` or `Should.BeDisabled()`
+`Triggers` | Gets the set of triggers. Provides the functionality to get/add/remove triggers dynamically. | `Triggers.Add(new WaitAttribute(2))`
 {:.table.table-members}
 
 #### Methods
