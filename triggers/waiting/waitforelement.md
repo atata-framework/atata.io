@@ -25,7 +25,7 @@ Name | Type | Description
 
 Name | Description
 ---- | -----------
-`ScopeSource` | Gets or sets the scope source.
+`ScopeSource` | Gets or sets the scope source. The default value is `ScopeSource.Parent`.
 `ThrowOnPresenceFailure` | Gets or sets a value indicating whether to throw the exception on the presence (exists or visible) failure. The default value is true.
 `ThrowOnAbsenceFailure` | Gets or sets a value indicating whether to throw the exception on the absence (missing or hidden) failure. The default value is true.
 `PresenceTimeout` | Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
