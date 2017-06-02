@@ -1,12 +1,12 @@
 ```cs
 using Atata;
-using _ = SampleApp.AutoTests.SignInPage;
 
 namespace SampleApp.AutoTests
 {
-    [Url("signin")]
-    [VerifyTitle]
-    [VerifyH1]
+    using _ = SignInPage;
+
+    [Url("signin")] // Relative URL of the page.
+    [VerifyH1] // Verifies that H1 header text equals "Sign In".
     public class SignInPage : Page<_>
     {
         public TextInput<_> Email { get; private set; }
