@@ -161,8 +161,10 @@ $navbar-padding-horizontal: 8px;
 
 h1.home-header {
     text-align: center;
-    font-size: 76px;
-    margin-top: 14px;
+    font-size: 90px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 1px;
     color: white;
     position: relative;
     z-index: 2;
@@ -188,6 +190,12 @@ h1.home-header {
     margin-bottom: 14px;
     position: relative;
     z-index: 2;
+
+    > p {
+        color: white;
+        margin: 0 0 18px;
+        display: block;
+    }
 }
 
 .home-links-background {
@@ -216,7 +224,8 @@ h1.home-header {
 
 .logo-container {
     background-color: white;
-    width: 128px;
+    width: 228px;
+    text-align: center;
     margin: 0 auto;
     padding-bottom: 4px;
     position: relative;
