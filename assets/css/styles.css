@@ -716,6 +716,9 @@ p.file-name {
   .home-usage-section pre.highlight {
     height: 335px; } }
 
+.home-usage-section pre.highlight {
+  padding-right: 0; }
+
 .home-usage-section img {
   width: 555px;
   height: 335px;
@@ -728,7 +731,7 @@ p.file-name {
   left: -17px;
   top: 149px;
   font-size: 2.5em;
-  color: #1F90AD; }
+  color: #3384CC; }
 
 .btn-get-started {
   margin-top: 20px;
