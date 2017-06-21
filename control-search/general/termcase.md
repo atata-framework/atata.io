@@ -1,4 +1,4 @@
-The enumeration that specifies the term case. Each find attribute specifies its default term case.
+The enumeration that specifies the term case. Each of {% include clsref.md name="TermFindAttribute" %} attributes specifies its default term case.
 
 The following example applies finding by `first_name` id:
 
@@ -12,7 +12,7 @@ Value | Description | Example
 {% include termcasemember.md name="None" %} | Doesn't apply the case. |
 {% include termcasemember.md name="Title" %} | Uses title case. | `Some Term`
 {% include termcasemember.md name="Sentence" %} | Uses sentence case. | `Some term`
-{% include termcasemember.md name="MidSentence" %} | Uses mid-sentence case where the first word is not capitalised. | `some term`
+{% include termcasemember.md name="MidSentence" %} | Uses mid-sentence case where the first word is not capitalized. | `some term`
 {% include termcasemember.md name="Lower" %} | Uses lower case. | `some term`
 {% include termcasemember.md name="LowerMerged" %} | Uses lower case with words merging. | `someterm`
 {% include termcasemember.md name="Upper" %} | Uses upper case. | `SOME TERM`
@@ -23,5 +23,5 @@ Value | Description | Example
 {% include termcasemember.md name="HyphenKebab" %} | Uses hyphen ('‐') and lower case. | `some‐term`
 {% include termcasemember.md name="PascalKebab" %} | Uses dash ('-') and pascal case. | `Some-Term`
 {% include termcasemember.md name="PascalHyphenKebab" %} | Uses hyphen ('‐') and pascal case. | `Some‐Term`
-{% include termcasemember.md name="Snake" %} | Uses undersore ('_') and lower case. | `some_term`
+{% include termcasemember.md name="Snake" %} | Uses underscore ('_') and lower case. | `some_term`
 {:.table.table-members.table-condensed}
