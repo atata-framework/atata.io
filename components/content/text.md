@@ -1,4 +1,4 @@
-Represents any element containing text content. Default search is performed by the label.
+Represents any element containing text content. Default search finds the first occurring element.
 
 ```html
 <p id="description">Some description text</p>

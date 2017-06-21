@@ -1,4 +1,4 @@
-Represents the hidden input control. Default search is performed by the id attribute.
+Represents the hidden input control. Default search finds the first occurring element.
 
 ```html
 <input type="hidden" id="some-hidden" value="somedata">

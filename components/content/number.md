@@ -1,4 +1,4 @@
-Represents any element containing number content. Default search is performed by the label.
+Represents any element containing number content. Default search finds the first occurring element.
 
 ```html
 <span id="amount">15</span>

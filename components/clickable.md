@@ -1,4 +1,4 @@
-Represents any HTML element. Default search is performed by the id attribute.
+Represents any HTML element. Default search finds the first occurring element.
 
 ```html
 <div id="open-button">Open</div>

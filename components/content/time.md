@@ -1,4 +1,4 @@
-Represents any element containing time content. Default search is performed by the label.
+Represents any element containing time content. Default search finds the first occurring element.
 
 ```html
 <span id="time-of-day">2:45 PM</span>

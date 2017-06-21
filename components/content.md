@@ -1,1 +1,1 @@
-Represents any HTML element containing content. Default search is performed by the label (if is declared in the class inherited from `TableRow`, then by column header).
+Represents any HTML element containing content. Default search finds the first occurring element (if is declared in the class inherited from `TableRow`, then by column header).
