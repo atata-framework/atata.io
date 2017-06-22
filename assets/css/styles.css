@@ -12,7 +12,8 @@
   height: 40px;
   background-color: #f7f7f7; }
   .footer > .container {
-    padding-top: 10px; }
+    padding-top: 10px;
+    text-align: center; }
 
 h1.page-header {
   margin-top: 20px; }
