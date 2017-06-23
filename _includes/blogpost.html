@@ -1,0 +1,16 @@
+{% assign page = include.page %}
+
+<h1>
+    {% if include.isPermalink %}
+    {{ page.title }}
+    {% else %}
+    <a href="{{ page.url }}">{{ page.title }}</a>
+    {% endif %}
+</h1>
+<p class="meta">
+    <span class="date">{{ page.date | date: "%B %e, %Y" }}</span> by <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+</p>
+<hr>
+<div class="post">
+    {{ include.content }}
+</div>

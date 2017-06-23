@@ -1,0 +1,17 @@
+---
+title: Blog
+layout: default
+---
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" role="main">
+
+        <div class="post-list">
+            {% for page in site.posts %}
+            <div class="post-list-item">
+                {% include blogpost.html page=page content=page.content%}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

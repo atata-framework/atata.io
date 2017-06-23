@@ -1,15 +1,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="{{ site.name }} - {{ site.short_description }}">
+<meta name="description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}">
 <meta name="author" content="{{ site.author.name }}">
-<title>{% if page.title %}{{ page.title}} - {{ site.name }}{% else %}{{ site.name }} - {{ site.short_description }}{% endif %}</title>
-<!-- CSS -->
-<link href="{{ baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="{{ baseurl }}/assets/css/styles.min.css" rel="stylesheet">
+<meta name="og:image" href="{{ site.url }}/assets/images/logo.png">
+<meta name="og:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}">
+{% assign pageUrlTruncated = page.url | slice: 0, 7 %}
+<title>{% if page.title %}{{ page.title}} - {{ site.name }}{% if pageUrlTruncated == '/blog/2' %} Blog{% endif %}{% else %}{{ site.name }} - {{ site.short_description }}{% endif %}</title>
 <!-- Favicons -->
-<link rel="apple-touch-icon" href="{{ baseurl }}/assets/images/logo.png">
-<link rel="shortcut icon" href="{{ baseurl }}/favicon.ico?v2" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon">
+<link rel="apple-touch-icon" href="/assets/images/logo.png">
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="Atata" href="/feed.xml">
+<!-- CSS -->
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/styles.min.css" rel="stylesheet">
 
 <script>
     if (window.location.hostname != 'localhost') {

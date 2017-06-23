@@ -1,5 +1,8 @@
 name: Atata
 short_description: "C#/.NET test automation framework"
+description: "C#/.NET test automation framework"
+url: https://atata-framework.github.io
+baseurl: ""
 
 # Dependencies
 markdown: kramdown
@@ -11,23 +14,29 @@ kramdown:
 gems:
   - jekyll-sitemap
 
+defaults:
+- scope:
+    path: ""
+    type: posts
+  values:
+    layout: post
+
 # Permalinks
-permalink: pretty
+#permalink: pretty
+permalink: /blog/:year/:month/:day/:title/
 
 author:
   name: Yevgeniy Shunevych
   github: YevgeniyShunevych
-
-baseurl: ""
-url: ""
+  url: https://github.com/YevgeniyShunevych
 
 nav_links:
   Getting Started: "getting-started"
   Components: "components"
   Control Search: "control-search"
   Triggers: "triggers"
-  #Advanced: "advanced"
   Tutorials: "tutorials"
+  #Blog: "blog"
   Contact: "contact"
 
 getting-started:
@@ -188,6 +197,7 @@ exclude:
 
 links:
     atata_github: https://github.com/atata-framework/atata
+    atata_issues: https://github.com/atata-framework/atata/issues
     atata_gitter: https://gitter.im/atata-framework/atata
     atata_nuget: https://www.nuget.org/packages/Atata/
     atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras/

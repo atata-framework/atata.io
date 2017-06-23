@@ -15,7 +15,9 @@
             <ul class="nav navbar-nav">
                 {% for link in site.nav_links %}
                 {% assign linkRelative = "/" | append: link[1]  | append: "/" %}
-                <li {% if page.url == linkRelative %}class="active"{% endif %}>
+                {% assign linkRelativeLength = linkRelative | size %}
+                {% assign pageUrlTruncated = page.url | slice: 0, linkRelativeLength %}
+                <li {% if pageUrlTruncated == linkRelative %}class="active"{% endif %}>
                     <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>
                 </li>
                 {% endfor %}

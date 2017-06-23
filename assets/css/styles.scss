@@ -362,3 +362,17 @@ p.file-name {
         }
     }
 }
+
+.meta {
+    .date {
+        font-style: italic;
+    }
+}
+
+.label.label-issue-type {
+    display: inline-block;
+    width: 38px;
+    padding: 3px 0;
+    position: relative;
+    top: -1px;
+}
