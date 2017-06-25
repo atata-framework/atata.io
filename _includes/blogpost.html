@@ -14,6 +14,14 @@
 <div class="post">
     {{ include.content }}
 </div>
+<div class="post-footer">
+    {% unless include.isPermalink %}
+    <a href="{{ page.url }}#disqus_thread" class="btn btn-default post-comment-link">Comments</a>
+    {% endunless %}
+    <span class="share-buttons">
+        {% include sharebuttons.html page=page %}
+    </span>
+</div>
 {% if include.isPermalink %}
 <div id="disqus_thread"></div>
 <script>

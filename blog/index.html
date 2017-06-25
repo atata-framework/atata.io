@@ -9,8 +9,7 @@ layout: default
         <div class="post-list">
             {% for page in site.posts %}
             <div class="post-list-item">
-                {% include blogpost.html page=page content=page.content%}
-                <a href="{{ page.url }}#disqus_thread" class="btn btn-default">Comments</a>
+                {% include blogpost.html page=page content=page.content %}
             </div>
             {% endfor %}
         </div>
