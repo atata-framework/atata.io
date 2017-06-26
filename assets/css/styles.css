@@ -767,6 +767,10 @@ p.file-name {
     top: 2px;
     left: -7px; }
 
+img.bordered-image {
+  border: 1px solid #ccc;
+  border-radius: 4px; }
+
 /* Share buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {

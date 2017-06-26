@@ -394,6 +394,11 @@ p.file-name {
     }
 }
 
+img.bordered-image {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 /* Share buttons */
 
 .resp-sharing-button__link,
