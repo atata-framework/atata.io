@@ -1,15 +1,20 @@
 {% assign page = include.page %}
 
-<h1>
-    {% if include.isPermalink %}
-    {{ page.title }}
-    {% else %}
-    <a href="{{ page.url }}">{{ page.title }}</a>
+<div class="post-header">
+    {% if page.image %}
+    <img src="/assets/images/{{ page.image }}" alt="{{ page.image_alt }}" width="120" height="63" class="pull-right hidden-xs" />
     {% endif %}
-</h1>
-<p class="meta">
-    <span class="date">{{ page.date | date: "%B %e, %Y" }}</span> by <a href="{{ site.author.url }}">{{ site.author.name }}</a>
-</p>
+    <h1>
+        {% if include.isPermalink %}
+        {{ page.title }}
+        {% else %}
+        <a href="{{ page.url }}">{{ page.title }}</a>
+        {% endif %}
+    </h1>
+    <p class="meta">
+        <span class="date">{{ page.date | date: "%B %e, %Y" }}</span> by <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+    </p>
+</div>
 <hr>
 <div class="post">
     {{ include.content }}
@@ -25,12 +30,12 @@
 {% if include.isPermalink %}
 <div id="disqus_thread"></div>
 <script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://atata-framework.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://atata-framework.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endif %}
