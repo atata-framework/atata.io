@@ -1,12 +1,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}">
-<meta name="author" content="{{ site.author.name }}">
-<meta name="og:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png{% endif %}">
-<meta name="og:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}">
 {% assign pageUrlTruncated = page.url | slice: 0, 7 %}
 <title>{% if page.title %}{{ page.title}} - {{ site.name }}{% if pageUrlTruncated == '/blog/2' %} Blog{% endif %}{% else %}{{ site.name }} - {{ site.short_description }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}"/>
+<meta name="author" content="{{ site.author.name }}"/>
+<meta property="og:title" content="{% if page.title %}{{ page.title}} - {{ site.name }}{% if pageUrlTruncated == '/blog/2' %} Blog{% endif %}{% else %}{{ site.name }} - {{ site.short_description }}{% endif %}"/>
+<meta property="og:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png{% endif %}"/>
+<meta property="og:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}"/>
+<meta property="og:type" content="website" />
 <!-- Favicons -->
 <link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon">
 <link rel="apple-touch-icon" href="/assets/images/logo.png">
