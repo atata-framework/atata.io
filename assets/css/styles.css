@@ -771,6 +771,9 @@ img.bordered-image {
   border: 1px solid #ccc;
   border-radius: 4px; }
 
+.lead-footer {
+  margin-top: 20px; }
+
 /* Share buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
