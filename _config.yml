@@ -3,6 +3,7 @@ short_description: "C#/.NET test automation framework"
 description: "C#/.NET test automation framework"
 url: https://atata-framework.github.io
 baseurl: ""
+timezone: "Europe/Kiev"
 
 # Dependencies
 markdown: kramdown
@@ -36,7 +37,7 @@ nav_links:
   Control Search: "control-search"
   Triggers: "triggers"
   Tutorials: "tutorials"
-  #Blog: "blog"
+  Blog: "blog"
   Contact: "contact"
 
 getting-started:
