@@ -10,6 +10,13 @@
 <meta property="og:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<!-- Twitter -->
+<meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
+<meta name="twitter:site" content="@AtataFramework">
+<meta name="twitter:creator" content="@YevgenShunevych">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title}} - {{ site.name }}{% if pageUrlTruncated == '/blog/2' %} Blog{% endif %}{% else %}{{ site.name }} - {{ site.short_description }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.name }} - {{ site.description }}{% endif %}">
+<meta name="twitter:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png{% endif %}">
 <!-- Favicons -->
 <link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon">
 <link rel="apple-touch-icon" href="/assets/images/logo.png">
