@@ -10,7 +10,8 @@ public TextInput<_> FirstName { get; private set; }
 Value | Description | Example
 ----- | ----------- | -------
 {% include termcasemember.md name="None" %} | Doesn't apply the case. |
-{% include termcasemember.md name="Title" %} | Uses title case. | `Some Term`
+{% include termcasemember.md name="Title" %} | Uses title case. | `Some of the Terms`
+{% include termcasemember.md name="Capitalized" %} | Uses title case with all words capitalized. | `Some Of The Terms`
 {% include termcasemember.md name="Sentence" %} | Uses sentence case. | `Some term`
 {% include termcasemember.md name="MidSentence" %} | Uses mid-sentence case where the first word is not capitalized. | `some term`
 {% include termcasemember.md name="Lower" %} | Uses lower case. | `some term`
