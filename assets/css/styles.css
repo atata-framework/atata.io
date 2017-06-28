@@ -201,6 +201,9 @@ a.enum-value-reference code {
   .navbar-default .navbar-header a {
     padding-right: 8px; } }
 
+.menu-item-highlighted {
+  font-weight: bold; }
+
 h1.home-header {
   text-align: center;
   font-size: 90px;

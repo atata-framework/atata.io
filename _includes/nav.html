@@ -17,10 +17,13 @@
                 {% assign linkRelative = "/" | append: link[1]  | append: "/" %}
                 {% assign linkRelativeLength = linkRelative | size %}
                 {% assign pageUrlTruncated = page.url | slice: 0, linkRelativeLength %}
-                <li {% if pageUrlTruncated == linkRelative %}class="active"{% endif %}>
+                <li {% if pageUrlTruncated == linkRelative %}class="active" {% endif %}>
                     <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>
                 </li>
                 {% endfor %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="menu-item-highlighted"><a href="/blog/2017/06/27/atata-0.13.0-released/">v0.13.0</a></li>
             </ul>
         </div>
     </div>
