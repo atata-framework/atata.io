@@ -29,6 +29,8 @@ Name | Description | Usage Example
 `Content` | Gets the `DataProvider<string, TOwner>` instance for the text content. | `Content.Should.Contain("some value")`
 `Should` | Gets the verification provider that gives a set of verification extension methods. | `Should.Exist()`, `Should.BeHidden()` or `Should.BeDisabled()`
 `Triggers` | Gets the set of triggers. Provides the functionality to get/add/remove triggers dynamically. | `Triggers.Add(new WaitAttribute(2))`
+`ComponentLocation` | Gets the `UIComponentLocationProvider<TOwner>` instance that provides an access to the scope element's location (X and Y). | `ComponentLocation.X.Should.BeGreater(10)`
+`ComponentSize` | Gets the `UIComponentSizeProvider<TOwner>` instance that provides an access to the scope element's size (Width and Height). | `ComponentSize.Height.Should.BeLessOrEqual(15)`
 {:.table.table-members}
 
 #### Methods
