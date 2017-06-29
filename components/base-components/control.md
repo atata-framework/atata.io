@@ -24,7 +24,10 @@ Name | Description
 `Focus()` | Focuses the control. Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` triggers.
 `DoubleClick()` | Double-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 `RightClick()` | Right-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
-{:.table.table-members}
+`DragAndDropTo(Func<TOwner, Control<TOwner>> targetSelector)` | Drags and drops the control to the target control returned by `targetSelector`. By default uses `DragAndDropUsingActionsAttribute`.
+`DragAndDropTo(Control<TOwner> target)` | Drags and drops the control to the target control. By default uses `DragAndDropUsingActionsAttribute`.
+`DragAndDropToOffset(int offsetX, int offsetY)` | Drags and drops the control to the specified offset.
+{:.table.table-members.table-members-fixed-col-1}
 
 Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
 {:.info}
