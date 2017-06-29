@@ -7,5 +7,6 @@ Name | Type | Description
 `Index` | `int`{:.simple} | Gets or sets the index of the control. The default value is `-1`, meaning that the index is not used.
 `Visibility` | [`Visibility`](#visibility) | Gets or sets the visibility. The default value is `Visibility.Visible`.
 `ScopeSource` | [`ScopeSource`](#scopesource) | Gets or sets the scope source. The default value is `ScopeSource.Parent`.
+`OuterXPath` | `string`{:.simple} | Gets or sets the outer XPath. The default value is null, meaning that the control is searchable as descendant (using ".//" XPath) in scope source.
 `Strategy` | `Type` | Gets or sets the strategy type for the control search. Strategy type should implement `IComponentScopeLocateStrategy`. The default value is null, meaning that the default strategy of the specific `FindAttribute` should be used.
 {:.table.table-members.table-members-with-type}
