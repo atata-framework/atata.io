@@ -26,6 +26,7 @@ Name | Description
 `SwitchToFrame<TFramePageObject>(By frameBy, ...)` | Switches to frame page object using `By` instance that represents the selector for `<iframe>` tag element.
 `SwitchToFrame<TFramePageObject>(IWebElement frameElement, ...)` | Switches to frame page object using `IWebElement` instance that represents `<iframe>` tag element.
 `SwitchToRoot<TPageObject>(TPageObject rootPageObject = null)` | Switches to the root page using WebDriver's `SwitchTo().DefaultContent()` method.
+`Press(string keys)` | Presses the specified keystrokes.
 `Wait(TimeSpan time)` | Waits the specified time.
 `Wait(double seconds)` | Waits the specified time in seconds.
 `Do<TComponent>(Func<TOwner, TComponent> componentSelector, Action<TComponent> action)` | Executes the action(s) passing specified parent's component.
