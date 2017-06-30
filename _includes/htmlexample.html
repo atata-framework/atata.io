@@ -1,0 +1,16 @@
+{% assign html = include.html | strip %}
+
+{% capture html_md %}
+```html
+{{ html }}
+```
+{% endcapture %}
+
+<div class="row">
+    <div class="col-sm-6">
+        {{ html_md | markdownify }}
+    </div>
+    <div class="col-sm-6">
+        {{ html }}
+    </div>
+</div>

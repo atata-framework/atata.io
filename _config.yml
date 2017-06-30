@@ -108,6 +108,10 @@ components:
       - ListItem
       - UnorderedList
       - OrderedList
+  - name: Hierarchy
+    items:
+      - HierarchicalControl
+      - HierarchicalUnorderedList
   - name: Frame
 
 control-search:
