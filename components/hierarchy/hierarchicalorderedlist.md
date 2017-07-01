@@ -72,6 +72,7 @@ namespace SampleApp.Tests
     }
 }
 ```
+{:.page-object}
 ```cs
 Go.To<TreePage>().
     Tree.Children.Count.Should.Equal(2).
@@ -81,3 +82,4 @@ Go.To<TreePage>().
     Tree[1][0][1].Name.Should.Equal("Item 2.1.2").
     Tree.Descendants.SelectData(x => x.Name).Should.Contain("Item 1.1", "Item 2.1", "Item 2.2");
 ```
+{:.test}

@@ -11,6 +11,7 @@ Represents the inline frame control (`<iframe>`). Default search finds the first
     </iframe>
 </div>
 ```
+{:.html}
 
 Supports `[GoTemporarily]` settings attribute.
 {:.info}
@@ -31,6 +32,7 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 ```cs
 using Atata;
 using _ = SampleApp.FramePage;
@@ -44,6 +46,7 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 ```cs
 Go.To<SamplePage>().
     ContentFrame.SwitchTo<FramePage>(temporarily: true).
@@ -53,6 +56,7 @@ Go.To<SamplePage>().
     ContentFrame.DoWithin<FramePage>(
         x => x.TextBox.Should.Equal("abc"));
 ```
+{:.test}
 
 #### Methods
 
@@ -78,6 +82,7 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 ```cs
 using Atata;
 using _ = SampleApp.FramePage;
@@ -96,6 +101,7 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 ```cs
 Go.To<SamplePage>().
     ContentFrame.SwitchTo().
@@ -105,6 +111,7 @@ Go.To<SamplePage>().
     ContentFrame.DoWithin(
         x => x.TextBox.Should.Equal("abc"));
 ```
+{:.test}
 
 #### Methods
 

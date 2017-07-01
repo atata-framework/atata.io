@@ -274,8 +274,34 @@ p.file-name {
 @import "pygments-vs";
 
 .highlighter-rouge {
+    position: relative;
+
+    &.html::after, &.page-object::after, &.test::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #aaa;
+        text-align: right;
+        font-size: 0.75em;
+        font-weight: bold;
+        padding: 5px;
+    }
+
+    &.html::after {
+        content: "HTML";
+    }
+
+    &.page-object::after {
+        content: "PAGE OBJECT";
+    }
+
+    &.test::after {
+        content: "TEST";
+    }
+
     > pre.highlight {
         background-color: white;
+        border-color: #E0E0E0;
     }
 }
 
@@ -336,7 +362,7 @@ p.file-name {
     img {
         width: 555px;
         height: 335px;
-        border: 1px solid #ccc;
+        border: 1px solid #e0e0e0;
         border-radius: 4px;
         margin-bottom: 10px;
     }
