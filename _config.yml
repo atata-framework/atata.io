@@ -114,6 +114,7 @@ components:
       - HierarchicalItem
       - HierarchicalListItem
       - HierarchicalUnorderedList
+      - HierarchicalOrderedList
   - name: Frame
 
 control-search:
