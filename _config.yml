@@ -112,6 +112,7 @@ components:
     items:
       - HierarchicalControl
       - HierarchicalItem
+      - HierarchicalListItem
       - HierarchicalUnorderedList
   - name: Frame
 
