@@ -111,6 +111,7 @@ components:
   - name: Hierarchy
     items:
       - HierarchicalControl
+      - HierarchicalItem
       - HierarchicalUnorderedList
   - name: Frame
 
