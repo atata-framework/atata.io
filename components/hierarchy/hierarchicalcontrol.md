@@ -1,7 +1,6 @@
 Represents the hierarchical control (a control containing structured hierarchy of controls of `TItem` type). Default search finds the first occurring element.
 
-Inherited from {% include clsref.md name="Control" %}.
-{:.info}
+{% include inherited.md from="Control" %}
 
 #### Syntax
 

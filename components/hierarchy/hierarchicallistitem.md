@@ -1,7 +1,6 @@
 Represents the hierarchical list item control (`<li>`). Default search finds the first occurring `<li>` element. It is recommended to use with `HierarchicalUnorderedList<TItem, TOwner>` and `HierarchicalOrderedList<TItem, TOwner>`.
 
-Inherited from {% include clsref.md name="HierarchicalItem" %}.
-{:.info}
+{% include inherited.md from="HierarchicalItem" %}
 
 #### Syntax
 

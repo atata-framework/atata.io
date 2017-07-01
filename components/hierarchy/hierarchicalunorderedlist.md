@@ -1,7 +1,6 @@
 Represents the hierarchical unordered list control (`<ul>`). Default search finds the first occurring `<ul>` element.
 
-Inherited from {% include clsref.md name="HierarchicalControl" %}.
-{:.info}
+{% include inherited.md from="HierarchicalControl" %}
 
 #### Syntax
 

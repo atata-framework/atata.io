@@ -1,7 +1,6 @@
 Represents the hierarchical ordered list control (`<ol>`). Default search finds the first occurring `<ol>` element.
 
-Inherited from {% include clsref.md name="HierarchicalControl" %}.
-{:.info}
+{% include inherited.md from="HierarchicalControl" %}
 
 #### Syntax
 

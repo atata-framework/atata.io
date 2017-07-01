@@ -1,7 +1,6 @@
 Represents the hierarchical item control (a control containing structured hierarchy of controls of `TItem` type). Can have parent control of `TItem` type. Default search finds the first occurring element.
 
-Inherited from {% include clsref.md name="HierarchicalControl" %}.
-{:.info}
+{% include inherited.md from="HierarchicalControl" %}
 
 #### Syntax
 

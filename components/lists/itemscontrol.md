@@ -1,5 +1,7 @@
 Represents the items control (a control containing a set of any control of `TItem` type). Default search finds the first occurring element.
 
+{% include inherited.md from="Control" %}
+
 #### Syntax
 
 ```cs
