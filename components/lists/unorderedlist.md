@@ -1,9 +1,20 @@
 Represents the unordered list control (`<ul>`). Default search finds the first occurring `<ul>` element.
 
-Inherited from {% include clsref.md name="ItemsControl" %}.
-{:.info}
+{% include inherited.md from="ItemsControl" %}
 
-```html
+#### Syntax
+
+```cs
+[ControlDefinition("ul", ComponentTypeName = "unordered list")]
+[FindSettings(OuterXPath = "./")]
+public class UnorderedList<TItem, TOwner> : ItemsControl<TItem, TOwner>
+    where TItem : Control<TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
+#### Example
+
+{% capture html %}
 <div>
     <ul id="simple">
         <li>Item 1</li>
@@ -11,23 +22,26 @@ Inherited from {% include clsref.md name="ItemsControl" %}.
     </ul>
     <ul id="product-list">
         <li>
-            <span>Phone</span><span>20</span>
+            <span>Phone</span> - <span>20</span>
         </li>
         <li>
-            <span>Book</span><span>30</span>
+            <span>Book</span> - <span>30</span>
         </li>
         <li>
-            <span>Table</span><span>40</span>
+            <span>Table</span> - <span>40</span>
         </li>
     </ul>
 </div>
-```
+{% endcapture %}
+{% include htmlexample.html html=html %}
+
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.Tests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById("simple")]
@@ -47,6 +61,8 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     SimpleUnorderedList.Items.Count.Should.Equal(2).
@@ -59,3 +75,4 @@ Go.To<SamplePage>().
     ProductList.Items[x => x.Name == "Book"].Amount.Should.Equal(30).
     ProductList.Items.SelectData(x => x.Name).Should.EqualSequence("Phone", "Book", "Table");
 ```
+{:.test}
