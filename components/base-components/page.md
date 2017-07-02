@@ -1,5 +1,10 @@
 Represents the whole HTML page and is the main base class to inherit for the pages. Uses the `<body>` tag as a scope.
 
+{% include inherited.md from="PageObject" %}
+
+Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+{:.info}
+
 #### Syntax
 
 ```cs
@@ -12,10 +17,11 @@ public class Page<TOwner> : PageObject<TOwner>
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.Tests
 {
+    using _ = SamplePage;
+
     [VerifyTitle("Sample Page")]
     [VerifyContent("Some inner text")]
     [Url("some/page")]
@@ -24,6 +30,4 @@ namespace SampleApp
     }
 }
 ```
-
-Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
-{:.info}
+{:.page-object}
