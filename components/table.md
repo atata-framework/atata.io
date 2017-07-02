@@ -1,7 +1,38 @@
-Represents the table control. Default search finds the first occurring table.
+Represents the table control (`<table>`). Default search finds the first occurring `<table>` element.
 
-```html
-<table id="products">
+{% include inherited.md from="Control" %}
+
+#### Syntax
+
+```cs
+[ControlDefinition("table", IgnoreNameEndings = "Table")]
+public class Table<THeader, TRow, TOwner> : Control<TOwner>
+    where THeader : TableHeader<TOwner>
+    where TRow : TableRow<TOwner>
+    where TOwner : PageObject<TOwner>
+```
+```cs
+public class Table<TRow, TOwner> : Table<TableHeader<TOwner>, TRow, TOwner>
+    where TRow : TableRow<TOwner>
+    where TOwner : PageObject<TOwner>
+```
+```cs
+public class Table<TOwner> : Table<TableHeader<TOwner>, TableRow<TOwner>, TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
+#### Properties
+
+Name | Description | Usage Example
+---- | ----------- | -------------
+`Rows` | Gets the rows list. | `Rows.Should.HaveCount(2)`
+`Headers` | Gets the headers list. | `Headers.Should.ContainHavingContent(TermMatch.Equals, "Name", "Amount")`
+{:.table.table-members}
+
+#### Example
+
+{% capture html %}
+<table id="products" class="table">
     <thead>
         <tr>
             <th>Name</th>
@@ -22,13 +53,16 @@ Represents the table control. Default search finds the first occurring table.
         </tr>
     </tbody>
 </table>
-```
+{% endcapture %}
+{% include htmlexample.html html=html %}
+
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.Tests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]
@@ -45,8 +79,9 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 
-Default search of the properties of the type `Content` and inherited (e.g. `Name` and `Amount`) that are declared in the class inherited from `TableRow` is performed by the column header.
+Default search of the properties of type `Content` and inherited (e.g. `Name` and `Amount`) that are declared in the class inherited from `TableRow` is performed by the column header.
 {:.info}
 
 ``` cs
@@ -55,11 +90,4 @@ Go.To<SamplePage>().
     Products.Rows[x => x.Name == "Item 1"].Delete().
     Products.Rows[x => x.Name == "Item 1"].Should.Not.Exist();
 ```
-
-### Properties
-
-Name | Description | Usage Example
----- | ----------- | -------------
-`Rows` | Gets the rows list. | `Rows.Should.HaveCount(2)`
-`Headers` | Gets the headers list. | `Headers.Should.ContainHavingContent(TermMatch.Equals, "Name", "Amount")`
-{:.table.table-members}
+{:.test}
