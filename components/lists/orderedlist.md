@@ -1,9 +1,20 @@
 Represents the ordered list control (`<ol>`). Default search finds the first occurring `<ol>` element.
 
-Inherited from {% include clsref.md name="ItemsControl" %}.
-{:.info}
+{% include inherited.md from="ItemsControl" %}
 
-```html
+#### Syntax
+
+```cs
+[ControlDefinition("ol", ComponentTypeName = "ordered list")]
+[FindSettings(OuterXPath = "./")]
+public class OrderedList<TItem, TOwner> : ItemsControl<TItem, TOwner>
+    where TItem : Control<TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
+#### Example
+
+{% capture html %}
 <div>
     <ol id="simple">
         <li>Item 1</li>
@@ -27,13 +38,16 @@ Inherited from {% include clsref.md name="ItemsControl" %}.
         </li>
     </ol>
 </div>
-```
+{% endcapture %}
+{% include htmlexample.html html=html %}
+
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.Tests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById("simple")]
@@ -56,6 +70,8 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     SimpleOrderedList.Items.Count.Should.Equal(2).
@@ -71,3 +87,4 @@ Go.To<SamplePage>().
     ProductList.Items[x => x.Name == "Table"].Should.Not.Exist().
     ProductList.Items.Count.Should.Equal(2);
 ```
+{:.test}
