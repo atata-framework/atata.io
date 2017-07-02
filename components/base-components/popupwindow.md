@@ -1,5 +1,10 @@
 Represents the base class for the popup window page objects.
 
+{% include inherited.md from="PageObject" %}
+
+Inherited class supports `[PageObjectDefinition]`, `[WindowTitleElementDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+{:.info}
+
 #### Syntax
 
 ```cs
@@ -10,14 +15,26 @@ public abstract class PopupWindow<TOwner> : PageObject<TOwner>
 
 #### Example
 
-The example of [Bootsrap's Modal](http://getbootstrap.com/javascript/#modals) class:
+The example of popup component for [Bootsrap's Modal](http://getbootstrap.com/javascript/#modals) implemented in [atata-framework/atata-bootstrap](https://github.com/atata-framework/atata-bootstrap):
 
 ```cs
-[PageObjectDefinition("div", ContainingClass = "modal", ComponentTypeName = "modal", IgnoreNameEndings = "PopupWindow,Window,Popup,Modal")]
-[WindowTitleElementDefinition(ContainingClass = "modal-title")]
-public abstract class BSModal<TOwner> : PopupWindow<TOwner>
-    where TOwner : BSModal<TOwner>
+namespace Atata.Bootstrap
 {
+    [PageObjectDefinition("div", ContainingClass = "modal", ComponentTypeName = "modal", IgnoreNameEndings = "PopupWindow,Window,Popup,Modal")]
+    [WindowTitleElementDefinition(ContainingClass = TitleClassName)]
+    public abstract class BSModal<TOwner> : PopupWindow<TOwner>
+        where TOwner : BSModal<TOwner>
+    {
+        private const string TitleClassName = "modal-title";
+
+        protected BSModal(params string[] windowTitleValues)
+            : base(windowTitleValues)
+        {
+        }
+
+        [FindByClass(TitleClassName)]
+        public Text<TOwner> ModalTitle { get; private set; }
+    }
 }
 ```
 
@@ -25,16 +42,15 @@ Implementation of the specific modal having the title "Some Modal":
 
 ```cs
 using Atata;
-using _ = SampleApp.SampleModal;
 
-namespace SampleApp
+namespace SampleApp.Tests
 {
+    using _ = SampleModal;
+
     [WindowTitle("Some Modal")]
     public class SampleModal : BSModal<_>
     {
     }
 }
 ```
-
-Inherited class supports `[PageObjectDefinition]`, `[WindowTitleElementDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
-{:.info}
+{:.page-object}
