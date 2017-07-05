@@ -1,7 +1,7 @@
 ```cs
 using Atata;
 
-namespace SampleApp.AutoTests
+namespace SampleApp.UITests
 {
     using _ = SignInPage;
 
