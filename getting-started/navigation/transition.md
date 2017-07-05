@@ -13,10 +13,11 @@ For example, having 3 simple pages on the site:
 
 ```cs
 using Atata;
-using _ = SampleApp.UsersPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = UsersPage;
+
     [Url("users")]
     public class UsersPage : Page<_>
     {
@@ -31,16 +32,18 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 
 `UserEditorPage.cs`
 {:.file-name}
 
 ```cs
 using Atata;
-using _ = SampleApp.UserEditorPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = UserEditorPage;
+
     public class UserEditorPage : Page<_>
     {
         public TextInput<_> Name { get; private set; }
@@ -51,22 +54,25 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 
 `UserDetailsPage.cs`
 {:.file-name}
 
 ```cs
 using Atata;
-using _ = SampleApp.UserDetailsPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = UserDetailsPage;
+
     public class UserDetailsPage : Page<_>
     {
         public H1<_> Name { get; private set; }
     }
 }
 ```
+{:.page-object}
 
 #### Usage
 
@@ -80,3 +86,4 @@ Go.To<UsersPage>().
     Users.Rows[x => x.Name == userName].ClickAndGo(). // Clicking the row navigates to UserDetailsPage.
         Name.Should.Equal(userName);
 ```
+{:.test}

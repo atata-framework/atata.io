@@ -1,4 +1,4 @@
-The above sample test generates the following log:
+The above sample `SignIn` test generates the following log:
 
 ```
 2016-09-26 15:50:51.7688 INFO Starting test: SignIn

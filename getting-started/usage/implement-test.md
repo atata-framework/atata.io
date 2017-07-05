@@ -1,14 +1,17 @@
 The following sample uses additional [NUnit](https://www.nuget.org/packages/NUnit/) and [ChromeDriver](https://www.nuget.org/packages/WebDriver.ChromeDriver.win32/) NuGet packages.
 {:.warning}
 
+`SignInTests.cs`
+{:.file-name}
+
 ```cs
 using Atata;
 using NUnit.Framework;
 
-namespace SampleApp.AutoTests
+namespace SampleApp.UITests
 {
     [TestFixture]
-    public class SignInTest
+    public class SignInTests
     {
         [SetUp]
         public void SetUp()
@@ -41,3 +44,4 @@ namespace SampleApp.AutoTests
     }
 }
 ```
+{:.test}

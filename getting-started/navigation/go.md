@@ -21,3 +21,4 @@ Go.To<HomePage>().
 Go.To<AboutPage>(url: "about").
     Header.Should.Equal("About");
 ```
+{:.test}
