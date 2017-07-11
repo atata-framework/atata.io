@@ -11,10 +11,11 @@ A set of project and item templates for web automated testing using Atata Framew
 
 - **Atata Test Project** project template
 - **Atata Page Object** class template
-- **Atata Control class** template
+- **Atata Control** class template
 - **Atata Trigger** class template
 
 ![Atata Templates project](/assets/images/atata-templates-project.png)
+
 ![Atata Templates items](/assets/images/atata-templates-items.png)
 
 All templates are located on Visual Studio's **New Project** and **New Item** windows inside **Atata** category.
