@@ -41,8 +41,11 @@ nav_links:
   Contact: "contact"
 
 getting-started:
-  - name: Installation
   - name: Introduction
+  - name: Installation
+    items:
+      - Via Atata Templates
+      - Via NuGet
   - name: Usage
     items:
       - Create Project
@@ -212,3 +215,4 @@ links:
     atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras/
     atata_bootstrap_nuget: https://www.nuget.org/packages/Atata.Bootstrap/
     atata_kendoui_nuget: https://www.nuget.org/packages/Atata.KendoUI/
+    atata_templates: https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates
