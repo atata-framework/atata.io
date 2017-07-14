@@ -795,6 +795,10 @@ img.bordered-image {
 .lead-footer {
   margin-top: 20px; }
 
+.twitter-follow-button-rendered {
+  position: relative !important;
+  top: 6px !important; }
+
 /* Share buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
