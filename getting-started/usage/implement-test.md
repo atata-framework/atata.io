@@ -18,7 +18,7 @@ namespace SampleApp.UITests
         {
             AtataContext.Build().
                 UseChrome().
-                UseBaseUrl("http://atata-framework.github.io/atata-sample-app/#!/").
+                UseBaseUrl("https://atata-framework.github.io/atata-sample-app/#!/").
                 UseNUnitTestName().
                 AddNUnitTestContextLogging().
                 AddScreenshotFileSaving().

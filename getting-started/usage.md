@@ -1,1 +1,1 @@
-Below is simple example for [Sign In](http://atata-framework.github.io/atata-sample-app/#!/signin) page.
+Below is simple example for [Sign In](https://atata-framework.github.io/atata-sample-app/#!/signin) page.
