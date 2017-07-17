@@ -802,6 +802,9 @@ img.bordered-image {
   position: relative !important;
   top: 6px !important; }
 
+.contact-container dd {
+  word-wrap: break-word; }
+
 /* Share buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {

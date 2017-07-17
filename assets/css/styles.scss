@@ -443,6 +443,12 @@ img.bordered-image {
     top: 6px !important;
 }
 
+.contact-container {
+    dd {
+        word-wrap: break-word;
+    }
+}
+
 /* Share buttons */
 
 .resp-sharing-button__link,
