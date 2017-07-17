@@ -6,6 +6,9 @@
     padding-bottom: 14px; }
     body > .at-docs-container > .container {
       padding: 60px 15px 0; }
+    body > .at-docs-container img {
+      max-width: 100%;
+      height: auto; }
 
 .footer {
   width: 100%;
