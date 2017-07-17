@@ -808,6 +808,9 @@ img.bordered-image {
 .contact-container dd {
   word-wrap: break-word; }
 
+.video-sm {
+  max-width: 560px; }
+
 /* Share buttons */
 .resp-sharing-button__link,
 .resp-sharing-button__icon {
