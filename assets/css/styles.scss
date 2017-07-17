@@ -413,7 +413,7 @@ p.file-name {
 }
 
 .post-list {
-    >.post-list-item:not(:last-child) {
+    > .post-list-item:not(:last-child) {
         margin-bottom: 40px;
     }
 }
@@ -421,10 +421,22 @@ p.file-name {
 .post-footer {
     margin-top: 12px;
     border-top: 1px solid #eee;
-    padding-top: 4px;
+    padding-top: $share-buttons-margin * 2;
+    padding-bottom: $share-buttons-margin * 2;
+
+    .post-comment-link-wrapper {
+        float: left;
+
+        @media (max-width: 479px) {
+            width: 100%;
+        }
+    }
 
     .post-comment-link {
-        margin-right: $share-buttons-margin * 2;
+        vertical-align: baseline;
+        margin-right: $share-buttons-margin * 3;
+        margin-top: $share-buttons-margin;
+        margin-bottom: $share-buttons-margin;
     }
 }
 

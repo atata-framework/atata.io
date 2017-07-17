@@ -132,7 +132,6 @@ h4 {
 
 .share-buttons {
   position: relative;
-  top: 1px;
   left: -0.2em; }
 
 .resp-sharing-button__link,
@@ -888,9 +887,18 @@ p.file-name {
 .post-footer {
   margin-top: 12px;
   border-top: 1px solid #eee;
-  padding-top: 4px; }
+  padding-top: 0.4em;
+  padding-bottom: 0.4em; }
+  .post-footer .post-comment-link-wrapper {
+    float: left; }
+    @media (max-width: 479px) {
+      .post-footer .post-comment-link-wrapper {
+        width: 100%; } }
   .post-footer .post-comment-link {
-    margin-right: 0.4em; }
+    vertical-align: baseline;
+    margin-right: 0.6em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em; }
 
 img.bordered-image {
   border: 1px solid #ccc;
