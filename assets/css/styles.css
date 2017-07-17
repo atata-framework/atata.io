@@ -709,6 +709,9 @@ p.file-name {
   .highlighter-rouge > pre.highlight {
     background-color: white;
     border-color: #E0E0E0; }
+  @media (max-width: 767px) {
+    .highlighter-rouge pre code {
+      font-size: 0.85em; } }
 
 .github-corner {
   position: absolute;
