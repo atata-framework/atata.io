@@ -3,6 +3,7 @@ The list of logging extension methods for `AtataContextBuilder`:
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TLogConsumer</span>&gt;</span>
     <h3><span class="body">AddLogConsumer&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">(<span class="type">TLogConsumer</span> consumer)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TLogConsumer</span> : <span class="type">ILogConsumer</span></span>
 </div>
 
 Adds the log consumer.
