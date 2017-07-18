@@ -925,11 +925,13 @@ img.bordered-image {
 .member {
   color: #000;
   margin-top: 20px;
+  margin-bottom: 8px;
   font-family: Consolas,Menlo,Monaco,"Courier New",monospace !important; }
   .member .head {
     font-size: .75em; }
   .member h3 {
-    margin-top: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: 42px;
     color: #000;
     font-size: 17px; }
@@ -937,4 +939,7 @@ img.bordered-image {
     color: #2B91AF; }
   .member .keyword {
     color: #0000FF; }
+  .member .where {
+    margin-left: 84px;
+    font-size: .75em; }
 

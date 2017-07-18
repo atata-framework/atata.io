@@ -1,10 +1,19 @@
 The list of screenshot taking extension methods for `AtataContextBuilder`:
 
-Name | Description
----- | -----------
-`AddScreenshotConsumer(IScreenshotConsumer consumer)` | Adds the screenshot consumer. Is used for custom screenshot processing.
-`AddScreenshotFileSaving()` | Adds the `FileScreenshotConsumer` instance for the screenshot saving to file.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">AddScreenshotConsumer&lt;<span class="type">TScreenshotConsumer</span>&gt;</span><span class="tail">(<span class="type">TScreenshotConsumer</span> consumer)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TScreenshotConsumer</span> : <span class="type">IScreenshotConsumer</span></span>
+</div>
+
+Adds the screenshot consumer. Is used for custom screenshot processing.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">AddScreenshotFileSaving()</span></h3>
+</div>
+
+Adds the `FileScreenshotConsumer` instance for the screenshot saving to file.
 
 #### File Screenshots Configuration
 
@@ -16,13 +25,33 @@ By default `AddScreenshotFileSaving` method configures `FileScreenshotConsumer` 
 
 The list of extension methods to configure `FileScreenshotConsumer`:
 
-Name | Description
----- | -----------
-`With(ScreenshotImageFormat imageFormat)` | Specifies the image format of the log consumer.
-`WithFolderPath(Func<string> folderPathBuilder)` | Specifies the folder path builder of the log consumer.
-`WithFileName(Func<ScreenshotInfo, string> fileNameBuilder)` | Specifies the file name builder of the log consumer.
-`WithFilePath(Func<ScreenshotInfo, string> filePathBuilder)` | Specifies the file path builder of the log consumer.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">With</span><span class="tail">(<span class="type">ScreenshotImageFormat</span> imageFormat)</span></h3>
+</div>
+
+Specifies the image format of the log consumer.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">WithFolderPath</span><span class="tail">(<span class="type">Func</span>&lt;<span class="keyword">string</span>&gt; folderPathBuilder)</span></h3>
+</div>
+
+Specifies the folder path builder of the log consumer.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">WithFileName</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">ScreenshotInfo</span>, <span class="keyword">string</span>&gt; fileNameBuilder)</span></h3>
+</div>
+
+Specifies the file name builder of the log consumer.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">WithFilePath</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">ScreenshotInfo</span>, <span class="keyword">string</span>&gt; filePathBuilder)</span></h3>
+</div>
+
+Specifies the file path builder of the log consumer.
 
 #### Usage
 
