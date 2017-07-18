@@ -95,7 +95,7 @@ table.table-members {
             }
 
             code {
-                color: $class-color;
+                color: $type-color;
                 background: none;
                 font-size: 1em;
                 padding-left: 1px;
@@ -120,7 +120,7 @@ table.table-members {
 }
 
 .class-reference {
-    color: $class-color;
+    color: $type-color;
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
     text-decoration: underline;
 }
@@ -339,7 +339,7 @@ p.file-name {
     }
 }
 
-@keyframes octocat-wave {
+/*@keyframes octocat-wave {
     0%,100% {
         transform: rotate(0);
     }
@@ -351,7 +351,7 @@ p.file-name {
     40%,80% {
         transform: rotate(10deg);
     }
-}
+}*/
 
 .home-usage-section {
     @media (min-width: 1200px) {
@@ -462,4 +462,32 @@ img.bordered-image {
 
 .video-sm {
     max-width: 560px;
+}
+
+.member {
+    color: #000;
+    margin-top: 20px;
+    font-family: Consolas,Menlo,Monaco,"Courier New",monospace !important;
+
+    .head {
+        font-size: .75em;
+    }
+
+    h3 {
+        margin-top: 0px;
+        margin-left: 42px;
+        color: #000;
+        font-size: 17px;
+
+        .tail {
+        }
+    }
+
+    .type {
+        color: $type-color;
+    }
+
+    .keyword {
+        color: $keyword-color;
+    }
 }

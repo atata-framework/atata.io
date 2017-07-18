@@ -831,14 +831,19 @@ p.file-name {
     .github-corner .octo-arm {
       animation: octocat-wave 560ms ease-in-out; } }
 
-@keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0); }
-  20%, 60% {
-    transform: rotate(-25deg); }
-  40%, 80% {
-    transform: rotate(10deg); } }
+/*@keyframes octocat-wave {
+    0%,100% {
+        transform: rotate(0);
+    }
 
+    20%,60% {
+        transform: rotate(-25deg);
+    }
+
+    40%,80% {
+        transform: rotate(10deg);
+    }
+}*/
 @media (min-width: 1200px) {
   .home-usage-section pre.highlight {
     height: 335px; } }
@@ -916,4 +921,20 @@ img.bordered-image {
 
 .video-sm {
   max-width: 560px; }
+
+.member {
+  color: #000;
+  margin-top: 20px;
+  font-family: Consolas,Menlo,Monaco,"Courier New",monospace !important; }
+  .member .head {
+    font-size: .75em; }
+  .member h3 {
+    margin-top: 0px;
+    margin-left: 42px;
+    color: #000;
+    font-size: 17px; }
+  .member .type {
+    color: #2B91AF; }
+  .member .keyword {
+    color: #0000FF; }
 
