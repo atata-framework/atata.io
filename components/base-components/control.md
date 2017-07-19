@@ -10,24 +10,75 @@ public class Control<TOwner> : UIComponent<TOwner>, IControl<TOwner>
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`IsEnabled` | Gets the DataProvider instance for the value indicating whether the control is enabled. | `IsEnabled.Should.BeTrue()`, `IsEnabled == true`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">IsEnabled</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the DataProvider instance for the value indicating whether the control is enabled.
+
+```cs
+Control.IsEnabled.Should.BeTrue();
+bool isEnabled = Control.IsEnabled;
+```
 
 #### Methods
 
-Name | Description
----- | -----------
-`Click()` | Clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
-`Hover()` | Hovers the control. Also executes `TriggerEvents.BeforeHover` and `TriggerEvents.AfterHover` triggers.
-`Focus()` | Focuses the control. Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` triggers.
-`DoubleClick()` | Double-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
-`RightClick()` | Right-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
-`DragAndDropTo(Func<TOwner, Control<TOwner>> targetSelector)` | Drags and drops the control to the target control returned by `targetSelector`. By default uses `DragAndDropUsingActionsAttribute`.
-`DragAndDropTo(Control<TOwner> target)` | Drags and drops the control to the target control. By default uses `DragAndDropUsingActionsAttribute`.
-`DragAndDropToOffset(int offsetX, int offsetY)` | Drags and drops the control to the specified offset.
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Click()</span></h3>
+</div>
+
+Clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Hover()</span></h3>
+</div>
+
+Hovers the control. Also executes `TriggerEvents.BeforeHover` and `TriggerEvents.AfterHover` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Focus()</span></h3>
+</div>
+
+Focuses the control. Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">DoubleClick()</span></h3>
+</div>
+
+Double-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">RightClick()</span></h3>
+</div>
+
+Right-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">DragAndDropTo</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">TOwner</span>, <span class="type">Control</span><wbr>&lt;<span class="type">TOwner</span>&gt;&gt; targetSelector)</span></h3>
+</div>
+
+Drags and drops the control to the target control returned by `targetSelector`. By default uses `DragAndDropUsingActionsAttribute`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">DragAndDropTo</span><span class="tail">(<span class="type">Control</span><wbr>&lt;<span class="type">TOwner</span>&gt; target)</span></h3>
+</div>
+
+Drags and drops the control to the target control. By default uses `DragAndDropUsingActionsAttribute`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">DragAndDropToOffset</span><span class="tail">(<span class="keyword">int</span> offsetX, <span class="keyword">int</span> offsetY)</span></h3>
+</div>
+
+Drags and drops the control to the specified offset.
 
 Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
 {:.info}
