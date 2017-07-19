@@ -947,7 +947,8 @@ img.bordered-image {
     color: #0000FF; }
   .member .where {
     font-size: .75em;
-    margin-left: 80px; }
+    margin-left: 80px;
+    display: inline-block; }
     @media (max-width: 767px) {
       .member .where {
         margin-left: 40px; } }
