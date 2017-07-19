@@ -34,15 +34,25 @@ Go.To<SamplePage>().
 
 #### Properties
 
-Name | Description
----- | -----------
-`IsChecked` | Gets the `DataProvider<bool, TOwner>` instance of the checked state value.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">IsChecked</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `DataProvider<bool, TOwner>` instance of the checked state value.
 
 #### Methods
 
-Name | Description
----- | -----------
-`Check()` | Checks the control.
-`Uncheck()` | Unchecks the control.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Check()</span></h3>
+</div>
+
+Checks the control. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Uncheck()</span></h3>
+</div>
+
+Unchecks the control. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
