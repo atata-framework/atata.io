@@ -2,7 +2,7 @@ The list of screenshot taking extension methods for `AtataContextBuilder`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TScreenshotConsumer</span>&gt;</span>
-    <h3><span class="body">AddScreenshotConsumer&lt;<span class="type">TScreenshotConsumer</span>&gt;</span><span class="tail">(<span class="type">TScreenshotConsumer</span> consumer)</span></h3>
+    <h3><span class="body">AddScreenshotConsumer<wbr>&lt;<span class="type">TScreenshotConsumer</span>&gt;</span><span class="tail">(<span class="type">TScreenshotConsumer</span> consumer)</span></h3>
     <span class="where"><span class="keyword">where</span> <span class="type">TScreenshotConsumer</span> : <span class="type">IScreenshotConsumer</span></span>
 </div>
 

@@ -477,11 +477,19 @@ img.bordered-image {
     h3 {
         margin-top: 0;
         margin-bottom: 0;
-        margin-left: 42px;
         color: #000;
         font-size: 17px;
+        margin-left: 40px;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+            margin-left: 20px;
+        }
 
         .tail {
+            &:before {
+                content: "\200B";
+            }
         }
     }
 
@@ -494,7 +502,11 @@ img.bordered-image {
     }
 
     .where {
-        margin-left: 84px;
         font-size: .75em;
+        margin-left: 80px;
+
+        @media (max-width: 767px) {
+            margin-left: 40px;
+        }
     }
 }

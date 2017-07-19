@@ -2,7 +2,7 @@ The list of logging extension methods for `AtataContextBuilder`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddLogConsumer&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">(<span class="type">TLogConsumer</span> consumer)</span></h3>
+    <h3><span class="body">AddLogConsumer<wbr>&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">(<span class="type">TLogConsumer</span> consumer)</span></h3>
     <span class="where"><span class="keyword">where</span> <span class="type">TLogConsumer</span> : <span class="type">ILogConsumer</span></span>
 </div>
 
@@ -42,14 +42,14 @@ The list of extension methods to configure `ILogConsumer`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TTLogConsumer</span>&gt;</span>
-    <h3><span class="body">WithoutSectionFinish&lt;<span class="type">TTLogConsumer</span>&gt;()</span></h3>
+    <h3><span class="body">WithoutSectionFinish<wbr>&lt;<span class="type">TTLogConsumer</span>&gt;()</span></h3>
 </div>
 
 Defines that the logging should not use section-like messages (not "Starting: {action}" and "Finished: {action} {time elapsed}", but just "{action}").
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TTLogConsumer</span>&gt;</span>
-    <h3><span class="body">WithMinLevel&lt;<span class="type">TTLogConsumer</span>&gt;</span><span class="tail">(<span class="type">LogLevel</span> level)</span></h3>
+    <h3><span class="body">WithMinLevel<wbr>&lt;<span class="type">TTLogConsumer</span>&gt;</span><span class="tail">(<span class="type">LogLevel</span> level)</span></h3>
 </div>
 
 Specifies the minimum level of the log event to write to the log. The default value is `Trace`.
