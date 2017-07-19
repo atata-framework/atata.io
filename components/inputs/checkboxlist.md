@@ -56,8 +56,16 @@ Supports `[Format]`, `[Culture]`, `[FindItemByLabel]` and `[FindItemByValue]` se
 
 #### Methods
 
-Name | Description
----- | -----------
-`Check(T value)` | Checks the checkbox by specified value.
-`Uncheck(T value)` | Unchecks the checkbox by specified value.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Check</span><span class="tail">(<span class="type">T</span> value)</span></h3>
+</div>
+
+Checks the checkbox by specified value. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Uncheck</span><span class="tail">(<span class="type">T</span> value)</span></h3>
+</div>
+
+Unchecks the checkbox by specified value. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
