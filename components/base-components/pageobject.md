@@ -9,11 +9,28 @@ public abstract class PageObject<TOwner> : UIComponent<TOwner>, IPageObject<TOwn
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`PageTitle` | Gets the DataProvider instance for the title of the current HTML page. | `PageTitle.Should.StartWith("Some Title")`
-`PageUrl` | Gets the DataProvider instance for the URL of the current HTML page. | `PageUrl.Should.EndWith("/some-page?id=123987")`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">PageTitle</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the DataProvider instance for the title of the current HTML page.
+
+```cs
+PageObject.PageTitle.Should.StartWith("Some Title");
+string title = PageObject.PageTitle;
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">PageUrl</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the DataProvider instance for the URL of the current HTML page.
+
+```cs
+PageObject.PageUrl.Should.EndWith("/some-page?id=123987");
+```
 
 #### Methods
 
