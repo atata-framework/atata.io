@@ -1,5 +1,8 @@
 Represents the select control. By default is being searched by the label. It is possible to select an option by the text or value. Default selection is performed by text.
 
+Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
+{:class="info"}
+
 ```html
 <select id="brand">
   <option value="">--select--</option>
@@ -126,6 +129,3 @@ Go.To<SamplePage>().
     Priority.Set(3).
     Priority.Should.Equal(3);
 ```
-
-Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
-{:class="info"}
