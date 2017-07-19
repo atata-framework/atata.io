@@ -1,5 +1,8 @@
 Represents the base class for UI components (page objects and controls).
 
+When accessing any `UIComponent`'s and inherited type's member that uses `Scope` (actual HTML element) property, executes `TriggerEvents.BeforeAccess` and `TriggerEvents.AfterAccess` triggers. [Find out more on triggers](/triggers/).
+{:.info}
+
 #### Syntax
 
 There are 2 `UIComponent` classes. The generic one is inherited from the non-generic:
@@ -137,6 +140,3 @@ Determines whether the component exists. If `options` is set to null, then it us
 </div>
 
 Determines whether the component is missing. If `options` is set to null, then it uses `SearchOptions.Safely()`.
-
-When accessing any `UIComponent` and inherited type's member that uses `Scope` (actual HTML element) property, executes `TriggerEvents.BeforeAccess` and `TriggerEvents.AfterAccess` triggers. [Find out more on triggers](/triggers/).
-{:.info}

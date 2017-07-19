@@ -1,5 +1,8 @@
 Represents the base class for the controls.
 
+Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
+{:.info}
+
 #### Syntax
 
 ```cs
@@ -79,6 +82,3 @@ Drags and drops the control to the target control. By default uses `DragAndDropU
 </div>
 
 Drags and drops the control to the specified offset.
-
-Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
-{:.info}
