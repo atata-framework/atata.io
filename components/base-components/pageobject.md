@@ -1,5 +1,10 @@
 Represents the base class for the page objects. Also executes `TriggerEvents.Init` and `TriggerEvents.DeInit` triggers.
 
+{% include inherited.md from="UIComponent" %}
+
+Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[FormatSettings]` and `[Culture]` settings attributes.
+{:.info}
+
 #### Syntax
 
 ```cs
@@ -34,23 +39,107 @@ PageObject.PageUrl.Should.EndWith("/some-page?id=123987");
 
 #### Methods
 
-Name | Description
----- | -----------
-`RefreshPage()` | Refreshes the current page.
-`GoBack<TOther>(TOther previousPageObject = null)` | Navigates back to the previous page.
-`GoForward<TOther>(TOther nextPageObject = null)` | Navigates forward to the next page.
-`CloseWindow()` | Closes the current window.
-`SwitchToFrame<TFramePageObject>(By frameBy, ...)` | Switches to frame page object using `By` instance that represents the selector for `<iframe>` tag element.
-`SwitchToFrame<TFramePageObject>(IWebElement frameElement, ...)` | Switches to frame page object using `IWebElement` instance that represents `<iframe>` tag element.
-`SwitchToRoot<TPageObject>(TPageObject rootPageObject = null)` | Switches to the root page using WebDriver's `SwitchTo().DefaultContent()` method.
-`Press(string keys)` | Presses the specified keystrokes.
-`Wait(TimeSpan time)` | Waits the specified time.
-`Wait(double seconds)` | Waits the specified time in seconds.
-`Do<TComponent>(Func<TOwner, TComponent> componentSelector, Action<TComponent> action)` | Executes the action(s) passing specified parent's component.
-`Do<TComponent, TNavigateTo>(Func<TOwner, TComponent> componentSelector, Func<TComponent, TNavigateTo> navigationAction)` | Executes the navigation action(s) passing specified parent's component.
-`Do(Action<TOwner> action)` | Executes the action(s) passing current page object.
-`Do<TNavigateTo>(Func<TOwner, TNavigateTo> navigationAction)` | Executes the navigation action(s) passing current page object.
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">RefreshPage()</span></h3>
+</div>
 
-Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[FormatSettings]` and `[Culture]` settings attributes.
-{:.info}
+Refreshes the current page.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="type">TOther</span></span>
+    <h3><span class="body">GoBack<wbr>&lt;<span class="type">TOther</span>&gt;</span><span class="tail">(<span class="type">TOther</span> previousPageObject = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TOther</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TOther</span>&gt;</span>
+</div>
+
+Navigates back to the previous page.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="type">TOther</span></span>
+    <h3><span class="body">GoForward<wbr>&lt;<span class="type">TOther</span>&gt;</span><span class="tail">(<span class="type">TOther</span> nextPageObject = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TOther</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TOther</span>&gt;</span>
+</div>
+
+Navigates forward to the next page.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span></span>
+    <h3><span class="body">CloseWindow()</span></h3>
+</div>
+
+Closes the current window.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TFramePageObject</span></span>
+    <h3><span class="body">SwitchToFrame<wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span><span class="tail">(<span class="type">By</span> frameBy, <span class="type">TFramePageObject</span> framePageObject = <span class="keyword">null</span>, <span class="keyword">bool</span> temporarily = <span class="keyword">false</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TFramePageObject</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span>
+</div>
+
+Switches to frame page object using `By` instance that represents the selector for `<iframe>` tag element.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="type">TFramePageObject</span></span>
+    <h3><span class="body">SwitchToFrame<wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span><span class="tail">(<span class="type">IWebElement</span> frameElement, <span class="type">TFramePageObject</span> framePageObject = <span class="keyword">null</span>, <span class="keyword">bool</span> temporarily = <span class="keyword">false</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TFramePageObject</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span>
+</div>
+
+Switches to frame page object using `IWebElement` instance that represents `<iframe>` tag element.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="type">TPageObject</span></span>
+    <h3><span class="body">SwitchToRoot<wbr>&lt;<span class="type">TPageObject</span>&gt;</span><span class="tail">(<span class="type">TPageObject</span> rootPageObject = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TPageObject</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TPageObject</span>&gt;</span>
+</div>
+
+Switches to the root page using WebDriver's `SwitchTo().DefaultContent()` method.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Press</span><span class="tail">(<span class="keyword">string</span> keys)</span></h3>
+</div>
+
+Presses the specified keystrokes.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Wait</span><span class="tail">(<span class="type">TimeSpan</span> time)</span></h3>
+</div>
+
+Waits the specified time.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Wait</span><span class="tail">(<span class="keyword">double</span> seconds)</span></h3>
+</div>
+
+Waits the specified time in seconds.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Do<wbr>&lt;<span class="type">TComponent</span>&gt;</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">TOwner</span>, <span class="type">TComponent</span>&gt; componentSelector, <span class="type">Action</span><wbr>&lt;<span class="type">TComponent</span>&gt; action)</span></h3>
+</div>
+
+Executes the action(s) passing specified parent's component.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
+    <h3><span class="body">Do<wbr>&lt;<span class="type">TComponent</span>, <span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">TOwner</span>, <span class="type">TComponent</span>&gt; componentSelector, <span class="type">Func</span><wbr>&lt;<span class="type">TComponent</span>, <span class="type">TNavigateTo</span>&gt; navigationAction)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
+</div>
+
+Executes the navigation action(s) passing specified parent's component.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Do</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">TOwner</span>&gt; action)</span></h3>
+</div>
+
+Executes the action(s) passing current page object.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
+    <h3><span class="body">Do<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">TOwner</span>, <span class="type">TNavigateTo</span>&gt; navigationAction)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
+</div>
+
+Executes the navigation action(s) passing current page object.
