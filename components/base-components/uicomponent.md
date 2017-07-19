@@ -20,26 +20,123 @@ public abstract class UIComponent<TOwner> : UIComponent, IUIComponent<TOwner>
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`Scope` | Gets the `IWebElement` instance that represents the scope HTML element. Also executes `TriggerEvents.BeforeAccess` and `TriggerEvents.AfterAccess` triggers. | `Scope.SendKeys("some text")`
-`Attributes` | Gets the `UIComponentAttributeProvider<TOwner>` instance that provides an access to the scope element's attributes. | `Attributes.Class.Should.Contain("some-class")` or `Attributes["data-value"].Should.Equal("val")`
-`Css` | Gets the `UIComponentCssProvider<TOwner>` instance that provides an access to the scope element's CSS properties. | `Css["display"].Should.Equal("block")`
-`IsVisible` | Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the control is visible. | `IsVisible.Should.BeTrue()`
-`Content` | Gets the `DataProvider<string, TOwner>` instance for the text content. | `Content.Should.Contain("some value")`
-`Should` | Gets the verification provider that gives a set of verification extension methods. | `Should.Exist()`, `Should.BeHidden()` or `Should.BeDisabled()`
-`Triggers` | Gets the set of triggers. Provides the functionality to get/add/remove triggers dynamically. | `Triggers.Add(new WaitAttribute(2))`
-`ComponentLocation` | Gets the `UIComponentLocationProvider<TOwner>` instance that provides an access to the scope element's location (X and Y). | `ComponentLocation.X.Should.BeGreater(10)`
-`ComponentSize` | Gets the `UIComponentSizeProvider<TOwner>` instance that provides an access to the scope element's size (Width and Height). | `ComponentSize.Height.Should.BeLessOrEqual(15)`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">IWebElement</span></span>
+    <h3><span class="body">Scope</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `IWebElement` instance that represents the scope HTML element. Also executes `TriggerEvents.BeforeAccess` and `TriggerEvents.AfterAccess` triggers.
+
+```cs
+Component.Scope.SendKeys("some text");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentAttributeProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Attributes</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `UIComponentAttributeProvider<TOwner>` instance that provides an access to the scope element's attributes.
+
+```cs
+Component.Attributes.Class.Should.Contain("some-class");
+Component.Attributes["data-value"].Should.Equal("val");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentCssProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Css</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `UIComponentCssProvider<TOwner>` instance that provides an access to the scope element's CSS properties.
+
+```cs
+Component.Css["display"].Should.Equal("block");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">IsVisible</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the control is visible.
+
+```cs
+Component.IsVisible.Should.BeTrue();
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Content</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `DataProvider<string, TOwner>` instance for the text content.
+
+```cs
+Component.Content.Should.Contain("some value");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentVerificationProvider</span><wbr>&lt;<span class="type">UIComponent</span><wbr>&lt;<span class="type">TOwner</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Should</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the verification provider that gives a set of verification extension methods.
+
+```cs
+Component.Should.Exist();
+Component.Should.Not.BeHidden();
+Component.Should.BeDisabled();
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentTriggerSet</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Triggers</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the set of triggers. Provides the functionality to get/add/remove triggers dynamically.
+
+```cs
+Component.Triggers.Add(new WaitAttribute(2));
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentLocationProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">ComponentLocation</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `UIComponentLocationProvider<TOwner>` instance that provides an access to the scope element's location (X and Y).
+
+```cs
+Component.ComponentLocation.X.Should.BeGreater(10);
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentSizeProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">ComponentSize</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `UIComponentSizeProvider<TOwner>` instance that provides an access to the scope element's size (Width and Height).
+
+```cs
+Component.ComponentSize.Height.Should.BeLessOrEqual(15);
+```
 
 #### Methods
 
-Name | Description
----- | -----------
-`Exists(SearchOptions options = null)` | Determines whether the component exists. If `options` is set to null, then it uses `SearchOptions.Safely()`.
-`Missing(SearchOptions options = null)` | Determines whether the component is missing. If `options` is set to null, then it uses `SearchOptions.Safely()`.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">bool</span></span>
+    <h3><span class="body">Exists</span><span class="tail">(<span class="type">SearchOptions</span> options = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Determines whether the component exists. If `options` is set to null, then it uses `SearchOptions.Safely()`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">bool</span></span>
+    <h3><span class="body">Missing</span><span class="tail">(<span class="type">SearchOptions</span> options = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Determines whether the component is missing. If `options` is set to null, then it uses `SearchOptions.Safely()`.
 
 When accessing any `UIComponent` and inherited type's member that uses `Scope` (actual HTML element) property, executes `TriggerEvents.BeforeAccess` and `TriggerEvents.AfterAccess` triggers. [Find out more on triggers](/triggers/).
 {:.info}
