@@ -477,6 +477,15 @@ img.bordered-image {
     margin-bottom: 8px;
     font-family: Consolas,Menlo,Monaco,"Courier New",monospace !important;
 
+    &.member-enum-value {
+        margin-top: 14px;
+        margin-bottom: 4px;
+
+        h3 {
+            margin-left: 0;
+        }
+    }
+
     .head {
         font-size: .75em;
     }

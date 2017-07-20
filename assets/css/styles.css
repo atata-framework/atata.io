@@ -934,6 +934,11 @@ img.bordered-image {
   margin-top: 20px;
   margin-bottom: 8px;
   font-family: Consolas,Menlo,Monaco,"Courier New",monospace !important; }
+  .member.member-enum-value {
+    margin-top: 14px;
+    margin-bottom: 4px; }
+    .member.member-enum-value h3 {
+      margin-left: 0; }
   .member .head {
     font-size: .75em; }
   .member h3 {
