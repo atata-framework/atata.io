@@ -13,18 +13,43 @@ public class ItemsControl<TItem, TOwner> : Control<TOwner>
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`Items` | Gets the items' `ControlList<TItem, TOwner>` instance. | `Items.Should.HaveCount(2)`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ControlList</span><wbr>&lt;<span class="type">TItem</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Items</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the items' `ControlList<TItem, TOwner>` instance.
+
+```cs
+ItemsControl.Items.Should.HaveCount(2);
+```
 
 #### Indexers
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`[int index]` | Gets the item at the specified index. | `[0].Should.Exist()`, `[1].Should.Equal(5)` or `[2].Content.Should.Equal("Item 1")`
-`[Expression<Func<TItem, bool>> predicateExpression]` | Gets the item that matches the conditions defined by the specified predicate expression. | `[x => x.Title == "Product 1"].Should.Exist()`
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span> <span class="keyword">this</span></span>
+    <h3><span class="body">[<span class="keyword">int</span> index]</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the item at the specified index.
+
+```cs
+ItemsControl[0].Should.Exist();
+ItemsControl[1].Should.Equal(5);
+ItemsControl[2].Content.Should.Equal("Item 1");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span> <span class="keyword">this</span></span>
+    <h3><span class="body">[<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="keyword">bool</span>&gt;&gt; predicateExpression]</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the item that matches the conditions defined by the specified predicate expression.
+
+```cs
+ItemsControl[x => x.Title == "Product 1"].Should.Exist();
+ItemsControl[x => x.Content == "Some content"].Should.Not.Exist();
+```
 
 #### Example
 
