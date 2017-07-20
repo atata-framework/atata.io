@@ -275,6 +275,22 @@ p.file-name {
 .highlighter-rouge {
     position: relative;
 
+    > pre.highlight {
+        background-color: white;
+        border-color: #E0E0E0;
+        padding: 7px 10px;
+        word-break: normal;
+        word-wrap: normal;
+
+        > code {
+            white-space: inherit;
+
+            @media (max-width: 767px) {
+                font-size: 0.8em;
+            }
+        }
+    }
+
     &.html::after, &.page-object::after, &.test::after {
         position: absolute;
         top: 0;
@@ -296,17 +312,6 @@ p.file-name {
 
     &.test::after {
         content: "TEST";
-    }
-
-    > pre.highlight {
-        background-color: white;
-        border-color: #E0E0E0;
-    }
-
-    @media (max-width: 767px) {
-        pre code {
-            font-size: 0.85em;
-        }
     }
 }
 
@@ -361,7 +366,7 @@ p.file-name {
     }
 
     pre.highlight {
-        padding-right: 0;
+        padding: 9.5px 0 9.5px 8px;
     }
 
     img {
