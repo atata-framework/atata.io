@@ -23,11 +23,29 @@ public class Table<TOwner> : Table<TableHeader<TOwner>, TableRow<TOwner>, TOwner
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`Rows` | Gets the rows list. | `Rows.Should.HaveCount(2)`
-`Headers` | Gets the headers list. | `Headers.Should.ContainHavingContent(TermMatch.Equals, "Name", "Amount")`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ControlList</span><wbr>&lt;<span class="type">THeader</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Headers</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the headers list.
+
+```cs
+Table.Headers.Should.ContainHavingContent(TermMatch.Equals, "Name", "Amount");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TableRowList</span><wbr>&lt;<span class="type">TRow</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Rows</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the rows list.
+
+```cs
+Table.Rows.Should.HaveCount(2);
+Table.Rows[0].Should.Exist();
+Table.Rows[x => x.Content == "some content"].Click();
+```
 
 #### Example
 
