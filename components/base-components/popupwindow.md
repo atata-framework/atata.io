@@ -15,7 +15,7 @@ public abstract class PopupWindow<TOwner> : PageObject<TOwner>
 
 #### Example
 
-The example of popup component for [Bootsrap's Modal](http://getbootstrap.com/javascript/#modals) implemented in [atata-framework/atata-bootstrap](https://github.com/atata-framework/atata-bootstrap):
+The example of popup component for [Bootstrap's Modal](http://getbootstrap.com/javascript/#modals) implemented in [atata-framework/atata-bootstrap](https://github.com/atata-framework/atata-bootstrap):
 
 ```cs
 namespace Atata.Bootstrap
