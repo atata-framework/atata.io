@@ -15,26 +15,18 @@ public TextInput<_> FirstName { get; private set; }
 
 #### Values
 
-<div class="member">
-    <h3><span class="body">Equals</span></h3>
-</div>
+{% include enumvalue.html enum="TermMatch" value="Equals" %}
 
 Checks whether the text equals the specified term.
 
-<div class="member">
-    <h3><span class="body">Contains</span></h3>
-</div>
+{% include enumvalue.html enum="TermMatch" value="Contains" %}
 
 Checks whether the text contains the specified term.
 
-<div class="member">
-    <h3><span class="body">StartsWith</span></h3>
-</div>
+{% include enumvalue.html enum="TermMatch" value="StartsWith" %}
 
 Checks whether the text starts with the specified term.
 
-<div class="member">
-    <h3><span class="body">EndsWith</span></h3>
-</div>
+{% include enumvalue.html enum="TermMatch" value="EndsWith" %}
 
 Checks whether the text ends with the specified term.
