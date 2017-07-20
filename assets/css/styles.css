@@ -948,7 +948,7 @@ img.bordered-image {
   .member .where {
     font-size: .75em;
     margin-left: 80px;
-    display: inline-block; }
+    display: block; }
     @media (max-width: 767px) {
       .member .where {
         margin-left: 40px; } }

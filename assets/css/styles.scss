@@ -504,7 +504,7 @@ img.bordered-image {
     .where {
         font-size: .75em;
         margin-left: 80px;
-        display: inline-block;
+        display: block;
 
         @media (max-width: 767px) {
             margin-left: 40px;

@@ -95,7 +95,11 @@ Note that `Save` delegate property is used as the method that returns the instan
 
 ### Methods
 
-Name | Description
----- | -----------
-`ClickAndGo()` | Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">TNavigateTo</span></span>
+    <h3><span class="body">ClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>, <span class="type">TOwner</span>&gt;</span><span class="tail">(<span class="keyword">this</span> <span class="type">INavigable</span><wbr>&lt;<span class="type">TNavigateTo</span>, <span class="type">TOwner</span>&gt; navigableControl)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
+    <span class="where"><span class="keyword">where</span> <span class="type">TOwner</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+</div>
+
+Clicks the control and performs the navigation to the page object of `TNavigateTo` type.
