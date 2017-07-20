@@ -1,5 +1,7 @@
 Specifies the default finding strategy of a control. Can be applied to the control class and assembly.
 
+#### Examples
+
 For example, it is possible to set the default finding of the `Input` control as by name, and for inputs whose parent is `TableRow` by column header:
 
 ```cs
@@ -19,8 +21,16 @@ public class CustomControl<TOwner> : Control<TOwner>
 
 #### Properties
 
-Name | Type | Description
----- | ---- | -----------
-`ControlType` | `Type` | Gets or sets the type of the control (e.g.: `typeof(Link<>)`, `typeof(EditableField<,>)`).
-`ParentComponentType` | `Type` | Gets or sets the type of the parent component.
-{:.table.table-members.table-members-with-type}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Type</span></span>
+    <h3><span class="body">ControlType</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the type of the control (e.g.: `typeof(Link<>)`, `typeof(EditableField<,>)`).
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Type</span></span>
+    <h3><span class="body">ParentComponentType</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the type of the parent component.
