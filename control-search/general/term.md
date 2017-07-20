@@ -1,5 +1,7 @@
 The attribute that specifies the term(s) to use for the control search.
 
+#### Example
+
 In the both following examples `some-input` is the term that is used for the control search:
 
 ```cs
