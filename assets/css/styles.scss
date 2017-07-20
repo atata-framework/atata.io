@@ -47,9 +47,11 @@ h4 {
 
 .member-anchor {
     position: relative;
-    display: inline-block;
-    top: -72px;
+    display: block;
+    top: -70px;
     visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 @import "sidebar";

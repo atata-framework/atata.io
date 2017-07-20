@@ -1,28 +1,76 @@
 The enumeration that specifies the term case. Each of {% include clsref.md name="TermFindAttribute" %} attributes specifies its default term case.
 
-The following example applies finding by `first_name` id:
+#### Example
+
+The following example applies the finding by `first_name` id:
 
 ```cs
 [FindById(TermCase.Snake)]
 public TextInput<_> FirstName { get; private set; }
 ```
 
-Value | Description | Example
------ | ----------- | -------
-{% include termcasemember.md name="None" %} | Doesn't apply the case. |
-{% include termcasemember.md name="Title" %} | Uses title case. | `Some of the Terms`
-{% include termcasemember.md name="Capitalized" %} | Uses title case with all words capitalized. | `Some Of The Terms`
-{% include termcasemember.md name="Sentence" %} | Uses sentence case. | `Some term`
-{% include termcasemember.md name="MidSentence" %} | Uses mid-sentence case where the first word is not capitalized. | `some term`
-{% include termcasemember.md name="Lower" %} | Uses lower case. | `some term`
-{% include termcasemember.md name="LowerMerged" %} | Uses lower case with words merging. | `someterm`
-{% include termcasemember.md name="Upper" %} | Uses upper case. | `SOME TERM`
-{% include termcasemember.md name="UpperMerged" %} | Uses upper case with words merging. | `SOMETERM`
-{% include termcasemember.md name="Camel" %} | Uses camel case. | `someTerm`
-{% include termcasemember.md name="Pascal" %} | Uses pascal case. | `SomeTerm`
-{% include termcasemember.md name="Kebab" %} | Uses dash ('-') and lower case. | `some-term`
-{% include termcasemember.md name="HyphenKebab" %} | Uses hyphen ('‐') and lower case. | `some‐term`
-{% include termcasemember.md name="PascalKebab" %} | Uses dash ('-') and pascal case. | `Some-Term`
-{% include termcasemember.md name="PascalHyphenKebab" %} | Uses hyphen ('‐') and pascal case. | `Some‐Term`
-{% include termcasemember.md name="Snake" %} | Uses underscore ('_') and lower case. | `some_term`
-{:.table.table-members.table-condensed}
+#### Values
+
+{% include enumvalue.html enum="TermCase" value="None" %}
+
+Doesn't apply the case.
+
+{% include enumvalue.html enum="TermCase" value="Title" %}
+
+Uses title case (e.g. `"Some of the Terms"`).
+
+{% include enumvalue.html enum="TermCase" value="Capitalized" %}
+
+Uses title case with all words capitalized (e.g. `"Some Of The Terms"`).
+
+{% include enumvalue.html enum="TermCase" value="Sentence" %}
+
+Uses sentence case (e.g. `"Some term"`).
+
+{% include enumvalue.html enum="TermCase" value="MidSentence" %}
+
+Uses mid-sentence case where the first word is not capitalized (e.g. `"some term"`).
+
+{% include enumvalue.html enum="TermCase" value="Lower" %}
+
+Uses lower case (e.g. `"some term"`).
+
+{% include enumvalue.html enum="TermCase" value="LowerMerged" %}
+
+Uses lower case with words merging (e.g. `"someterm"`).
+
+{% include enumvalue.html enum="TermCase" value="Upper" %}
+
+Uses upper case (e.g. `"SOME TERM"`).
+
+{% include enumvalue.html enum="TermCase" value="UpperMerged" %}
+
+Uses upper case with words merging (e.g. `"SOMETERM"`).
+
+{% include enumvalue.html enum="TermCase" value="Camel" %}
+
+Uses camel case (e.g. `"someTerm"`).
+
+{% include enumvalue.html enum="TermCase" value="Pascal" %}
+
+Uses pascal case (e.g. `"SomeTerm")`.
+
+{% include enumvalue.html enum="TermCase" value="Kebab" %}
+
+Uses dash ('-') and lower case (e.g. `"some-term"`).
+
+{% include enumvalue.html enum="TermCase" value="HyphenKebab" %}
+
+Uses hyphen ('‐') and lower case (e.g. `"some‐term"`).
+
+{% include enumvalue.html enum="TermCase" value="PascalKebab" %}
+
+Uses dash ('-') and pascal case (e.g. `"Some-Term"`).
+
+{% include enumvalue.html enum="TermCase" value="PascalHyphenKebab" %}
+
+Uses hyphen ('‐') and pascal case (e.g. `"Some‐Term"`).
+
+{% include enumvalue.html enum="TermCase" value="Snake" %}
+
+Uses underscore ('_') and lower case (e.g. `"some_term"`).
