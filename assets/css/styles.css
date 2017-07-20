@@ -946,6 +946,8 @@ img.bordered-image {
         margin-left: 20px; } }
     .member h3 .tail:before {
       content: "\200B"; }
+  .member a {
+    text-decoration: underline; }
   .member .type {
     color: #2B91AF; }
   .member .keyword {
