@@ -60,13 +60,25 @@ Go.To<SamplePage>().
 
 #### Methods
 
-Name | Description
----- | -----------
-`SwitchTo<TFramePageObject>(TFramePageObject framePageObject = null, bool? temporarily = null)` | Switches to the frame page object represented by the instance of `TFramePageObject` type.
-`DoWithin<TFramePageObject>(Action<TFramePageObject> action, bool? temporarily = null)` | Switches to the frame page object, executes action(s) in scope of frame and switches back to the owner page object.
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="type">TFramePageObject</span></span>
+    <h3><span class="body">SwitchTo<wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span><span class="tail">(<span class="type">TFramePageObject</span> framePageObject = <span class="keyword">null</span>, <span class="keyword">bool</span>? temporarily = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TFramePageObject</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span>
+</div>
 
-### Frame<TFramePageObject, TOwner>
+Switches to the frame page object represented by the instance of `TFramePageObject` type.
+If `temporarily` is to `true`, navigates temporarily preserving current page object state. If `temporarily` is not set, checks `GoTemporarilyAttribute`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">DoWithin<wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">TFramePageObject</span>&gt; action, <span class="keyword">bool</span>? temporarily = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TFramePageObject</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TFramePageObject</span>&gt;</span>
+</div>
+
+Switches to the frame page object, executes action(s) in scope of frame and switches back to the owner page object.
+If `temporarily` is to `true`, navigates temporarily preserving current page object state. If `temporarily` is not set, checks `GoTemporarilyAttribute`.
+
+### Frame<wbr><TFramePageObject, TOwner>
 
 Recommended to use for the cases when the frame page is the same in parent page.
 
@@ -115,8 +127,18 @@ Go.To<SamplePage>().
 
 #### Methods
 
-Name | Description
----- | -----------
-`SwitchTo(TFramePageObject framePageObject = null, bool? temporarily = null)` | Switches to the frame page object represented by the instance of `TFramePageObject` type.
-`DoWithin(Action<TFramePageObject> action, bool? temporarily = null)` | Switches to the frame page object, executes action(s) in scope of frame and switches back to the owner page object.
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TFramePageObject</span></span>
+    <h3><span class="body">SwitchTo</span><span class="tail">(<span class="type">TFramePageObject</span> framePageObject = <span class="keyword">null</span>, <span class="keyword">bool</span>? temporarily = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Switches to the frame page object represented by the instance of `TFramePageObject` type.
+If `temporarily` is to `true`, navigates temporarily preserving current page object state. If `temporarily` is not set, checks `GoTemporarilyAttribute`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">DoWithin</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">TFramePageObject</span>&gt; action, <span class="keyword">bool</span>? temporarily = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Switches to the frame page object, executes action(s) in scope of frame and switches back to the owner page object.
+If `temporarily` is to `true`, navigates temporarily preserving current page object state. If `temporarily` is not set, checks `GoTemporarilyAttribute`.
