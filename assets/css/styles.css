@@ -939,6 +939,8 @@ img.bordered-image {
     margin-bottom: 4px; }
     .member.member-enum-value h3 {
       margin-left: 0; }
+    .member.member-enum-value .member-anchor {
+      top: -64px; }
   .member .head {
     font-size: .75em; }
   .member h3 {
