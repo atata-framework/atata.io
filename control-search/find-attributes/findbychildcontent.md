@@ -17,7 +17,9 @@ public Link<_> Products { get; private set; }
 
 #### Properties
 
-Name | Type | Description
----- | ---- | -----------
-`ChildIndex` | `int`{:.simple} | Gets or sets the index of the child element. The default value is `0`.
-{:.table.table-members.table-members-with-type}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">int</span></span>
+    <h3><span class="body">ChildIndex</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the index of the child element. The default value is `0`.
