@@ -10,28 +10,85 @@ public class ControlList<TItem, TOwner> : UIComponentPart<TOwner>, IDataProvider
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`Count` | Gets the `DataProvider<int, TOwner>` instance for the controls count. | `Count.Get()` or `Count.Should.Equal(5)`
-`Contents` | Gets the `DataProvider<IEnumerable<string>, TOwner>` instance for the controls contents. | `Contents.Should.EqualSequence("Item 1", "Item 2")` or `Contents.Should.Contain("Item 1")`
-`Should` | Gets the verification provider that gives a set of verification extension methods. | `Should.HaveCount(5)`, `Should.BeEmpty()` or `Should.BeEquivalent("Item 1", "Item 2")`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Count</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `DataProvider<int, TOwner>` instance for the controls count.
+
+```cs
+Items.Count.Get();
+Items.Count.Should.Equal(5);
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="keyword">string</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Contents</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `DataProvider<IEnumerable<string>, TOwner>` instance for the controls contents.
+
+```cs
+Items.Contents.Should.EqualSequence("Item 1", "Item 2");
+Items.Contents.Should.Contain("Item 1");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataVerificationProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="type">TItem</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Should</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the verification provider that gives a set of verification extension methods.
+
+```cs
+Items.Should.HaveCount(5);
+Items.Should.BeEmpty();
+Items.Should.BeEquivalent("Item 1", "Item 2");
+```
 
 #### Indexers
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`[int index]` | Gets the control at the specified index. | `[0].Should.Exist()`, `[1].Should.Equal(5)` or `[2].Content.Should.Equal("Item 1")`
-`[Expression<Func<TItem, bool>> predicateExpression]` | Gets the control that matches the conditions defined by the specified predicate expression. | `[x => x.Title == "Product 1"].Should.Exist()`
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span> <span class="keyword">this</span></span>
+    <h3><span class="body">[<span class="keyword">int</span> index]</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the control at the specified index.
+
+```cs
+Items[0].Should.Exist();
+Items[1].Should.Equal(5);
+Items[2].Content.Should.Equal("Item 1");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span> <span class="keyword">this</span></span>
+    <h3><span class="body">[<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="keyword">bool</span>&gt;&gt; predicateExpression]</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the control that matches the conditions defined by the specified predicate expression.
+
+```cs
+Items[x => x.Title == "Product 1"].Should.Exist();
+Items[x => x.Content == "Some content"].Should.Not.Exist();
+```
 
 #### Methods
 
-Name | Description
----- | -----------
-`IndexOf(Expression<Func<TItem, bool>> predicateExpression)` | Searches for the item that matches the conditions defined by the specified predicate expression and returns the zero-based index of the first occurrence.
-`SelectData<TData>(Expression<Func<TItem, TData>> selector)` | Selects the specified data (property) set of each control. Data can be a sub-control, an instance of `DataProvider<TData, TOwner>`, etc.
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">IndexOf</span><span class="tail">(<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="keyword">bool</span>&gt;&gt; predicateExpression)</span></h3>
+</div>
+
+Searches for the item that matches the conditions defined by the specified predicate expression and returns the zero-based index of the first occurrence.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="type">TData</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">SelectData<wbr>&lt;<span class="type">TData</span>&gt;</span><span class="tail">(<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="type">TData</span>&gt;&gt; selector)</span></h3>
+</div>
+
+Selects the specified data (property) set of each control. Data can be a sub-control, an instance of `DataProvider<TData, TOwner>`, etc.
 
 #### Example
 
