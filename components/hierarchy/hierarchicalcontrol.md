@@ -13,16 +13,49 @@ public class HierarchicalControl<TItem, TOwner> : Control<TOwner>
 
 #### Properties
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`Children` | Gets the children `ControlList<TItem, TOwner>` instance. | `Children.Count.Should.Equal(5)`
-`Descendants` | Gets the descendants (all items at any level of hierarchy) `ControlList<TItem, TOwner>` instance. | `Descendants[x => x.Name == "Item 2.2"].Click()`
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ControlList</span><wbr>&lt;<span class="type">TItem</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Children</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the children `ControlList<TItem, TOwner>` instance.
+
+```cs
+Control.Children.Count.Should.Equal(5);
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ControlList</span><wbr>&lt;<span class="type">TItem</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Descendants</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the descendants (all items at any level of hierarchy) `ControlList<TItem, TOwner>` instance.
+
+```cs
+Control.Descendants[x => x.Name == "Item 2.2"].Click();
+```
 
 #### Indexers
 
-Name | Description | Usage Example
----- | ----------- | -------------
-`[int index]` | Gets the child item at the specified index. | `[0].Should.Exist()` or `[1].Name.Should.Equal("Item 2")`
-`[Expression<Func<TItem, bool>> predicateExpression]` | Gets the child item that matches the conditions defined by the specified predicate expression. | `[x => x.Name == "Item 1"].Should.Exist()`
-{:.table.table-members.table-members-fixed-col-1}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span> <span class="keyword">this</span></span>
+    <h3><span class="body">[<span class="keyword">int</span> index]</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the child item at the specified index.
+
+```cs
+Control[0].Should.Exist();
+Control[1].Name.Should.Equal("Item 2");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span> <span class="keyword">this</span></span>
+    <h3><span class="body">[<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="keyword">bool</span>&gt;&gt; predicateExpression]</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the child item that matches the conditions defined by the specified predicate expression.
+
+```cs
+Control[x => x.Name == "Item 1"].Should.Exist();
+```
