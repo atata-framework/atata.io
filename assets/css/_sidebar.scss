@@ -10,19 +10,22 @@ $sidebar-color: #D35D2E;
 
 /* By default it's not affixed in mobile views, so undo that */
 .at-docs-sidebar.affix {
-    position: static;
+    position: fixed;
+    top: 53px;
+    bottom: 0;
+    padding-top: 14px;
+    overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     .at-docs-sidebar {
         padding-left: 20px;
     }
-}
+}*/
 
 /* First level of nav */
-.at-docs-sidenav {
-    margin-top: 20px;
-    margin-bottom: 20px;
+ul.at-docs-sidenav {
+    margin-bottom: 6px;
 }
 
 /* All levels of nav */
@@ -90,20 +93,20 @@ $sidebar-color: #D35D2E;
         width: 213px;
     }
 
-    .at-docs-sidebar.affix {
-        position: fixed; /* Undo the static from mobile first approach */
+    /*.at-docs-sidebar.affix {
+        position: fixed;
         top: 20px;
-    }
+    }*/
 
     .at-docs-sidebar.affix-bottom {
         position: absolute; /* Undo the static from mobile first approach */
     }
 
-    .at-docs-sidebar.affix-bottom .at-docs-sidenav,
+    /*.at-docs-sidebar.affix-bottom .at-docs-sidenav,
     .at-docs-sidebar.affix .at-docs-sidenav {
         margin-top: 0;
         margin-bottom: 0;
-    }
+    }*/
 }
 
 @media (min-width: 1200px) {

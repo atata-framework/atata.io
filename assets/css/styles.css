@@ -4,11 +4,15 @@
   body > .at-docs-container {
     background-color: white;
     padding-bottom: 14px; }
-    body > .at-docs-container > .container {
+    body > .at-docs-container > .container-fluid {
       padding: 60px 15px 0; }
     body > .at-docs-container img {
       max-width: 100%;
       height: auto; }
+
+@media (min-width: 1200px) {
+  .container-fluid {
+    width: 1170px; } }
 
 .footer {
   width: 100%;
@@ -47,16 +51,20 @@ h4 {
 /*$sidebar-color: #563d7c;*/
 /* By default it's not affixed in mobile views, so undo that */
 .at-docs-sidebar.affix {
-  position: static; }
+  position: fixed;
+  top: 53px;
+  bottom: 0;
+  padding-top: 14px;
+  overflow-y: auto; }
 
-@media (min-width: 768px) {
-  .at-docs-sidebar {
-    padding-left: 20px; } }
-
+/*@media (min-width: 768px) {
+    .at-docs-sidebar {
+        padding-left: 20px;
+    }
+}*/
 /* First level of nav */
-.at-docs-sidenav {
-  margin-top: 20px;
-  margin-bottom: 20px; }
+ul.at-docs-sidenav {
+  margin-bottom: 6px; }
 
 /* All levels of nav */
 .at-docs-sidebar .nav > li > a {
@@ -114,17 +122,18 @@ h4 {
   .at-docs-sidebar.affix,
   .at-docs-sidebar.affix-bottom {
     width: 213px; }
-  .at-docs-sidebar.affix {
-    position: fixed;
-    /* Undo the static from mobile first approach */
-    top: 20px; }
+  /*.at-docs-sidebar.affix {
+        position: fixed;
+        top: 20px;
+    }*/
   .at-docs-sidebar.affix-bottom {
     position: absolute;
     /* Undo the static from mobile first approach */ }
-  .at-docs-sidebar.affix-bottom .at-docs-sidenav,
-  .at-docs-sidebar.affix .at-docs-sidenav {
-    margin-top: 0;
-    margin-bottom: 0; } }
+  /*.at-docs-sidebar.affix-bottom .at-docs-sidenav,
+    .at-docs-sidebar.affix .at-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }*/ }
 
 @media (min-width: 1200px) {
   /* Widen the fixed sidebar again */
@@ -632,9 +641,6 @@ h4 {
   color: #a31515; }
 
 /* Literal.String.Symbol */
-.at-docs-sidebar.affix {
-  top: 78px; }
-
 @media (min-width: 480px) {
   table.table-members td:nth-child(1) {
     width: 160px; } }

@@ -8,7 +8,7 @@ body {
         background-color: white;
         padding-bottom: 14px;
 
-        > .container {
+        > .container-fluid {
             padding: 60px 15px 0;
         }
 
@@ -16,6 +16,12 @@ body {
             max-width: 100%;
             height: auto;
         }
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        width: 1170px;
     }
 }
 
@@ -58,10 +64,6 @@ h4 {
 @import "share-buttons";
 @import "pygments-default";
 @import "pygments-vs";
-
-.at-docs-sidebar.affix {
-    top: 78px;
-}
 
 table.table-members {
     td:nth-child(1) {
