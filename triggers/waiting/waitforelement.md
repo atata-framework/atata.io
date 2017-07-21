@@ -97,14 +97,27 @@ Gets or sets the retry interval. The default value is taken from `AtataContext.C
 
 The enumeration that specifies the kind of the element selector for the waiting.
 
-Value | Description
------ | -----------
-`Id` | Uses the id selector kind.
-`Name` | Uses the name selector kind.
-`Class` | Uses the class selector kind.
-`Css` | Uses the CSS selector kind.
-`XPath` | Uses the XPath selector kind.
-{:.table.table-members.table-condensed}
+##### Values
+
+{% include enumvalue.html enum="WaitBy" value="Id" %}
+
+Uses the id selector kind.
+
+{% include enumvalue.html enum="WaitBy" value="Name" %}
+
+Uses the name selector kind.
+
+{% include enumvalue.html enum="WaitBy" value="Class" %}
+
+Uses the class selector kind.
+
+{% include enumvalue.html enum="WaitBy" value="Css" %}
+
+Uses the CSS selector kind.
+
+{% include enumvalue.html enum="WaitBy" value="XPath" %}
+
+Uses the XPath selector kind.
 
 <a id="waituntil" class="header-anchor"></a>
 
@@ -112,17 +125,48 @@ Value | Description
 
 The enumeration that specifies the waiting approach.
 
-Value | Description
------ | -----------
-`Missing` | Waits until the element will be missing.
-`Hidden` | Waits until the element will be hidden.
-`MissingOrHidden` | Waits until the element will be missing or hidden.
-`Visible` | Waits until the element will be visible.
-`VisibleOrHidden` | Waits until the element will be visible or hidden.
-`VisibleThenHidden` | Waits until the element will be visible and then until it will be hidden.
-`VisibleThenMissing` | Waits until the element will be visible and then until it will be missing.
-`VisibleThenMissingOrHidden` | Waits until the element will be visible and then until it will be missing or hidden.
-`MissingThenVisible` | Waits until the element will be missing and then until it will be visible.
-`HiddenThenVisible` | Waits until the element will be hidden and then until it will be visible.
-`MissingOrHiddenThenVisible` | Waits until the element will be missing or hidden and then until it will be visible.
-{:.table.table-members.table-condensed}
+##### Values
+
+{% include enumvalue.html enum="WaitUntil" value="Missing" %}
+
+Waits until the element will be missing.
+
+{% include enumvalue.html enum="WaitUntil" value="Hidden" %}
+
+Waits until the element will be hidden.
+
+{% include enumvalue.html enum="WaitUntil" value="MissingOrHidden" %}
+
+Waits until the element will be missing or hidden.
+
+{% include enumvalue.html enum="WaitUntil" value="Visible" %}
+
+Waits until the element will be visible.
+
+{% include enumvalue.html enum="WaitUntil" value="VisibleOrHidden" %}
+
+Waits until the element will be visible or hidden.
+
+{% include enumvalue.html enum="WaitUntil" value="VisibleThenHidden" %}
+
+Waits until the element will be visible and then until it will be hidden.
+
+{% include enumvalue.html enum="WaitUntil" value="VisibleThenMissing" %}
+
+Waits until the element will be visible and then until it will be missing.
+
+{% include enumvalue.html enum="WaitUntil" value="VisibleThenMissingOrHidden" %}
+
+Waits until the element will be visible and then until it will be missing or hidden.
+
+{% include enumvalue.html enum="WaitUntil" value="MissingThenVisible" %}
+
+Waits until the element will be missing and then until it will be visible.
+
+{% include enumvalue.html enum="WaitUntil" value="HiddenThenVisible" %}
+
+Waits until the element will be hidden and then until it will be visible.
+
+{% include enumvalue.html enum="WaitUntil" value="MissingOrHiddenThenVisible" %}
+
+Waits until the element will be missing or hidden and then until it will be visible.
