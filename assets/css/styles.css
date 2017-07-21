@@ -14,6 +14,10 @@
   .container-fluid {
     width: 1170px; } }
 
+@media (min-width: 992px) {
+  .at-docs-content {
+    margin-left: 215px; } }
+
 .footer {
   width: 100%;
   height: 40px;
@@ -55,7 +59,8 @@ h4 {
   top: 53px;
   bottom: 0;
   padding-top: 14px;
-  overflow-y: auto; }
+  overflow-y: auto;
+  width: 200px; }
 
 /*@media (min-width: 768px) {
     .at-docs-sidebar {
@@ -117,29 +122,7 @@ ul.at-docs-sidenav {
 /* Show and affix the side nav when space allows it */
 @media (min-width: 992px) {
   .at-docs-sidebar .nav > .active > ul {
-    display: block; }
-  /* Widen the fixed sidebar */
-  .at-docs-sidebar.affix,
-  .at-docs-sidebar.affix-bottom {
-    width: 213px; }
-  /*.at-docs-sidebar.affix {
-        position: fixed;
-        top: 20px;
-    }*/
-  .at-docs-sidebar.affix-bottom {
-    position: absolute;
-    /* Undo the static from mobile first approach */ }
-  /*.at-docs-sidebar.affix-bottom .at-docs-sidenav,
-    .at-docs-sidebar.affix .at-docs-sidenav {
-        margin-top: 0;
-        margin-bottom: 0;
-    }*/ }
-
-@media (min-width: 1200px) {
-  /* Widen the fixed sidebar again */
-  .at-docs-sidebar.affix-bottom,
-  .at-docs-sidebar.affix {
-    width: 263px; } }
+    display: block; } }
 
 .share-buttons {
   position: relative;

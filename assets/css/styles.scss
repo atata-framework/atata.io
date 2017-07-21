@@ -25,6 +25,12 @@ body {
     }
 }
 
+@media (min-width: 992px) {
+    .at-docs-content {
+        margin-left: 215px;
+    }
+}
+
 .footer {
     width: 100%;
     height: 40px;

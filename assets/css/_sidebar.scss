@@ -15,6 +15,7 @@ $sidebar-color: #D35D2E;
     bottom: 0;
     padding-top: 14px;
     overflow-y: auto;
+    width: 200px;
 }
 
 /*@media (min-width: 768px) {
@@ -86,33 +87,5 @@ ul.at-docs-sidenav {
 @media (min-width: 992px) {
     .at-docs-sidebar .nav > .active > ul {
         display: block;
-    }
-    /* Widen the fixed sidebar */
-    .at-docs-sidebar.affix,
-    .at-docs-sidebar.affix-bottom {
-        width: 213px;
-    }
-
-    /*.at-docs-sidebar.affix {
-        position: fixed;
-        top: 20px;
-    }*/
-
-    .at-docs-sidebar.affix-bottom {
-        position: absolute; /* Undo the static from mobile first approach */
-    }
-
-    /*.at-docs-sidebar.affix-bottom .at-docs-sidenav,
-    .at-docs-sidebar.affix .at-docs-sidenav {
-        margin-top: 0;
-        margin-bottom: 0;
-    }*/
-}
-
-@media (min-width: 1200px) {
-    /* Widen the fixed sidebar again */
-    .at-docs-sidebar.affix-bottom,
-    .at-docs-sidebar.affix {
-        width: 263px;
     }
 }
