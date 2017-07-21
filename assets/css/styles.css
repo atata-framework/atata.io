@@ -765,7 +765,8 @@ h1.home-header {
   z-index: 2; }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #465C66; }
+  color: #465C66;
+  word-break: break-word; }
 
 code.language-nugetpm {
   padding: 20px;
@@ -790,20 +791,20 @@ p.file-name {
   p.file-name code {
     background-color: transparent; }
 
-.highlighter-rouge {
+div.highlighter-rouge {
   position: relative; }
-  .highlighter-rouge > pre.highlight {
+  div.highlighter-rouge > pre.highlight {
     background-color: white;
     border-color: #E0E0E0;
     padding: 7px 10px;
     word-break: normal;
     word-wrap: normal; }
-    .highlighter-rouge > pre.highlight > code {
+    div.highlighter-rouge > pre.highlight > code {
       white-space: inherit; }
       @media (max-width: 767px) {
-        .highlighter-rouge > pre.highlight > code {
+        div.highlighter-rouge > pre.highlight > code {
           font-size: 0.8em; } }
-  .highlighter-rouge.html::after, .highlighter-rouge.page-object::after, .highlighter-rouge.test::after {
+  div.highlighter-rouge.html::after, div.highlighter-rouge.page-object::after, div.highlighter-rouge.test::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -812,12 +813,15 @@ p.file-name {
     font-size: 0.75em;
     font-weight: bold;
     padding: 5px; }
-  .highlighter-rouge.html::after {
+  div.highlighter-rouge.html::after {
     content: "HTML"; }
-  .highlighter-rouge.page-object::after {
+  div.highlighter-rouge.page-object::after {
     content: "PAGE OBJECT"; }
-  .highlighter-rouge.test::after {
+  div.highlighter-rouge.test::after {
     content: "TEST"; }
+
+code.highlighter-rouge {
+  word-break: break-word; }
 
 .github-corner {
   position: absolute;
@@ -971,7 +975,4 @@ img.bordered-image {
     @media (max-width: 767px) {
       .member .where {
         margin-left: 40px; } }
-
-.word-break {
-  word-break: break-word; }
 

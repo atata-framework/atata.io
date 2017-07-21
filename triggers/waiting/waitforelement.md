@@ -75,21 +75,21 @@ Gets or sets a value indicating whether to throw the exception on the absence (m
     <h3><span class="body">PresenceTimeout</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
 </div>
 
-Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`{:.word-break}.
+Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="keyword">double</span></span>
     <h3><span class="body">AbsenceTimeout</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
 </div>
 
-Gets or sets the absence (missing or hidden) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`{:.word-break}.
+Gets or sets the absence (missing or hidden) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="keyword">double</span></span>
     <h3><span class="body">RetryInterval</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
 </div>
 
-Gets or sets the retry interval. The default value is taken from `AtataContext.Current.RetryInterval.TotalSeconds`{:.word-break}.
+Gets or sets the retry interval. The default value is taken from `AtataContext.Current.RetryInterval.TotalSeconds`.
 
 <a id="waitby" class="header-anchor"></a>
 

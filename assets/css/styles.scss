@@ -243,6 +243,7 @@ h1.home-header {
 
 h1, h2, h3, h4, h5, h6 {
     color: #465C66;
+    word-break: break-word;
 }
 
 code.language-nugetpm {
@@ -274,7 +275,7 @@ p.file-name {
     }
 }
 
-.highlighter-rouge {
+div.highlighter-rouge {
     position: relative;
 
     > pre.highlight {
@@ -315,6 +316,10 @@ p.file-name {
     &.test::after {
         content: "TEST";
     }
+}
+
+code.highlighter-rouge {
+    word-break: break-word;
 }
 
 .github-corner {
@@ -541,8 +546,4 @@ img.bordered-image {
             margin-left: 40px;
         }
     }
-}
-
-.word-break {
-    word-break: break-word;
 }
