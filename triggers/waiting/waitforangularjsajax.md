@@ -3,7 +3,7 @@ Indicates that the waiting should be performed until the AngularJS (v1.*) AJAX i
 ```cs
 public class SamplePage : Page<_>
 {
-    [WaitForAngularJSAjaxAttribute]
+    [WaitForAngularJSAjax]
     public Button<_> Save { get; private set; }
 }
 ```

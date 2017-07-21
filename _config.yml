@@ -181,7 +181,7 @@ triggers:
       - Wait
       - WaitForElement
       - WaitForJQueryAjax
-      - WaitForAngularJSAjaxAttribute
+      - WaitForAngularJSAjax
   - name: Performing
     items:
       - LogInfo
