@@ -506,6 +506,13 @@ img.bordered-image {
             margin-left: 20px;
         }
 
+        .body {
+            &[title=Required]:after {
+                content: "*";
+                color: red;
+            }
+        }
+
         .tail {
             &:before {
                 content: "\200B";
@@ -534,4 +541,8 @@ img.bordered-image {
             margin-left: 40px;
         }
     }
+}
+
+.word-break {
+    word-break: break-word;
 }

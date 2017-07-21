@@ -953,6 +953,9 @@ img.bordered-image {
       .member h3 {
         font-size: 14px;
         margin-left: 20px; } }
+    .member h3 .body[title=Required]:after {
+      content: "*";
+      color: red; }
     .member h3 .tail:before {
       content: "\200B"; }
   .member a {
@@ -968,4 +971,7 @@ img.bordered-image {
     @media (max-width: 767px) {
       .member .where {
         margin-left: 40px; } }
+
+.word-break {
+  word-break: break-word; }
 

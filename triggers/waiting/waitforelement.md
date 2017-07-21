@@ -12,26 +12,84 @@ The example after the click on `Refresh` button waits for element with class "bu
 
 #### Parameters
 
-Name | Type | Description
----- | ---- | -----------
-`waitBy`<span title="Required">*</span> | [`WaitBy`](#waitby) | The kind of the element selector to wait for.
-`selector`<span title="Required">*</span> | `string`{:.simple} | The selector.
-`until` | [`WaitUntil`](#waituntil) | The waiting approach. The default is `MissingOrHidden`.
-`on` | [`TriggerEvents`](#triggerevents) | The trigger events. The default is `AfterClick`.
-`priority` | [`TriggerPriority`](#triggerpriority) | The priority. The default is `Medium`.
-{:.table.table-members.table-members-with-type}
+<div class="member">
+    <span class="head"><a href="#waitby" class="type">WaitBy</a></span>
+    <h3><span class="body" title="Required">waitBy</span></h3>
+</div>
+
+The kind of the element selector to wait for.
+
+<div class="member">
+    <span class="head"><span class="keyword">string</span></span>
+    <h3><span class="body" title="Required">selector</span></h3>
+</div>
+
+The selector.
+
+<div class="member">
+    <span class="head"><a href="#waituntil" class="type">WaitUntil</a></span>
+    <h3><span class="body">until</span><span class="tail"> = <span class="type">WaitUntil</span>.MissingOrHidden</span></h3>
+</div>
+
+The waiting approach. The default is `MissingOrHidden`.
+
+<div class="member">
+    <span class="head"><a href="#triggerevents" class="type">TriggerEvents</a></span>
+    <h3><span class="body">on</span><span class="tail"> = <span class="type">TriggerEvents</span>.AfterClick</span></h3>
+</div>
+
+The trigger events. The default is `AfterClick`.
+
+<div class="member">
+    <span class="head"><a href="#triggerpriority" class="type">TriggerPriority</a></span>
+    <h3><span class="body">priority</span><span class="tail"> = <span class="type">TriggerPriority</span>.Medium</span></h3>
+</div>
+
+The priority. The default is `Medium`.
 
 #### Properties
 
-Name | Description
----- | -----------
-`ScopeSource` | Gets or sets the scope source. The default value is `ScopeSource.Parent`.
-`ThrowOnPresenceFailure` | Gets or sets a value indicating whether to throw the exception on the presence (exists or visible) failure. The default value is true.
-`ThrowOnAbsenceFailure` | Gets or sets a value indicating whether to throw the exception on the absence (missing or hidden) failure. The default value is true.
-`PresenceTimeout` | Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
-`AbsenceTimeout` | Gets or sets the absence (missing or hidden) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`.
-`RetryInterval` | Gets or sets the retry interval. The default value is taken from `AtataContext.Current.RetryInterval.TotalSeconds`.
-{:.table.table-members}
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ScopeSource</span></span>
+    <h3><span class="body">ScopeSource</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the scope source. The default value is `ScopeSource.Parent`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">bool</span></span>
+    <h3><span class="body">ThrowOnPresenceFailure</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets a value indicating whether to throw the exception on the presence (exists or visible) failure. The default value is true.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">bool</span></span>
+    <h3><span class="body">ThrowOnAbsenceFailure</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets a value indicating whether to throw the exception on the absence (missing or hidden) failure. The default value is true.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">double</span></span>
+    <h3><span class="body">PresenceTimeout</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the presence (exists or visible) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`{:.word-break}.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">double</span></span>
+    <h3><span class="body">AbsenceTimeout</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the absence (missing or hidden) timeout in seconds. The default value is taken from `AtataContext.Current.RetryTimeout.TotalSeconds`{:.word-break}.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">double</span></span>
+    <h3><span class="body">RetryInterval</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
+</div>
+
+Gets or sets the retry interval. The default value is taken from `AtataContext.Current.RetryInterval.TotalSeconds`{:.word-break}.
 
 <a id="waitby" class="header-anchor"></a>
 
