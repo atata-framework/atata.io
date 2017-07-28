@@ -737,21 +737,20 @@ code.highlighter-rouge {
         transform: rotate(10deg);
     }
 }*/
-@media (min-width: 1200px) {
-  .home-usage-section pre.highlight {
-    height: 335px; } }
-
-.home-usage-section pre.highlight {
+div.home-usage-section div.highlighter-rouge > pre.highlight {
   padding: 9.5px 0 9.5px 8px; }
+  @media (min-width: 1200px) {
+    div.home-usage-section div.highlighter-rouge > pre.highlight {
+      height: 335px; } }
 
-.home-usage-section img {
+div.home-usage-section img {
   width: 555px;
   height: 335px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   margin-bottom: 10px; }
 
-.home-usage-section span.glyphicon {
+div.home-usage-section span.glyphicon {
   position: absolute;
   left: -17px;
   top: 149px;

@@ -374,15 +374,13 @@ code.highlighter-rouge {
     }
 }*/
 
-.home-usage-section {
-    @media (min-width: 1200px) {
-        pre.highlight {
+div.home-usage-section {
+    div.highlighter-rouge > pre.highlight {
+        padding: 9.5px 0 9.5px 8px;
+
+        @media (min-width: 1200px) {
             height: 335px;
         }
-    }
-
-    pre.highlight {
-        padding: 9.5px 0 9.5px 8px;
     }
 
     img {
