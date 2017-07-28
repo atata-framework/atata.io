@@ -1,0 +1,33 @@
+﻿@import "variables";
+
+.highlighter-rouge.language-cs {
+    .nc {
+        color: $type-color;
+        font-weight: normal;
+    }
+
+    .n, .na, .nn, .nf, .p, .m {
+        color: $regular-code-color;
+        font-weight: normal;
+    }
+
+    .k, .kt {
+        color: $keyword-color;
+        font-weight: normal;
+    }
+
+    .c1 {
+        color: $comment-color;
+        font-weight: normal;
+    }
+
+    .s {
+        color: $string-color;
+        font-weight: normal;
+    }
+
+    .err {
+        @extend .s;
+        border: none;
+    }
+}
