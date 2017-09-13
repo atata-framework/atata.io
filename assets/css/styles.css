@@ -767,6 +767,12 @@ div.home-usage-section span.glyphicon {
     font-weight: bold;
     display: block; }
 
+.link-item-list li {
+  margin-bottom: 10px; }
+  .link-item-list li a {
+    font-size: 1.2em;
+    font-weight: bold; }
+
 .meta .date {
   font-style: italic; }
 

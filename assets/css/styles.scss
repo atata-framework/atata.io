@@ -416,6 +416,17 @@ div.home-usage-section {
     }
 }
 
+.link-item-list {
+    li {
+        margin-bottom: 10px;
+
+        a {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    }
+}
+
 .meta {
     .date {
         font-style: italic;
