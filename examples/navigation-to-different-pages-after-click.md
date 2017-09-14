@@ -148,4 +148,7 @@ Go.To<SignInPage>().
 
 * Need to implement separate method in the page object for each navigation target page.
 
+<div class="post-footer">
+{% include sharebuttons.html page=page %}
+</div>
 {% include comments.html %}
