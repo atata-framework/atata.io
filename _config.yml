@@ -210,6 +210,7 @@ exclude:
 links:
     atata_github: https://github.com/atata-framework/atata
     atata_issues: https://github.com/atata-framework/atata/issues
+    atata_webdriverextras_issues: https://github.com/atata-framework/atata-webdriverextras/issues
     atata_gitter: https://gitter.im/atata-framework/atata
     atata_twitter: https://twitter.com/AtataFramework
     atata_nuget: https://www.nuget.org/packages/Atata/
