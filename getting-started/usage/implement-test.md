@@ -16,7 +16,7 @@ namespace SampleApp.UITests
         [SetUp]
         public void SetUp()
         {
-            AtataContext.Build().
+            AtataContext.Configure().
                 UseChrome().
                 UseBaseUrl("https://atata-framework.github.io/atata-sample-app/#!/").
                 UseNUnitTestName().
@@ -24,7 +24,7 @@ namespace SampleApp.UITests
                 AddScreenshotFileSaving().
                 LogNUnitError().
                 TakeScreenshotOnNUnitError().
-                SetUp();
+                Build();
         }
 
         [TearDown]
