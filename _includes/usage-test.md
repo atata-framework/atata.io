@@ -11,9 +11,9 @@ public void SignIn()
 [SetUp]
 public void SetUp()
 {
-    AtataContext.Build().
+    AtataContext.Configure().
         UseChrome().
         UseBaseUrl("http://atata-framework.github.io/atata-sample-app/#!/").
-        SetUp();
+        Build();
 }
 ```
