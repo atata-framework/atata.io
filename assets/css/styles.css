@@ -6,6 +6,8 @@
     padding-bottom: 14px; }
     body > .at-docs-container > .container-fluid {
       padding: 60px 15px 0; }
+      body > .at-docs-container > .container-fluid.home-container-fluid {
+        padding-top: 0; }
     body > .at-docs-container img {
       max-width: 100%;
       height: auto; }
@@ -588,37 +590,46 @@ a.enum-value-reference code {
 .menu-item-highlighted {
   font-weight: bold; }
 
-h1.home-header {
-  text-align: center;
-  font-size: 90px;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 1px;
-  color: white;
-  position: relative;
-  z-index: 2; }
+.home-top-container {
+  background-color: #FAFAFA;
+  margin-top: 51px; }
+  .home-top-container .logo-container {
+    width: 228px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 7px; }
+  .home-top-container .home-top-inner-container {
+    background-color: #D35D2E;
+    padding: 0 15px 10px 15px; }
+    .home-top-container .home-top-inner-container h1.home-header {
+      text-align: center;
+      font-size: 90px;
+      font-weight: bold;
+      margin-top: 7px;
+      margin-bottom: 0;
+      color: white; }
+    .home-top-container .home-top-inner-container .home-description > p {
+      color: white;
+      margin: 0 0 12px 0;
+      font-size: 40px; }
+      @media (max-width: 767px) {
+        .home-top-container .home-top-inner-container .home-description > p {
+          font-size: 26px; } }
+    .home-top-container .home-top-inner-container .home-primary-links .btn {
+      background-color: white;
+      color: #3384CC;
+      font-weight: bold;
+      border-radius: 18px;
+      border-width: 0;
+      margin: 2px;
+      min-width: 135px;
+      display: inline-block; }
+      .home-top-container .home-top-inner-container .home-primary-links .btn:hover {
+        text-decoration: underline; }
 
 @media (min-width: 480px) {
   h2.home-header {
     text-align: center; } }
-
-.home-top-background {
-  position: absolute;
-  left: 0;
-  top: 162px;
-  right: 0;
-  height: 227px;
-  background-color: #D35D2E;
-  z-index: 1; }
-
-.home-description {
-  margin-bottom: 14px;
-  position: relative;
-  z-index: 2; }
-  .home-description > p {
-    color: white;
-    margin: 0 0 18px;
-    display: block; }
 
 .home-links-background {
   position: absolute;
@@ -636,15 +647,6 @@ h1.home-header {
   margin-bottom: 3px; }
   .home-links a img {
     height: 20px; }
-
-.logo-container {
-  background-color: white;
-  width: 228px;
-  text-align: center;
-  margin: 0 auto;
-  padding-bottom: 4px;
-  position: relative;
-  z-index: 2; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #465C66;

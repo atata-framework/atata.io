@@ -1,6 +1,6 @@
 name: Atata
-short_description: "C#/.NET test automation framework"
-description: "C#/.NET test automation framework"
+short_description: "C#/.NET Test Automation Framework"
+description: "C#/.NET automated web testing full featured framework"
 url: https://atata-framework.github.io
 baseurl: ""
 timezone: "Europe/Kiev"
