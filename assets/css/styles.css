@@ -631,16 +631,10 @@ a.enum-value-reference code {
   h2.home-header {
     text-align: center; } }
 
-.home-links-background {
-  position: absolute;
-  background-color: #EEEEEE;
-  left: 0;
-  right: 0;
-  height: 496px;
-  z-index: 0; }
-  @media (min-width: 768px) {
-    .home-links-background {
-      height: 135px; } }
+hr.home-links-border {
+  margin-top: 14px;
+  margin-bottom: 0;
+  border-top-color: #e0e0e0; }
 
 .home-links a {
   display: inline-block;
@@ -679,7 +673,7 @@ div.highlighter-rouge {
   position: relative; }
   div.highlighter-rouge > pre.highlight {
     background-color: white;
-    border-color: #E0E0E0;
+    border-color: #e0e0e0;
     padding: 7px 10px;
     word-break: normal;
     word-wrap: normal; }

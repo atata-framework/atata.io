@@ -242,17 +242,10 @@ $navbar-padding-horizontal: 8px;
     }
 }
 
-.home-links-background {
-    position: absolute;
-    background-color: #EEEEEE;
-    left: 0;
-    right: 0;
-    height: 496px;
-    z-index: 0;
-
-    @media (min-width: 768px) {
-        height: 135px;
-    }
+hr.home-links-border {
+    margin-top: 14px;
+    margin-bottom: 0;
+    border-top-color: $border-color;
 }
 
 .home-links {
@@ -305,7 +298,7 @@ div.highlighter-rouge {
 
     > pre.highlight {
         background-color: white;
-        border-color: #E0E0E0;
+        border-color: $border-color;
         padding: 7px 10px;
         word-break: normal;
         word-wrap: normal;
@@ -399,7 +392,7 @@ div.home-usage-section {
 
     img {
         width: 555px;
-        border: 1px solid #e0e0e0;
+        border: 1px solid $border-color;
         border-radius: 4px;
         margin-bottom: 10px;
     }
