@@ -22,6 +22,4 @@ All templates are located on Visual Studio's **New Project** and **New Item** wi
 
 Extension supports: Visual Studio 2012, 2013, 2015, 2017.
 
-<p class="lead lead-footer">
-    <a href="https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Atata Templates on Visual Studio Marketplace</a>
-</p>
+{% include download-link.html url="https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates" text="Atata Templates on Visual Studio Marketplace" %}
