@@ -1,12 +1,12 @@
-In the `SetUp` method just invoke `AtataContext.Build()` method that returns `AtataContextBuilder` instance, then invoke configuration methods and finally invoke `SetUp()` method:
+In `SetUp` method just invoke `AtataContext.Configure()` method that returns `AtataContextBuilder` instance, then invoke configuration methods and finally invoke `Build()` method:
 
 ```cs
 [SetUp]
 public void SetUp()
 {
-    AtataContext.Build().
+    AtataContext.Configure().
         // TODO: Invoke configuration methods.
-        SetUp();
+        Build();
 }
 ```
 
@@ -19,3 +19,5 @@ public void TearDown()
     AtataContext.Current.CleanUp();
 }
 ```
+
+It also closes web driver instance as well as a browser.
