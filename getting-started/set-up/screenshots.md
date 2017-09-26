@@ -1,4 +1,4 @@
-The list of screenshot taking extension methods for `AtataContextBuilder`:
+The list of screenshot taking methods of `AtataContextBuilder`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">TScreenshotConsumer</span>&gt;</span>
@@ -58,22 +58,22 @@ Specifies the file path builder of the log consumer.
 The below example configures `FileScreenshotConsumer` to use separate folder for each test:
 
 ``` cs
-AtataContext.Build().
+AtataContext.Configure().
     // Do some initialization.
     AddScreenshotFileSaving().
         WithFolderPath(() => $@"Logs\{AtataContext.BuildStart:yyyy-MM-dd HH_mm_ss}\{AtataContext.Current.TestName}").
         WithFileName(screenshotInfo => $"{screenshotInfo.Number:D2} - {screenshotInfo.PageObjectFullName}{screenshotInfo.Title?.Prepend(" - ")}").
-    SetUp();
+    Build();
 ```
 
 If you need to take a screenshot only on test failure, you may configure `FileScreenshotConsumer` to save all screenshot files to the same folder:
 
 ``` cs
-AtataContext.Build().
+AtataContext.Configure().
     // Do some initialization.
     TakeScreenshotOnNUnitError().
     AddScreenshotFileSaving().
         WithFolderPath(() => $@"Logs\{AtataContext.BuildStart:yyyy-MM-dd HH_mm_ss}").
         WithFileName(screenshotInfo => $"{AtataContext.Current.TestName} - {screenshotInfo.PageObjectFullName}").
-    SetUp();
+    Build();
 ```

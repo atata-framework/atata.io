@@ -1,4 +1,4 @@
-The list of logging extension methods for `AtataContextBuilder`:
+The list of logging methods of `AtataContextBuilder`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TLogConsumer</span>&gt;</span>
@@ -57,12 +57,12 @@ Specifies the minimum level of the log event to write to the log. The default va
 #### Usage
 
 ```cs
-AtataContext.Build().
+AtataContext.Configure().
     UseChrome().
     UseNUnitTestContextLogging().
         WithoutSectionFinish().
         WithMinLevel(LogLevel.Info).
     UseDebugLogging().
         WithMinLevel(LogLevel.Debug).
-    SetUp();
+    Build();
 ```

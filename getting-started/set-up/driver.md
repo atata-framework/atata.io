@@ -1,4 +1,4 @@
-The list of driver creational methods for `AtataContextBuilder`:
+The list of driver creational methods of `AtataContextBuilder`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">ChromeAtataContextBuilder</span></span>
@@ -119,8 +119,8 @@ Specifies the command timeout (the maximum amount of time to wait for each comma
 #### Usage
 
 ```cs
-AtataContext.Build().
+AtataContext.Configure().
     UseChrome().
         WithArguments("disable-extensions", "no-sandbox", "start-maximized").
-    SetUp();
+    Build();
 ```
