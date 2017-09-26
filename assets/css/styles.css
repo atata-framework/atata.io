@@ -758,7 +758,7 @@ div.home-usage-section span.glyphicon {
 
 .tutorial-list li {
   margin-bottom: 10px; }
-  .tutorial-list li a {
+  .tutorial-list li a, .tutorial-list li span {
     font-size: 1.2em;
     font-weight: bold;
     display: block; }
