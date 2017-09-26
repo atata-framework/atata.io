@@ -30,7 +30,7 @@ You might also need to install a driver package for specific browser: {% include
 In created project you can specify your testing site base URL and apropriate driver in `UITestFixture.cs` class, e.g.:
 
 ```cs
-AtataContext.Build().
+AtataContext.Configure().
     UseChrome().
     UseBaseUrl("SITE_URL").
     //...
