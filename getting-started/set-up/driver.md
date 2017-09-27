@@ -50,11 +50,32 @@ Use the `OperaDriver`.
 Use the `PhantomJSDriver`.
 
 <div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">RemoteDriverAtataContextBuilder</span></span>
+    <h3><span class="body">UseRemoteDriver()</span></h3>
+</div>
+
+Use the `RemoteWebDriver`.
+
+<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseDriver</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">RemoteWebDriver</span>&gt; driverCreator)</span></h3>
 </div>
 
-Use custom driver creator function.
+Use custom driver factory method.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TDriverFactory</span></span>
+    <h3><span class="body">UseDriver<wbr>&lt;<span class="type">TDriverFactory</span>&gt;</span><span class="tail">(<span class="type">TDriverFactory</span> driverFactory)</span></h3>
+</div>
+
+Use the driver factory.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseDriver</span><span class="tail">(<span class="keyword">string</span> alias)</span></h3>
+</div>
+
+Sets the alias of the driver to use.
 
 #### Driver Configuration
 
@@ -69,17 +90,31 @@ Adds arguments to be appended to the Chrome.exe/Opera.exe command line.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithAlias</span><span class="tail">(<span class="keyword">string</span> alias)</span></h3>
+</div>
+
+Specifies the driver alias.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
     <h3><span class="body">WithOptions</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">{DriverOptions}</span>&gt; optionsCreator)</span></h3>
 </div>
 
-Specifies the driver options.
+Specifies the driver options factory method.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
     <h3><span class="body">WithOptions</span><span class="tail">(<span class="type">Action</span>&lt;<span class="type">{DriverOptions}</span>&gt; optionsInitializer)</span></h3>
 </div>
 
-Specifies the driver options.
+Specifies the driver options initialization method.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithOptions</span><span class="tail">(<span class="type">Dictionary</span><wbr>&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; optionsPropertiesMap)</span></h3>
+</div>
+
+Specifies the properties map for the driver options.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
@@ -93,7 +128,21 @@ Adds additional capability to the driver options.
     <h3><span class="body">WithDriverService</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">{DriverService}</span>&gt; driverServiceCreator)</span></h3>
 </div>
 
-Specifies the creator function of the driver service.
+Specifies the driver service factory method.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithDriverService</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">{DriverService}</span>&gt; serviceInitializer)</span></h3>
+</div>
+
+Specifies the driver service initialization method.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithDriverService</span><span class="tail">(<span class="type">Dictionary</span><wbr>&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; servicePropertiesMap)</span></h3>
+</div>
+
+Specifies the properties map for the driver service.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
