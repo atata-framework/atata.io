@@ -9,6 +9,13 @@ The list of logging methods of `AtataContextBuilder`:
 Adds the log consumer.
 
 <div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">ILogConsumer</span>&gt;</span>
+    <h3><span class="body">AddLogConsumer</span><span class="tail">(<span class="keyword">string</span> typeNameOrAlias)</span></h3>
+</div>
+
+Adds the log consumer. `typeNameOrAlias` can accept full type name or one of the aliases: "debug", "trace", "nunit" or "nlog".
+
+<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TraceLogConsumer</span>&gt;</span>
     <h3><span class="body">AddTraceLogging()</span></h3>
 </div>
