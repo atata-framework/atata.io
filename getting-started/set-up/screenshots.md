@@ -9,6 +9,13 @@ The list of screenshot taking methods of `AtataContextBuilder`:
 Adds the screenshot consumer. Is used for custom screenshot processing.
 
 <div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">IScreenshotConsumer</span>&gt;</span>
+    <h3><span class="body">AddScreenshotConsumer</span><span class="tail">(<span class="keyword">string</span> typeNameOrAlias)</span></h3>
+</div>
+
+Adds the screenshot consumer. `typeNameOrAlias` can accept full type name, custom `IScreenshotConsumer` alias (registered via `ScreenshotConsumerAliases.Register` method) or predefined "file" alias.
+
+<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
     <h3><span class="body">AddScreenshotFileSaving()</span></h3>
 </div>
@@ -30,28 +37,28 @@ The list of extension methods to configure `FileScreenshotConsumer`:
     <h3><span class="body">With</span><span class="tail">(<span class="type">ScreenshotImageFormat</span> imageFormat)</span></h3>
 </div>
 
-Specifies the image format of the log consumer.
+Specifies the image format of the file screenshot consumer.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
     <h3><span class="body">WithFolderPath</span><span class="tail">(<span class="type">Func</span>&lt;<span class="keyword">string</span>&gt; folderPathBuilder)</span></h3>
 </div>
 
-Specifies the folder path builder of the log consumer.
+Specifies the folder path builder of the file screenshot consumer.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
     <h3><span class="body">WithFileName</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">ScreenshotInfo</span>, <span class="keyword">string</span>&gt; fileNameBuilder)</span></h3>
 </div>
 
-Specifies the file name builder of the log consumer.
+Specifies the file name builder of the file screenshot consumer.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">FileScreenshotConsumer</span>&gt;</span>
     <h3><span class="body">WithFilePath</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">ScreenshotInfo</span>, <span class="keyword">string</span>&gt; filePathBuilder)</span></h3>
 </div>
 
-Specifies the file path builder of the log consumer.
+Specifies the file path builder of the file screenshot consumer.
 
 #### Usage
 
