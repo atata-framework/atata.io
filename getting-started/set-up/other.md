@@ -14,6 +14,13 @@ Sets the name of the test.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTestName</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="keyword">string</span>&gt; testNameFactory)</span></h3>
+</div>
+
+Sets the factory method of the test name.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseNUnitTestName()</span></h3>
 </div>
 
@@ -24,7 +31,7 @@ Defines that the name of the test should be taken from the NUnit test.
     <h3><span class="body">UseRetryTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
 </div>
 
-Sets the retry timeout for a search of element/control. The default value is 10 seconds.
+Sets the retry timeout for a search of element/control. The default value is 5 seconds.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
@@ -53,3 +60,31 @@ Defines that an error occurred during the NUnit test execution should be added t
 </div>
 
 Defines that an error occurred during the NUnit test execution should be captured by a screenshot during the cleanup.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseAssertionExceptionType</span><span class="tail">(<span class="type">Type</span> exceptionType)</span></h3>
+</div>
+
+Sets the type of the assertion exception. The default value is `typeof(Atata.AssertionException)`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseAssertionExceptionType<wbr>&lt;<span class="type">TException</span>&gt;()</span></h3>
+</div>
+
+Sets the type of the assertion exception. The default value is `typeof(Atata.AssertionException)`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">Clear()</span></h3>
+</div>
+
+Clears the `BuildingContext`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContext</span></span>
+    <h3><span class="body">Build()</span></h3>
+</div>
+
+Builds the `AtataContext` instance and sets it to `AtataContext.Current` property.
