@@ -1,5 +1,7 @@
 Represents the base class for the controls.
 
+{% include inherited.md from="UIComponent" %}
+
 Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
 {:.info}
 
@@ -68,6 +70,7 @@ Right-clicks the control. Also executes `TriggerEvents.BeforeClick` and `Trigger
 </div>
 
 Drags and drops the control to the target control returned by `targetSelector`. By default uses `DragAndDropUsingActionsAttribute`.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
@@ -75,6 +78,7 @@ Drags and drops the control to the target control returned by `targetSelector`. 
 </div>
 
 Drags and drops the control to the target control. By default uses `DragAndDropUsingActionsAttribute`.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
@@ -82,3 +86,12 @@ Drags and drops the control to the target control. By default uses `DragAndDropU
 </div>
 
 Drags and drops the control to the specified offset.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">ScrollTo()</span></h3>
+</div>
+
+Scrolls to the control. By default uses `ScrollUsingMoveToElementAttribute` behavior.
+Also executes `TriggerEvents.BeforeScroll` and `TriggerEvents.AfterScroll` triggers.
