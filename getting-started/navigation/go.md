@@ -1,4 +1,4 @@
-The page object navigation starts with `Go` class. It provides a set of static generic methods for navigation.
+The page object navigation starts with `Go` static class. It provides a set of static methods for navigation.
 
 #### Methods
 
