@@ -858,3 +858,6 @@ img.bordered-image {
       .member .where {
         margin-left: 40px; } }
 
+.download-sample-section > a {
+  display: inline-block; }
+
