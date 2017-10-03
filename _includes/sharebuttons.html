@@ -1,5 +1,17 @@
 {% assign shareUrl = site.url | append: include.page.url | uri_escape %}
+{% assign urlParts = include.page.url | split: "/" %}
+{% assign urlFirstPart = urlParts[1] %}
+
+{% case urlFirstPart %}
+{% when "blog" %}
 {% assign shareText = include.page.title | append: " - Atata Blog" | uri_escape %}
+{% when "examples" %}
+{% assign shareText = "Atata Example: " | append: include.page.title | uri_escape %}
+{% when "tutorials" %}
+{% assign shareText = "Atata Tutorial: " | append: include.page.title | uri_escape %}
+{% else %}
+{% assign shareText = include.page.title | append: " - Atata" | uri_escape %}
+{% endcase %}
 
 <span class="share-buttons">
     <!-- Sharingbutton Facebook -->
