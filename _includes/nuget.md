@@ -1,1 +1,1 @@
-﻿[{{ include.name }}](https://www.nuget.org/packages/{{ include.name }}/)
+[{{ include.name }}](https://www.nuget.org/packages/{{ include.name }}/)
