@@ -1,67 +1,61 @@
 ---
-layout: default
+layout: summary-page
 title: Contact
 ---
-<div class="row">
-    <div class="col-md-8 col-md-offset-2" role="main">
-        <h1 class="page-header">{{ page.title }}</h1>
+<div class="contact-container">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>Feel free to ask any questions regarding Atata Framework. Any feedback, issues and feature requests are welcome.</p>
+            <p>If you faced an issue please report it to <a href="{{ site.links.atata_issues }}">Atata Issues</a>, write to <a href="{{ site.links.atata_gitter }}">Atata Gitter</a> or just mail to <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>.</p>
+        </div>
+    </div>
 
-        <div class="contact-container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <p>Feel free to ask any questions regarding Atata Framework. Any feedback, issues and feature requests are welcome.</p>
-                    <p>If you faced an issue please report it to <a href="{{ site.links.atata_issues }}">Atata Issues</a>, write to <a href="{{ site.links.atata_gitter }}">Atata Gitter</a> or just mail to <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>.</p>
-                </div>
-            </div>
+    <h2>Links</h2>
+    <div class="row">
+        <div class="col-sm-9">
+            <dl class="dl-horizontal">
+                <dt>Atata Issues</dt>
+                <dd><a href="{{ site.links.atata_issues }}">{{ site.links.atata_issues }}</a></dd>
+                <dt>Atata Gitter</dt>
+                <dd><a href="{{ site.links.atata_gitter }}">{{ site.links.atata_gitter }}</a></dd>
+                <dt>Twitter</dt>
+                <dd><a href="https://twitter.com/AtataFramework">https://twitter.com/AtataFramework</a></dd>
+                <dt>YouTube</dt>
+                <dd><a href="https://www.youtube.com/channel/UCSNfv8sKpUR3a6dqPVy54KQ">https://www.youtube.com/channel/UCSNfv8sKpUR3a6dqPVy54KQ</a></dd>
+                {% comment %}
+                <dt>Stack Overflow</dt>
+                <dd><a href="http://stackoverflow.com/questions/tagged/atata">http://stackoverflow.com/questions/tagged/atata</a></dd>-->
+                {% endcomment %}
+            </dl>
+        </div>
+        <div class="col-sm-3 hidden-xs">
+            <img src="/assets/images/logo.png" alt="Atata logo" width="128" height="128" class="pull-right" />
+        </div>
+    </div>
 
-            <h2>Links</h2>
-            <div class="row">
-                <div class="col-sm-9">
-                    <dl class="dl-horizontal">
-                        <dt>Atata Issues</dt>
-                        <dd><a href="{{ site.links.atata_issues }}">{{ site.links.atata_issues }}</a></dd>
-                        <dt>Atata Gitter</dt>
-                        <dd><a href="{{ site.links.atata_gitter }}">{{ site.links.atata_gitter }}</a></dd>
-                        <dt>Twitter</dt>
-                        <dd><a href="https://twitter.com/AtataFramework">https://twitter.com/AtataFramework</a></dd>
-                        <dt>YouTube</dt>
-                        <dd><a href="https://www.youtube.com/channel/UCSNfv8sKpUR3a6dqPVy54KQ">https://www.youtube.com/channel/UCSNfv8sKpUR3a6dqPVy54KQ</a></dd>
-                        {% comment %}
-                        <dt>Stack Overflow</dt>
-                        <dd><a href="http://stackoverflow.com/questions/tagged/atata">http://stackoverflow.com/questions/tagged/atata</a></dd>-->
-                        {% endcomment %}
-                    </dl>
-                </div>
-                <div class="col-sm-3 hidden-xs">
-                    <img src="/assets/images/logo.png" alt="Atata logo" width="128" height="128" class="pull-right" />
-                </div>
-            </div>
-
-            <h2>Author</h2>
-            <div class="row">
-                <div class="col-sm-9">
-                    <p>Contact me if you need a help in test automation using Atata Framework, or if you are looking for a quality test automation implementation for your project.</p>
-                    <dl class="dl-horizontal">
-                        <dt>Email</dt>
-                        <dd><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></dd>
-                        <dt>Skype</dt>
-                        <dd>e.shunevich</dd>
-                        <dt>LinkedIn</dt>
-                        <dd><a href="https://www.linkedin.com/in/yevgeniy-shunevych">https://www.linkedin.com/in/yevgeniy-shunevych</a></dd>
-                        <dt>Twitter</dt>
-                        <dd><a href="https://twitter.com/YevgenShunevych">https://twitter.com/YevgenShunevych</a></dd>
-                        <dt>Facebook</dt>
-                        <dd><a href="https://www.facebook.com/YevgeniyShunevych">https://www.facebook.com/YevgeniyShunevych</a></dd>
-                        <dt>Gitter</dt>
-                        <dd><a href="https://gitter.im/YevgeniyShunevych">https://gitter.im/YevgeniyShunevych</a></dd>
-                        <dt>GitHub</dt>
-                        <dd><a href="https://github.com/YevgeniyShunevych">https://github.com/YevgeniyShunevych</a></dd>
-                    </dl>
-                </div>
-                <div class="col-sm-3 hidden-xs">
-                    <img src="/assets/images/author.jpg?v2" alt="{{ site.author.name }}" width="128" height="128" class="pull-right" />
-                </div>
-            </div>
+    <h2>Author</h2>
+    <div class="row">
+        <div class="col-sm-9">
+            <p>Contact me if you need a help in test automation using Atata Framework, or if you are looking for a quality test automation implementation for your project.</p>
+            <dl class="dl-horizontal">
+                <dt>Email</dt>
+                <dd><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></dd>
+                <dt>Skype</dt>
+                <dd>e.shunevich</dd>
+                <dt>LinkedIn</dt>
+                <dd><a href="https://www.linkedin.com/in/yevgeniy-shunevych">https://www.linkedin.com/in/yevgeniy-shunevych</a></dd>
+                <dt>Twitter</dt>
+                <dd><a href="https://twitter.com/YevgenShunevych">https://twitter.com/YevgenShunevych</a></dd>
+                <dt>Facebook</dt>
+                <dd><a href="https://www.facebook.com/YevgeniyShunevych">https://www.facebook.com/YevgeniyShunevych</a></dd>
+                <dt>Gitter</dt>
+                <dd><a href="https://gitter.im/YevgeniyShunevych">https://gitter.im/YevgeniyShunevych</a></dd>
+                <dt>GitHub</dt>
+                <dd><a href="https://github.com/YevgeniyShunevych">https://github.com/YevgeniyShunevych</a></dd>
+            </dl>
+        </div>
+        <div class="col-sm-3 hidden-xs">
+            <img src="/assets/images/author.jpg?v2" alt="{{ site.author.name }}" width="128" height="128" class="pull-right" />
         </div>
     </div>
 </div>

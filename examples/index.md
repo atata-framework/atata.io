@@ -1,5 +1,5 @@
 ---
-layout: list-page
+layout: summary-page
 title: Examples
 ---
 

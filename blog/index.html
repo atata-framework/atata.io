@@ -1,38 +1,33 @@
 ---
+layout: summary-page
 title: Blog
-layout: default
 ---
-
-<div class="row">
-    <div class="col-md-8 col-md-offset-2" role="main">
-        <div class="post-list">
-            {% for page in site.posts %}
-            <div class="post-list-item">
-                <div class="post-header">
-                    {% if page.image %}
-                    <img src="/assets/images/{{ page.image }}" alt="{{ page.image_alt }}" width="120" height="63" class="pull-right hidden-xs" />
-                    {% endif %}
-                    <h2>
-                        <a href="{{ page.url }}">{{ page.title }}</a>
-                    </h2>
-                    <p class="meta">
-                        <span class="date">{{ page.date | date: "%B %e, %Y" }}</span>
-                    </p>
-                </div>
-                <div class="post">
-                    {{ page.excerpt }}
-                </div>
-                <a href="{{ page.url }}" class="btn btn-default">
-                    Read post
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-                {% unless page == site.posts.last %}
-                <hr>
-                {% endunless %}
-            </div>
-            {% endfor %}
+<div class="post-list">
+    {% for page in site.posts %}
+    <div class="post-list-item">
+        <div class="post-header">
+            {% if page.image %}
+            <img src="/assets/images/{{ page.image }}" alt="{{ page.image_alt }}" width="120" height="63" class="pull-right hidden-xs" />
+            {% endif %}
+            <h2>
+                <a href="{{ page.url }}">{{ page.title }}</a>
+            </h2>
+            <p class="meta">
+                <span class="date">{{ page.date | date: "%B %e, %Y" }}</span>
+            </p>
         </div>
+        <div class="post">
+            {{ page.excerpt }}
+        </div>
+        <a href="{{ page.url }}" class="btn btn-default">
+            Read post
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        {% unless page == site.posts.last %}
+        <hr>
+        {% endunless %}
     </div>
+    {% endfor %}
 </div>
 {% comment %}
 <script id="dsq-count-scr" src="//atata-framework.disqus.com/count.js" async></script>
