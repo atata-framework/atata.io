@@ -57,8 +57,8 @@ Use the `PhantomJSDriver`.
 Use the `RemoteWebDriver`.
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseDriver</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">RemoteWebDriver</span>&gt; driverCreator)</span></h3>
+    <span class="head"><span class="keyword">public</span> <span class="type">CustomDriverAtataContextBuilder</span></span>
+    <h3><span class="body">UseDriver</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">RemoteWebDriver</span>&gt; driverFactory)</span></h3>
 </div>
 
 Use custom driver factory method.
