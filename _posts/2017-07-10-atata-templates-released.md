@@ -7,8 +7,6 @@ description: "Atata Templates Visual Studio extension has been released."
 [Atata Templates](https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates) Visual Studio extension has been released.
 {:.lead}
 
-<!--excerpt_separator-->
-
 A set of project and item templates for web automated testing using Atata Framework. The extension contains:
 
 - **Atata Test Project** project template
