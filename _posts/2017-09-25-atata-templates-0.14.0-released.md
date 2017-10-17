@@ -7,6 +7,8 @@ description: "Atata Templates 0.14.0 has been released. Check the changelog."
 [Atata Templates 0.14.0](https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates) has been released. Check the changelog.
 {:.lead}
 
+<!--more-->
+
 ## Changelog
 
 * Update referenced packages to latest versions in **Atata Test Project** template:

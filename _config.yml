@@ -26,6 +26,8 @@ defaults:
 #permalink: pretty
 permalink: /blog/:year/:month/:day/:title/
 
+excerpt_separator: <!--more-->
+
 author:
   name: Yevgeniy Shunevych
   github: YevgeniyShunevych
