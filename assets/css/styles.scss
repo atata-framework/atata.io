@@ -19,6 +19,10 @@ body {
         img {
             max-width: 100%;
             height: auto;
+
+            &.block {
+                display: block;
+            }
         }
     }
 }
@@ -415,7 +419,7 @@ div.home-usage-section {
     li {
         margin-bottom: 10px;
 
-        a, span {
+        a {
             font-size: 1.2em;
             font-weight: bold;
             display: block;

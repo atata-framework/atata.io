@@ -11,6 +11,8 @@
     body > .at-docs-container img {
       max-width: 100%;
       height: auto; }
+      body > .at-docs-container img.block {
+        display: block; }
 
 @media (min-width: 1200px) {
   .container-fluid {
@@ -758,7 +760,7 @@ div.home-usage-section span.glyphicon {
 
 .tutorial-list li {
   margin-bottom: 10px; }
-  .tutorial-list li a, .tutorial-list li span {
+  .tutorial-list li a {
     font-size: 1.2em;
     font-weight: bold;
     display: block; }
