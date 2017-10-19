@@ -25,6 +25,9 @@ Chrome, Internet Explorer and Firefox are used in this tutorial. Add NuGet refer
 
 Create the following class:
 
+`SetUpFixture.cs`
+{:.file-name}
+
 ```cs
 using Atata;
 using NUnit.Framework;
@@ -62,6 +65,9 @@ In `SetUpFixture` you can configure all browser drivers you want to use. `Global
 ## UITestFixture
 
 `UITestFixture` is often used as a base UI test fixture class.
+
+`UITestFixture.cs`
+{:.file-name}
 
 ```cs
 using Atata;
@@ -111,6 +117,9 @@ You can also specify custom test name considering driver alias, like above.
 
 Create simple page object class:
 
+`HomePage.cs`
+{:.file-name}
+
 ```cs
 using Atata;
 
@@ -128,6 +137,9 @@ namespace AtataSamples.MultipleBrowsersViaFixtureArguments
 ## Test Fixture
 
 Now we can create specific test fixture with single test. Don't forget to define constructor and pass the argument to the base `UITestFixture` class.
+
+`HomeTests.cs`
+{:.file-name}
 
 ```cs
 using Atata;
