@@ -35,6 +35,9 @@ In Visual Studio, create Class Library project and add the following NuGet packa
 
 Define NUnit test class with `SetUp` and `TearDown` methods:
 
+`PlanTests.cs`
+{:.file-name}
+
 ```cs
 using Atata;
 using NUnit.Framework;
@@ -69,6 +72,9 @@ namespace AtataSamples.PageVerification
 ```
 
 And here is the basic page object class for the sample `Plans` page:
+
+`PlansPage.cs`
+{:.file-name}
 
 ```cs
 using Atata;
@@ -111,7 +117,7 @@ namespace AtataSamples.PageVerification
 }
 ```
 
-Now we can implement a test method in `PlanTests` fixture.
+Now we can implement test method in `PlanTests` fixture.
 
 ```cs
 [Test]
@@ -127,6 +133,9 @@ public void PrimaryPageDataVerification_InTest()
 ### Verify in OnVerify Method
 
 `PageObject` class has virtual `OnVerify` method that can be overridden for inner page object verifications.
+
+`PlansWithOnVerifyPage.cs`
+{:.file-name}
 
 ```cs
 using Atata;
@@ -169,6 +178,9 @@ public void PrimaryPageDataVerification_OnVerify()
 Another approach is quite simple.
 You can use a set of [verification trigger attributes](/triggers/#verification) to mark with them a page object class or control properties.
 
+`PlansWithStaticTriggersPage.cs`
+{:.file-name}
+
 ```cs
 using Atata;
 
@@ -202,6 +214,9 @@ Atata will execute the specified triggers during the navigation to the page obje
 
 And finally, you can add verification triggers dynamically.
 It is helpful when you need to pass the parameters for the triggers using constructor of page object, or if you need to get them from an external source.
+
+`PlansWithDynamicTriggersPage.cs`
+{:.file-name}
 
 ```cs
 using Atata;
@@ -372,7 +387,7 @@ If you run this test, it will succeed and generate the following log to NUnit co
 2017-10-17 14:17:10.5944 INFO Verify "3rd" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6">
 2017-10-17 14:17:10.8957 INFO Clean up test context
 2017-10-17 14:17:11.0253 INFO Finished test (5.127s)
-2017-10-17 14:17:11.0258 INFO Pure test execution time:  2.353s
+2017-10-17 14:17:11.0258 INFO Pure test execution time: 2.353s
 ```
 
 {{ download-section }}
