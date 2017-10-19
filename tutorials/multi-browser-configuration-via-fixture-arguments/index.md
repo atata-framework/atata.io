@@ -8,7 +8,7 @@ description: How to configure multi-browser tests application using NUnit fixtur
 {:.lead}
 
 {% capture download-section %}
-{% include download-sample.html file="AtataSamples.MultipleBrowsersViaFixtureArguments-v1.zip" solution="src\AtataSamples.MultipleBrowsersViaFixtureArguments.sln" %}
+{% include download-sample.html file="AtataSamples.MultipleBrowsersViaFixtureArguments-v2.zip" solution="src\AtataSamples.MultipleBrowsersViaFixtureArguments.sln" %}
 {% endcapture %}
 {{ download-section }}
 
