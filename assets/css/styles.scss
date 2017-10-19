@@ -300,7 +300,7 @@ p.file-name {
 div.highlighter-rouge {
     position: relative;
 
-    > pre.highlight {
+    pre.highlight {
         background-color: white;
         border-color: $border-color;
         padding: 7px 10px;
@@ -386,7 +386,7 @@ code.highlighter-rouge {
     }
 }*/
 div.home-usage-section {
-    div.highlighter-rouge > pre.highlight {
+    div.highlighter-rouge pre.highlight {
         padding: 9.5px 0 9.5px 8px;
 
         @media (min-width: 1200px) {
