@@ -128,6 +128,13 @@ Component.ComponentSize.Height.Should.BeLessOrEqual(15);
 #### Methods
 
 <div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">IWebElement</span></span>
+    <h3><span class="body">GetScope</span><span class="tail">(<span class="type">SearchOptions</span> options = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Gets the `IWebElement` instance that represents the scope HTML element. Also executes `TriggerEvents.BeforeAccess` and `TriggerEvents.AfterAccess` triggers.
+
+<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="keyword">bool</span></span>
     <h3><span class="body">Exists</span><span class="tail">(<span class="type">SearchOptions</span> options = <span class="keyword">null</span>)</span></h3>
 </div>
@@ -140,3 +147,16 @@ Determines whether the component exists. If `options` is set to null, then it us
 </div>
 
 Determines whether the component is missing. If `options` is set to null, then it uses `SearchOptions.Safely()`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Wait</span><span class="tail">(<span class="type">Until</span> until, <span class="type">WaitOptions</span> options = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Waits until the specified component condition is met.
+
+```cs
+LoadingBlock.Wait(Until.Hidden);
+// Or
+ContentBlock.Wait(Until.Visible);
+```
