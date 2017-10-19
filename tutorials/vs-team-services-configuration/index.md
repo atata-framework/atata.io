@@ -38,13 +38,13 @@ Otherwise you will need a machine for custom build agent with installed browser(
 ### Prepare Account Permissions
 
 You can find the complete documentation on permissions configuration here:
-<https://www.visualstudio.com/en-us/docs/build/actions/agents/prepare-permissions>.
+[Prepare permissions](https://docs.microsoft.com/en-us/vsts/build-release/actions/agents/prepare-permissions).
 Create personal access token and copy it.
 
 ### Configure Build Agent
 
 The process of configuration is described here:
-<https://www.visualstudio.com/en-us/docs/build/actions/agents/v2-windows#download-and-configure-the-agent>.
+[Download and configure the agent](https://docs.microsoft.com/en-us/vsts/build-release/actions/agents/v2-windows#download-and-configure-the-agent).
 But I will try to describe it for our needs shortly.
 
 1. Go to `https://{your-account}.visualstudio.com/_admin/_AgentPool` ("Account settings/Agent Pools") and click "Download agent" button.
