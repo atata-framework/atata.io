@@ -152,7 +152,7 @@ Specifies the properties map for the driver service.
 Specifies the directory containing the driver executable file.
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">TBuilder</span></span>
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
     <h3><span class="body">WithLocalDriverPath()</span></h3>
 </div>
 
@@ -175,7 +175,7 @@ Specifies the name of the driver executable file.
 Specifies the command timeout (the maximum amount of time to wait for each command).
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">TBuilder</span></span>
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
     <h3><span class="body">WithFixOfCommandExecutionDelay()</span></h3>
 </div>
 
