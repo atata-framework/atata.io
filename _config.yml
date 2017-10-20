@@ -183,6 +183,7 @@ triggers:
   - name: Waiting
     items:
       - Until
+      - WaitFor
       - WaitForElement
       - Wait
       - WaitForJQueryAjax
