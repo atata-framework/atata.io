@@ -7,6 +7,20 @@ Sets the base URL.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseCulture</span><span class="tail">(<span class="type">CultureInfo</span> culture)</span></h3>
+</div>
+
+Sets the culture. The default value is `CultureInfo.CurrentCulture`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseCulture</span><span class="tail">(<span class="keyword">string</span> cultureName)</span></h3>
+</div>
+
+Sets the culture by the name. The default value is `CultureInfo.CurrentCulture`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseTestName</span><span class="tail">(<span class="keyword">string</span> name)</span></h3>
 </div>
 
