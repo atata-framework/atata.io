@@ -3,7 +3,7 @@ Specifies the waiting for the element. By default occurs after the click.
 ```cs
 public class SamplePage : Page<_>
 {
-    [WaitForElement(WaitBy.Class, "busy-indicator", WaitUntil.VisibleAndHidden)]
+    [WaitForElement(WaitBy.Class, "busy-indicator", Until.VisibleAndHidden)]
     public Button<_> Refresh { get; private set; }
 }
 ```
@@ -27,11 +27,11 @@ The kind of the element selector to wait for.
 The selector.
 
 <div class="member">
-    <span class="head"><a href="#waituntil" class="type">WaitUntil</a></span>
-    <h3><span class="body">until</span><span class="tail"> = <span class="type">WaitUntil</span>.MissingOrHidden</span></h3>
+    <span class="head"><a href="#until" class="type">Until</a></span>
+    <h3><span class="body">until</span><span class="tail"> = <span class="type">Until</span>.MissingOrHidden</span></h3>
 </div>
 
-The waiting approach. The default is `MissingOrHidden`.
+The waiting condition. The default is `MissingOrHidden`.
 
 <div class="member">
     <span class="head"><a href="#triggerevents" class="type">TriggerEvents</a></span>
@@ -97,76 +97,11 @@ Gets or sets the retry interval. The default value is taken from `AtataContext.C
 
 The enumeration that specifies the kind of the element selector for the waiting.
 
-##### Values
-
-{% include enumvalue.html enum="WaitBy" value="Id" %}
-
-Uses the id selector kind.
-
-{% include enumvalue.html enum="WaitBy" value="Name" %}
-
-Uses the name selector kind.
-
-{% include enumvalue.html enum="WaitBy" value="Class" %}
-
-Uses the class selector kind.
-
-{% include enumvalue.html enum="WaitBy" value="Css" %}
-
-Uses the CSS selector kind.
-
-{% include enumvalue.html enum="WaitBy" value="XPath" %}
-
-Uses the XPath selector kind.
-
-<a id="waituntil" class="header-anchor"></a>
-
-#### WaitUntil
-
-The enumeration that specifies the waiting approach.
-
-##### Values
-
-{% include enumvalue.html enum="WaitUntil" value="Missing" %}
-
-Waits until the element will be missing.
-
-{% include enumvalue.html enum="WaitUntil" value="Hidden" %}
-
-Waits until the element will be hidden.
-
-{% include enumvalue.html enum="WaitUntil" value="MissingOrHidden" %}
-
-Waits until the element will be missing or hidden.
-
-{% include enumvalue.html enum="WaitUntil" value="Visible" %}
-
-Waits until the element will be visible.
-
-{% include enumvalue.html enum="WaitUntil" value="VisibleOrHidden" %}
-
-Waits until the element will be visible or hidden.
-
-{% include enumvalue.html enum="WaitUntil" value="VisibleThenHidden" %}
-
-Waits until the element will be visible and then until it will be hidden.
-
-{% include enumvalue.html enum="WaitUntil" value="VisibleThenMissing" %}
-
-Waits until the element will be visible and then until it will be missing.
-
-{% include enumvalue.html enum="WaitUntil" value="VisibleThenMissingOrHidden" %}
-
-Waits until the element will be visible and then until it will be missing or hidden.
-
-{% include enumvalue.html enum="WaitUntil" value="MissingThenVisible" %}
-
-Waits until the element will be missing and then until it will be visible.
-
-{% include enumvalue.html enum="WaitUntil" value="HiddenThenVisible" %}
-
-Waits until the element will be hidden and then until it will be visible.
-
-{% include enumvalue.html enum="WaitUntil" value="MissingOrHiddenThenVisible" %}
-
-Waits until the element will be missing or hidden and then until it will be visible.
+Value | Description
+----- | -----------
+`Id` | Uses the id selector kind.
+`Name` | Uses the name selector kind.
+`Class` | Uses the class selector kind.
+`Css` | Uses the CSS selector kind.
+`XPath` | Uses the XPath selector kind.
+{:.table.table-members.table-condensed}

@@ -182,8 +182,9 @@ triggers:
       - VerifyMissing
   - name: Waiting
     items:
-      - Wait
+      - Until
       - WaitForElement
+      - Wait
       - WaitForJQueryAjax
       - WaitForAngularJSAjax
   - name: Performing
