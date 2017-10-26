@@ -3,6 +3,7 @@
 {% elsif include.repo == 'bs' %}{% assign repository_name = 'atata-bootstrap' %}
 {% elsif include.repo == 'ku' %}{% assign repository_name = 'atata-kendoui' %}
 {% elsif include.repo == 'cj' %}{% assign repository_name = 'atata-configuration-json' %}
+{% elsif include.repo == 'tm' %}{% assign repository_name = 'atata-templates' %}
 {% else %}{% assign repository_name = include.repo %}
 {% endif %}
 {% if include.type=='mj' %}<span class="label label-primary label-issue-type">major</span>
