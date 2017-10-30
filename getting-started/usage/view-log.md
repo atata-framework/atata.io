@@ -19,5 +19,5 @@ The above sample `SignIn` test generates the following log:
 2016-09-26 15:50:55.9578 INFO Starting: Clean up test context
 2016-09-26 15:50:56.0173 INFO Finished: Clean up test context (0.059s)
 2016-09-26 15:50:56.0178 INFO Finished test (4.249s)
-2016-09-26 15:50:56.0178 INFO Pure test execution time:  1.575s
+2016-09-26 15:50:56.0178 INFO Pure test execution time: 1.575s
 ```
