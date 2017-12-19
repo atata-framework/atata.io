@@ -13,7 +13,9 @@ Adds the log consumer.
     <h3><span class="body">AddLogConsumer</span><span class="tail">(<span class="keyword">string</span> typeNameOrAlias)</span></h3>
 </div>
 
-Adds the log consumer. `typeNameOrAlias` can accept full type name, custom `ILogConsumer` alias (registered via `LogConsumerAliases.Register` method) or one of the predefined aliases: "debug", "trace", "nunit" and "nlog".
+Adds the log consumer.
+`typeNameOrAlias` can accept full type name, custom `ILogConsumer` alias (registered via `LogConsumerAliases.Register` method) or one of the predefined aliases:
+"trace", "debug", "console", "nunit" and "nlog".
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TraceLogConsumer</span>&gt;</span>
@@ -28,6 +30,13 @@ Adds the `TraceLogConsumer` instance that uses `System.Diagnostics.Trace` class 
 </div>
 
 Adds the `DebugLogConsumer` instance that uses `System.Diagnostics.Debug` class for logging.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">ConsoleLogConsumer</span>&gt;</span>
+    <h3><span class="body">AddConsoleLogging()</span></h3>
+</div>
+
+Adds the `ConsoleLogConsumer` instance that uses `System.Console` class for logging.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">NUnitTestContextLogConsumer</span>&gt;</span>
