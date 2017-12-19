@@ -1,6 +1,5 @@
 ---
 title: "Atata Templates 0.16.0 Released"
-date: 2017-12-19
 description: "Atata Templates 0.16.0 has been released with update of package references. Check the changelog."
 ---
 
