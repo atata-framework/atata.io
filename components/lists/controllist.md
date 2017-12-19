@@ -84,6 +84,17 @@ Items[x => x.Content == "Some content"].Should.Not.Exist();
 Searches for the item that matches the conditions defined by the specified predicate expression and returns the zero-based index of the first occurrence.
 
 <div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TItem</span></span>
+    <h3><span class="body">GetByXPathCondition</span><span class="tail">(<span class="keyword">string</span> itemName, <span class="keyword">string</span> xPathCondition)</span></h3>
+</div>
+
+Gets the control that matches the specified XPath condition.
+
+```cs
+Items.GetByXPathCondition("Having some attribute", "@some-attr='some value'");
+```
+
+<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="type">TData</span>&gt;, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">SelectData<wbr>&lt;<span class="type">TData</span>&gt;</span><span class="tail">(<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="type">TData</span>&gt;&gt; selector)</span></h3>
 </div>
