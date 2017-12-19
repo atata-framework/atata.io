@@ -7,10 +7,13 @@ PM> Install-Package Atata
 The **Atata** package depends on the following packages (that are added automatically):
 
 - {% include nuget.md name="Selenium.WebDriver" %}
-- {% include nuget.md name="Selenium.Support" %}
-* [Atata.WebDriverExtras]({{ site.links.atata_webdriverextras_nuget }})
+- {% include nuget.md name="Atata.WebDriverExtras" %}
 
-You might also need to install a driver package for specific browser: {% include nuget.md name="WebDriver.ChromeDriver.win32" %}, {% include nuget.md name="WebDriver.IEDriverServer.win32" %}, etc.
+You might also need to install a driver package for specific browser:
+{% include nuget.md name="WebDriver.ChromeDriver.win32" %},
+{% include nuget.md name="WebDriver.IEDriverServer.win32" %},
+etc.
 {:.warning}
 
-You are also free to select any test engine framework like: NUnit, Xunit, MSTest, etc.
+You are also free to select any test engine framework like:
+NUnit, Xunit, MSTest, etc.
