@@ -1,9 +1,52 @@
-Represents the select control. By default is being searched by the label. It is possible to select an option by the text or value. Default selection is performed by text.
+Represents the select control (`<select>`).
+Default search is performed by the label.
+Option selection is configured via `SelectOptionBehaviorAttribute`.
+Possible selection behavior attributes are: `SelectByTextAttribute`, `SelectByValueAttribute`, `SelectByLabelAttribute` and `SelectByAttribute`.
+Default option selection is performed by text using `SelectByTextAttribute`.
 
-Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` settings attributes.
-{:class="info"}
+{% include inherited.md from="EditableField" %}
 
-```html
+Supports `[SelectByText]`, `[SelectByValue]`, `[SelectByLabel]`, `[SelectBy]`, `[Format]` and `[Culture]` settings attributes.
+{:.info}
+
+### Syntax
+
+```cs
+[ControlDefinition("select", IgnoreNameEndings = "Select")]
+[ControlFinding(FindTermBy.Label)]
+public class Select<T, TOwner> : EditableField<T, TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
+### Properties
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ControlList</span><wbr>&lt;<span class="type">Option</span><wbr>&lt;<span class="type">T</span>, <span class="type">TOwner</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Options</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the options' `ControlList<TItem, TOwner>` instance.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Option</span><wbr>&lt;<span class="type">T</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">SelectedOption</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the selected option.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">SelectedIndex</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the index of the selected option.
+
+There are different approaches to configure `Select` control using different types of data.
+{:.info}
+
+### Example #1: Select Using Enum
+
+{% capture html %}
 <select id="brand">
   <option value="">--select--</option>
   <option value="volvo">Volvo</option>
@@ -11,11 +54,8 @@ Supports `[SelectByText]`, `[SelectByValue]`, `[Format]` and `[Culture]` setting
   <option value="mercedes">Mercedes</option>
   <option value="audi">Audi</option>
 </select> 
-```
-
-There are different approaches to configure `Select` control.
-
-### Select Using Enum
+{% endcapture %}
+{% include htmlexample.html html=html %}
 
 The above select can be described with the following enum:
 
@@ -35,10 +75,11 @@ public enum CarBrand
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]
@@ -46,23 +87,27 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     Brand.Should.Equal(CarBrand.None).
     Brand.Set(CarBrand.Audi).
     Brand.Should.Equal(CarBrand.Audi);
 ```
+{:.test}
 
 #### Select By Value
 
-You just need to mark the select property with `[SelectByValue]` attribute and optionally set settings like `Case` or `Format`.
+You just need to mark the select property with `[SelectByValue]` attribute and optionally set settings like `Case` and `Format`.
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]
@@ -71,19 +116,23 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
 
-`TermCase.Lower` is defined in `SelectByValue` attribute because option values are lowercase in this example (e.g. volvo).
+`TermCase.Lower` is defined in `SelectByValueAttribute` because option values are lowercase in this example (e.g. "volvo").
 
-### Select Using String
+### Example #2: Select Using String
+
+{% include htmlexample.html html=html %}
 
 Don't pass data generic type argument to use string variant of control, simply use `Select<_>` (or alternatively `Select<string, _>`).
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]
@@ -91,17 +140,21 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     Brand.Set("Audi").
     Brand.Should.Equal("Audi");
 ```
+{:.test}
 
-### Select Using Int
+### Example #3: Select Using Int
 
-It is also possible to select an option by `int` and other types. The following sample shows how to select using `int` type together with the formatting.
+It is also possible to select an option by `int` and other types.
+The following sample shows how to select using `int` type together with the formatting.
 
-```html
+{% capture html %}
 <select id="priority">
   <option value="1">Priority 1</option>
   <option value="2">Priority 2</option>
@@ -109,13 +162,16 @@ It is also possible to select an option by `int` and other types. The following 
   <option value="4">Priority 4</option>
   <option value="5">Priority 5</option>
 </select> 
-```
+{% endcapture %}
+{% include htmlexample.html html=html %}
+
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]
@@ -124,8 +180,11 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     Priority.Set(3).
     Priority.Should.Equal(3);
 ```
+{:.test}
