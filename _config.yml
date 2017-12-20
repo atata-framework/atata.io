@@ -92,6 +92,8 @@ components:
       - RadioButton
       - RadioButtonList
   - name: Select
+    items:
+      - Option
   - name: TextArea
   - name: Button
   - name: Link
