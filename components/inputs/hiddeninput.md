@@ -1,9 +1,32 @@
-Represents the hidden input control (`<input type="hidden">`) with text data.
+Represents the hidden input control (`<input type="hidden">`).
 Default search finds the first occurring `<input type="hidden">` element.
+
+{% include inherited.md from="Input" %}
+
+Supports `[Format]` and `[Culture]` settings attributes.
+{:.info}
+
+#### Syntax
+
+```cs
+[ControlDefinition("input[@type='hidden']", Visibility = Visibility.Hidden)]
+[ControlFinding(typeof(FindFirstAttribute))]
+public class HiddenInput<T, TOwner> : Input<T, TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
+```cs
+public class HiddenInput<TOwner> : HiddenInput<string, TOwner>
+    where TOwner : PageObject<TOwner>
+```
+
+#### Example
 
 ```html
 <input type="hidden" id="some-hidden" value="somedata">
 ```
+{:.html}
+
 ```cs
 using Atata;
 
@@ -17,13 +40,11 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
-string hiddenValue;
-
 Go.To<SamplePage>().
-    HiddenInput.Get(out hiddenValue). // Gets value and sets to variable.
-    HiddenInput.Should.Equal("somedata"); // Verifies value.
+    SomeHidden.Get(out string hiddenValue). // Gets value and sets to variable.
+    SomeHidden.Should.Equal("somedata"); // Verifies value.
 ```
-
-Supports `[Format]` and `[Culture]` settings attributes.
-{:.info}
+{:.test}
