@@ -1,35 +1,15 @@
-Represents the checkbox control. Default search is performed by the label.
+Represents the checkbox control (`<input type="checkbox">`).
+Default search is performed by the label.
 
-```html
-<label class="checkbox-inline">
-  <input type="checkbox" id="inlineCheckbox1" value="option1"> Option 1
-</label>
-<label class="checkbox-inline">
-  <input type="checkbox" id="inlineCheckbox2" value="option1" checked> Option 2
-</label>
-```
+{% include inherited.md from="EditableField" %}
+
+#### Syntax
+
 ```cs
-using Atata;
-using _ = SampleApp.SamplePage;
-
-namespace SampleApp
-{
-    public class SamplePage : Page<_>
-    {
-        [FindByLabel]
-        public CheckBox<_> Option1 { get; private set; }
-
-        [FindByLabel]
-        public CheckBox<_> Option2 { get; private set; }
-    }
-}
-```
-```cs
-Go.To<SamplePage>().
-    Option1.Check().
-    Option1.Should.BeChecked().
-    Option2.Uncheck().
-    Option2.Should.Not.BeChecked();
+[ControlDefinition("input[@type='checkbox']", ComponentTypeName = "checkbox", IgnoreNameEndings = "Checkbox,CheckBox,Option")]
+[ControlFinding(FindTermBy.Label)]
+public class CheckBox<TOwner> : EditableField<bool, TOwner>, ICheckable<TOwner>
+    where TOwner : PageObject<TOwner>
 ```
 
 #### Properties
@@ -56,3 +36,43 @@ Checks the control. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.A
 </div>
 
 Unchecks the control. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
+
+#### Example
+
+{% capture html %}
+<label class="checkbox-inline">
+  <input type="checkbox" value="option1">Option 1
+</label>
+<label class="checkbox-inline">
+  <input type="checkbox" value="option2" checked>Option 2
+</label>
+{% endcapture %}
+{% include htmlexample.html html=html %}
+
+```cs
+using Atata;
+
+namespace SampleApp
+{
+    using _ = SamplePage;
+
+    public class SamplePage : Page<_>
+    {
+        [FindByLabel]
+        public CheckBox<_> Option1 { get; private set; }
+
+        [FindByLabel]
+        public CheckBox<_> Option2 { get; private set; }
+    }
+}
+```
+{:.page-object}
+
+```cs
+Go.To<SamplePage>().
+    Option1.Check().
+    Option1.Should.BeChecked().
+    Option2.Uncheck().
+    Option2.Should.Not.BeChecked();
+```
+{:.test}
