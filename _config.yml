@@ -93,6 +93,7 @@ components:
       - CheckBoxList
       - RadioButton
       - RadioButtonList
+      - EmailInput
       - SearchInput
   - name: Select
     items:
