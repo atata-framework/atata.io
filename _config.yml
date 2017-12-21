@@ -95,6 +95,7 @@ components:
       - RadioButtonList
       - EmailInput
       - TelInput
+      - UrlInput
       - SearchInput
   - name: Select
     items:
