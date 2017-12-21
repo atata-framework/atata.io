@@ -1,24 +1,41 @@
-Represents the radio button list control (a set of `<input type="radio">`). Default search is performed by the name.
+Represents the radio button list control (a set of `<input type="radio">`).
+Default search is performed by the name.
+Specific radio button items can be found by label or value.
+By default items are searched by label using `FindItemByLabelAttribute`.
+Use `FindItemByValueAttribute` to find items by value.
+As a data type supports enum, string, numeric and other types.
 
-Specified radio button items can be found by the label or value. By default finds the items by the label. Use `[FindItemByValue]` attribute to find the items by the value.
+{% include inherited.md from="EditableField" %}
+
+Supports `[FindItemByLabel]`, `[FindItemByValue]`, `[Format]` and `[Culture]` settings attributes.
 {:.info}
 
-Supports `[Format]`, `[Culture]`, `[FindItemByLabel]` and `[FindItemByValue]` settings attributes.
-{:.info}
+#### Syntax
 
-```html
-<label>
-    <input type="radio" name="options" value="OptionA" />Option A
-</label>
-<label>
-    <input type="radio" name="options" value="OptionB" />Option B
-</label>
-<label>
-    <input type="radio" name="options" value="OptionC" />Option C
-</label>
+```cs
+[ControlDefinition("input[@type='radio']", IgnoreNameEndings = "RadioButtons,RadioButtonList,Radios,RadioGroup,Buttons,ButtonList,Options,OptionGroup")]
+[ControlFinding(FindTermBy.Name)]
+public class RadioButtonList<T, TOwner> : OptionList<T, TOwner>
+    where TOwner : PageObject<TOwner>
 ```
 
-#### Using Enum
+#### Example #1: Using Enum
+
+{% capture html %}
+<label class="radio-inline">
+    <input type="radio" name="options" value="OptionA">
+    Option A
+</label>
+<label class="radio-inline">
+    <input type="radio" name="options" value="OptionB">
+    Option B
+</label>
+<label class="radio-inline">
+    <input type="radio" name="options" value="OptionC">
+    Option C
+</label>
+{% endcapture %}
+{% include htmlexample.html html=html %}
 
 ```cs
 public enum SomeOption
@@ -28,12 +45,14 @@ public enum SomeOption
     OptionC
 }
 ```
+
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindByName]
@@ -41,21 +60,27 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     Options.Should.Equal(null).
     Options.Set(SomeOptions.OptionB).
     Options.Should.Equal(SomeOptions.OptionB);
 ```
+{:.test}
 
-#### Using String
+#### Example #2: Using String
+
+{% include htmlexample.html html=html %}
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
 namespace SampleApp
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindByName]
@@ -64,9 +89,12 @@ namespace SampleApp
     }
 }
 ```
+{:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     Options.Should.Equal(null).
     Options.Set("OptionB").
     Options.Should.Equal("OptionB");
 ```
+{:.test}
