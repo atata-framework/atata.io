@@ -93,6 +93,7 @@ components:
       - CheckBoxList
       - RadioButton
       - RadioButtonList
+      - SearchInput
   - name: Select
     items:
       - Option
