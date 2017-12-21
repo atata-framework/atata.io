@@ -1,58 +1,23 @@
-Represents the checkbox list control (a set of `<input type="checkbox">`). Default search is performed by the name.
+Represents the checkbox list control (a set of `<input type="checkbox">`).
+Default search is performed by the name.
+Specific checkbox items can be found by label or value.
+By default items are searched by label using `FindItemByLabelAttribute`.
+Use `FindItemByValueAttribute` to find items by value.
+Currently as a data type supports only enum (with `[Flags]`) types.
 
-Specified checkbox items can be found by the label or value. By default finds the items by the name. Use `[FindItemByValue]` attribute to find the items by the value.
-{:class="info"}
+{% include inherited.md from="EditableField" %}
 
-```html
-<label class="checkbox-inline">
-    <input type="checkbox" name="options" value="OptionA" />Option A
-</label>
-<label class="checkbox-inline">
-    <input type="checkbox" name="options" value="OptionB" />Option B
-</label>
-<label class="checkbox-inline">
-    <input type="checkbox" name="options" value="OptionC" />Option C
-</label>
-```
-```cs
-[Flags]
-public enum SomeOptions
-{
-    None = 0,
-    OptionA = 1 << 0,
-    OptionB = 1 << 1,
-    OptionC = 1 << 2
-}
-```
-
-Do not forget to mark the enumeration with the `[Flags]` attribute.
-{:.warning}
-
-```cs
-using Atata;
-using _ = SampleApp.SamplePage;
-
-namespace SampleApp
-{
-    public class SamplePage : Page<_>
-    {
-        [FindByName]
-        public CheckBoxList<SomeOptions, _> Options { get; private set; }
-    }
-}
-```
-```cs
-Go.To<SamplePage>().
-    Options.Should.Equal(SomeOptions.None).
-    Options.Check(SomeOptions.OptionB | SomeOptions.OptionC).
-    Options.Should.Equal(SomeOptions.OptionB | SomeOptions.OptionC).
-    Options.Uncheck(SomeOptions.OptionB).
-    Options.Should.Equal(SomeOptions.OptionB).
-    Options.Should.Not.HaveChecked(SomeOptions.OptionC);
-```
-
-Supports `[Format]`, `[Culture]`, `[FindItemByLabel]` and `[FindItemByValue]` settings attributes.
+Supports `[FindItemByLabel]`, `[FindItemByValue]`, `[Format]` and `[Culture]` settings attributes.
 {:.info}
+
+#### Syntax
+
+```cs
+[ControlDefinition("input[@type='checkbox']", ComponentTypeName = "checkbox list", IgnoreNameEndings = "CheckBoxes,CheckBoxList,CheckBoxGroup,Options,OptionGroup")]
+[ControlFinding(FindTermBy.Name)]
+public class CheckBoxList<T, TOwner> : OptionList<T, TOwner>
+    where TOwner : PageObject<TOwner>
+```
 
 #### Methods
 
@@ -69,3 +34,62 @@ Checks the checkbox by specified value. Also executes `TriggerEvents.BeforeSet` 
 </div>
 
 Unchecks the checkbox by specified value. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
+
+#### Example
+
+{% capture html %}
+<label class="checkbox-inline">
+    <input type="checkbox" name="options" value="OptionA">
+    Option A
+</label>
+<label class="checkbox-inline">
+    <input type="checkbox" name="options" value="OptionB">
+    Option B
+</label>
+<label class="checkbox-inline">
+    <input type="checkbox" name="options" value="OptionC">
+    Option C
+</label>
+{% endcapture %}
+{% include htmlexample.html html=html %}
+
+```cs
+[Flags]
+public enum SomeOptions
+{
+    None = 0,         // C#7: 0b0000
+    OptionA = 1,      // C#7: 0b0001
+    OptionB = 1 << 1, // C#7: 0b0010
+    OptionC = 1 << 2  // C#7: 0b0100
+}
+```
+
+Don't forget to mark the enumeration with `[Flags]` attribute and specify proper numeric values.
+{:.warning}
+
+```cs
+using Atata;
+
+namespace SampleApp
+{
+    using _ = SamplePage;
+
+    public class SamplePage : Page<_>
+    {
+        [FindByName]
+        public CheckBoxList<SomeOptions, _> Options { get; private set; }
+    }
+}
+```
+{:.page-object}
+
+```cs
+Go.To<SamplePage>().
+    Options.Should.Equal(SomeOptions.None).
+    Options.Check(SomeOptions.OptionB | SomeOptions.OptionC).
+    Options.Should.Equal(SomeOptions.OptionB | SomeOptions.OptionC).
+    Options.Uncheck(SomeOptions.OptionB).
+    Options.Should.Equal(SomeOptions.OptionB).
+    Options.Should.Not.HaveChecked(SomeOptions.OptionC);
+```
+{:.test}
