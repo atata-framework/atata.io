@@ -87,6 +87,7 @@ components:
       - NumberInput
       - DateInput
       - TimeInput
+      - FileInput
       - HiddenInput
       - CheckBox
       - CheckBoxList
