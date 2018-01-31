@@ -1,16 +1,23 @@
 {% assign items = site[page.items] %}
 {% for item in items %}
-{% assign item_downcase = item.name | downcase %}
-<a id="{{ item_downcase | replace: " ", "-" }}" class="header-anchor"></a>
+{% assign item_id = item.name | downcase | replace: " ", "-" %}
+<a id="{{ item_id }}" class="header-anchor"></a>
 <h2 class="page-header">{{ item.name }}</h2>
-{% assign item_path = item_downcase | replace: " ", "-" | append: ".md" %}
+{% assign item_path = item_id | append: ".md" %}
 {% capture item-include %}{% include_relative {{ item_path }} %}{% endcapture %}
 {{ item-include | markdownify }}
     {% for sub_item in item.items %}
-    {% assign sub_item_downcase = sub_item | downcase %}
-<a id="{{ sub_item_downcase | replace: " ", "-" }}" class="header-anchor"></a>
-<h3>{{ sub_item }}</h3>
-    {% assign sub_item_path = item_downcase | append: "/" | append: sub_item_downcase | replace: " ", "-" | append: ".md" %}
+    {% assign sub_item_parts = sub_item | split: "|" %}
+    {% if sub_item_parts.size > 1 %}
+        {% assign sub_item_name = sub_item_parts | first %}
+        {% assign sub_item_id = sub_item_parts | last %}
+    {% else %}
+        {% assign sub_item_name = sub_item %}
+        {% assign sub_item_id = sub_item | downcase | replace: " ", "-" %}
+    {% endif %}
+<a id="{{ sub_item_id }}" class="header-anchor"></a>
+<h3>{{ sub_item_name }}</h3>
+    {% assign sub_item_path = item_id | append: "/" | append: sub_item_id | append: ".md" %}
     {% capture sub_item-include %}{% include_relative {{ sub_item_path }} %}{% endcapture %}
 {{ sub_item-include | markdownify }}
     {% endfor %}

@@ -9,7 +9,15 @@
                 {% assign sub_menu_items = item.items %}
                 {% for sub_item in sub_menu_items %}
                 <li>
-                    <a href="#{{ sub_item | replace: " ", "-" | downcase }}">{{ sub_item }}</a>
+                    {% assign sub_item_parts = sub_item | split: "|" %}
+                    {% if sub_item_parts.size > 1 %}
+                        {% assign sub_item_name = sub_item_parts | first %}
+                        {% assign sub_item_id = sub_item_parts | last %}
+                    {% else %}
+                        {% assign sub_item_name = sub_item %}
+                        {% assign sub_item_id = sub_item | downcase | replace: " ", "-" %}
+                    {% endif %}
+                    <a href="#{{ sub_item_id }}">{{ sub_item_name }}</a>
                 </li>
                 {% endfor %}
             </ul>

@@ -50,6 +50,7 @@ getting-started:
     items:
       - Via Atata Templates
       - Via NuGet
+      - .NET Core Configuration|dot-net-core-configuration
   - name: Usage
     items:
       - Create Project
