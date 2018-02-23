@@ -227,6 +227,8 @@ links:
     atata_webdriverextras_issues: https://github.com/atata-framework/atata-webdriverextras/issues
     atata_gitter: https://gitter.im/atata-framework/atata
     atata_twitter: https://twitter.com/AtataFramework
+    atata_stackoverflow: https://stackoverflow.com/questions/tagged/atata
+    atata_youtube: https://www.youtube.com/channel/UCSNfv8sKpUR3a6dqPVy54KQ
     atata_nuget: https://www.nuget.org/packages/Atata/
     atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras/
     atata_bootstrap_nuget: https://www.nuget.org/packages/Atata.Bootstrap/
