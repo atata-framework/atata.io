@@ -12,8 +12,8 @@ highlighter: rouge
 kramdown:
   auto_ids: false
 
-gems:
-  - jekyll-sitemap
+#plugins:
+#  - jekyll-sitemap
 
 defaults:
 - scope:
