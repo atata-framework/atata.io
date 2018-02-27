@@ -56,7 +56,7 @@ Go.To<SignInPage>().
     Password.Set("abc123").
     SignIn.Click();
 
-Go.To<UserProfilePage>();
+Go.To<UserProfilePage>(navigate: false);
 ```
 {:.test}
 
@@ -68,7 +68,7 @@ Go.To<SignInPage>().
     Password.Set("abc123").
     SignIn.Click();
 
-Go.To<AdminPage>();
+Go.To<AdminPage>(navigate: false);
 ```
 {:.test}
 
@@ -104,13 +104,13 @@ namespace SampleApp.UITests
         public UserProfilePage SignInAsUser()
         {
             SignInButton.Click();
-            return Go.To<UserProfilePage>();
+            return Go.To<UserProfilePage>(navigate: false);
         }
 
         public AdminPage SignInAsAdmin()
         {
             SignInButton.Click();
-            return Go.To<AdminPage>();
+            return Go.To<AdminPage>(navigate: false);
         }
     }
 }
