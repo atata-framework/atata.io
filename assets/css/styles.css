@@ -778,6 +778,17 @@ div.home-usage-section span.glyphicon {
   position: relative;
   top: -1px; }
 
+@media (min-width: 768px) {
+  .blog-links {
+    position: absolute;
+    top: 17px;
+    right: 15px; } }
+
+@media (min-width: 992px) {
+  .blog-links {
+    top: 37px;
+    right: 15px; } }
+
 .post-list > .post-list-item:not(:last-child) {
   margin-bottom: 40px; }
 
