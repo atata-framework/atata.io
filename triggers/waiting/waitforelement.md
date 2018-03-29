@@ -3,12 +3,12 @@ Specifies the waiting for the element. By default occurs after the click.
 ```cs
 public class SamplePage : Page<_>
 {
-    [WaitForElement(WaitBy.Class, "busy-indicator", Until.VisibleAndHidden)]
+    [WaitForElement(WaitBy.Class, "busy-indicator", Until.VisibleThenMissingOrHidden)]
     public Button<_> Refresh { get; private set; }
 }
 ```
 
-The example after the click on `Refresh` button waits for element with class "busy-indicator" to become visible and then waits until it will become hidden.
+The example after the click on `Refresh` button waits for element with class "busy-indicator" to become visible and then waits until it will become hidden or missing.
 
 #### Parameters
 
