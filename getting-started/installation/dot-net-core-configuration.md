@@ -26,16 +26,6 @@ AtataContext.Configure().
     Build();
 ```
 
-#### NUnit .NET Core Issues
-
-Current {% include nuget.md name='NUnit3TestAdapter' %} package v3.9.0 doesn't support parallel test execution on .NET Core 2.0 yet.
-Fortunately it should should appear in v3.10.0 ([NUnit issue #2542](https://github.com/nunit/nunit/issues/2542)).
-{:.warning}
-
-Current {% include nuget.md name='NUnit' %} package v3.9.0 doesn't support `SetCulture` and `SetUICulture` attributes.
-Please check {% include issue.md id=103 %} for **Culture configuration** using `UseCulture` configurational method.
-{:.warning}
-
 #### Running Tests with Visual Studio
 
 For test detection in "Test Explorer" VS panel, .NET Core requires {% include nuget.md name='Microsoft.NET.Test.Sdk' %} package to be added to the project containing tests (no matter NUnit, xUnit, MSTest, etc.).
