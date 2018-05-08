@@ -5,8 +5,7 @@ Default search finds the first occurring `<iframe>` or `<frame>` element.
 
 Recommended to use for the cases when the frame page can be different in parent page.
 
-{% include inherited.md from="Control" %}  
-Supports `[GoTemporarily]` settings attribute.  
+{% include inherited.md from="Control" %}. Supports `[GoTemporarily]` settings attribute.
 {:.info}
 
 #### Syntax
@@ -94,8 +93,7 @@ Go.To<SamplePage>().
 
 Recommended to use for the cases when the frame page is the same in parent page.
 
-{% include inherited.md from="Frame" %}  
-Supports `[GoTemporarily]` settings attribute.  
+Supports `[GoTemporarily]` settings attribute.
 {:.info}
 
 #### Syntax
