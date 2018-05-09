@@ -189,6 +189,6 @@ The fix does: finds `HttpCommandExecutor` instance of `RemoteWebDriver` instance
 ```cs
 AtataContext.Configure().
     UseChrome().
-        WithArguments("disable-extensions", "no-sandbox", "start-maximized").
+        WithArguments("disable-extensions", "start-maximized", "disable-infobars").
     Build();
 ```
