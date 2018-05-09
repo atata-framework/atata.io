@@ -78,6 +78,7 @@ components:
       - PageObject
       - Page
       - PopupWindow
+      - FrameSetPage
       - Field
       - EditableField
   - name: Inputs
