@@ -56,6 +56,22 @@ Sets the base retry interval for a search of element/control. The default value 
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseElementFindTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
+</div>
+
+Sets the element find timeout.
+The default value is taken from `AtataBuildingContext.BaseRetryTimeout`, which is equal to 5 seconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseElementFindRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
+</div>
+
+Sets the element find retry interval.
+The default value is taken from `AtataBuildingContext.BaseRetryInterval`, which is equal to 500 milliseconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseWaitingTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
 </div>
 
