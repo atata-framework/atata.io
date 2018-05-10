@@ -34,42 +34,58 @@ bool isEnabled = Control.IsEnabled;
     <h3><span class="body">Click()</span></h3>
 </div>
 
-Clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+Clicks the control.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
+    <h3><span class="body">ClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool?</span> temporarily = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
+</div>
+
+Clicks the control and performs the navigation to the page object of `TNavigateTo` type. 
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">Hover()</span></h3>
 </div>
 
-Hovers the control. Also executes `TriggerEvents.BeforeHover` and `TriggerEvents.AfterHover` triggers.
+Hovers the control.
+Also executes `TriggerEvents.BeforeHover` and `TriggerEvents.AfterHover` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">Focus()</span></h3>
 </div>
 
-Focuses the control. Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` triggers.
+Focuses the control.
+Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">DoubleClick()</span></h3>
 </div>
 
-Double-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+Double-clicks the control.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">RightClick()</span></h3>
 </div>
 
-Right-clicks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+Right-clicks the control.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">DragAndDropTo</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">TOwner</span>, <span class="type">Control</span><wbr>&lt;<span class="type">TOwner</span>&gt;&gt; targetSelector)</span></h3>
 </div>
 
-Drags and drops the control to the target control returned by `targetSelector`. By default uses `DragAndDropUsingActionsAttribute`.
+Drags and drops the control to the target control returned by `targetSelector`. 
+By default uses `DragAndDropUsingActionsAttribute`.
 Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
@@ -77,7 +93,8 @@ Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` trigger
     <h3><span class="body">DragAndDropTo</span><span class="tail">(<span class="type">Control</span><wbr>&lt;<span class="type">TOwner</span>&gt; target)</span></h3>
 </div>
 
-Drags and drops the control to the target control. By default uses `DragAndDropUsingActionsAttribute`.
+Drags and drops the control to the target control. 
+By default uses `DragAndDropUsingActionsAttribute`.
 Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
@@ -93,5 +110,6 @@ Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` trigger
     <h3><span class="body">ScrollTo()</span></h3>
 </div>
 
-Scrolls to the control. By default uses `ScrollUsingMoveToElementAttribute` behavior.
+Scrolls to the control. 
+By default uses `ScrollUsingMoveToElementAttribute` behavior.
 Also executes `TriggerEvents.BeforeScroll` and `TriggerEvents.AfterScroll` triggers.
