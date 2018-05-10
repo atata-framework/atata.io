@@ -42,14 +42,14 @@ Defines that the name of the test should be taken from the NUnit test.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseRetryTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
+    <h3><span class="body">UseBaseRetryTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
 </div>
 
 Sets the base retry timeout for a search of element/control. The default value is 5 seconds.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
+    <h3><span class="body">UseBaseRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
 </div>
 
 Sets the base retry interval for a search of element/control. The default value is 500 milliseconds.
@@ -60,7 +60,7 @@ Sets the base retry interval for a search of element/control. The default value 
 </div>
 
 Sets the waiting timeout.
-The default value is taken from `AtataBuildingContext.RetryTimeout`, which is equal to 5 seconds by default.
+The default value is taken from `AtataBuildingContext.BaseRetryTimeout`, which is equal to 5 seconds by default.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
@@ -68,7 +68,7 @@ The default value is taken from `AtataBuildingContext.RetryTimeout`, which is eq
 </div>
 
 Sets the waiting retry interval.
-The default value is taken from `AtataBuildingContext.RetryInterval`, which is equal to 500 milliseconds by default.
+The default value is taken from `AtataBuildingContext.BaseRetryInterval`, which is equal to 500 milliseconds by default.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
