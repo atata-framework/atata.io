@@ -37,7 +37,6 @@ bool isEnabled = Control.IsEnabled;
 Clicks the control.
 Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
-
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
     <h3><span class="body">ClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool?</span> temporarily = <span class="keyword">null</span>)</span></h3>
@@ -69,6 +68,15 @@ Also executes `TriggerEvents.BeforeFocus` and `TriggerEvents.AfterFocus` trigger
 </div>
 
 Double-clicks the control.
+Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
+    <h3><span class="body">DoubleClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool?</span> temporarily = <span class="keyword">null</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
+</div>
+
+Double-clicks the control and performs the navigation to the page object of `TNavigateTo` type.
 Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` triggers.
 
 <div class="member">
