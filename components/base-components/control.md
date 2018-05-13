@@ -39,7 +39,7 @@ Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` trigger
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
-    <h3><span class="body">ClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool?</span> temporarily = <span class="keyword">null</span>)</span></h3>
+    <h3><span class="body">ClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool</span>? temporarily = <span class="keyword">null</span>)</span></h3>
     <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
 </div>
 
@@ -72,7 +72,7 @@ Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` trigger
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TNavigateTo</span></span>
-    <h3><span class="body">DoubleClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool?</span> temporarily = <span class="keyword">null</span>)</span></h3>
+    <h3><span class="body">DoubleClickAndGo<wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span><span class="tail">(<span class="type">TNavigateTo</span> navigateToPageObject = <span class="keyword">null</span>, <span class="type">bool</span>? temporarily = <span class="keyword">null</span>)</span></h3>
     <span class="where"><span class="keyword">where</span> <span class="type">TNavigateTo</span> : <span class="type">PageObject</span><wbr>&lt;<span class="type">TNavigateTo</span>&gt;</span>
 </div>
 
