@@ -45,14 +45,14 @@ Defines that the name of the test should be taken from the NUnit test.
     <h3><span class="body">UseBaseRetryTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
 </div>
 
-Sets the base retry timeout for a search of element/control. The default value is 5 seconds.
+Sets the base retry timeout. The default value is 5 seconds
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseBaseRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
 </div>
 
-Sets the base retry interval for a search of element/control. The default value is 500 milliseconds.
+Sets the base retry interval. The default value is 500 milliseconds.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
