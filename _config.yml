@@ -197,6 +197,7 @@ triggers:
       - WaitForElement
       - Wait
       - WaitForScript
+      - WaitForDocumentReadyState
       - WaitForJQueryAjax
       - WaitForAngularJSAjax
   - name: Performing
