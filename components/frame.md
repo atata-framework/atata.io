@@ -1,12 +1,14 @@
-Represents the frame control (`<iframe>` or `<frame>`). 
+Represents the frame control (`<iframe>` or `<frame>`).
 Default search finds the first occurring `<iframe>` or `<frame>` element.
-
-Supports `[GoTemporarily]` settings attribute.
-{:.info}
 
 ### Frame&lt;TOwner>
 
 Recommended to use for the cases when the frame page can be different in parent page.
+
+{% include inherited.md from="Control" %}
+
+Supports `[GoTemporarily]` settings attribute.
+{:.info}
 
 #### Syntax
 
@@ -64,6 +66,7 @@ namespace SampleApp
 }
 ```
 {:.page-object}
+
 ```cs
 using Atata;
 using _ = SampleApp.FramePage;
@@ -78,6 +81,7 @@ namespace SampleApp
 }
 ```
 {:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     ContentFrame.SwitchTo<FramePage>(temporarily: true).
@@ -92,6 +96,11 @@ Go.To<SamplePage>().
 ### Frame<wbr><TFramePageObject, TOwner>
 
 Recommended to use for the cases when the frame page is the same in parent page.
+
+{% include inherited.md from="Frame" %}
+
+Supports `[GoTemporarily]` settings attribute.
+{:.info}
 
 #### Syntax
 
@@ -147,6 +156,7 @@ namespace SampleApp
 }
 ```
 {:.page-object}
+
 ```cs
 using Atata;
 using _ = SampleApp.FramePage;
@@ -166,6 +176,7 @@ namespace SampleApp
 }
 ```
 {:.page-object}
+
 ```cs
 Go.To<SamplePage>().
     ContentFrame.SwitchTo().
