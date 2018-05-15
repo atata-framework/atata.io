@@ -12,3 +12,4 @@ Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSet
 [PageObjectDefinition("frameset", ComponentTypeName = "page", IgnoreNameEndings = "Page,PageObject")]
 public abstract class FrameSetPage<TOwner> : PageObject<TOwner>
     where TOwner : FrameSetPage<TOwner>
+```
