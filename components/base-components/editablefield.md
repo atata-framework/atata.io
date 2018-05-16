@@ -29,21 +29,32 @@ Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether 
     <h3><span class="body">Set</span><span class="tail">(<span class="type">T</span> value)</span></h3>
 </div>
 
-Sets the value. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
+Sets the value. 
+Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">SetRandom()</span></h3>
 </div>
 
-Sets the random value. For value generation uses randomization attributes, for example: `RandomizeStringSettingsAttribute`, `RandomizeNumberSettingsAttribute`, `RandomizeIncludeAttribute`, etc.
+Sets the random value. 
+For value generation uses randomization attributes, for example: `RandomizeStringSettingsAttribute`, `RandomizeNumberSettingsAttribute`, `RandomizeIncludeAttribute`, etc.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">SetRandom</span><span class="tail">(<span class="keyword">out</span> <span class="type">T</span> value)</span></h3>
 </div>
 
-Sets the random value and records it to `value` parameter. For value generation uses randomization attributes, for example: `RandomizeStringSettingsAttribute`, `RandomizeNumberSettingsAttribute`, `RandomizeIncludeAttribute`, etc.
+Sets the random value and records it to `value` parameter. 
+For value generation uses randomization attributes, for example: `RandomizeStringSettingsAttribute`, `RandomizeNumberSettingsAttribute`, `RandomizeIncludeAttribute`, etc.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">SetRandom</span><span class="tail">(<span class="keyword">Action</span><wbr>&lt;<span class="type">T</span>&gt; callback)</span></h3>
+</div>
+
+Sets the random value and invokes `callback`. 
+For value generation uses randomization attributes, for example: `RandomizeStringSettingsAttribute`, `RandomizeNumberSettingsAttribute`, `RandomizeIncludeAttribute`, etc.
 
 <div class="member">
     <span class="head"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span></span>
