@@ -8,7 +8,7 @@ Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettin
 #### Syntax
 
 ```cs
-[ControlDefinition("*", ComponentTypeName = "control")]
+[ControlDefinition(ComponentTypeName = "control")]
 public class Control<TOwner> : UIComponent<TOwner>, IControl<TOwner>
     where TOwner : PageObject<TOwner>
 ```
