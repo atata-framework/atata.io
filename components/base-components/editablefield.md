@@ -50,7 +50,7 @@ For value generation uses randomization attributes, for example: `RandomizeStrin
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">SetRandom</span><span class="tail">(<span class="keyword">Action</span><wbr>&lt;<span class="type">T</span>&gt; callback)</span></h3>
+    <h3><span class="body">SetRandom</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">T</span>&gt; callback)</span></h3>
 </div>
 
 Sets the random value and invokes `callback`. 
