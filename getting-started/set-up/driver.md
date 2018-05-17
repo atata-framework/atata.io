@@ -158,7 +158,7 @@ Specifies the directory containing the driver executable file.
 
 Specifies that local/current directory should be used as the directory containing the driver executable file.
 Uses `AppDomain.CurrentDomain.BaseDirectory` as driver folder path.
-This configuration options makes sense for .NET Core 2.0 project that uses driver as a project package (hosted in the same build directory).
+This configuration option makes sense for .NET Core 2.0 project that uses driver as a project package (hosted in the same build directory).
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
