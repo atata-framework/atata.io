@@ -158,7 +158,7 @@ Specifies the directory containing the driver executable file.
 
 Specifies that local/current directory should be used as the directory containing the driver executable file.
 Uses `AppDomain.CurrentDomain.BaseDirectory` as driver folder path.
-This configuration option makes sense for .NET Core 2.0 project that uses driver as a project package (hosted in the same build directory).
+This configuration option makes sense for .NET Core 2.0+ project that uses driver as a project package (hosted in the same build directory).
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
@@ -190,9 +190,9 @@ Specifies the command timeout (the maximum amount of time to wait for each comma
 </div>
 
 Specifies that the fix of driver's HTTP command execution delay should be applied.
-There is a bug in Selenium.WebDriver v3.6.0 for .NET Core 2.0: each WebDriver request takes extra 1 second.
-Link to the bug: <https://github.com/dotnet/corefx/issues/24104>.
-The fix does: finds `HttpCommandExecutor` instance of `RemoteWebDriver` instance and updates its `remoteServerUri` field by replacing "locahost" with "127.0.0.1".
+Invokes `WithHostName("127.0.0.1")` method.
+This configuration option makes sense for .NET Core 2.0 that works within IPv4.
+There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.0: each WebDriver request takes extra 1 second.
 
 #### Usage
 
