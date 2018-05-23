@@ -113,6 +113,13 @@ Presses the specified keystrokes.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">PerformActions<span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">Actions</span>, <span class="type">Actions</span>&gt; actionsBuilder)</span></h3>
+</div>
+
+Performs the specified set of actions.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">Wait</span><span class="tail">(<span class="type">TimeSpan</span> time)</span></h3>
 </div>
 
