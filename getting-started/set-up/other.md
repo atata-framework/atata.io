@@ -120,6 +120,13 @@ It will be executed at the end of the build after the driver is created.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnDriverCreated</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">RemoteWebDriver</span>&gt;  action)</span></h3>
+</div>
+
+Adds the action to perform after the driver is created.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">OnDriverCreated</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
 </div>
 
