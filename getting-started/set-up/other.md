@@ -104,6 +104,22 @@ The default value is taken from `AtataBuildingContext.BaseRetryInterval`, which 
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnBuilding</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
+</div>
+
+Adds the action to perform during `AtataContext` building. 
+It will be executed at the beginning of the build after the log is set up.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnBuilt</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
+</div>
+
+Adds the action to perform after `AtataContext` building. 
+It will be executed at the end of the build after the driver is created.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">OnCleanUp</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
 </div>
 
@@ -145,24 +161,8 @@ Sets the type of the assertion exception. The default value is `typeof(Atata.Ass
 Clears the `BuildingContext`.
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">OnBuilding</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
-</div>
-
-Adds the action to perform during `AtataContext` building. 
-It will be executed at the beginning of the build after the log is set up.
-
-<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContext</span></span>
     <h3><span class="body">Build()</span></h3>
 </div>
 
 Builds the `AtataContext` instance and sets it to `AtataContext.Current` property.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">OnBuilt</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
-</div>
-
-Adds the action to perform after `AtataContext` building. 
-It will be executed at the end of the build after the driver is created.
