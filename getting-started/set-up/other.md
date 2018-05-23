@@ -165,4 +165,4 @@ Builds the `AtataContext` instance and sets it to `AtataContext.Current` propert
 </div>
 
 Adds the action to perform after `AtataContext` building. 
-It will be executed at the end of the build after the driver is created
+It will be executed at the end of the build after the driver is created.
