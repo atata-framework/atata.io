@@ -169,6 +169,13 @@ Specifies the name of the driver executable file.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithCommandTimeout</span><span class="tail">(<span class="type">TimeSpan</span> commandTimeout)</span></h3>
+</div>
+
+Specifies the command timeout (the maximum amount of time to wait for each command).
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
     <h3><span class="body">WithHostName</span><span class="tail">(<span class="keyword">string</span> hostName)</span></h3>
 </div>
 
@@ -176,13 +183,6 @@ Specifies the host name of the service.
 The default value is `localhost`. 
 This configuration option makes sense for .NET Core 2.0 to be set to `127.0.0.1` for IPv4 and `[::1]` for IPv6. 
 There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.0: each WebDriver request takes extra 1 second.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
-    <h3><span class="body">WithCommandTimeout</span><span class="tail">(<span class="type">TimeSpan</span> commandTimeout)</span></h3>
-</div>
-
-Specifies the command timeout (the maximum amount of time to wait for each command).
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
