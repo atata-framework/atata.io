@@ -42,17 +42,95 @@ Defines that the name of the test should be taken from the NUnit test.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseRetryTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
+    <h3><span class="body">UseBaseRetryTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
 </div>
 
-Sets the retry timeout for a search of element/control. The default value is 5 seconds.
+Sets the base retry timeout. The default value is 5 seconds
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
+    <h3><span class="body">UseBaseRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
 </div>
 
-Sets the retry interval for a search of element/control. The default value is 500 milliseconds.
+Sets the base retry interval. The default value is 500 milliseconds.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseElementFindTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
+</div>
+
+Sets the element find timeout.
+The default value is taken from `AtataBuildingContext.BaseRetryTimeout`, which is equal to 5 seconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseElementFindRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
+</div>
+
+Sets the element find retry interval.
+The default value is taken from `AtataBuildingContext.BaseRetryInterval`, which is equal to 500 milliseconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseWaitingTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
+</div>
+
+Sets the waiting timeout.
+The default value is taken from `AtataBuildingContext.BaseRetryTimeout`, which is equal to 5 seconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseWaitingRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
+</div>
+
+Sets the waiting retry interval.
+The default value is taken from `AtataBuildingContext.BaseRetryInterval`, which is equal to 500 milliseconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseVerificationTimeout</span><span class="tail">(<span class="type">TimeSpan</span> timeout)</span></h3>
+</div>
+
+Sets the verification timeout.
+The default value is taken from `AtataBuildingContext.BaseRetryTimeout`, which is equal to 5 seconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseVerificationRetryInterval</span><span class="tail">(<span class="type">TimeSpan</span> interval)</span></h3>
+</div>
+
+Sets the verification retry interval.
+The default value is taken from `AtataBuildingContext.BaseRetryInterval`, which is equal to 500 milliseconds by default.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnBuilding</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
+</div>
+
+Adds the action to perform during `AtataContext` building. 
+It will be executed at the beginning of the build after the log is set up.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnBuilt</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
+</div>
+
+Adds the action to perform after `AtataContext` building. 
+It will be executed at the end of the build after the driver is created.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnDriverCreated</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">RemoteWebDriver</span>&gt;  action)</span></h3>
+</div>
+
+Adds the action to perform after the driver is created.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">OnDriverCreated</span><span class="tail">(<span class="type">Action</span> action)</span></h3>
+</div>
+
+Adds the action to perform after the driver is created.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>

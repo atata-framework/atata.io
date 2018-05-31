@@ -37,6 +37,17 @@ Gets the DataProvider instance for the URL of the current HTML page.
 PageObject.PageUrl.Should.EndWith("/some-page?id=123987");
 ```
 
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Control</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">ActiveControl</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the active control.
+
+```cs
+PageObject.ActiveControl.Attributes.Value.Should.Equal("123");
+```
+
 #### Methods
 
 <div class="member">
@@ -99,6 +110,13 @@ Switches to the root page using WebDriver's `SwitchTo().DefaultContent()` method
 </div>
 
 Presses the specified keystrokes.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">PerformActions<wbr></span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">Actions</span>, <span class="type">Actions</span>&gt; actionsBuilder)</span></h3>
+</div>
+
+Performs the specified set of actions.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>

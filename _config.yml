@@ -78,6 +78,7 @@ components:
       - PageObject
       - Page
       - PopupWindow
+      - FrameSetPage
       - Field
       - EditableField
   - name: Inputs
@@ -195,6 +196,8 @@ triggers:
       - WaitFor
       - WaitForElement
       - Wait
+      - WaitForScript
+      - WaitForDocumentReadyState
       - WaitForJQueryAjax
       - WaitForAngularJSAjax
   - name: Performing

@@ -1,4 +1,5 @@
-Indicates that the waiting should be performed until the jQuery AJAX is completed. By default occurs after the click.
+Indicates that the waiting should be performed until the jQuery AJAX is completed. 
+By default occurs after the click.
 
 ```cs
 public class SamplePage : Page<_>
