@@ -8,7 +8,7 @@ description: How to verify web page data using different approaches of Atata Fra
 {:.lead}
 
 {% capture download-section %}
-{% include download-sample.html file="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/atata-framework/atata-samples/tree/master/PageVerification" %}
+{% include download-sample.html folder="PageVerification" %}
 {% endcapture %}
 {{ download-section }}
 

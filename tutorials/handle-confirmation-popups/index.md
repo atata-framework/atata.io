@@ -8,7 +8,7 @@ description: How to handle different confirmation popups using Atata Framework.
 {:.lead}
 
 {% capture download-section %}
-{% include download-sample.html file="AtataSamples.ConfirmationPopups-v1.zip" solution="src\AtataSamples.ConfirmationPopups.sln" %}
+{% include download-sample.html folder="ConfirmationPopups" %}
 {% endcapture %}
 {{ download-section }}
 

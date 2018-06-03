@@ -8,7 +8,7 @@ description: How to verify validation messages on web pages using Atata Framewor
 {:.lead}
 
 {% capture download-section %}
-{% include download-sample.html file="AtataSamples.ValidationMessagesVerification-v1.zip" solution="src\AtataSamples.PageVerification.sln" %}
+{% include download-sample.html folder="ValidationMessagesVerification" solution="src\AtataSamples.PageVerification.sln" %}
 {% endcapture %}
 {{ download-section }}
 
@@ -68,7 +68,7 @@ namespace AtataSamples.ValidationMessagesVerification
         [TearDown]
         public void TearDown()
         {
-            AtataContext.Current.CleanUp();
+            AtataContext.Current?.CleanUp();
         }
     }
 }
