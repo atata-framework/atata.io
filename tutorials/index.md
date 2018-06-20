@@ -4,7 +4,7 @@ title: Tutorials
 description: "List of Atata tutorials."
 ---
 
-* [Atata - New Test Automation Framework](https://www.codeproject.com/Articles/1158365/Atata-New-Test-Automation-Framework)
+* [Atata - C# Web Test Automation Framework](https://www.codeproject.com/Articles/1158365/Atata-New-Test-Automation-Framework)
   <br>An introduction to Atata Framework.
 * [Verification of Page](/tutorials/verification-of-page/)
   <br>How to verify web page data using different approaches of Atata Framework.
