@@ -67,8 +67,3 @@ Go.To<SignInPage>().
     SignIn.ClickAndGo<AdminPage>();
 ```
 {:.test}
-
-<div class="post-footer">
-{% include sharebuttons.html page=page %}
-</div>
-{% include comments.html %}
