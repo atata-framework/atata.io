@@ -8,7 +8,7 @@ description: How to verify web page data using different approaches of Atata Fra
 {:.lead}
 
 {% capture download-section %}
-{% include download-sample.html file="AtataSamples.PageVerification-v1.zip" solution="src\AtataSamples.PageVerification.sln" %}
+{% include download-sample.html folder="PageVerification" %}
 {% endcapture %}
 {{ download-section }}
 
@@ -52,7 +52,7 @@ namespace AtataSamples.PageVerification
         {
             AtataContext.Configure().
                 UseChrome().
-                    WithArguments("disable-extensions", "no-sandbox", "start-maximized").
+                    WithArguments("start-maximized").
                 UseBaseUrl("https://atata-framework.github.io/atata-sample-app/#!/").
                 UseCulture("en-us").
                 UseNUnitTestName().
@@ -65,7 +65,7 @@ namespace AtataSamples.PageVerification
         [TearDown]
         public void TearDown()
         {
-            AtataContext.Current.CleanUp();
+            AtataContext.Current?.CleanUp();
         }
     }
 }
@@ -364,30 +364,32 @@ This is it.
 If you run this test, it will succeed and generate the following log to NUnit console:
 
 ```
-2017-10-17 14:17:05.9114 INFO Starting test: ComplexPageDataVerification
-2017-10-17 14:17:05.9304 TRACE Set up AtataContext
-2017-10-17 14:17:05.9304 TRACE Set: BaseUrl=https://atata-framework.github.io/atata-sample-app/#!/
-2017-10-17 14:17:05.9314 TRACE Set: RetryTimeout=5.000s; RetryInterval=0.500s
-2017-10-17 14:17:05.9314 TRACE Set: Culture=en-US
-2017-10-17 14:17:08.5402 TRACE Set: Driver=ChromeDriver (alias=chrome)
-2017-10-17 14:17:08.5958 INFO Go to "Plans" page
-2017-10-17 14:17:08.6333 INFO Go to URL "https://atata-framework.github.io/atata-sample-app/#!/plans"
-2017-10-17 14:17:09.3745 INFO Verify plan items count should equal "3"
-2017-10-17 14:17:09.5031 INFO Verify "1st" plan item's "Title" <h3> heading content should equal "Basic"
-2017-10-17 14:17:09.6017 INFO Verify "1st" plan item's "Price" element content should equal "$0.00"
-2017-10-17 14:17:09.6808 INFO Verify "1st" plan item's "Number of Projects" element content should equal "1"
-2017-10-17 14:17:09.7734 INFO Verify "1st" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2">
-2017-10-17 14:17:09.9140 INFO Verify "2nd" plan item's "Title" <h3> heading content should equal "Plus"
-2017-10-17 14:17:09.9981 INFO Verify "2nd" plan item's "Price" element content should equal "$19.99"
-2017-10-17 14:17:10.0722 INFO Verify "2nd" plan item's "Number of Projects" element content should equal "3"
-2017-10-17 14:17:10.1544 INFO Verify "2nd" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2", "Feature 3", "Feature 4">
-2017-10-17 14:17:10.3636 INFO Verify "3rd" plan item's "Title" <h3> heading content should equal "Premium"
-2017-10-17 14:17:10.4467 INFO Verify "3rd" plan item's "Price" element content should equal "$49.99"
-2017-10-17 14:17:10.5188 INFO Verify "3rd" plan item's "Number of Projects" element content should equal "10"
-2017-10-17 14:17:10.5944 INFO Verify "3rd" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6">
-2017-10-17 14:17:10.8957 INFO Clean up test context
-2017-10-17 14:17:11.0253 INFO Finished test (5.127s)
-2017-10-17 14:17:11.0258 INFO Pure test execution time: 2.353s
+2018-06-03 13:06:48.0213 INFO Starting test: ComplexPageDataVerification
+2018-06-03 13:06:48.0433 TRACE Set up AtataContext
+2018-06-03 13:06:48.0433 TRACE Set: BaseUrl=https://atata-framework.github.io/atata-sample-app/#!/
+2018-06-03 13:06:48.0443 TRACE Set: ElementFindTimeout=5.000s; ElementFindRetryInterval=0.500s
+2018-06-03 13:06:48.0443 TRACE Set: WaitingTimeout=5.000s; WaitingRetryInterval=0.500s
+2018-06-03 13:06:48.0443 TRACE Set: VerificationTimeout=5.000s; VerificationRetryInterval=0.500s
+2018-06-03 13:06:48.0443 TRACE Set: Culture=en-US
+2018-06-03 13:06:50.8337 TRACE Set: Driver=ChromeDriver (alias=chrome)
+2018-06-03 13:06:50.8822 INFO Go to "Plans" page
+2018-06-03 13:06:50.9152 INFO Go to URL "https://atata-framework.github.io/atata-sample-app/#!/plans"
+2018-06-03 13:06:51.6357 INFO Verify plan items count should equal "3"
+2018-06-03 13:06:51.7569 INFO Verify "1st" plan item's "Title" <h3> heading content should equal "Basic"
+2018-06-03 13:06:51.8406 INFO Verify "1st" plan item's "Price" element content should equal "$0.00"
+2018-06-03 13:06:51.9117 INFO Verify "1st" plan item's "Number of Projects" element content should equal "1"
+2018-06-03 13:06:51.9814 INFO Verify "1st" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2">
+2018-06-03 13:06:52.1050 INFO Verify "2nd" plan item's "Title" <h3> heading content should equal "Plus"
+2018-06-03 13:06:52.1755 INFO Verify "2nd" plan item's "Price" element content should equal "$19.99"
+2018-06-03 13:06:52.2391 INFO Verify "2nd" plan item's "Number of Projects" element content should equal "3"
+2018-06-03 13:06:52.3019 INFO Verify "2nd" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2", "Feature 3", "Feature 4">
+2018-06-03 13:06:52.4739 INFO Verify "3rd" plan item's "Title" <h3> heading content should equal "Premium"
+2018-06-03 13:06:52.5442 INFO Verify "3rd" plan item's "Price" element content should equal "$49.99"
+2018-06-03 13:06:52.6050 INFO Verify "3rd" plan item's "Number of Projects" element content should equal "10"
+2018-06-03 13:06:52.6665 INFO Verify "3rd" plan item's "Features" unordered list items should equal sequence <"Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6">
+2018-06-03 13:06:52.9410 INFO Clean up test context
+2018-06-03 13:06:53.0138 INFO Finished test (5.227s)
+2018-06-03 13:06:53.0143 INFO Pure test execution time: 2.105s
 ```
 
 {{ download-section }}

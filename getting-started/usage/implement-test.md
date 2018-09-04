@@ -30,7 +30,7 @@ namespace SampleApp.UITests
         [TearDown]
         public void TearDown()
         {
-            AtataContext.Current.CleanUp();
+            AtataContext.Current?.CleanUp();
         }
 
         [Test]

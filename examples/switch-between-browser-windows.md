@@ -1,9 +1,10 @@
 ---
-layout: regular-page
+layout: article
 title: Switch Between Browser Windows
+description: How to switch to newly opened browser window.
 ---
 
-How to switch to newly opened browser window.
+{{ page.description }}
 {:.lead}
 
 ## Given
@@ -29,7 +30,7 @@ Go.To<SomePage>(navigate: false).
 ```
 {:.test}
 
-#### Page Object for Primary Window
+### Page Object for Primary Window
 
 ```cs
 using Atata;
@@ -48,7 +49,7 @@ namespace SampleApp.UITests
 ```
 {:.page-object}
 
-#### Page Object for Opened Window
+### Page Object for Opened Window
 
 ```cs
 using Atata;
@@ -68,9 +69,3 @@ namespace SampleApp.UITests
 There is also `Go.ToWindow<TPageObject>(...)` method, which takes the name or the handle of the window and can be used for more specific switching between windows if you have more than 2 of them opened at the same time.
 Use `AtataContext.Current.Driver.WindowHandles` and `AtataContext.Current.Driver.CurrentWindowHandle` to get the window handles.
 {:.info}
-
-<div class="post-footer">
-{% include sharebuttons.html page=page %}
-</div>
-
-{% include comments.html %}

@@ -1,9 +1,10 @@
 ---
-layout: regular-page
+layout: article
 title: Page Object Inheritance
+description: How to implement base page object and inherit it.
 ---
 
-How to implement base page object and inherit it.
+{{ page.description }}
 {:.lead}
 
 ## Base Page Object
@@ -90,9 +91,3 @@ namespace SampleApp.UITests
 }
 ```
 {:.page-object}
-
-<div class="post-footer">
-{% include sharebuttons.html page=page %}
-</div>
-
-{% include comments.html %}

@@ -1,4 +1,4 @@
-name: Atata
+title: Atata
 short_description: "C#/.NET Test Automation Framework"
 description: "C#/.NET automated web testing full featured framework"
 url: https://atata-framework.github.io
@@ -237,4 +237,5 @@ links:
     atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras/
     atata_bootstrap_nuget: https://www.nuget.org/packages/Atata.Bootstrap/
     atata_kendoui_nuget: https://www.nuget.org/packages/Atata.KendoUI/
+    atata_configuration_json_nuget: https://www.nuget.org/packages/Atata.Configuration.Json/
     atata_templates: https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates

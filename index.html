@@ -2,10 +2,10 @@
 layout: default-raw
 ---
 <div class="home-top-container">
+    {% comment %}
     <div class="logo-container">
         <img src="/assets/images/logo.png" alt="Atata logo">
     </div>
-    {% comment %}
     <!--<a href="{{ site.links.atata_github }}" class="github-corner" title="View sources on GitHub" aria-label="View sources on GitHub">
         <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
             <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -16,7 +16,7 @@ layout: default-raw
     {% endcomment %}
 
     <div class="home-top-inner-container">
-        <h1 class="home-header">{{ site.name }}</h1>
+        <h1 class="home-header">{{ site.title }}</h1>
         <div class="text-center home-description">
             <p>{{ site.description }}</p>
         </div>
@@ -36,40 +36,40 @@ layout: default-raw
                 <p>Based on <a href="https://github.com/SeleniumHQ/selenium">Selenium WebDriver</a> and preserves all its features.</p>
             </div>
             <div class="col-sm-4">
-                <h3>Page Object</h3>
+                <h3>Page Object Model</h3>
                 <p>Provides unique fluent page object pattern that is easy to implement and maintain.</p>
             </div>
             <div class="col-sm-4">
                 <h3>Components</h3>
-                <p>Supports a rich set of HTML <a href="/components/">components</a>.</p>
+                <p>Contains a rich set of ready to use <a href="/components/">components</a> for inputs, tables, lists, etc.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <h3>Integration</h3>
-                <p>Works on any .NET test engine (e.g. NUnit, xUnit) as well as on CI systems like TeamCity or TFS.</p>
+                <p>Works on any .NET test engine (e.g. NUnit, xUnit, SpecFlow) as well as on CI systems like Jenkins, VSTS or TeamCity.</p>
             </div>
             <div class="col-sm-4">
                 <h3>Triggers</h3>
-                <p>A bunch of <a href="/components/">triggers</a> to bind with different component events.</p>
+                <p>A bunch of <a href="/triggers/">triggers</a> to bind with different events to extend component behavior.</p>
             </div>
             <div class="col-sm-4">
                 <h3>Verification</h3>
-                <p>A set of methods and triggers for the component and data verification.</p>
+                <p>A set of fluent assertion methods and triggers for the component and data verification.</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <h3>Configurable</h3>
-                <p>Defines the default component search strategies as well as additional settings.</p>
+                <p>Defines the default component search strategies as well as additional settings. <a href="{{ site.links.atata_configuration_json_nuget }}">Atata.Configuration.Json</a> provides flexible JSON configurations.</p>
             </div>
             <div class="col-sm-4">
-                <h3>Logging</h3>
+                <h3>Reporting/Logging</h3>
                 <p>Built-in customizable logging and screenshot capturing functionality.</p>
             </div>
             <div class="col-sm-4">
                 <h3>Extensible</h3>
-                <p><a href="{{ site.links.atata_bootstrap_nuget }}">Atata.Bootstrap</a> and <a href="{{ site.links.atata_kendoui_nuget }}">Atata.KendoUI</a> packages have a set of ready to use components.</p>
+                <p><a href="{{ site.links.atata_bootstrap_nuget }}">Atata.Bootstrap</a> and <a href="{{ site.links.atata_kendoui_nuget }}">Atata.KendoUI</a> packages have a set of ready to use components. Framework supports any kind of extending.</p>
             </div>
         </div>
         <h2 class="page-header home-header">Usage</h2>
@@ -101,6 +101,7 @@ layout: default-raw
                 Get Started
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
+            <p>Or check out <a href="/tutorials/">Tutorials</a> for guides and <a href="/examples/">Examples</a> for how to.</p>
         </div>
         <hr class="home-links-border hidden-xs">
         <div class="row home-links hidden-xs">
