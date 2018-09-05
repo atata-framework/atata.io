@@ -20,6 +20,7 @@ public class Input<T, TOwner> : EditableField<T, TOwner>
 </div>
 
 Appends the specified value.
+Also executes `<see cref="TriggerEvents.BeforeSet" />` and `<see cref="TriggerEvents.AfterSet" />` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
@@ -27,3 +28,4 @@ Appends the specified value.
 </div>
 
 Clears the value.
+Also executes `<see cref="TriggerEvents.BeforeSet" />` and `<see cref="TriggerEvents.AfterSet" />` triggers.
