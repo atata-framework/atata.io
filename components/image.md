@@ -1,5 +1,5 @@
-Represents the image control.
-Default search finds the first occurring.
+Represents the image control (`<img>`).
+Default search finds the first occurring `<img>` element..
 
 #### Syntax
 
@@ -16,11 +16,10 @@ public class Image<TOwner> : Control<TOwner>
     <h3><span class="body">Source</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `<see cref="DataProvider{TData, TOwner}"/>` instance for the `src` attribute.
+Gets the `DataProvider<string, TOwner>` instance for the `src` attribute.
 
 ```cs
-LoadedImage.Source.EndWith("/Images/350x150.png");
-NotLoadedImage.Source.Should.EndWith("/Images/missing.png");
+Component.Source.Should.EndWith("/Images/350x150.png");
 ```
 
 <div class="member">
@@ -28,9 +27,8 @@ NotLoadedImage.Source.Should.EndWith("/Images/missing.png");
     <h3><span class="body">IsLoaded</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `<see cref="DataProvider{TData, TOwner}"/>` instance for the value indicating whether the image file is loaded.
+Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the image file is loaded.
 
 ```cs
-LoadedImage.IsLoaded.Should.BeTrue();
-NotLoadedImage.IsLoaded.Should.BeFalse();
+Component.IsLoaded.Should.BeTrue();
 ```
