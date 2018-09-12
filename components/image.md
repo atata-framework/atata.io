@@ -32,3 +32,27 @@ Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether 
 ```cs
 Component.IsLoaded.Should.BeTrue();
 ```
+
+
+```cs
+using Atata;
+
+namespace SampleApp
+{
+    using _ = SamplePage;
+
+    public class SamplePage : Page<_>
+    {
+        [FindById]
+        public Image<_> LoadedImage { get; private set; }
+    }
+}
+```
+{:.page-object}
+
+```cs
+Go.To<SamplePage>().
+    LoadedImage.Source.Should.EndWith("/Images/350x150.png").
+    LoadedImage.IsLoaded.Should.BeTrue();
+```
+{:.test}
