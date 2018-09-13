@@ -34,10 +34,8 @@ Component.IsLoaded.Should.BeTrue();
 ```
 
 {% capture html %}
-```html
-<img src="/assets/images/350x150.png" alt="Image Template">
+<img id="LoadedImage" src="/assets/images/350x150.png" alt="Image Template">
 </img>
-```
 {% endcapture %}
 
 {% include htmlexample.html html=html %}
