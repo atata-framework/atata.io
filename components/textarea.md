@@ -20,7 +20,7 @@ public class TextInput<TOwner> : Input<string, TOwner>
 </div>
 
 Appends the specified value.
-Also executes `<see cref="TriggerEvents.BeforeSet" />` and `<see cref="TriggerEvents.AfterSet" />` triggers.
+Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
@@ -28,7 +28,7 @@ Also executes `<see cref="TriggerEvents.BeforeSet" />` and `<see cref="TriggerEv
 </div>
 
 Clears the value.
-Also executes `<see cref="TriggerEvents.BeforeSet" />` and `<see cref="TriggerEvents.AfterSet" />` triggers.
+Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
 
 #### Example
 
@@ -40,10 +40,11 @@ Also executes `<see cref="TriggerEvents.BeforeSet" />` and `<see cref="TriggerEv
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.Tests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindByName]
@@ -56,7 +57,6 @@ namespace SampleApp
 ```cs
 Go.To<SamplePage>().
     Description.Set("some").
-    Description.Should.Equal("some")
     Description.Append(" text").
     Description.Should.Equal("some text").
     Description.Clear().
