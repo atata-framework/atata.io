@@ -19,7 +19,7 @@ public class Image<TOwner> : Control<TOwner>
 Gets the `DataProvider<string, TOwner>` instance for the `src` attribute.
 
 ```cs
-Component.Source.Should.EndWith("/Images/350x150.png");
+Component.Source.Should.EndWith("/Images/300x50.png");
 ```
 
 <div class="member">
@@ -34,8 +34,8 @@ Component.IsLoaded.Should.BeTrue();
 ```
 
 {% capture html %}
-<img id="LoadedImage" src="/assets/images/350x150.png" alt="Image Template">
-</img>
+<img id="LoadedImage" src="/assets/images/300x50.png"
+style='margin-bottom:10px' alt="Image Template">
 {% endcapture %}
 
 {% include htmlexample.html html=html %}
@@ -58,7 +58,7 @@ namespace SampleApp
 
 ```cs
 Go.To<SamplePage>().
-    LoadedImage.Source.Should.EndWith("/Images/350x150.png").
+    LoadedImage.Source.Should.EndWith("/Images/300x50.png").
     LoadedImage.IsLoaded.Should.BeTrue();
 ```
 {:.test}
