@@ -216,6 +216,7 @@ triggers:
       - ScrollUp
       - ClickParent
       - HoverParent
+      - RightClickParent
 
 exclude:
   - LICENSE
