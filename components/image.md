@@ -19,7 +19,7 @@ public class Image<TOwner> : Control<TOwner>
 Gets the `DataProvider<string, TOwner>` instance for the `src` attribute.
 
 ```cs
-Component.Source.Should.EndWith("/Images/300x50.png");
+Component.Source.Should.EndWith("/images/300x50.png");
 ```
 
 <div class="member">
@@ -33,13 +33,13 @@ Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether 
 Component.IsLoaded.Should.BeTrue();
 ```
 
+#### Example
+
 {% capture html %}
-<img id="LoadedImage" src="/assets/images/300x50.png"
-style='margin-bottom:10px' alt="Image Template">
+<img id="some-image" src="/assets/images/300x50.png"
+     alt="Some Image">
 {% endcapture %}
-
 {% include htmlexample.html html=html %}
-
 
 ```cs
 using Atata;
@@ -51,7 +51,7 @@ namespace SampleApp.Tests
     public class SamplePage : Page<_>
     {
         [FindById]
-        public Image<_> LoadedImage { get; private set; }
+        public Image<_> SomeImage { get; private set; }
     }
 }
 ```
@@ -59,7 +59,7 @@ namespace SampleApp.Tests
 
 ```cs
 Go.To<SamplePage>().
-    LoadedImage.Source.Should.EndWith("/Images/300x50.png").
-    LoadedImage.IsLoaded.Should.BeTrue();
+    SomeImage.Source.Should.EndWith("/images/300x50.png").
+    SomeImage.IsLoaded.Should.BeTrue();
 ```
 {:.test}
