@@ -106,6 +106,7 @@ components:
   - name: Button
   - name: Link
   - name: Clickable
+# - name: Image
   - name: Table
   - name: Content
     items:
@@ -215,6 +216,7 @@ triggers:
       - ScrollUp
       - ClickParent
       - HoverParent
+#     - RightClickParent
 
 exclude:
   - LICENSE
