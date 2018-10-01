@@ -312,6 +312,11 @@ div.highlighter-rouge {
         padding: 7px 10px;
         word-break: normal;
         word-wrap: normal;
+        line-height: 1.3;
+
+        @media (max-width: 767px) {
+            line-height: 1.1;
+        }
 
         > code {
             white-space: inherit;
