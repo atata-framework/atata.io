@@ -25,7 +25,7 @@ public class NumberInput<TOwner> : Input<decimal?, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
