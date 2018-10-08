@@ -58,7 +58,7 @@ using Atata;
 
 namespace SampleApp.UITests
 {
-    using _ = FramePage;
+    using _ = SamplePage;
 
     public class SamplePage : Page<_>
     {
@@ -150,7 +150,7 @@ using Atata;
 
 namespace SampleApp.UITests
 {
-    using _ = FramePage;
+    using _ = SamplePage;
 
     public class SamplePage : Page<_>
     {
