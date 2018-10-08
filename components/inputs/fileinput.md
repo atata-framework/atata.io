@@ -24,7 +24,7 @@ public class FileInput<TOwner> : Input<string, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
