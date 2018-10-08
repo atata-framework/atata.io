@@ -39,10 +39,11 @@ It is recommended to use `Button` delegate as it simplifies the use by eliminati
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         public ButtonDelegate<_> Save { get; private set; }
@@ -63,10 +64,11 @@ It is possible to pass another generic argument of `PageObject` type, meaning th
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage1;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage1;
+
     public class SamplePage1 : Page<_>
     {
         public ButtonDelegate<SamplePage2, _> Save { get; private set; }
@@ -75,10 +77,11 @@ namespace SampleApp
 ```
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage2;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage2;
+
     public class SamplePage2 : Page<_>
     {
         public Button<SamplePage1, _> GoBack { get; private set; }
