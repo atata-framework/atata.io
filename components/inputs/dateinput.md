@@ -28,7 +28,7 @@ public class DateInput<TOwner> : Input<DateTime?, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
