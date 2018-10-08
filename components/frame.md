@@ -55,10 +55,11 @@ If `temporarily` is to `true`, navigates temporarily preserving current page obj
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = FramePage;
+
     public class SamplePage : Page<_>
     {
         public Frame<_> ContentFrame { get; private set; }
@@ -69,10 +70,11 @@ namespace SampleApp
 
 ```cs
 using Atata;
-using _ = SampleApp.FramePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = FramePage;
+
     public class FramePage : Page<_>
     {
         [FindById]
@@ -145,10 +147,11 @@ If `temporarily` is to `true`, navigates temporarily preserving current page obj
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = FramePage;
+
     public class SamplePage : Page<_>
     {
         public Frame<FramePage, _> ContentFrame { get; private set; }
@@ -159,10 +162,11 @@ namespace SampleApp
 
 ```cs
 using Atata;
-using _ = SampleApp.FramePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = FramePage;
+
     public class FramePage : Page<_>
     {
         [FindById]
