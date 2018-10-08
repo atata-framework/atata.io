@@ -17,10 +17,11 @@ Supports `[GoTemporarily]` settings attribute.
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         public Button<_> Save { get; private set; }
