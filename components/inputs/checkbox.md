@@ -52,7 +52,7 @@ Unchecks the control. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
