@@ -30,7 +30,7 @@ public class HiddenInput<TOwner> : HiddenInput<string, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITets
 {
     using _ = SamplePage;
 
