@@ -5,10 +5,11 @@ Represents any element containing date and time content. Default search finds th
 ```
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITets
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]
