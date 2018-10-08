@@ -25,7 +25,7 @@ public class TimeInput<TOwner> : Input<TimeSpan?, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
