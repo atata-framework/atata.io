@@ -77,7 +77,7 @@ Table.Rows[x => x.Content == "some content"].Click();
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
