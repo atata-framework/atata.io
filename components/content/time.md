@@ -6,7 +6,7 @@ Represents any element containing time content. Default search finds the first o
 ```cs
 using Atata;
 
-namespace SampleApp.UITets
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

@@ -6,7 +6,7 @@ Represents any element containing date and time content. Default search finds th
 ```cs
 using Atata;
 
-namespace SampleApp.UITets
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

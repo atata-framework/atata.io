@@ -16,7 +16,7 @@ public enum Status
 ```cs
 using Atata;
 
-namespace SampleApp.UITets
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

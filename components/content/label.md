@@ -6,7 +6,7 @@ Represents the `<label>` element. Default search is performed by the content.
 ```cs
 using Atata;
 
-namespace SampleApp.UITets
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

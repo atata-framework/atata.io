@@ -6,7 +6,7 @@ Represents any element containing number content. Default search finds the first
 ```cs
 using Atata;
 
-namespace SampleApp.UITets
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
