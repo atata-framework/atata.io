@@ -43,7 +43,7 @@ Implementation of the specific modal having the title "Some Modal":
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SampleModal;
 
