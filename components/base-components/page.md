@@ -18,7 +18,7 @@ public class Page<TOwner> : PageObject<TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
