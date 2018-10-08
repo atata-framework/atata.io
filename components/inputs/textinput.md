@@ -25,7 +25,7 @@ public class TextInput<TOwner> : Input<string, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
