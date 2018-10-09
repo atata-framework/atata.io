@@ -70,7 +70,7 @@ Don't forget to mark the enumeration with `[Flags]` attribute and specify proper
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

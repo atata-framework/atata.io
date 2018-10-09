@@ -11,10 +11,11 @@ Supports `[GoTemporarily]` settings attribute.
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById("open-button")]
@@ -31,10 +32,11 @@ Go.To<SamplePage>().
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById("open-button")]
@@ -56,10 +58,11 @@ It is possible to pass another gereric argument of `PageObject` type, meaning th
 
 ```cs
 using Atata;
-using _ = SampleApp.ItemsPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = ItemsPage;
+
     public class ItemsPage : Page<_>
     {
         public ClickableDelegate<ItemPage, _> Open { get; private set; }
@@ -68,10 +71,11 @@ namespace SampleApp
 ```
 ```cs
 using Atata;
-using _ = SampleApp.ItemPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = ItemPage;
+
     public class ItemPage : Page<_>
     {
         public Clickable<ItemsPage, _> GoBack { get; private set; }

@@ -15,10 +15,11 @@ public enum Status
 ```
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]

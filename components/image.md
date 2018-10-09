@@ -44,7 +44,7 @@ Component.IsLoaded.Should.BeTrue();
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

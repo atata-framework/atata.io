@@ -11,10 +11,11 @@ Supports `[GoTemporarily]` settings attribute.
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         public Link<_> Create { get; private set; }
@@ -32,10 +33,11 @@ It is recommended to use `Link` delegate as it simplifies the usage by refusing 
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         public LinkDelegate<_> Create { get; private set; }
@@ -56,10 +58,11 @@ It is possible to pass another gereric argument of `PageObject` type, meaning th
 
 ```cs
 using Atata;
-using _ = SampleApp.ItemsPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = ItemsPage;
+
     public class ItemsPage : Page<_>
     {
         public LinkDelegate<ItemCreationPage, _> Create { get; private set; }
@@ -68,10 +71,11 @@ namespace SampleApp
 ```
 ```cs
 using Atata;
-using _ = SampleApp.ItemCreationPage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = ItemCreationPage;
+
     public class ItemCreationPage : Page<_>
     {
         public Link<ItemsPage, _> GoBack { get; private set; }

@@ -49,7 +49,7 @@ public enum SomeOption
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
@@ -77,7 +77,7 @@ Go.To<SamplePage>().
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

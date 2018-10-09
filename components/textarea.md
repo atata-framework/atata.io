@@ -41,7 +41,7 @@ Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

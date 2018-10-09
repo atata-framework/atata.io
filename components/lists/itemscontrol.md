@@ -70,7 +70,7 @@ ItemsControl[x => x.Content == "Some content"].Should.Not.Exist();
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

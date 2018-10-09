@@ -5,10 +5,11 @@ Represents any element containing time content. Default search finds the first o
 ```
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         [FindById]

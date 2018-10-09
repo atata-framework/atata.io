@@ -76,7 +76,7 @@ public enum CarBrand
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
@@ -104,7 +104,7 @@ You just need to mark the select property with `[SelectByValue]` attribute and o
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
@@ -129,7 +129,7 @@ Don't pass data generic type argument to use string variant of control, simply u
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
@@ -168,7 +168,7 @@ The following sample shows how to select using `int` type together with the form
 ```cs
 using Atata;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

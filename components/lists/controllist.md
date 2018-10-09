@@ -120,7 +120,7 @@ Selects the specified data (property) set of each control. Data can be a sub-con
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

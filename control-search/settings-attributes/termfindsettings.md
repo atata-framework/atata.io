@@ -15,10 +15,11 @@ Or define it at the UIComponent level (page object or parent control). For examp
 
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     [TermFindSettings(FindTermBy.Label, Match = TermMatch.Contains, Case = TermCase.Sentence, Format = "{0}:")]
     public class SamplePage : Page<_>
     {

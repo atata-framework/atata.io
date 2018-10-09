@@ -38,7 +38,7 @@ public class UnorderedList<TItem, TOwner> : ItemsControl<TItem, TOwner>
 ```cs
 using Atata;
 
-namespace SampleApp.Tests
+namespace SampleApp.UITests
 {
     using _ = SamplePage;
 

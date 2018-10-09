@@ -5,10 +5,11 @@ Represents the `<label>` element. Default search is performed by the content.
 ```
 ```cs
 using Atata;
-using _ = SampleApp.SamplePage;
 
-namespace SampleApp
+namespace SampleApp.UITests
 {
+    using _ = SamplePage;
+
     public class SamplePage : Page<_>
     {
         public Label<_> FirstNameLabel { get; private set; }
