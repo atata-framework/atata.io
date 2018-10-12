@@ -6,7 +6,7 @@
 <meta name="description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.title }} - {{ site.description }}{% endif %}"/>
 <meta name="author" content="{{ site.author.name }}"/>
 <meta property="og:title" content="{% if page.title %}{{ page.title}} - {{ site.title }}{% if pageUrlTruncated == '/blog/2' %} Blog{% endif %}{% else %}{{ site.title }} - {{ site.short_description }}{% endif %}"/>
-<meta property="og:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png{% endif %}"/>
+<meta property="og:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png?v3{% endif %}"/>
 <meta property="og:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.title }} - {{ site.description }}{% endif %}"/>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
@@ -16,10 +16,10 @@
 <meta name="twitter:creator" content="@YevgenShunevych">
 <meta name="twitter:title" content="{% if page.title %}{{ page.title}} - {{ site.title }}{% if pageUrlTruncated == '/blog/2' %} Blog{% endif %}{% else %}{{ site.title }} - {{ site.short_description }}{% endif %}">
 <meta name="twitter:description" content="{% if page.description %}{{ page.description}}{% else %}{{ site.title }} - {{ site.description }}{% endif %}">
-<meta name="twitter:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png{% endif %}">
+<meta name="twitter:image" content="{{ site.url }}/assets/images/{% if page.image %}{{ page.image }}{% else %}logo_200.png?v3{% endif %}">
 <!-- Favicons -->
-<link rel="shortcut icon" href="/favicon.ico?v2" type="image/x-icon">
-<link rel="apple-touch-icon" href="/assets/images/logo.png">
+<link rel="shortcut icon" href="/favicon.ico?v3" type="image/x-icon">
+<link rel="apple-touch-icon" href="/assets/images/logo.png?v3">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title="Atata" href="/feed.xml">
 <!-- CSS -->
