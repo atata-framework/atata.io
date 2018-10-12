@@ -28,7 +28,6 @@ The project is created with NuGet package references:
 - {% include nuget.md name="Atata" %}
 - {% include nuget.md name="Atata.WebDriverExtras" %}
 - {% include nuget.md name="Selenium.WebDriver" %}
-- {% include nuget.md name="Selenium.Support" %}
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
 
