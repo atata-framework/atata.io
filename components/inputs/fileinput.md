@@ -9,7 +9,7 @@ Supports `[Format]` settings attribute.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='file']")]
+[ControlDefinition("input[@type='file']", Visibility = Visibility.Any)]
 public class FileInput<TOwner> : Input<string, TOwner>
     where TOwner : PageObject<TOwner>
 ```
