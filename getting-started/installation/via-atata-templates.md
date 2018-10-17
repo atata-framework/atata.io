@@ -21,7 +21,7 @@ When extension is installed, you can create a project of one of Atata project ty
 1. Select **Installed/Visual C#/Atata** category
 1. Choose template (e.g.: **Atata NUnit Test Project (.NET Framework)**) and specify project name and location
 
-![Atata Templates project](/assets/images/atata-templates/new-project-window.png)
+![Atata Templates project](/assets/images/atata-templates/new-project-window.png?v2)
 
 The project is created with NuGet package references:
 
