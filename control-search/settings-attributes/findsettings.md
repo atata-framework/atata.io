@@ -1,17 +1,23 @@
 Defines the settings to apply for the specified finding strategy of a control.
 
-#### Examples
+#### Example: Apply Within Assembly
 
-For example, it is possible to replace the default strategy of control search with the custom one:
+For example, it is possible to replace the default strategy of control search with the custom one.
+
+The following example sets `CustomFindByLabelStrategy` as a search strategy of `FindByLabelAttribute` for all controls in scope of assembly:
 
 ```cs
-[assembly: FindSettings(FindTermBy.Label, Strategy = typeof(CustomFindByLabelStrategy))]
+[assembly: FindSettings(TargetAttributeType = typeof(FindByLabelAttribute), Strategy = typeof(CustomFindByLabelStrategy))]
 ```
 
-Or set another scope source for a custom control:
+#### Example: Apply Within Class
+
+It is possible to set settings for all child controls of page object or control.
+
+An example sets `ScopeSource.PageObject` as scope source for all child controls of `LoginControl<TOwner>`: `UserName` and `Password`.
 
 ```cs
-[FindSettings(FindTermBy.Label, ScopeSource = ScopeSource.PageObject)]
+[FindSettings(TargetAnyType = true, TargetAttributeType = typeof(FindByLabelAttribute), ScopeSource = ScopeSource.PageObject)]
 public class LoginControl<TOwner> : Control<TOwner>
     where TOwner : PageObject<TOwner>
 {
@@ -22,6 +28,11 @@ public class LoginControl<TOwner> : Control<TOwner>
     public PasswordInput<_> Password { get; private set; }
 }
 ```
+
+`[FindSettings]` properties:
+
+- `TargetAnyType = true` - says that this `FindSettingsAttribute` can apply to children of any type.
+- `TargetAttributeType = typeof(FindByLabelAttribute)` - specifies that it applies to attributes of `FindByLabelAttribute` type.
 
 #### Properties
 
