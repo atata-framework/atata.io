@@ -3,13 +3,16 @@ Defines the term settings to apply for the specified finding strategy of a contr
 Inherited from [FindSettingsAttribute](#findsettings){:.class-reference}.
 {:.info}
 
-#### Examples
+#### Example: Apply Within Assembly
 
-For example, if all `name` attributes in the site are formatted lowercase without the separator (e.g. "firstname"), you can apply the following attribute for the tests assembly:
+For example, if all `name` attributes in the site are formatted lowercase without the separator (e.g. "firstname"),
+you can apply the following attribute in assembly/project containing page objects:
 
 ```cs
-[assembly: TermFindSettings(FindTermBy.Name, Case = TermCase.LowerMerged)]
+[assembly: TermFindSettings(TargetAttributeType = typeof(FindByNameAttribute), Case = TermCase.LowerMerged)]
 ```
+
+#### Example: Apply Within Class
 
 Or define it at the UIComponent level (page object or parent control). For example, for the specific page:
 
@@ -20,11 +23,13 @@ namespace SampleApp.UITests
 {
     using _ = SamplePage;
 
-    [TermFindSettings(FindTermBy.Label, Match = TermMatch.Contains, Case = TermCase.Sentence, Format = "{0}:")]
+    [TermFindSettings(TargetAnyType = true, TargetAttributeType = typeof(FindByLabelAttribute), Match = TermMatch.Contains, Case = TermCase.Sentence, Format = "{0}:")]
     public class SamplePage : Page<_>
     {
+        [FindByLabel]
         public TextInput<_> FirstName { get; private set; }
 
+        [FindByLabel]
         public TextInput<_> LastName { get; private set; }
     }
 }
@@ -60,4 +65,5 @@ Gets or sets the format.
     <h3><span class="body">CutEnding</span><span class="tail"> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</span></h3>
 </div>
 
-Gets or sets a value indicating whether the name should be cut considering the `IgnoreNameEndings` property value of `[ControlDefinition]` and `[PageObjectDefinition]` attributes. The default value is true.
+Gets or sets a value indicating whether the name should be cut considering the `IgnoreNameEndings` property value of `[ControlDefinition]` and `[PageObjectDefinition]` attributes.
+The default value is `true`.
