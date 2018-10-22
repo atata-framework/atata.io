@@ -6,7 +6,7 @@ Represents the unordered list control (`<ul>`). Default search finds the first o
 
 ```cs
 [ControlDefinition("ul", ComponentTypeName = "unordered list")]
-[FindSettings(OuterXPath = "./")]
+[FindSettings(OuterXPath = "./", TargetName = nameof(Items))]
 public class UnorderedList<TItem, TOwner> : ItemsControl<TItem, TOwner>
     where TItem : Control<TOwner>
     where TOwner : PageObject<TOwner>
