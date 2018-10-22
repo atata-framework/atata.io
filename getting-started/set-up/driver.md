@@ -43,13 +43,6 @@ Use the `SafariDriver`.
 Use the `OperaDriver`.
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">PhantomJSAtataContextBuilder</span></span>
-    <h3><span class="body">UsePhantomJS()</span></h3>
-</div>
-
-Use the `PhantomJSDriver`.
-
-<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">RemoteDriverAtataContextBuilder</span></span>
     <h3><span class="body">UseRemoteDriver()</span></h3>
 </div>
