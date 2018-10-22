@@ -13,6 +13,8 @@
       height: auto; }
       body > .at-docs-container img.block {
         display: block; }
+    body > .at-docs-container .post-list p.lead {
+      font-size: 1em; }
 
 @media (min-width: 1200px) {
   .container-fluid {
@@ -633,9 +635,12 @@ a.enum-value-reference code {
       .home-top-container .home-top-inner-container .home-primary-links .btn:hover {
         text-decoration: underline; }
 
-@media (min-width: 480px) {
-  h2.home-header {
-    text-align: center; } }
+h2.home-header {
+  margin-top: 25px;
+  margin-bottom: 10px; }
+  @media (min-width: 480px) {
+    h2.home-header {
+      text-align: center; } }
 
 hr.home-links-border {
   margin-top: 14px;
@@ -650,7 +655,8 @@ hr.home-links-border {
 
 h1, h2, h3, h4, h5, h6 {
   color: #465C66;
-  word-break: break-word; }
+  word-break: break-word;
+  overflow-wrap: break-word; }
 
 code.language-nugetpm {
   padding: 20px;
@@ -709,7 +715,8 @@ div.highlighter-rouge {
     content: "TEST"; }
 
 code.highlighter-rouge {
-  word-break: break-word; }
+  word-break: break-word;
+  overflow-wrap: break-word; }
 
 .github-corner {
   position: absolute;
@@ -824,7 +831,8 @@ img.bordered-image {
   top: 6px !important; }
 
 .contact-container dd {
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  overflow-wrap: break-word; }
 
 .video-sm {
   max-width: 560px; }

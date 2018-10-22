@@ -24,6 +24,12 @@ body {
                 display: block;
             }
         }
+
+        .post-list {
+            p.lead {
+                font-size: 1em;
+            }
+        }
     }
 }
 
@@ -246,8 +252,11 @@ $navbar-padding-horizontal: 8px;
     }
 }
 
-@media (min-width: 480px) {
-    h2.home-header {
+h2.home-header {
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    @media (min-width: 480px) {
         text-align: center;
     }
 }
@@ -272,6 +281,7 @@ hr.home-links-border {
 h1, h2, h3, h4, h5, h6 {
     color: #465C66;
     word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 code.language-nugetpm {
@@ -353,6 +363,7 @@ div.highlighter-rouge {
 
 code.highlighter-rouge {
     word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .github-corner {
@@ -509,6 +520,7 @@ img.bordered-image {
 .contact-container {
     dd {
         word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 

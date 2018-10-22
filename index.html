@@ -29,6 +29,21 @@ layout: default-raw
 </div>
 <div class="at-docs-container">
     <div class="container-fluid home-container-fluid">
+        <h2 class="page-header home-header">
+            <a href="/blog/">News</a>
+        </h2>
+        <div class="row post-list">
+            {% for post in site.posts limit:3 %}
+            <div class="col-sm-4">
+                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                <p class="meta">
+                    <span class="date">{{ post.date | date: "%B %e, %Y" }}</span>
+                </p>
+                {{ post.excerpt }}
+            </div>
+            {% endfor %}
+        </div>
+
         <h2 class="page-header home-header">Features</h2>
         <div class="row">
             <div class="col-sm-4">
