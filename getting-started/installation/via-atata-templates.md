@@ -31,7 +31,7 @@ The project is created with NuGet package references:
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
 
-You might also need to install a driver package for specific browser: {% include nuget.md name="WebDriver.ChromeDriver.win32" %}, {% include nuget.md name="WebDriver.IEDriverServer.win32" %}, etc.
+You might also need to install a driver package for specific browser: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %}, {% include nuget.md name="Selenium.WebDriver.IEDriver" %}, etc.
 {:.warning}
 
 In the created project you can specify your testing site base URL and apropriate driver in `UITestFixture.cs` class, e.g.:

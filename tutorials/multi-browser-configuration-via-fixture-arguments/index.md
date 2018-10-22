@@ -18,7 +18,7 @@ Use the [guide](https://atata-framework.github.io/getting-started/#installation)
 NUnit is used as a test engine in this tutorial. So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Chrome, Internet Explorer and Firefox are used in this tutorial. Add NuGet references to appropriate packages, for example: {% include nuget.md name="WebDriver.ChromeDriver.win32" %}, {% include nuget.md name="WebDriver.IEDriverServer.win32" %} and {% include nuget.md name="Selenium.Firefox.WebDriver" %}.
+Chrome, Internet Explorer and Firefox are used in this tutorial. Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %}, {% include nuget.md name="Selenium.WebDriver.IEDriver" %} and {% include nuget.md name="Selenium.Firefox.WebDriver" %}.
 {:.info}
 
 ## SetUpFixture

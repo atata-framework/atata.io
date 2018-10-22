@@ -2,4 +2,4 @@ In Visual Studio create project of **Class Library** type. Add NuGet references 
 
 - [Atata]({{ site.links.atata_nuget }})
 - [NUnit](https://www.nuget.org/packages/NUnit/) and [NUnit3TestAdapter](https://www.nuget.org/packages/NUnit3TestAdapter/) or other test engine framework
-- [ChromeDriver](https://www.nuget.org/packages/WebDriver.ChromeDriver.win32/) or/and other drivers
+- [ChromeDriver](https://www.nuget.org/packages/Selenium.WebDriver.ChromeDriver/) or/and other drivers

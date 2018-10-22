@@ -31,7 +31,7 @@ In Visual Studio, create Class Library project and add the following NuGet packa
 * {% include nuget.md name="Atata" %}
 * {% include nuget.md name="NUnit" %}
 * {% include nuget.md name="NUnit3TestAdapter" %}
-* {% include nuget.md name="WebDriver.ChromeDriver.win32" %} (or another driver package)
+* {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %} (or another driver package)
 
 Define NUnit test class with `SetUp` and `TearDown` methods:
 

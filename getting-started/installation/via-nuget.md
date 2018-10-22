@@ -10,8 +10,8 @@ The **Atata** package depends on the following packages (that are added automati
 - {% include nuget.md name="Atata.WebDriverExtras" %}
 
 You might also need to install a driver package for specific browser:
-{% include nuget.md name="WebDriver.ChromeDriver.win32" %},
-{% include nuget.md name="WebDriver.IEDriverServer.win32" %},
+{% include nuget.md name="Selenium.WebDriver.ChromeDriver" %},
+{% include nuget.md name="Selenium.WebDriver.IEDriver" %},
 etc.
 {:.warning}
 
