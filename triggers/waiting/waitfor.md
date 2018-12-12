@@ -26,7 +26,7 @@ The waiting condition. The default is `Visible`.
 
 <div class="member">
     <span class="head"><a href="#triggerevents" class="type">TriggerEvents</a></span>
-    <h3><span class="body">on</span><span class="tail"> = <span class="type">TriggerEvents</span>.AfterClick</span></h3>
+    <h3><span class="body">on</span><span class="tail"> = <span class="type">TriggerEvents</span>.Init</span></h3>
 </div>
 
 The trigger events. The default is `Init`.
