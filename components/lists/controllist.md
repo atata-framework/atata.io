@@ -126,7 +126,6 @@ namespace SampleApp.UITests
 
     public class SamplePage : Page<_>
     {
-        [FindById]
         public ControlList<ProductItem, _> Products { get; private set; }
 
         [ControlDefinition("div", ContainingClass = "product")]
