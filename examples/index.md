@@ -26,5 +26,5 @@ title: Examples
 ## Kendo UI
 
 * [Kendo UI Grid (KendoGrid&lt;TRow, TOwner&gt;)](/examples/kendoui-grid/)
-  <br>How to interact with Kendo UI grid component.
+  <br>How to interact with Kendo UI Grid component.
 {:.link-item-list}

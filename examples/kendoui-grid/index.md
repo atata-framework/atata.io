@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Kendo UI Grid (KendoGrid<TRow, TOwner>)
-description: How to interact with Kendo UI grid component.
+description: How to interact with Kendo UI Grid component.
 ---
 
 {{ page.description }}
@@ -9,7 +9,7 @@ description: How to interact with Kendo UI grid component.
 
 ## Given
 
-[The page under test](demo/) containing Kendo UI Grid.
+[The page under test](demo/) containing [Kendo UI Grid](https://demos.telerik.com/kendo-ui/grid/index) component.
 
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="demo/"></iframe>
