@@ -40,6 +40,7 @@ To use `BSDropdownToggle<TOwner>` control add a reference to [Atata.Bootstrap](h
 
 ```cs
 using Atata;
+using Atata.Bootstrap;
 
 namespace SampleApp.UITests
 {
