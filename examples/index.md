@@ -22,3 +22,9 @@ title: Examples
 * [Bootstrap Dropdown (BSDropdownToggle&lt;TOwner&gt;)](/examples/bootstrap-dropdown/)
   <br>How to interact with Bootstrap dropdown component.
 {:.link-item-list}
+
+## Kendo UI
+
+* [Kendo UI Grid (KendoGrid&lt;TRow, TOwner&gt;)](/examples/kendoui-grid/)
+  <br>How to interact with Kendo UI grid component.
+{:.link-item-list}
