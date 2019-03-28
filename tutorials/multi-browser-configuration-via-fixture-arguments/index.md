@@ -13,7 +13,7 @@ description: How to configure multi-browser tests application using NUnit fixtur
 {{ download-section }}
 
 Create a new Visual Studio tests project or use an existent one.
-Use the [guide](https://atata-framework.github.io/getting-started/#installation) to create a new Atata tests project.
+Use the [guide](/getting-started/#installation) to create a new Atata tests project.
 
 NUnit is used as a test engine in this tutorial. So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
