@@ -5,7 +5,7 @@ The above sample `SignIn` test generates the following log:
 2016-09-26 15:50:51.7858 INFO Starting: Init WebDriver
 2016-09-26 15:50:54.3819 INFO Finished: Init WebDriver (2.596s)
 2016-09-26 15:50:54.4073 INFO Go to "Sign In" page
-2016-09-26 15:50:54.4088 INFO Go to URL "https://atata-framework.github.io/atata-sample-app/#!/signin"
+2016-09-26 15:50:54.4088 INFO Go to URL "https://demo.atata.io/#!/signin"
 2016-09-26 15:50:55.4865 INFO Starting: Verify title should equal "Sign In - Atata Sample App"
 2016-09-26 15:50:55.4975 INFO Finished: Verify title should equal "Sign In - Atata Sample App" (0.010s)
 2016-09-26 15:50:55.5035 INFO Starting: Verify "Sign In" <h1> heading content should equal "Sign In"
