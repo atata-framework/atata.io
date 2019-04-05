@@ -1,1 +1,1 @@
-Below is simple example for [Sign In](https://demo.atata.io/#!/signin) page.
+Below is simple example for [Sign In](https://demo.atata.io/signin) page.

@@ -24,7 +24,7 @@ The ideas, covered in the article, can be applied to any other kinds of popups.
 
 ## Sample Page
 
-For testing purposes of this tutorial, the following test page is used: [https://atata-framework.github.io/atata-sample-app/#!/products](https://atata-framework.github.io/atata-sample-app/#!/products).
+For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/products>.
 
 ![Products page](products.gif)
 

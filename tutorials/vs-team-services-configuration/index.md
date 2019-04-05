@@ -107,7 +107,7 @@ Here is the sample of the failed test log:
 2017-06-07 10:32:40.0804 INFO Starting test: Home_Fail
 2017-06-07 10:32:40.0819 INFO Init WebDriver
 2017-06-07 10:32:42.7913 INFO Go to "Home" page
-2017-06-07 10:32:42.7938 INFO Go to URL "http://atata-framework.github.io/atata-sample-app/#!/"
+2017-06-07 10:32:42.7938 INFO Go to URL "https://demo.atata.io/"
 2017-06-07 10:32:46.1065 INFO Verify title should equal "Atata Sample App"
 2017-06-07 10:32:46.1570 INFO Verify "Atata Sample App" <h1> heading content should equal "Atata Sample App"
 2017-06-07 10:32:46.3101 INFO Verify content should contain "Lorem ipsum"

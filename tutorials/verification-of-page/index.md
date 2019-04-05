@@ -19,7 +19,8 @@ The article describes verification of: page title, headings, text content, numer
 
 ## Sample Page
 
-For testing purposes of this tutorial, the following test page is used: [https://atata-framework.github.io/atata-sample-app/#!/plans](https://atata-framework.github.io/atata-sample-app/#!/plans). It is just a sample page for the demo containing different kinds of data.
+For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/plans>.
+It is just a sample page for the demo containing different kinds of data.
 
 ![Plans page](plans-01.png)
 
@@ -53,7 +54,7 @@ namespace AtataSamples.PageVerification
             AtataContext.Configure().
                 UseChrome().
                     WithArguments("start-maximized").
-                UseBaseUrl("https://atata-framework.github.io/atata-sample-app/#!/").
+                UseBaseUrl("https://demo.atata.io/").
                 UseCulture("en-us").
                 UseNUnitTestName().
                 AddNUnitTestContextLogging().
@@ -366,14 +367,14 @@ If you run this test, it will succeed and generate the following log to NUnit co
 ```
 2018-06-03 13:06:48.0213 INFO Starting test: ComplexPageDataVerification
 2018-06-03 13:06:48.0433 TRACE Set up AtataContext
-2018-06-03 13:06:48.0433 TRACE Set: BaseUrl=https://atata-framework.github.io/atata-sample-app/#!/
+2018-06-03 13:06:48.0433 TRACE Set: BaseUrl=https://demo.atata.io/
 2018-06-03 13:06:48.0443 TRACE Set: ElementFindTimeout=5.000s; ElementFindRetryInterval=0.500s
 2018-06-03 13:06:48.0443 TRACE Set: WaitingTimeout=5.000s; WaitingRetryInterval=0.500s
 2018-06-03 13:06:48.0443 TRACE Set: VerificationTimeout=5.000s; VerificationRetryInterval=0.500s
 2018-06-03 13:06:48.0443 TRACE Set: Culture=en-US
 2018-06-03 13:06:50.8337 TRACE Set: Driver=ChromeDriver (alias=chrome)
 2018-06-03 13:06:50.8822 INFO Go to "Plans" page
-2018-06-03 13:06:50.9152 INFO Go to URL "https://atata-framework.github.io/atata-sample-app/#!/plans"
+2018-06-03 13:06:50.9152 INFO Go to URL "https://demo.atata.io/plans"
 2018-06-03 13:06:51.6357 INFO Verify plan items count should equal "3"
 2018-06-03 13:06:51.7569 INFO Verify "1st" plan item's "Title" <h3> heading content should equal "Basic"
 2018-06-03 13:06:51.8406 INFO Verify "1st" plan item's "Price" element content should equal "$0.00"

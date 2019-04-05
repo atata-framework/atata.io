@@ -13,7 +13,7 @@ public void SetUp()
 {
     AtataContext.Configure().
         UseChrome().
-        UseBaseUrl("https://demo.atata.io/#!/").
+        UseBaseUrl("https://demo.atata.io/").
         Build();
 }
 ```

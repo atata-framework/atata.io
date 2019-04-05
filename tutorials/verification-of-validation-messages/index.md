@@ -20,8 +20,7 @@ It is impossible to cover all cases, so I will try to cover one sample, but I ho
 
 ## Sample Page
 
-For testing purposes of this tutorial, the following test page is used: [https://atata-framework.github.io/atata-sample-app/#!/signup](https://atata-framework.github.io/atata-sample-app/#!/signup).
-
+For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/signup>.
 ![Sign Up page](signup.gif)
 
 The page has the following validators: required, min length, max length and email.
@@ -56,7 +55,7 @@ namespace AtataSamples.ValidationMessagesVerification
             AtataContext.Configure().
                 UseChrome().
                     WithArguments("start-maximized").
-                UseBaseUrl("https://atata-framework.github.io/atata-sample-app/#!/").
+                UseBaseUrl("https://demo.atata.io/").
                 UseCulture("en-us").
                 UseNUnitTestName().
                 AddNUnitTestContextLogging().
