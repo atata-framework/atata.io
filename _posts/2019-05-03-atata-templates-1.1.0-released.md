@@ -12,7 +12,7 @@ Visual Studio extension is released with support of Visual Studio 2019 and updat
 
 ## Changelog
 
-* {% include issue.md repo='tm' id=16 type='mj' %} Add support of Visual Studio 2019
+* &#8203;{% include issue.md repo='tm' id=16 type='mj' %} Add support of Visual Studio 2019
 * &#8203;{% include issue.md repo='tm' id=17 type='mj' %} Update package references to latest versions
   * `Atata` - v1.1.0
   * `Atata.WebDriverExtras` - v1.2.0
