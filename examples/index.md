@@ -15,6 +15,8 @@ title: Examples
   <br>How to implement base page object and inherit it.
 * [Switch Between Browser Windows](/examples/switch-between-browser-windows/)
   <br>How to switch to newly opened browser window.
+* [Finding Hidden Element](/examples/finding-hidden-element/)
+  <br>How to find hidden control/element on a page.
 {:.link-item-list}
 
 ## Bootstrap
