@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Finding Hidden Element
-description: How to find hidden element on page object or popup.
+description: How to find hidden control/element on a page.
 ---
 
 {{ page.description }}
@@ -9,11 +9,14 @@ description: How to find hidden element on page object or popup.
 
 ## Given
 
-There is a page containing some hidden element (type="hidden", CSS opacity: 0, etc.).
+There is a page containing some hidden element (`type="hidden"`, CSS `opacity: 0`, CSS `display: none`, etc.).
+
+By default, almost all Atata controls during element finding use `Visibility.Visible`, meaning to filter only visible elements.
+{:.info}
 
 ## Implementation
 
-To find hidden element needs to add [Visibility Property](https://atata.io/control-search/#visibility) to any [Find Attributes](https://atata.io/control-search/#find-attributes).
+To find hidden element, set [Visibility](/control-search/#visibility) property of specific [FindAttribute](/control-search/#findattribute).
 
 ```cs
 using Atata;
@@ -24,11 +27,8 @@ namespace SampleApp.UITests
 
     public class SomePage : Page<_>
     {
-        [FindById("some-id", Visibility = Visibility.Hidden)]
+        [FindById("some-id", Visibility = Visibility.Hidden)] // Or Visibility.Any to find element regardless of visibility.
         public Control<_> HiddenElement { get; private set; }
-
-        // Or using Visibility.Any allows finding visible and hidden states of the element at the same time:
-        //public Control<_> HiddenElement { get; private set; }
     }
 }
 ```
@@ -36,6 +36,6 @@ namespace SampleApp.UITests
 
 ```cs
 Go.To<SomePage>().
-    HiddenElement.Should.Exist(); // Finds element and verifies that it exists on the DOM of the page.
+    HiddenElement.Should.Exist(); // Verifies that control/element exists on the DOM of the page.
 ```
 {:.test}
