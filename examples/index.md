@@ -17,6 +17,8 @@ title: Examples
   <br>How to switch to newly opened browser window.
 * [Finding Hidden Element](/examples/finding-hidden-element/)
   <br>How to find hidden control/element on a page.
+* [Verification of Labels](/examples/verification-of-labels/)
+  <br>How to verify the text of labels associated with inputs.
 {:.link-item-list}
 
 ## Bootstrap
