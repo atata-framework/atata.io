@@ -66,3 +66,6 @@ Go.To<SomePage>().
     Labels.Should.Contain("First Name", "Last Name");
 ```
 {:.test}
+
+Also for specific pointwise label manipulation it's always possible to declare and use individual [`Label<TOwner>`](/components/#label) properties.
+{:.info}
