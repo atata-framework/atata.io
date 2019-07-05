@@ -57,7 +57,7 @@ By default all content type properties of `CarRow` are getting found by column h
 
 ```cs
 Go.To<SomePage>().
-    Cars.Rows.Count.Should.Equal(18);
+    Cars.Rows.Count.Should.Equal(18).
     Cars.Rows.Should.Contain(x => x.CarMake == "Audi" && x.CarModel == "A4").
     Cars.Rows[x => x.CarMake == "Honda" && x.CarModel == "Accord"].Should.Exist().
     Cars.Rows[x => x.CarMake == "Volvo" && x.Year == 2010].HasAirConditioner.Should.BeTrue().
