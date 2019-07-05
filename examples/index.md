@@ -21,6 +21,12 @@ title: Examples
   <br>How to verify the text of labels associated with inputs.
 {:.link-item-list}
 
+## Custom Controls
+
+* [Custom Rich Text Editor Based on contenteditable](custom-rich-text-editor-based-on-contenteditable/)
+  <br>How to implement custom control for rich text editor that is based on contenteditable HTML attribute.
+{:.link-item-list}
+
 ## Bootstrap
 
 * [Bootstrap Dropdown (BSDropdownToggle&lt;TOwner&gt;)](/examples/bootstrap-dropdown/)
