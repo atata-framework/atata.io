@@ -19,6 +19,8 @@ title: Examples
   <br>How to find hidden control/element on a page.
 * [Verification of Labels](/examples/verification-of-labels/)
   <br>How to verify the text of labels associated with inputs.
+* [Take Screenshot](/examples/take-screenshot/)
+  <br>How to take/capture screenshot.
 {:.link-item-list}
 
 ## Custom Controls
