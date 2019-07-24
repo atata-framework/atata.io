@@ -23,6 +23,14 @@ title: Examples
   <br>How to take/capture screenshot.
 {:.link-item-list}
 
+## Waiting
+
+* [Wait for Element upon Page Initialization](wait-for-element-upon-page-initialization/)
+  <br>How to wait for an element upon page initialization.
+* [Wait Until Element Is Hidden upon Page Initialization](wait-until-element-is-hidden-upon-page-initialization/)
+  <br>How to wait for an element to become hidden upon page initialization.
+{:.link-item-list}
+
 ## Custom Controls
 
 * [Custom Rich Text Editor Based on contenteditable](custom-rich-text-editor-based-on-contenteditable/)
