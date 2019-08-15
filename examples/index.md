@@ -37,6 +37,12 @@ title: Examples
   <br>How to implement custom control for rich text editor that is based on contenteditable HTML attribute.
 {:.link-item-list}
 
+## Custom Triggers
+
+* [Custom Trigger: Wait for Loading Indicator](custom-trigger-wait-for-loading-indicator/)
+  <br>How to implement custom trigger that waits for a specific element presence and then abscence.
+{:.link-item-list}
+
 ## Bootstrap
 
 * [Bootstrap Dropdown (BSDropdownToggle&lt;TOwner&gt;)](/examples/bootstrap-dropdown/)
