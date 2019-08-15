@@ -71,3 +71,10 @@ Waiting until the element is hidden/missing will be performed upon `SomePage` pa
 Go.To<SomePage>();
 ```
 {:.test}
+
+## Remarks
+
+In order to avoid a duplication of trigger declaration in different page objects,
+it is possible to extract a trigger definition to the custom trigger class.
+See [Custom Trigger: Wait for Loading Indicator](/examples/custom-trigger-wait-for-loading-indicator) example.
+{:.info}
