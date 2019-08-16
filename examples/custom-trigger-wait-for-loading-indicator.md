@@ -1,7 +1,7 @@
 ﻿---
 layout: article
 title: "Custom Trigger: Wait for Loading Indicator"
-description: How to implement custom trigger that waits for a specific element presence and then abscence.
+description: How to implement custom trigger that waits for a specific element presence and then absence.
 ---
 
 {{ page.description }}

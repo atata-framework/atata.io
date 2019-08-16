@@ -40,7 +40,7 @@ title: Examples
 ## Custom Triggers
 
 * [Custom Trigger: Wait for Loading Indicator](custom-trigger-wait-for-loading-indicator/)
-  <br>How to implement custom trigger that waits for a specific element presence and then abscence.
+  <br>How to implement custom trigger that waits for a specific element presence and then absence.
 {:.link-item-list}
 
 ## Bootstrap
