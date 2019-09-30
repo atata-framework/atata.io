@@ -3,8 +3,8 @@
 {% assign item_id = item.name | downcase | replace: " ", "-" %}
 <a id="{{ item_id }}" class="header-anchor"></a>
 <h2 class="page-header">{{ item.name }}</h2>
-{% assign item_path = item_id | append: ".md" %}
-{% capture item-include %}{% include_relative {{ item_path }} %}{% endcapture %}
+{% assign item_path = page.items | append: "/" | append: item_id | append: ".md" %}
+{% capture item-include %}{% include {{ item_path }} %}{% endcapture %}
 {{ item-include | markdownify }}
     {% for sub_item in item.items %}
     {% assign sub_item_parts = sub_item | split: "|" %}
@@ -17,8 +17,8 @@
     {% endif %}
 <a id="{{ sub_item_id }}" class="header-anchor"></a>
 <h3>{{ sub_item_name }}</h3>
-    {% assign sub_item_path = item_id | append: "/" | append: sub_item_id | append: ".md" %}
-    {% capture sub_item-include %}{% include_relative {{ sub_item_path }} %}{% endcapture %}
+    {% assign sub_item_path = page.items | append: "/" | append: item_id | append: "/" | append: sub_item_id | append: ".md" %}
+    {% capture sub_item-include %}{% include {{ sub_item_path }} %}{% endcapture %}
 {{ sub_item-include | markdownify }}
     {% endfor %}
 {% endfor %}
