@@ -21,6 +21,8 @@ title: Examples
   <br>How to verify the text of labels associated with inputs.
 * [Take Screenshot](/examples/take-screenshot/)
   <br>How to take/capture screenshot.
+* [Override ControlDefinitionAttribute for Property of Control Type](/examples/override-controldefinitionattribute-for-property-of-control-type/)
+  <br>How to set ControlDefinitionAttribute for property of Control type.
 {:.link-item-list}
 
 ## Waiting
