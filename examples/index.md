@@ -5,12 +5,6 @@ title: Examples
 
 ## General
 
-* [Navigation to Specific Page After Click](/examples/navigation-to-specific-page-after-click/)
-  <br>How to perform the navigation to specific page after the button/link click.
-* [Navigation to Particular Pages After Click](/examples/navigation-to-particular-pages-after-click/)
-  <br>How to perform the navigation to one of particular pages after the button/link click.
-* [Navigation to Any Page After Click](/examples/navigation-to-any-page-after-click/)
-  <br>How to perform the navigation to different pages after the button/link click.
 * [Page Object Inheritance](/examples/page-object-inheritance/)
   <br>How to implement base page object and inherit it.
 * [Switch Between Browser Windows](/examples/switch-between-browser-windows/)
@@ -23,6 +17,18 @@ title: Examples
   <br>How to take/capture screenshot.
 * [Override ControlDefinitionAttribute for Property of Control Type](/examples/override-controldefinitionattribute-for-property-of-control-type/)
   <br>How to set ControlDefinitionAttribute for property of Control type.
+{:.link-item-list}
+
+## Navigation
+
+* [Navigation to Specific Page After Click](/examples/navigation-to-specific-page-after-click/)
+  <br>How to perform the navigation to specific page after the button/link click.
+* [Navigation to Particular Pages After Click](/examples/navigation-to-particular-pages-after-click/)
+  <br>How to perform the navigation to one of particular pages after the button/link click.
+* [Navigation to Any Page After Click](/examples/navigation-to-any-page-after-click/)
+  <br>How to perform the navigation to different pages after the button/link click.
+* [Navigation to Page by Dynamic URL](/examples/navigation-to-page-by-dynamic-url/)
+  <br>How to perform the navigation to the page by dynamic/parameterized URL.
 {:.link-item-list}
 
 ## Waiting
