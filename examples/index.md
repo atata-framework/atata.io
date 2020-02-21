@@ -17,6 +17,8 @@ title: Examples
   <br>How to take/capture screenshot.
 * [Override ControlDefinitionAttribute for Property of Control Type](/examples/override-controldefinitionattribute-for-property-of-control-type/)
   <br>How to set ControlDefinitionAttribute for property of Control type.
+* [Set ControlDefinitionAttribute for Property of ControlList Type](/examples/set-controldefinitionattribute-for-property-of-controllist-type/)
+  <br>How to set ControlDefinitionAttribute for property of ControlList type.
 {:.link-item-list}
 
 ## Navigation
