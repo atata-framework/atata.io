@@ -72,3 +72,4 @@ Go.To(GoogleSearchPage.ByQuery("test"));
 ```cs
 Go.To<GoogleSearchPage>();
 ```
+{:.test}
