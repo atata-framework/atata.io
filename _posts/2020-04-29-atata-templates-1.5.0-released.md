@@ -1,6 +1,6 @@
 ---
 title: "Atata Templates 1.5.0 is Released"
-description: "Atata Templates 1.5.0 Visual Studio extension is released with update of package references"
+description: "Atata Templates 1.5.0 Visual Studio extension is released with update of package references."
 release_version: "1.5.0"
 ---
 
