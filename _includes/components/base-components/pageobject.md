@@ -38,6 +38,17 @@ PageObject.PageUrl.Should.EndWith("/some-page?id=123987");
 ```
 
 <div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">PageSource</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the DataProvider instance for the source of the current HTML page.
+
+```cs
+string html = PageObject.PageSource;
+```
+
+<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">Control</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">ActiveControl</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
