@@ -19,8 +19,6 @@ title: Examples
   <br>How to set ControlDefinitionAttribute for property of Control type.
 * [Set ControlDefinitionAttribute for Property of ControlList Type](/examples/set-controldefinitionattribute-for-property-of-controllist-type/)
   <br>How to set ControlDefinitionAttribute for property of ControlList type.
-* [Get HTML Source](/examples/get-html-source/)
-  <br>How to get HTML source of the page last loaded by the browser.
 {:.link-item-list}
 
 ## Navigation
