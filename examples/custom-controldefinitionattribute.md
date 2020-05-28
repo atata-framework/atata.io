@@ -27,7 +27,7 @@ namespace SampleApp.UITests
         public ErrorMessageDefinitionAttribute()
             : base("p") // Sets the base XPath of the scope element.
         {
-            ContainingClass = "error"; // Sets the containing CSS class name.
+            ContainingClass = "error-message"; // Sets the containing CSS class name.
             ComponentTypeName = "error message"; // Sets the name of the component type.
                                                  // It is used in report log messages to describe the component type.
         }
