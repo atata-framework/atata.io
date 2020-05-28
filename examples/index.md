@@ -19,6 +19,8 @@ title: Examples
   <br>How to set ControlDefinitionAttribute for property of Control type.
 * [Set ControlDefinitionAttribute for Property of ControlList Type](/examples/set-controldefinitionattribute-for-property-of-controllist-type/)
   <br>How to set ControlDefinitionAttribute for property of ControlList type.
+* [Custom ControlDefinitionAttribute](/examples/custom-controldefinitionattribute/)
+  <br>How to create custom ControlDefinitionAttribute.
 {:.link-item-list}
 
 ## Navigation

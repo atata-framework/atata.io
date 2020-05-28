@@ -698,7 +698,7 @@ div.highlighter-rouge {
       @media (max-width: 767px) {
         div.highlighter-rouge pre.highlight > code {
           font-size: 0.8em; } }
-  div.highlighter-rouge.html::after, div.highlighter-rouge.page-object::after, div.highlighter-rouge.test::after {
+  div.highlighter-rouge.html::after, div.highlighter-rouge.page-object::after, div.highlighter-rouge.test::after, div.highlighter-rouge.attribute::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -713,6 +713,8 @@ div.highlighter-rouge {
     content: "PAGE OBJECT"; }
   div.highlighter-rouge.test::after {
     content: "TEST"; }
+  div.highlighter-rouge.attribute::after {
+    content: "ATTRIBUTE"; }
 
 code.highlighter-rouge {
   word-break: break-word;
