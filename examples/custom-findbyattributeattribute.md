@@ -7,11 +7,11 @@ description: How to create custom FindByAttributeAttribute.
 {{ page.description }}
 {:.lead}
 
-There are cases when custom `FindByAttributeAttribute` has to be created to find a specific control by its attribute value.
+There are cases when custom `FindByAttributeAttribute` has to be created to find a control by value of a specific attribute .
 
 ## Given
 
-For example, there are pages containing following paragraph elements: `<p data-name="car">` and `<p data-name="airplane">` which we need to test.
+For example, there are pages containing following paragraph elements: `<p data-name="Car description">` and `<p data-name="Airplane description">` which we need to test.
 
 ## Implementation
 
@@ -45,6 +45,9 @@ namespace SampleApp.UITests
             : base(DataNameAttributeName, match, values)
         {
         }
+
+        // Optionally override the default term case (default value = TermCase.Title).
+        protected override TermCase DefaultCase => TermCase.Sentence;
     }
 }
 ```
@@ -57,10 +60,10 @@ namespace SampleApp.UITests
 
     public class SomePage : Page<_>
     {
-        [FindByDataNameAttribute("car")]
+        [FindByDataNameAttribute] // Finds by data-name="Car description".
         public Text<_> CarDescription { get; private set; }
 
-        [FindByDataNameAttribute("airplane")]
+        [FindByDataNameAttribute]
         public Text<_> AirplaneDescription { get; private set; }
     }
 }
