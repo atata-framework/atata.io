@@ -337,7 +337,7 @@ div.highlighter-rouge {
         }
     }
 
-    &.html::after, &.page-object::after, &.test::after {
+    &.html::after, &.page-object::after, &.test::after, &.attribute::after {
         position: absolute;
         top: 0;
         right: 0;
@@ -358,6 +358,10 @@ div.highlighter-rouge {
 
     &.test::after {
         content: "TEST";
+    }
+
+    &.attribute::after {
+        content: "ATTRIBUTE";
     }
 }
 
