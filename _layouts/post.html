@@ -6,7 +6,7 @@ layout: default
     <div class="col-md-8 col-md-offset-2" role="main">
         <div class="post-header">
             {% if page.image %}
-            <img src="/assets/images/{{ page.image }}" alt="{{ page.image_alt }}" width="120" height="63" class="pull-right hidden-xs" />
+            <img src="/assets/images/{{ page.image }}" alt="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title }}{% endif %}" width="120" height="63" class="pull-right hidden-xs" />
             {% endif %}
             <h1>{{ page.title }}</h1>
             <p class="meta">
