@@ -14,12 +14,10 @@ description: "List of Atata tutorials."
   <br>How to handle different confirmation popups using Atata Framework.
 * [Multi-Browser Configuration via Fixture Arguments](/tutorials/multi-browser-configuration-via-fixture-arguments/)
   <br>How to configure multi-browser tests application using NUnit fixture arguments.
-* [Visual Studio Team Services Configuration](/tutorials/vs-team-services-configuration/)
-  <br>How to configure Atata test automation build on Visual Studio Team Services using any browser.
 {:.link-item-list}
 
-All sources of the tutorials are hosted on {% include atata-repo.md name='atata-samples' %} GitHub repository.
-{:.info}
+## Sample Projects
 
-You can also find interesting {% include atata-repo.md name='atata-sample-app-tests' %} GitHub repository representing automated tests application with 20+ different test cases.
-{:.info}
+All sources of the tutorials are hosted on **{% include atata-repo.md name='atata-samples' %}** GitHub repository.
+
+You can also find interesting **{% include atata-repo.md name='atata-sample-app-tests' %}** GitHub repository representing automated tests application with 20+ different test cases.

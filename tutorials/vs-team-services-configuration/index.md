@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Visual Studio Team Services Configuration
+title: Visual Studio Team Services Configuration (OBSOLETE)
 description: How to configure Atata test automation build on Visual Studio Team Services using any browser.
 ---
 
