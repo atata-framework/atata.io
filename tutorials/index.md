@@ -14,6 +14,8 @@ description: "List of Atata tutorials."
   <br>How to handle different confirmation popups using Atata Framework.
 * [Multi-Browser Configuration via Fixture Arguments](/tutorials/multi-browser-configuration-via-fixture-arguments/)
   <br>How to configure multi-browser tests application using NUnit fixture arguments.
+* [Reporting to Extent Reports](/tutorials/reporting-to-extentreports/)
+  <br>How to configure Atata reporting to Extent Reports.
 {:.link-item-list}
 
 ## Sample Projects
