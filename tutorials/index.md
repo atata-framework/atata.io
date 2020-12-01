@@ -12,6 +12,8 @@ description: "List of Atata tutorials."
   <br>How to verify validation messages on web pages using Atata Framework.
 * [Handle Confirmation Popups](/tutorials/handle-confirmation-popups/)
   <br>How to handle different confirmation popups using Atata Framework.
+* [Multi-Browser Configuration via .runsettings files](/tutorials/multi-browser-configuration-via-runsettings-files/)
+  <br>How to configure multi-browser tests application using `.runsettings` files.
 * [Multi-Browser Configuration via Fixture Arguments](/tutorials/multi-browser-configuration-via-fixture-arguments/)
   <br>How to configure multi-browser tests application using NUnit fixture arguments.
 * [Reporting to Extent Reports](/tutorials/reporting-to-extentreports/)
