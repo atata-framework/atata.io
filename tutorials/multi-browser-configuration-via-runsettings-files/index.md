@@ -15,10 +15,12 @@ description: How to configure multi-browser tests application using `.runsetting
 Create a new Visual Studio tests project or use an existent one.
 Use the [guide](/getting-started/#installation) to create a new Atata tests project.
 
-NUnit is used as a test engine in this tutorial. So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
+NUnit is used as a test engine in this tutorial.
+So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Chrome, Internet Explorer and Firefox are used in this tutorial. Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %}, {% include nuget.md name="Selenium.WebDriver.IEDriver" %} and {% include nuget.md name="Selenium.Firefox.WebDriver" %}.
+Chrome and Internet Explorer are used in this tutorial.
+Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %} and {% include nuget.md name="Selenium.WebDriver.IEDriver" %}.
 {:.info}
 
 ## Configuration of Atata.json
