@@ -12,13 +12,19 @@ description: How to configure multi-browser tests application using NUnit fixtur
 {% endcapture %}
 {{ download-section }}
 
+This tutorial of multi-browser configuration is an alternative approach to [Multi-Browser Configuration via .runsettings files](https://atata.io/tutorials/multi-browser-configuration-via-runsettings-files/).
+It is actually recommended to use `.runsettings` approach.
+{:.warning}
+
 Create a new Visual Studio tests project or use an existent one.
 Use the [guide](/getting-started/#installation) to create a new Atata tests project.
 
-NUnit is used as a test engine in this tutorial. So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
+NUnit is used as a test engine in this tutorial.
+So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Chrome, Internet Explorer and Firefox are used in this tutorial. Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %}, {% include nuget.md name="Selenium.WebDriver.IEDriver" %} and {% include nuget.md name="Selenium.Firefox.WebDriver" %}.
+Chrome, Internet Explorer and Firefox are used in this tutorial.
+Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %}, {% include nuget.md name="Selenium.WebDriver.IEDriver" %} and {% include nuget.md name="Selenium.Firefox.WebDriver" %}.
 {:.info}
 
 ## SetUpFixture
