@@ -147,47 +147,43 @@ namespace AtataSamples.ValidationMessagesVerification
 }
 ```
 
-And now we need to define a custom collection of validation message components:
+And now we need to define a class representing the collection of validation message components:
 
 ``ValidationMessageList`1.cs``
 {:.file-name}
 
 ```cs
-using System;
 using Atata;
 using OpenQA.Selenium;
 
 namespace AtataSamples.ValidationMessagesVerification
 {
-    public class ValidationMessageList<TOwner> : ControlList<ValidationMessage<TOwner>, TOwner>
+    public class ValidationMessageList<TOwner> : AssociatedControlList<ValidationMessage<TOwner>, TOwner>
         where TOwner : PageObject<TOwner>
     {
-        public ValidationMessage<TOwner> this[Func<TOwner, IControl<TOwner>> controlSelector]
-        {
-            get { return For(controlSelector); }
-        }
-
-        public ValidationMessage<TOwner> For(Func<TOwner, IControl<TOwner>> controlSelector)
+        protected override ValidationMessage<TOwner> CreateAssociatedControl(Control<TOwner> control)
         {
             var validationMessageDefinition = UIComponentResolver.GetControlDefinition(typeof(ValidationMessage<TOwner>));
 
-            IControl<TOwner> boundControl = controlSelector(Component.Owner);
-
             PlainScopeLocator scopeLocator = new PlainScopeLocator(By.XPath("ancestor::" + validationMessageDefinition.ScopeXPath))
             {
-                SearchContext = boundControl.Scope
+                SearchContext = control.Scope
             };
 
-            return Component.Controls.Create<ValidationMessage<TOwner>>(boundControl.ComponentName, scopeLocator);
+            return Component.Controls.Create<ValidationMessage<TOwner>>(control.ComponentName, scopeLocator);
         }
     }
 }
 ```
 
 What does it do?
-In `For` method it creates scope locator for validation message.
-Scope locator will first search the bound control, for example `<input>` of First Name, and then will look in HTML document for validation message control, relatively to bound control, that matches the XPath that we defined for `ValidationMessage<TOwner>`.
-And indexer is just for a shorter record.
+First of all, it inherits `AssociatedControlList` - special control list class that provides a basic functionality to get associated/dependent control to another control.
+So our class represents the list of associated controls of `ValidationMessage<TOwner>` type.
+
+In `CreateAssociatedControl` method it creates scope locator for validation message.
+Scope locator will first search the bound control, for example `<input>` of First Name,
+and then will look in HTML document for validation message control, relatively to bound control,
+that matches the XPath that we defined for `ValidationMessage<TOwner>`.
 
 Examples of using `ValidationMessageList<TOwner>` that find a message for First Name:
 
@@ -196,7 +192,7 @@ pageObject.ValidationMessages.For(x => x.FirstName).Should...
 pageObject.ValidationMessages[x => x.FirstName].Should...
 ```
 
-And if you need to check that there are no validation messages:
+And if you need to assert that there are no validation messages:
 
 ```cs
 pageObject.ValidationMessages.Should.BeEmpty()
