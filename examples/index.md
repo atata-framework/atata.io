@@ -53,6 +53,14 @@ title: Examples
   <br>How to implement custom control for rich text editor that is based on contenteditable HTML attribute.
 {:.link-item-list}
 
+## Custom Verification Extension Methods
+
+* [Custom Verification Extension Method for Generic Page Object](custom-verification-extension-method-for-generic-page-object/)
+  <br>How to implement custom verification extension method for a generic page object.
+* [Custom Verification Extension Method for Specific Page Object](custom-verification-extension-method-for-specific-page-object/)
+  <br>How to implement custom verification extension method for a specific page object.
+{:.link-item-list}
+
 ## Custom Triggers
 
 * [Custom Trigger: Wait for Loading Indicator](custom-trigger-wait-for-loading-indicator/)
