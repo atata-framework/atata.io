@@ -184,7 +184,7 @@ To select/switch current `.runsettings` file in Visual Studio:
 In order to run tests on CI using concrete browser, use `-s` parameter of `dotnet test` command to specify `.runsettings` file.
 
 ```ps
-dotnet test -s AtataSamples.MultipleBrowsersViaRunSettings/Chrome-headless.runsettings
+dotnet test ./AtataSamples.MultipleBrowsersViaRunSettings.csproj -s Chrome-headless.runsettings
 ```
 
 {{ download-section }}
