@@ -41,27 +41,18 @@ using Atata;
 namespace SampleApp.UITests
 {
     [ControlDefinition(ContainingClass = "note-editable", ComponentTypeName = "text editor")]
-    [ControlFinding(typeof(FindFirstAttribute))]
-    public class SummernoteEditingArea<TOwner> : EditableField<string, TOwner>
+    public class SummernoteEditingArea<TOwner> : ContentEditor<TOwner>
         where TOwner : PageObject<TOwner>
     {
-        protected override string GetValue()
-        {
-            return Content;
-        }
-
-        protected override void SetValue(string value)
-        {
-            Scope.FillInWith(value);
-        }
     }
 }
 ```
 
-- Inherit `EditableField<string, TOwner>` as this is an editable control.
-- `ControlFinding` is set to find the first matching element by default.
-- To get the value, the content text is used.
-- To set the value, `FillInWith` extension method is used that calls `Clear` and `SendKeys` methods of corresponding `IWebElement`.
+The main thing needed is to inherit `ContentEditor<TOwner>`
+that is created specifically for `contenteditable` components.
+
+It is also possible to use `ContentEditor<TOwner>` directly.
+{:.info}
 
 ### Use Custom Control
 
