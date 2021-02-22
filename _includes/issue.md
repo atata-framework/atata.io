@@ -1,5 +1,6 @@
 {% if include.repo == null or include.repo == '' %}{% assign repository_name = 'atata' %}
 {% elsif include.repo == 'we' %}{% assign repository_name = 'atata-webdriverextras' %}
+{% elsif include.repo == 'ws' %}{% assign repository_name = 'atata-webdriversetup' %}
 {% elsif include.repo == 'bs' %}{% assign repository_name = 'atata-bootstrap' %}
 {% elsif include.repo == 'ku' %}{% assign repository_name = 'atata-kendoui' %}
 {% elsif include.repo == 'cj' %}{% assign repository_name = 'atata-configuration-json' %}
