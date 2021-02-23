@@ -19,8 +19,8 @@ NUnit is used as a test engine in this tutorial.
 So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Chrome and Internet Explorer are used in this tutorial.
-Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %} and {% include nuget.md name="Selenium.WebDriver.IEDriver" %}.
+Drivers for Chrome and Internet Explorer are setup in this tutorial
+using {% include nuget.md name="Atata.WebDriverSetup" %} package.
 {:.info}
 
 ## Configuration of Atata.json
@@ -135,6 +135,11 @@ namespace AtataSamples.MultipleBrowsersViaRunSettings
             AtataContext.GlobalConfiguration
                 .ApplyJsonConfig()
                 .UseDriver(driverAlias);
+
+            DriverSetup.GetDefaultConfiguration(BrowserNames.InternetExplorer)
+                .WithX32Architecture();
+
+            AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
         }
     }
 }
@@ -168,6 +173,11 @@ namespace AtataSamples.MultipleBrowsersViaRunSettings
             AtataContext.GlobalConfiguration
                 .ApplyJsonConfig()
                 .UseDriver(driverAlias);
+
+            DriverSetup.GetDefaultConfiguration(BrowserNames.InternetExplorer)
+                .WithX32Architecture();
+
+            AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
         }
     }
 }
