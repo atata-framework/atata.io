@@ -23,8 +23,8 @@ NUnit is used as a test engine in this tutorial.
 So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Chrome, Internet Explorer and Firefox are used in this tutorial.
-Add NuGet references to appropriate packages, for example: {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %}, {% include nuget.md name="Selenium.WebDriver.IEDriver" %} and {% include nuget.md name="Selenium.Firefox.WebDriver" %}.
+Drivers for Chrome and Internet Explorer in this tutorial are setup
+using {% include nuget.md name="Atata.WebDriverSetup" %} package.
 {:.info}
 
 ## SetUpFixture
@@ -36,6 +36,7 @@ Create the following class:
 
 ```cs
 using Atata;
+using Atata.WebDriverSetup;
 using NUnit.Framework;
 
 namespace AtataSamples.MultipleBrowsersViaFixtureArguments
@@ -46,27 +47,34 @@ namespace AtataSamples.MultipleBrowsersViaFixtureArguments
         [OneTimeSetUp]
         public void GlobalSetUp()
         {
-            AtataContext.GlobalConfiguration.
-                UseChrome().
-                    WithArguments("start-maximized", "disable-extensions").
-                UseInternetExplorer().
+            AtataContext.GlobalConfiguration
+                .UseChrome()
+                    .WithArguments("start-maximized")
+                .UseInternetExplorer()
                 // TODO: Specify Internet Explorer settings, like:
                 // WithOptions(x => x.EnableNativeEvents = true).
-                UseFirefox().
+                //.UseFirefox().
+                //    WithFixOfCommandExecutionDelay()
                 // TODO: You can also specify remote driver configuration(s):
                 // UseRemoteDriver().
                 // WithAlias("chrome_remote").
                 // WithRemoteAddress("http://127.0.0.1:4444/wd/hub").
                 // WithOptions(new ChromeOptions()).
-                UseBaseUrl("https://demo.atata.io/").
-                AddNUnitTestContextLogging().
-                LogNUnitError();
+                .UseBaseUrl("https://demo.atata.io/")
+                .UseCulture("en-US")
+                .UseAllNUnitFeatures();
+
+            DriverSetup.GetDefaultConfiguration(BrowserNames.InternetExplorer)
+                .WithX32Architecture();
+
+            AtataContext.GlobalConfiguration.AutoSetUpConfiguredDrivers();
         }
     }
 }
 ```
 
-In `SetUpFixture` you can configure all browser drivers you want to use. `GlobalSetUp` method is invoked only once before all tests execution.
+In `SetUpFixture` you can configure all browser drivers you want to use.
+`GlobalSetUp` method is invoked only once before all tests execution.
 
 ## UITestFixture
 
@@ -83,7 +91,7 @@ namespace AtataSamples.MultipleBrowsersViaFixtureArguments
 {
     [TestFixture(DriverAliases.Chrome)]
     [TestFixture(DriverAliases.InternetExplorer)]
-    [TestFixture(DriverAliases.Firefox)]
+    //[TestFixture(DriverAliases.Firefox)]
     //[TestFixture("chrome_remote")]
     public abstract class UITestFixture
     {
@@ -179,6 +187,6 @@ Build project and open Test Explorer panel in Visual Studio. For `Home` test you
 
 Run all tests and check the results.
 
-*Please note that current tutorial requires Chrome, Internet Explorer and Firefox browsers to be installed.*
+*Please note that current tutorial requires Chrome and Internet Explorer browsers to be installed.*
 
 {{ download-section }}
