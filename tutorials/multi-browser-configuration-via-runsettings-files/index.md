@@ -19,7 +19,7 @@ NUnit is used as a test engine in this tutorial.
 So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Drivers for Chrome and Internet Explorer are setup in this tutorial
+Drivers for Chrome and Internet Explorer in this tutorial are setup
 using {% include nuget.md name="Atata.WebDriverSetup" %} package.
 {:.info}
 
