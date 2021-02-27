@@ -44,7 +44,6 @@ using NUnit.Framework;
 
 namespace AtataSamples.PageVerification
 {
-    [TestFixture]
     public class PlanTests : UITestFixture
     {
     }
