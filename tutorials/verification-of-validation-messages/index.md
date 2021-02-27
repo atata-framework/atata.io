@@ -18,24 +18,24 @@ In this tutorial, I would like to demonstrate Atata Framework abilities of valid
 There are tons of different approaches to display validation/error messages.
 It is impossible to cover all cases, so I will try to cover one sample, but I hope you will get the idea to apply it to specific websites.
 
-## Sample Page
+## Page Under Test
 
 For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/signup>.
+
 ![Sign Up page](signup.gif)
 
 The page has the following validators: required, min length, max length and email.
 
 ## Set Up Test Project
 
-Let's configure the testing environment.
-In Visual Studio, create Class Library project and add the following NuGet packages:
+### Create Project
 
-* {% include nuget.md name="Atata" %}
-* {% include nuget.md name="NUnit" %}
-* {% include nuget.md name="NUnit3TestAdapter" %}
-* {% include nuget.md name="Selenium.WebDriver.ChromeDriver" %} (or another driver package)
+First of all, let's create a project for tests (e.g., named "AtataSamples.ValidationMessagesVerification").
+In Visual Studio create a project for Atata automated testing using the [guide](/getting-started/#installation).
 
-Define NUnit test class with `SetUp` and `TearDown` methods:
+### Create Test Fixture Class
+
+Create "Atata NUnit Test Fixture" class:
 
 `SignUpTests.cs`
 {:.file-name}
@@ -46,32 +46,13 @@ using NUnit.Framework;
 
 namespace AtataSamples.ValidationMessagesVerification
 {
-    [TestFixture]
-    public class SignUpTests
+    public class SignUpTests : UITestFixture
     {
-        [SetUp]
-        public void SetUp()
-        {
-            AtataContext.Configure().
-                UseChrome().
-                    WithArguments("start-maximized").
-                UseBaseUrl("https://demo.atata.io/").
-                UseCulture("en-us").
-                UseNUnitTestName().
-                AddNUnitTestContextLogging().
-                    WithoutSectionFinish().
-                LogNUnitError().
-                Build();
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            AtataContext.Current?.CleanUp();
-        }
     }
 }
 ```
+
+### Create Page Object Class
 
 Create a page object for Sign Up page:
 
@@ -235,16 +216,17 @@ Now we can use all this stuff together. Let's create 3 tests for validation mess
 
 ```cs
 [Test]
-public void SignUp_Validation_Required()
+public void Validation_Required()
 {
-    Go.To<SignUpPage>().
-        SignUp.Click().
-        ValidationMessages[x => x.FirstName].Should.Equal("is required").
-        ValidationMessages[x => x.LastName].Should.Equal("is required").
-        ValidationMessages[x => x.Email].Should.Equal("is required").
-        ValidationMessages[x => x.Password].Should.Equal("is required").
-        ValidationMessages[x => x.Agreement].Should.Equal("is required").
-        ValidationMessages.Should.HaveCount(5);
+    Go.To<SignUpPage>()
+        .SignUp.Click()
+        .AggregateAssert(page => page
+            .ValidationMessages[x => x.FirstName].Should.Equal("is required")
+            .ValidationMessages[x => x.LastName].Should.Equal("is required")
+            .ValidationMessages[x => x.Email].Should.Equal("is required")
+            .ValidationMessages[x => x.Password].Should.Equal("is required")
+            .ValidationMessages[x => x.Agreement].Should.Equal("is required")
+            .ValidationMessages.Should.HaveCount(5));
 }
 ```
 
@@ -254,16 +236,17 @@ public void SignUp_Validation_Required()
 
 ```cs
 [Test]
-public void SignUp_Validation_MinLength()
+public void Validation_MinLength()
 {
-    Go.To<SignUpPage>().
-        FirstName.Set("a").
-        LastName.Set("a").
-        Password.Set("a").
-        SignUp.Click().
-        ValidationMessages[x => x.FirstName].Should.Equal("minimum length is 2").
-        ValidationMessages[x => x.LastName].Should.Equal("minimum length is 2").
-        ValidationMessages[x => x.Password].Should.Equal("minimum length is 6");
+    Go.To<SignUpPage>()
+        .FirstName.Set("a")
+        .LastName.Set("a")
+        .Password.Set("a")
+        .SignUp.Click()
+        .AggregateAssert(page => page
+            .ValidationMessages[x => x.FirstName].Should.Equal("minimum length is 2")
+            .ValidationMessages[x => x.LastName].Should.Equal("minimum length is 2")
+            .ValidationMessages[x => x.Password].Should.Equal("minimum length is 6"));
 }
 ```
 
@@ -273,15 +256,15 @@ public void SignUp_Validation_MinLength()
 
 ```cs
 [Test]
-public void SignUp_Validation_IncorrectEmail()
+public void Validation_IncorrectEmail()
 {
-    Go.To<SignUpPage>().
-        Email.Set("some@email").
-        SignUp.Click().
-        ValidationMessages[x => x.Email].Should.Equal("has incorrect format").
-        Email.Append(".com").
-        SignUp.Click().
-        ValidationMessages[x => x.Email].Should.Not.Exist();
+    Go.To<SignUpPage>()
+        .Email.Set("some@email")
+        .SignUp.Click()
+        .ValidationMessages[x => x.Email].Should.Equal("has incorrect format")
+        .Email.Type(".com")
+        .SignUp.Click()
+        .ValidationMessages[x => x.Email].Should.Not.Exist();
 }
 ```
 
@@ -356,41 +339,43 @@ Now we can update our tests with the use of extension methods.
 
 ```cs
 [Test]
-public void SignUp_Validation_Required_UsingExtensions()
+public void Validation_Required_UsingExtensions()
 {
-    Go.To<SignUpPage>().
-        SignUp.Click().
-        ValidationMessages[x => x.FirstName].Should.BeRequired().
-        ValidationMessages[x => x.LastName].Should.BeRequired().
-        ValidationMessages[x => x.Email].Should.BeRequired().
-        ValidationMessages[x => x.Password].Should.BeRequired().
-        ValidationMessages[x => x.Agreement].Should.BeRequired().
-        ValidationMessages.Should.HaveCount(5);
+    Go.To<SignUpPage>()
+        .SignUp.Click()
+        .AggregateAssert(page => page
+            .ValidationMessages[x => x.FirstName].Should.BeRequired()
+            .ValidationMessages[x => x.LastName].Should.BeRequired()
+            .ValidationMessages[x => x.Email].Should.BeRequired()
+            .ValidationMessages[x => x.Password].Should.BeRequired()
+            .ValidationMessages[x => x.Agreement].Should.BeRequired()
+            .ValidationMessages.Should.HaveCount(5));
 }
 
 [Test]
-public void SignUp_Validation_MinLength_UsingExtensions()
+public void Validation_MinLength_UsingExtensions()
 {
-    Go.To<SignUpPage>().
-        FirstName.Set("a").
-        LastName.Set("a").
-        Password.Set("a").
-        SignUp.Click().
-        ValidationMessages[x => x.FirstName].Should.HaveMinLength(2).
-        ValidationMessages[x => x.LastName].Should.HaveMinLength(2).
-        ValidationMessages[x => x.Password].Should.HaveMinLength(6);
+    Go.To<SignUpPage>()
+        .FirstName.Set("a")
+        .LastName.Set("a")
+        .Password.Set("a")
+        .SignUp.Click()
+        .AggregateAssert(page => page
+            .ValidationMessages[x => x.FirstName].Should.HaveMinLength(2)
+            .ValidationMessages[x => x.LastName].Should.HaveMinLength(2)
+            .ValidationMessages[x => x.Password].Should.HaveMinLength(6));
 }
 
 [Test]
-public void SignUp_Validation_IncorrectEmail_UsingExtensions()
+public void Validation_IncorrectEmail_UsingExtensions()
 {
-    Go.To<SignUpPage>().
-        Email.Set("some@email").
-        SignUp.Click().
-        ValidationMessages[x => x.Email].Should.HaveIncorrectFormat().
-        Email.Append(".com").
-        SignUp.Click().
-        ValidationMessages[x => x.Email].Should.Not.Exist();
+    Go.To<SignUpPage>()
+        .Email.Set("some@email")
+        .SignUp.Click()
+        .ValidationMessages[x => x.Email].Should.HaveIncorrectFormat()
+        .Email.Type(".com")
+        .SignUp.Click()
+        .ValidationMessages[x => x.Email].Should.Not.Exist();
 }
 ```
 
