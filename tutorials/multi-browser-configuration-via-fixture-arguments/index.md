@@ -105,10 +105,10 @@ namespace AtataSamples.MultipleBrowsersViaFixtureArguments
         [SetUp]
         public void SetUp()
         {
-            AtataContext.Configure().
-                UseDriver(driverAlias).
-                UseTestName(() => $"[{driverAlias}]{TestContext.CurrentContext.Test.Name}").
-                Build();
+            AtataContext.Configure()
+                .UseDriver(driverAlias)
+                .UseTestName(() => $"[{driverAlias}]{TestContext.CurrentContext.Test.Name}")
+                .Build();
         }
 
         [TearDown]
@@ -171,8 +171,8 @@ namespace AtataSamples.MultipleBrowsersViaFixtureArguments
         [Test]
         public void Home()
         {
-            Go.To<HomePage>().
-                Header.Should.Equal("Atata Sample App");
+            Go.To<HomePage>()
+                .Header.Should.Equal("Atata Sample App");
         }
     }
 }
@@ -180,7 +180,8 @@ namespace AtataSamples.MultipleBrowsersViaFixtureArguments
 
 ## Run Tests
 
-Build project and open Test Explorer panel in Visual Studio. For `Home` test you can find 3 items in the Test Explorer panel:
+Build project and open Test Explorer panel in Visual Studio.
+For `Home` test you can find 3 items in the Test Explorer panel:
 
 ![Test Explorer: group by class](test-explorer-group-by-class.png)
 ![Test Explorer: tests](test-explorer-tests.png)
