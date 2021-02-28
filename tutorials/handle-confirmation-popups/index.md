@@ -22,7 +22,7 @@ In this tutorial, I would like to show how to easily handle confirmation popups 
 Tests application will handle: JS confirm, Bootstrap modal and jQuery Confirm box.
 The ideas, covered in the article, can be applied to any other kinds of popups.
 
-## Sample Page
+## Page Under Test
 
 For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/products>.
 
@@ -36,12 +36,15 @@ Each item has 3 different delete buttons that confirm deletion via appropriate p
 
 ## Set Up Test Project
 
-First of all, let's configure the testing environment.
-We need to create Atata UI Tests project (e.g., named "AtataSamples.ConfirmationPopups").
+### Create Project
 
-1. In Visual Studio create a project for Atata automated testing using the [guide](/getting-started/#installation).
-1. Add a reference to {% include nuget.md name="Atata.Bootstrap" %} NuGet package.
-   It contains [`BSModal<TOwner>`](https://github.com/atata-framework/atata-bootstrap/blob/master/src/Atata.Bootstrap/BSModal%601.cs) component that will be needed later.
+First of all, let's create a project for tests (e.g., named "AtataSamples.ConfirmationPopups").
+In Visual Studio create a project for Atata automated testing using the [guide](/getting-started/#installation).
+
+### Reference Atata.Bootstrap
+
+Add a reference to {% include nuget.md name="Atata.Bootstrap" %} NuGet package.
+It contains [`BSModal<TOwner>`](https://github.com/atata-framework/atata-bootstrap/blob/master/src/Atata.Bootstrap/BSModal%601.cs) component that will be needed later.
 
 ## JS Confirm
 
@@ -98,16 +101,14 @@ namespace AtataSamples.ConfirmationPopups
     public class ProductTests : UITestFixture
     {
         [Test]
-        public void Products_DeleteUsingJSConfirm()
+        public void DeleteUsingJSConfirm()
         {
-            int count;
+            Go.To<ProductsPage>()
+                .Products.Rows.Count.Get(out int count)
 
-            Go.To<ProductsPage>().
-                Products.Rows.Count.Get(out count).
-
-                Products.Rows[x => x.Name == "Table"].DeleteUsingJSConfirm().
-                Products.Rows[x => x.Name == "Table"].Should.Not.Exist().
-                Products.Rows.Count.Should.Equal(count - 1);
+                .Products.Rows[x => x.Name == "Table"].DeleteUsingJSConfirm()
+                .Products.Rows[x => x.Name == "Table"].Should.Not.Exist()
+                .Products.Rows.Count.Should.Equal(count - 1);
         }
     }
 }
@@ -166,22 +167,20 @@ In `ProductTests` class implement test:
 
 ```cs
 [Test]
-public void Products_DeleteUsingBSModal()
+public void DeleteUsingBSModal()
 {
-    int count;
+    Go.To<ProductsPage>()
+        .Products.Rows.Count.Get(out int count)
 
-    Go.To<ProductsPage>().
-        Products.Rows.Count.Get(out count).
+        .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal()
+            .Cancel() // Cancel and verify that nothing is deleted.
+        .Products.Rows[x => x.Name == "Chair"].Should.Exist()
+        .Products.Rows.Count.Should.Equal(count)
 
-        Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal().
-            Cancel(). // Cancel and verify that nothing is deleted.
-        Products.Rows[x => x.Name == "Chair"].Should.Exist().
-        Products.Rows.Count.Should.Equal(count).
-
-        Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal().
-            Delete(). // Delete and verify that item is deleted.
-        Products.Rows[x => x.Name == "Chair"].Should.Not.Exist().
-        Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal()
+            .Delete() // Delete and verify that item is deleted.
+        .Products.Rows[x => x.Name == "Chair"].Should.Not.Exist()
+        .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```
 
@@ -215,8 +214,8 @@ namespace AtataSamples.ConfirmationPopups
 
         protected override void Execute<TOwner>(TriggerContext<TOwner> context)
         {
-            Go.To<DeletionConfirmationBSModal<TOwner>>(temporarily: true).
-                Delete();
+            Go.To<DeletionConfirmationBSModal<TOwner>>(temporarily: true)
+                .Delete();
         }
     }
 }
@@ -224,7 +223,8 @@ namespace AtataSamples.ConfirmationPopups
 
 The trigger, after the button is clicked, navigates to deletion confirmation modal and clicks 'Delete'.
 
-Now we need to bind this trigger to button. Add property to `ProductTableRow`:
+Now we need to bind this trigger to button.
+Add property to `ProductTableRow`:
 
 ```cs
 public class ProductTableRow : TableRow<_>
@@ -241,16 +241,14 @@ Then implement test:
 
 ```cs
 [Test]
-public void Products_DeleteUsingBSModal_ViaTrigger()
+public void DeleteUsingBSModal_ViaTrigger()
 {
-    int count;
+    Go.To<ProductsPage>()
+        .Products.Rows.Count.Get(out int count)
 
-    Go.To<ProductsPage>().
-        Products.Rows.Count.Get(out count).
-
-        Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModalViaTrigger().
-        Products.Rows[x => x.Name == "Chair"].Should.Not.Exist().
-        Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModalViaTrigger()
+        .Products.Rows[x => x.Name == "Chair"].Should.Not.Exist()
+        .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```
 
@@ -345,8 +343,8 @@ namespace AtataSamples.ConfirmationPopups
 
         protected override void Execute<TOwner>(TriggerContext<TOwner> context)
         {
-            Go.To<DeletionJQueryConfirmBox<TOwner>>(temporarily: true).
-                Delete();
+            Go.To<DeletionJQueryConfirmBox<TOwner>>(temporarily: true)
+                .Delete();
         }
     }
 }
@@ -372,35 +370,31 @@ In `ProductTests` class implement 2 tests for jQuery Confirm using different app
 
 ```cs
 [Test]
-public void Products_DeleteUsingJQueryConfirm()
+public void DeleteUsingJQueryConfirm()
 {
-    int count;
+    Go.To<ProductsPage>()
+        .Products.Rows.Count.Get(out int count)
 
-    Go.To<ProductsPage>().
-        Products.Rows.Count.Get(out count).
+        .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm()
+            .Cancel() // Cancel and verify that nothing is deleted.
+        .Products.Rows[x => x.Name == "Desk"].Should.Exist()
+        .Products.Rows.Count.Should.Equal(count)
 
-        Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm().
-            Cancel(). // Cancel and verify that nothing is deleted.
-        Products.Rows[x => x.Name == "Desk"].Should.Exist().
-        Products.Rows.Count.Should.Equal(count).
-
-        Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm().
-            Delete(). // Delete and verify that item is deleted.
-        Products.Rows[x => x.Name == "Desk"].Should.Not.Exist().
-        Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm()
+            .Delete() // Delete and verify that item is deleted.
+        .Products.Rows[x => x.Name == "Desk"].Should.Not.Exist()
+        .Products.Rows.Count.Should.Equal(count - 1);
 }
 
 [Test]
-public void Products_DeleteUsingJQueryConfirm_ViaTrigger()
+public void DeleteUsingJQueryConfirm_ViaTrigger()
 {
-    int count;
+    Go.To<ProductsPage>()
+        .Products.Rows.Count.Get(out int count)
 
-    Go.To<ProductsPage>().
-        Products.Rows.Count.Get(out count).
-
-        Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirmViaTrigger().
-        Products.Rows[x => x.Name == "Desk"].Should.Not.Exist().
-        Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirmViaTrigger()
+        .Products.Rows[x => x.Name == "Desk"].Should.Not.Exist()
+        .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```
 
