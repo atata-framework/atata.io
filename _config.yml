@@ -48,8 +48,8 @@ getting-started:
   - name: Introduction
   - name: Installation
     items:
-      - Via Atata Templates
-      - Via NuGet
+      - Install via Atata Templates
+      - Install via NuGet
       - .NET Core Configuration|dot-net-core-configuration
   - name: Usage
     items:

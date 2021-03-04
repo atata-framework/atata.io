@@ -1,4 +1,4 @@
-To get started install [**Atata Templates**]({{ site.links.atata_templates }}) Visual Studio extension.
+To get started, install [**Atata Templates**]({{ site.links.atata_templates }}) Visual Studio extension.
 
 The extension provides the following templates:
 
@@ -16,6 +16,8 @@ The extension provides the following templates:
   - Atata NUnit Test Fixture
   - Atata NUnit Base Test Fixture
 
+#### Create Project
+
 When extension is installed, you can create a project of one of Atata project types.
 In Visual Studio:
 
@@ -24,6 +26,8 @@ In Visual Studio:
 1. Choose template (e.g.: **Atata NUnit Advanced Test Project (.NET Core)**) and specify project name and location
 
 ![Atata Templates project](/assets/images/atata-templates/new-project-window.png?v3)
+
+#### Project References
 
 The project is created with NuGet package references:
 
@@ -34,6 +38,8 @@ The project is created with NuGet package references:
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
 - {% include nuget.md name="Atata.Configuration.Json" %} (for advanced project)
+
+#### Configuration
 
 You don't need to configure specific browser driver packages,
 as a project is by default configured to automatically download appropriate driver,
@@ -57,6 +63,8 @@ AtataContext.GlobalConfiguration
 }
 ```
 
+#### Test Fixtures
+
 The created project also contains ready to use `SampleTests.cs` fixture, which can be either modified or removed:
 
 ```cs
@@ -79,3 +87,24 @@ namespace AtataUITests1
 
 Further test fixture classes are recommended to inherit from `UITestFixture`,
 or just choose "Atata NUnit Test Fixture" item template in "Add New Item Window".
+
+#### Change .NET Version
+
+By default, "Atata NUnit Basic Test Project (.NET Core)" and "Atata NUnit Advanced Test Project (.NET Core)"
+project templates create a project with .NET Core 2.1 version.
+
+To change the version to .NET Core 3.1 or .NET 5:
+
+1. Open project `.csproj` file.
+1. Change the value of `<TargetFramework>` tag from `netcoreapp2.1` to either `netcoreapp3.1` or `net5.0`.
+   ```xml
+   <Project Sdk="Microsoft.NET.Sdk">
+   
+     <PropertyGroup>
+       <TargetFramework>net5.0</TargetFramework>
+     </PropertyGroup>
+   
+     <!-- ... -->
+   
+   </Project>
+   ```
