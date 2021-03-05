@@ -144,6 +144,7 @@ control-search:
       - TermCase
       - Visibility
       - ScopeSource
+      - FindAs
   - name: Base Attributes
     items:
       - FindAttribute

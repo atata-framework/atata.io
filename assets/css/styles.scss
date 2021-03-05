@@ -156,6 +156,16 @@ table.table-members {
     text-decoration: underline;
 }
 
+a.enum-reference {
+    color: $type-color;
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    text-decoration: underline;
+
+    span {
+        color: $regular-code-color;
+    }
+}
+
 a.enum-value-reference {
     &:focus, &:hover {
         text-decoration: none;

@@ -570,6 +570,13 @@ table.table-members.table-members-fixed-col-1 td:nth-child(1) {
   font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
   text-decoration: underline; }
 
+a.enum-reference {
+  color: #2B91AF;
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+  text-decoration: underline; }
+  a.enum-reference span {
+    color: #000000; }
+
 a.enum-value-reference:focus, a.enum-value-reference:hover {
   text-decoration: none; }
 

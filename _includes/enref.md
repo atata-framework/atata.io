@@ -1,0 +1,1 @@
+﻿<a href="#{{ include.name | downcase }}-{{ include.value | downcase }}" class="enum-reference">{{ include.name }}<span>.{{ include.value }}</span></a>
