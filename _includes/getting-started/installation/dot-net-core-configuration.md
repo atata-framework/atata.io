@@ -17,6 +17,14 @@ AtataContext.GlobalConfiguration
         .WithFixOfCommandExecutionDelay();
 ```
 
+It is equivalent to:
+
+```cs
+AtataContext.GlobalConfiguration
+    .UseChrome()
+        .WithHostName("127.0.0.1");
+```
+
 Using `Atata.Configuration.Json`:
 
 ```json
