@@ -87,7 +87,7 @@ h4 {
 }
 
 @import "sidebar";
-@import "share-buttons";
+/*@import "share-buttons";*/
 @import "pygments-default";
 /*@import "pygments-vs";*/
 @import "pygments-cs";
@@ -495,7 +495,7 @@ div.home-usage-section {
     }
 }
 
-.post-footer {
+/*.post-footer {
     margin-top: 12px;
     border-top: 1px solid #eee;
     padding-top: $share-buttons-margin * 2;
@@ -515,7 +515,7 @@ div.home-usage-section {
         margin-top: $share-buttons-margin;
         margin-bottom: $share-buttons-margin;
     }
-}
+}*/
 
 img.bordered-image {
     border: 1px solid #ccc;

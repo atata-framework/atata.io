@@ -17,9 +17,11 @@ layout: default
         <div class="post">
             {{ content }}
         </div>
+        {% comment %}
         <div class="post-footer">
             {% include sharebuttons.html page=page %}
         </div>
         {% include comments.html %}
+        {% endcomment %}
     </div>
 </div>
