@@ -1,1 +1,1 @@
-Below is simple example for [Sign In](https://demo.atata.io/signin) page.
+Lat's create a simple test automation project example with a test for [Sign In](https://demo.atata.io/signin) page.
