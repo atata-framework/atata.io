@@ -21,10 +21,13 @@
                     <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>
                 </li>
                 {% endfor %}
+                <li {% if page.url == "/donate/" %}class="active" {% endif %}>
+                    <a href="{{ site.baseurl }}/donate/">
+                        Donate
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+                    </a>
+                </li>
             </ul>
-            <!--<ul class="nav navbar-nav navbar-right">
-                <li class="menu-item-highlighted"><a href="/blog/2017/06/27/atata-0.13.0-released/">v0.13.0</a></li>
-            </ul>-->
         </div>
     </div>
 </nav>

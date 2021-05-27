@@ -190,16 +190,18 @@ a.enum-value-reference {
     border-bottom: 2px solid $primary-color;
 }
 
-$navbar-padding-horizontal: 8px;
+$navbar-md-padding-horizontal: 5px;
 
 @media (min-width: 768px) {
-    .navbar-default .navbar-nav a {
-        padding-left: $navbar-padding-horizontal;
-        padding-right: $navbar-padding-horizontal;
+    @media (max-width: 991px) {
+        .navbar-default .navbar-nav a {
+            padding-left: $navbar-md-padding-horizontal;
+            padding-right: $navbar-md-padding-horizontal;
+        }
     }
 
     .navbar-default .navbar-header a {
-        padding-right: $navbar-padding-horizontal;
+        padding-right: $navbar-md-padding-horizontal;
     }
 }
 
@@ -631,4 +633,14 @@ div.html-example {
 
 .bg-white {
     background-color: white;
+}
+
+.donation-option {
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+    .donation-option-description {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
 }
