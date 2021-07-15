@@ -38,6 +38,7 @@ The project is created with NuGet package references:
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
 - {% include nuget.md name="Atata.Configuration.Json" %} (for advanced project)
+- {% include nuget.md name="NLog" %} (for advanced project)
 
 #### Configuration
 
@@ -91,12 +92,12 @@ or just choose "Atata NUnit Test Fixture" item template in "Add New Item Window"
 #### Change .NET Version
 
 By default, "Atata NUnit Basic Test Project (.NET Core)" and "Atata NUnit Advanced Test Project (.NET Core)"
-project templates create a project with .NET Core 2.1 version.
+project templates create a project with .NET Core 3.1 version.
 
-To change the version to .NET Core 3.1 or .NET 5:
+To change the version to .NET 5 or another version:
 
 1. Open project `.csproj` file.
-1. Change the value of `<TargetFramework>` tag from `netcoreapp2.1` to either `netcoreapp3.1` or `net5.0`.
+1. Change the value of `<TargetFramework>` tag from `netcoreapp3.1` to `net5.0` or another one.
    ```xml
    <Project Sdk="Microsoft.NET.Sdk">
    
