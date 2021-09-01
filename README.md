@@ -12,13 +12,13 @@ Documentation for the [Atata Framework](https://github.com/atata-framework/atata
 ### Jekyll
 
 Jekyll is used as an engine for documentation generation.
-So Ruby and Jekyll should be installed.
+Therefore, Ruby and Jekyll should be installed.
 To configure Jekyll for Atata documentation locally follow [Jekyll on Windows](https://jekyllrb.com/docs/installation/windows/) installation instructions.
 [RubyInstaller](https://rubyinstaller.org/downloads/) can be used to install Ruby.
 
 ### Ruby Gems
 
-Using command prompt window install Ruby gems:
+Install Ruby gems using command shell:
 
 ```
 gem install jekyll bundler
