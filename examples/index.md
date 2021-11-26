@@ -37,6 +37,8 @@ title: Examples
   <br>How to perform the navigation to one of particular pages after the button/link click.
 * [Navigation to Any Page After Click](/examples/navigation-to-any-page-after-click/)
   <br>How to perform the navigation to different pages after the button/link click.
+* [Navigation to Popup And Back](/examples/navigation-to-popup-and-back/)
+  <br>How to perform the navigation to popup page object and back.
 {:.link-item-list}
 
 ## Waiting
