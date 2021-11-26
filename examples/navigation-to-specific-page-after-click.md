@@ -9,7 +9,7 @@ description: How to perform the navigation to specific page after the button/lin
 
 ## Given
 
-There is a page containing link/button that mavigates to another page.
+There is a page containing link/button that navigates to another page.
 
 ## Implementation
 
