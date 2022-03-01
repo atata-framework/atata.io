@@ -221,7 +221,7 @@ $navbar-md-padding-horizontal: 5px;
     }
 
     .home-top-inner-container {
-        background-color: $primary-color;
+        /*background-color: $primary-color;*/
         padding: 5px 15px 10px 15px;
 
         h1.home-header {
@@ -230,12 +230,12 @@ $navbar-md-padding-horizontal: 5px;
             font-weight: bold;
             margin-top: 7px;
             margin-bottom: 0;
-            color: white;
+            /*color: white;*/
         }
 
         .home-description {
             > p {
-                color: white;
+                /*color: white;*/
                 margin: 0 0 12px 0;
                 font-size: 40px;
 
@@ -247,8 +247,8 @@ $navbar-md-padding-horizontal: 5px;
 
         .home-primary-links {
             .btn {
-                background-color: white;
-                color: #3384CC;
+                /*background-color: white;
+                color: #3384CC;*/
                 font-weight: bold;
                 border-radius: 18px;
                 border-width: 0;
@@ -260,6 +260,21 @@ $navbar-md-padding-horizontal: 5px;
                     text-decoration: underline;
                 }
             }
+        }
+    }
+
+    .ukraine-container {
+        background: linear-gradient(0deg, #F7CE00 50%, #0058B5 50%);
+        padding: 2em 1em;
+
+        h2 {
+            text-align: center;
+            color: white;
+            font-size: 4em;
+        }
+
+        p {
+            font-size: 2em;
         }
     }
 }

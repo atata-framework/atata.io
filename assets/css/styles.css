@@ -515,7 +515,7 @@ a.enum-value-reference code {
     margin: 0 auto;
     padding-top: 7px; }
   .home-top-container .home-top-inner-container {
-    background-color: #D35D2E;
+    /*background-color: $primary-color;*/
     padding: 5px 15px 10px 15px; }
     .home-top-container .home-top-inner-container h1.home-header {
       text-align: center;
@@ -523,17 +523,17 @@ a.enum-value-reference code {
       font-weight: bold;
       margin-top: 7px;
       margin-bottom: 0;
-      color: white; }
+      /*color: white;*/ }
     .home-top-container .home-top-inner-container .home-description > p {
-      color: white;
+      /*color: white;*/
       margin: 0 0 12px 0;
       font-size: 40px; }
       @media (max-width: 767px) {
         .home-top-container .home-top-inner-container .home-description > p {
           font-size: 26px; } }
     .home-top-container .home-top-inner-container .home-primary-links .btn {
-      background-color: white;
-      color: #3384CC;
+      /*background-color: white;
+                color: #3384CC;*/
       font-weight: bold;
       border-radius: 18px;
       border-width: 0;
@@ -542,6 +542,15 @@ a.enum-value-reference code {
       display: inline-block; }
       .home-top-container .home-top-inner-container .home-primary-links .btn:hover {
         text-decoration: underline; }
+  .home-top-container .ukraine-container {
+    background: linear-gradient(0deg, #F7CE00 50%, #0058B5 50%);
+    padding: 2em 1em; }
+    .home-top-container .ukraine-container h2 {
+      text-align: center;
+      color: white;
+      font-size: 4em; }
+    .home-top-container .ukraine-container p {
+      font-size: 2em; }
 
 h2.home-header {
   margin-top: 25px;
