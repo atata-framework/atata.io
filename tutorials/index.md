@@ -3,7 +3,8 @@ layout: summary-page
 title: Tutorials
 description: "List of Atata tutorials."
 ---
-
+* <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: orange"></span> [Migrating to Atata v2](/tutorials/migrating-to-atata-v2/)
+  <br>How to migrate to Atata v2 considering breaking changes.
 * [Atata - C# Web Test Automation Framework](https://www.codeproject.com/Articles/1158365/Atata-New-Test-Automation-Framework)
   <br>An introduction to Atata Framework.
 * [Verification of Page](/tutorials/verification-of-page/)
