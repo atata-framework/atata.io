@@ -221,7 +221,12 @@ triggers:
 exclude:
   - LICENSE
   - README.md
-  - atata-framework.github.io.sln
+  - Web.config
+  - build.bat
+  - build_drafts.bat
+  - Gemfile
+  - Gemfile.lock
+  - atata.io.sln
   - compilerconfig.json
   - compilerconfig.json.defaults
   - .gitignore
