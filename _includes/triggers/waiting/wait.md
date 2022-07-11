@@ -3,7 +3,7 @@ Specifies the waiting period in seconds. By default occurs after any action.
 ```cs
 public class SamplePage : Page<_>
 {
-    [Wait(2)]
+    [WaitSeconds(2)]
     public Button<_> Save { get; private set; }
 }
 ```
