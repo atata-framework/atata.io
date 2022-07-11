@@ -35,7 +35,7 @@ Gets the options' `ControlList<TItem, TOwner>` instance.
 Gets the selected option.
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">SelectedIndex</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 

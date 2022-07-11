@@ -15,11 +15,11 @@ public abstract class PageObject<TOwner> : UIComponent<TOwner>, IPageObject<TOwn
 #### Properties
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">PageTitle</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the DataProvider instance for the title of the current HTML page.
+Gets the ValueProvider instance for the title of the current HTML page.
 
 ```cs
 PageObject.PageTitle.Should.StartWith("Some Title");
@@ -27,22 +27,22 @@ string title = PageObject.PageTitle;
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">PageUrl</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the DataProvider instance for the URL of the current HTML page.
+Gets the ValueProvider instance for the URL of the current HTML page.
 
 ```cs
 PageObject.PageUrl.Should.EndWith("/some-page?id=123987");
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">PageSource</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the DataProvider instance for the source of the current HTML page.
+Gets the ValueProvider instance for the source of the current HTML page.
 
 ```cs
 string html = PageObject.PageSource;

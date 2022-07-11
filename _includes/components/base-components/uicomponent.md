@@ -58,22 +58,22 @@ Component.Css["display"].Should.Equal("block");
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">IsVisible</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the control is visible.
+Gets the `ValueProvider<bool, TOwner>` instance for the value indicating whether the control is visible.
 
 ```cs
 Component.IsVisible.Should.BeTrue();
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">Content</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<string, TOwner>` instance for the text content.
+Gets the `ValueProvider<string, TOwner>` instance for the text content.
 
 ```cs
 Component.Content.Should.Contain("some value");

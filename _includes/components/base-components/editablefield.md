@@ -16,11 +16,13 @@ public abstract class EditableField<T, TOwner> : Field<T, TOwner>
 #### Properties
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">IsReadOnly</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the control is read-only. By default checks "readonly" attribute of scope element. Override `GetIsReadOnly` method to change the behavior.
+Gets the `ValueProvider<bool, TOwner>` instance for the value indicating whether the control is read-only.
+By default checks "readonly" attribute of scope element.
+Override `GetIsReadOnly` method to change the behavior.
 
 #### Methods
 
@@ -72,7 +74,7 @@ The example of ``CheckBox`1`` control that is inherited from ``EditableField`2``
 public class CheckBox<TOwner> : EditableField<bool, TOwner>
     where TOwner : PageObject<TOwner>
 {
-    public DataProvider<bool, TOwner> IsChecked => GetOrCreateDataProvider("checked", () => Value);
+    public ValueProvider<bool, TOwner> IsChecked => CreateValueProvider("checked", () => Value);
 
     protected override bool GetValue()
     {

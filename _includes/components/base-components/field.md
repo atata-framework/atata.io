@@ -9,7 +9,7 @@ Inherited class can support `[Format]`, `[Culture]` and other settings attribute
 #### Syntax
 
 ```cs
-public abstract class Field<T, TOwner> : Control<TOwner>, IEquatable<T>, IDataProvider<T, TOwner>
+public abstract class Field<T, TOwner> : Control<TOwner>, IEquatable<TValue>, IObjectProvider<TValue, TOwner>, IConvertsValueToString<TValue>
     where TOwner : PageObject<TOwner>
 ```
 
@@ -47,7 +47,7 @@ The example of ``RadioButton`1`` control that is inherited from ``Field`2``:
 public class RadioButton<TOwner> : Field<bool, TOwner>
     where TOwner : PageObject<TOwner>
 {
-    public DataProvider<bool, TOwner> IsChecked => GetOrCreateDataProvider("checked", () => Value);
+    public ValueProvider<bool, TOwner> IsChecked => CreateValueProvider("checked state", () => Value);
 
     protected override bool GetValue()
     {

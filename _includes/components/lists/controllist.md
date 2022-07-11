@@ -3,7 +3,7 @@ Represents the list of controls of `TItem` type.
 #### Syntax
 
 ```cs
-public class ControlList<TItem, TOwner> : UIComponentPart<TOwner>, IDataProvider<IEnumerable<TItem>, TOwner>, IEnumerable<TItem>, ISupportsMetadata
+public class ControlList<TItem, TOwner> : UIComponentPart<TOwner>, ISupportsMetadata, IEnumerableProvider<TItem, TOwner>, IClearsCache
     where TItem : Control<TOwner>
     where TOwner : PageObject<TOwner>
 ```
@@ -11,11 +11,11 @@ public class ControlList<TItem, TOwner> : UIComponentPart<TOwner>, IDataProvider
 #### Properties
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">Count</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<int, TOwner>` instance for the controls count.
+Gets the `ValueProvider<int, TOwner>` instance for the controls count.
 
 ```cs
 Items.Count.Get();
@@ -23,11 +23,11 @@ Items.Count.Should.Equal(5);
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="keyword">string</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="keyword">string</span>&gt;, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">Contents</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<IEnumerable<string>, TOwner>` instance for the controls contents.
+Gets the `ValueProvider<IEnumerable<string>, TOwner>` instance for the controls contents.
 
 ```cs
 Items.Contents.Should.EqualSequence("Item 1", "Item 2");
@@ -77,7 +77,7 @@ Items[x => x.Content == "Some content"].Should.Not.Exist();
 #### Methods
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">int</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">IndexOf</span><span class="tail">(<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="keyword">bool</span>&gt;&gt; predicateExpression)</span></h3>
 </div>
 
@@ -95,11 +95,11 @@ Items.GetByXPathCondition("Having some attribute", "@some-attr='some value'");
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="type">TData</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="type">TData</span>&gt;, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">SelectData<wbr>&lt;<span class="type">TData</span>&gt;</span><span class="tail">(<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TItem</span>, <span class="type">TData</span>&gt;&gt; selector)</span></h3>
 </div>
 
-Selects the specified data (property) set of each control. Data can be a sub-control, an instance of `DataProvider<TData, TOwner>`, etc.
+Selects the specified data (property) set of each control. Data can be a sub-control, an instance of `ValueProvider<TData, TOwner>`, etc.
 
 #### Example
 

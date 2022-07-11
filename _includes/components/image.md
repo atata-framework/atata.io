@@ -12,22 +12,22 @@ public class Image<TOwner> : Control<TOwner>
 #### Properties
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">Source</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<string, TOwner>` instance for the `src` attribute.
+Gets the `ValueProvider<string, TOwner>` instance for the `src` attribute.
 
 ```cs
 Component.Source.Should.EndWith("/images/300x50.png");
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">DataProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
     <h3><span class="body">IsLoaded</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `DataProvider<bool, TOwner>` instance for the value indicating whether the image file is loaded.
+Gets the `ValueProvider<bool, TOwner>` instance for the value indicating whether the image file is loaded.
 
 ```cs
 Component.IsLoaded.Should.BeTrue();
