@@ -23,7 +23,6 @@ defaults:
     layout: post
 
 # Permalinks
-#permalink: pretty
 permalink: /blog/:year/:month/:day/:title/
 
 excerpt_separator: <!--more-->
@@ -196,7 +195,7 @@ triggers:
       - Until
       - WaitFor
       - WaitForElement
-      - Wait
+      - WaitSeconds
       - WaitForScript
       - WaitForDocumentReadyState
       - WaitForJQueryAjax
