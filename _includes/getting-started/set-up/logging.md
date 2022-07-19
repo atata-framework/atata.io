@@ -73,12 +73,12 @@ Specifies the minimum level of the log event to write to the log. The default va
 #### Usage
 
 ```cs
-AtataContext.Configure().
-    UseChrome().
-    UseNUnitTestContextLogging().
-        WithoutSectionFinish().
-        WithMinLevel(LogLevel.Info).
-    UseDebugLogging().
-        WithMinLevel(LogLevel.Debug).
-    Build();
+AtataContext.Configure()
+    .UseChrome()
+    .LogConsumers.AddNUnitTestContext()
+        .WithoutSectionFinish()
+        .WithMinLevel(LogLevel.Info)
+    .LogConsumers.AddDebug()
+        .WithMinLevel(LogLevel.Debug)
+    .Build();
 ```

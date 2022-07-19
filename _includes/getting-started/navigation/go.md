@@ -52,10 +52,10 @@ Navigates to the specified URL.
 #### Usage
 
 ```cs
-Go.To<HomePage>().
-    Header.Should.Equal("Home");
+Go.To<HomePage>()
+    .Header.Should.Equal("Home");
 
-Go.To<AboutPage>(url: "about").
-    Header.Should.Equal("About");
+Go.To<AboutPage>(url: "about")
+    .Should.Equal("About");
 ```
 {:.test}

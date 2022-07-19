@@ -36,13 +36,6 @@ Use the `EdgeDriver`.
 Use the `SafariDriver`.
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">OperaAtataContextBuilder</span></span>
-    <h3><span class="body">UseOpera()</span></h3>
-</div>
-
-Use the `OperaDriver`.
-
-<div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">RemoteDriverAtataContextBuilder</span></span>
     <h3><span class="body">UseRemoteDriver()</span></h3>
 </div>
@@ -79,7 +72,7 @@ It is possible to configure the driver using the following methods:
     <h3><span class="body">WithArguments</span><span class="tail">(<span class="keyword">params</span> <span class="keyword">string</span>[] arguments)</span></h3>
 </div>
 
-Adds arguments to be appended to the Chrome.exe/Opera.exe command line.
+Adds arguments to be appended to the browser executable command line.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
@@ -172,9 +165,9 @@ Specifies the command timeout (the maximum amount of time to wait for each comma
     <h3><span class="body">WithHostName</span><span class="tail">(<span class="keyword">string</span> hostName)</span></h3>
 </div>
 
-Specifies the host name of the service. 
-The default value is `localhost`. 
-This configuration option makes sense for .NET Core 2.0 to be set to `127.0.0.1` for IPv4 and `[::1]` for IPv6. 
+Specifies the host name of the service.
+The default value is `localhost`.
+This configuration option makes sense for .NET Core 2.0 to be set to `127.0.0.1` for IPv4 and `[::1]` for IPv6.
 There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.0: each WebDriver request takes extra 1 second.
 
 <div class="member">
@@ -190,8 +183,8 @@ There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.
 #### Usage
 
 ```cs
-AtataContext.Configure().
-    UseChrome().
-        WithArguments("disable-extensions", "start-maximized", "disable-infobars").
-    Build();
+AtataContext.Configure()
+    .UseChrome()
+        .WithArguments("disable-extensions", "start-maximized", "disable-infobars")
+    .Build();
 ```

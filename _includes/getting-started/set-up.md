@@ -4,9 +4,9 @@ In `SetUp` method just invoke `AtataContext.Configure()` method that returns `At
 [SetUp]
 public void SetUp()
 {
-    AtataContext.Configure().
-        // TODO: Invoke configuration methods.
-        Build();
+    AtataContext.Configure()
+        // TODO: Invoke additional configuration methods.
+        .Build();
 }
 ```
 
@@ -16,7 +16,7 @@ To clean up the `AtataContext` do the following in the `TearDown` method:
 [TearDown]
 public void TearDown()
 {
-    AtataContext.Current.CleanUp();
+    AtataContext.Current?.CleanUp();
 }
 ```
 

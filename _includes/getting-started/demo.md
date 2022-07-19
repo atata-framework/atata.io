@@ -17,28 +17,25 @@ It uses [Atata Sample App](https://demo.atata.io/) ([repository](https://github.
 
 ```cs
 [Test]
-public void User_Create()
+public void Create()
 {
-    string firstName, lastName, email;
-    Office office = Office.NewYork;
-    Gender gender = Gender.Male;
-
-    Login().
-        New().
-            ModalTitle.Should.Equal("New User").
-            General.FirstName.SetRandom(out firstName).
-            General.LastName.SetRandom(out lastName).
-            General.Email.SetRandom(out email).
-            General.Office.Set(office).
-            General.Gender.Set(gender).
-            Save().
-        Users.Rows[x => x.FirstName == firstName && x.LastName == lastName && x.Email == email && x.Office == office].View().
-            Header.Should.Equal($"{firstName} {lastName}").
-            Email.Should.Equal(email).
-            Office.Should.Equal(office).
-            Gender.Should.Equal(gender).
-            Birthday.Should.Not.Exist().
-            Notes.Should.Not.Exist();
+    Login()
+        .New()
+            .ModalTitle.Should.Be("New User")
+            .General.FirstName.SetRandom(out string firstName)
+            .General.LastName.SetRandom(out string lastName)
+            .General.Email.SetRandom(out string email)
+            .General.Office.SetRandom(out Office office)
+            .General.Gender.SetRandom(out Gender gender)
+            .Save()
+        .GetUserRow(email).View()
+            .AggregateAssert(x => x
+                .Header.Should.Be($"{firstName} {lastName}")
+                .Email.Should.Be(email)
+                .Office.Should.Be(office)
+                .Gender.Should.Be(gender)
+                .Birthday.Should.Not.Exist()
+                .Notes.Should.Not.Exist());
 }
 ```
 {:.test}
