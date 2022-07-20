@@ -119,5 +119,5 @@ Also executes `TriggerEvents.BeforeClick` and `TriggerEvents.AfterClick` trigger
 </div>
 
 Scrolls to the control. 
-By default uses `ScrollUsingMoveToElementAttribute` behavior.
+By default uses `ScrollsUsingScrollToElementActionAttribute` behavior.
 Also executes `TriggerEvents.BeforeScroll` and `TriggerEvents.AfterScroll` triggers.
