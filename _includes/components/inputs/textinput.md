@@ -39,10 +39,10 @@ namespace SampleApp.UITests
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    FirstName.Set("some text").
-    FirstName.Should.Equal("some text").
-    FirstName.Clear().
-    FirstName.Should.BeNull();
+Go.To<SamplePage>()
+    .FirstName.Set("some text")
+    .FirstName.Should.Equal("some text")
+    .FirstName.Clear()
+    .FirstName.Should.BeEmpty();
 ```
 {:.test}

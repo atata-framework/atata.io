@@ -105,10 +105,10 @@ public class CheckBox<TOwner> : EditableField<bool, TOwner>
 ```cs
 string textFieldValue;
 
-Go.To<SomePage>().
-    SomeTextField.Set("some value"). // Set the value to the field.
-    SomeTextField.Should.Equal("some value"). // Verify the field value.
-    SomeTextField.SetRandom(out textFieldValue). // Set the random value to the field.
-    SomeTextField.Should.Equal(textFieldValue). // Verify the field value.
-    SomeNumberField.Set(10); // Set the value to the field.
+Go.To<SomePage>()
+    .SomeTextField.Set("some value") // Set the value to the field.
+    .SomeTextField.Should.Equal("some value") // Verify the field value.
+    .SomeTextField.SetRandom(out textFieldValue) // Set the random value to the field.
+    .SomeTextField.Should.Equal(textFieldValue) // Verify the field value.
+    .SomeNumberField.Set(10); // Set the value to the field.
 ```

@@ -64,12 +64,10 @@ public class RadioButton<TOwner> : Field<bool, TOwner>
 #### Usage
 
 ```cs
-string textFieldValue;
-
-Go.To<SomePage>().
-    SomeTextField.Get(out textFieldValue). // Read the field value to the variable.
-    SomeTextField.Should.Equal("some value"). // Verify the field value.
-    SomeNumberField.Should.BeGreater(10). // Verify the field value.
-    SomeRadioButton.Check(). // Check the radio button.
-    SomeRadioButton.IsChecked.Should.BeTrue(); // Verify the radio button is checked.
+Go.To<SomePage>()
+    .SomeTextField.Get(out string textFieldValue) // Read the field value to the variable.
+    .SomeTextField.Should.Equal("some value") // Verify the field value.
+    .SomeNumberField.Should.BeGreater(10) // Verify the field value.
+    .SomeRadioButton.Check() // Check the radio button.
+    .SomeRadioButton.IsChecked.Should.BeTrue(); // Verify the radio button is checked.
 ```

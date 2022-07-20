@@ -60,6 +60,6 @@ Go.To<SamplePage>().
     Description.Append(" text").
     Description.Should.Equal("some text").
     Description.Clear().
-    Description.Should.BeNull();
+    Description.Should.BeEmpty();
 ```
 {:.test}
