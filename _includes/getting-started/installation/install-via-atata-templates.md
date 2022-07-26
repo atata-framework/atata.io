@@ -53,7 +53,7 @@ In the created project you can specify your testing site base URL and appropriat
 AtataContext.GlobalConfiguration
     .UseChrome()
         .WithArguments("start-maximized")
-    .UseBaseUrl("SITE_URL")
+    .UseBaseUrl("https://atata.io/")
     //...
 ```
 
@@ -63,6 +63,8 @@ AtataContext.GlobalConfiguration
   // Other environment specific configuration properties can be added here.
 }
 ```
+
+Just replace `"https://atata.io/"` string with your URL.
 
 #### Test Fixtures
 
@@ -94,15 +96,15 @@ or just choose "Atata NUnit Test Fixture" item template in "Add New Item Window"
 By default, "Atata NUnit Basic Test Project (.NET Core)" and "Atata NUnit Advanced Test Project (.NET Core)"
 project templates create a project with .NET Core 3.1 version.
 
-To change the version to .NET 5 or another version:
+To change the version to .NET 6 or another version:
 
 1. Open project `.csproj` file.
-1. Change the value of `<TargetFramework>` tag from `netcoreapp3.1` to `net5.0` or another one.
+1. Change the value of `<TargetFramework>` tag from `netcoreapp3.1` to `net6.0` or another one.
    ```xml
    <Project Sdk="Microsoft.NET.Sdk">
    
      <PropertyGroup>
-       <TargetFramework>net5.0</TargetFramework>
+       <TargetFramework>net6.0</TargetFramework>
      </PropertyGroup>
    
      <!-- ... -->
