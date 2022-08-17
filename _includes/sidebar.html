@@ -3,7 +3,7 @@
         {% assign menu_items = site[page.items] %}
         {% for item in menu_items %}
         <li>
-            <a href="#{{ item.name | replace: " ", "-" | downcase }}">{{ item.name }}</a>
+            <a href="#{{ item.name | replace: " ", "-" | replace: "#", "" | downcase }}">{{ item.name }}</a>
             {% if item.items %}
             <ul class="nav">
                 {% assign sub_menu_items = item.items %}
@@ -15,7 +15,7 @@
                         {% assign sub_item_id = sub_item_parts | last %}
                     {% else %}
                         {% assign sub_item_name = sub_item %}
-                        {% assign sub_item_id = sub_item | downcase | replace: " ", "-" %}
+                        {% assign sub_item_id = sub_item | downcase | replace: " ", "-" | replace: "#", "" %}
                     {% endif %}
                     <a href="#{{ sub_item_id }}">{{ sub_item_name }}</a>
                 </li>

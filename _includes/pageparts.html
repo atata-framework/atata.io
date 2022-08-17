@@ -1,6 +1,6 @@
 {% assign items = site[page.items] %}
 {% for item in items %}
-{% assign item_id = item.name | downcase | replace: " ", "-" %}
+{% assign item_id = item.name | downcase | replace: " ", "-" | replace: "#", "" %}
 <a id="{{ item_id }}" class="header-anchor"></a>
 <h2 class="page-header">{{ item.name }}</h2>
 {% assign item_path = page.items | append: "/" | append: item_id | append: ".md" %}
@@ -13,7 +13,7 @@
         {% assign sub_item_id = sub_item_parts | last %}
     {% else %}
         {% assign sub_item_name = sub_item %}
-        {% assign sub_item_id = sub_item | downcase | replace: " ", "-" %}
+        {% assign sub_item_id = sub_item | downcase | replace: " ", "-" | replace: "#", "" %}
     {% endif %}
 <a id="{{ sub_item_id }}" class="header-anchor"></a>
 <h3>{{ sub_item_name }}</h3>

@@ -15,18 +15,28 @@
             <ul class="nav navbar-nav">
                 {% for link in site.nav_links %}
                 {% assign linkRelative = "/" | append: link[1]  | append: "/" %}
-                {% assign linkRelativeLength = linkRelative | size %}
-                {% assign pageUrlTruncated = page.url | slice: 0, linkRelativeLength %}
-                <li {% if pageUrlTruncated == linkRelative %}class="active" {% endif %}>
+                {% if link[0] == "Attributes" %}
+                <li class="dropdown{% if page.url == "/attributes/" or page.url == "/control-search/" or page.url == "/triggers/" or page.url == "/behaviors/" %} active{% endif %}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attributes <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li {% if page.url == "/attributes/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/attributes/">About Attributes</a></li>
+                        <li {% if page.url == "/control-search/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/control-search/">Control Search</a></li>
+                        <li {% if page.url == "/triggers/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/triggers/">Triggers</a></li>
+                        <li {% if page.url == "/behaviors/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/behaviors/">Behaviors</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <li {% if page.url == linkRelative %}class="active"{% endif %}>
                     <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>
                 </li>
+                {% endif %}
                 {% endfor %}
-                <!--<li {% if page.url == "/donate/" %}class="active" {% endif %}>
+                <li {% if page.url == "/donate/" %}class="active"{% endif %}>
                     <a href="{{ site.baseurl }}/donate/">
                         Donate
                         <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
                     </a>
-                </li>-->
+                </li>
             </ul>
         </div>
     </div>

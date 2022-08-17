@@ -36,8 +36,7 @@ author:
 nav_links:
   Getting Started: "getting-started"
   Components: "components"
-  Control Search: "control-search"
-  Triggers: "triggers"
+  Attributes: "attributes"
   Tutorials: "tutorials"
   Examples: "examples"
   Blog: "blog"
@@ -134,6 +133,22 @@ components:
       - HierarchicalOrderedList
   - name: Frame
 
+attributes:
+  - name: General
+  - name: Attribute Levels
+    items:
+      - Declared Level
+      - Parent Component Level
+      - Assembly Level
+      - Global Level
+      - Component Level
+  - name: MulticastAttribute
+    items:
+      - Properties
+      - "Example #1"
+      - "Example #2"
+  - name: AtataContext Attributes
+
 control-search:
   - name: General
     items:
@@ -217,6 +232,25 @@ triggers:
       - ClickParent
       - HoverParent
       - RightClickParent
+
+behaviors:
+  - name: General
+  - name: Usage
+  - name: Click
+  - name: Double Click
+  - name: Right Click
+  - name: Hover
+  - name: Focus
+  - name: Blur
+  - name: Scroll
+  - name: Drag and Drop
+  - name: Drag and Drop to Offset
+  - name: Get Content
+  - name: Get Value
+  - name: Set Value
+  - name: Clear Value
+  - name: Type Text
+  - name: Select Option
 
 exclude:
   - LICENSE
