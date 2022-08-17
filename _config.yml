@@ -79,6 +79,7 @@ components:
       - FrameSetPage
       - Field
       - EditableField
+  - name: Dynamic Controls
   - name: Inputs
     items:
       - Input
