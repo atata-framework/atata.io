@@ -59,11 +59,11 @@ you may need to implement custom analogue of `LabelList<TOwner>` ([check source 
 ### Verify Labels in Test
 
 ```cs
-Go.To<SomePage>().
-    Labels[x => x.FirstName].Should.Equal("First Name").
-    Labels[x => x.LastName].Should.Equal("Last Name").
+Go.To<SomePage>()
+    .Labels[x => x.FirstName].Should.Equal("First Name")
+    .Labels[x => x.LastName].Should.Equal("Last Name")
     // Or just verify the labels without considering association to inputs:
-    Labels.Should.Contain("First Name", "Last Name");
+    .Labels.Should.Contain("First Name", "Last Name");
 ```
 {:.test}
 

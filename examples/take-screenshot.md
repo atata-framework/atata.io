@@ -15,10 +15,10 @@ Take a look at [Getting Started/Set Up/Screenshots](/getting-started/#screenshot
 For example:
 
 ```cs
-AtataContext.Configure().
+AtataContext.Configure()
     // Do some initialization.
-    AddScreenshotFileSaving().
-    Build();
+    .AddScreenshotFileSaving()
+    .Build();
 ```
 
 There are few ways to capture a screenshot depending on place where you need to do it.
@@ -28,8 +28,8 @@ There are few ways to capture a screenshot depending on place where you need to 
 Use `Report.Screenshot(...)` method:
 
 ```cs
-Go.To<OrdinaryPage>().
-    Report.Screenshot();
+Go.To<OrdinaryPage>()
+    .Report.Screenshot();
     // Report.Screenshot("optional title"); // To pass a title.
 ```
 

@@ -82,7 +82,7 @@ namespace SampleApp.UITests
 Waiting for the loading indicator thru trigger will be performed upon `SomePage` page initialization and right after the click on `SomeButton`.
 
 ```cs
-Go.To<SomePage>().
-    SomeButton.Click();
+Go.To<SomePage>()
+    .SomeButton.Click();
 ```
 {:.test}

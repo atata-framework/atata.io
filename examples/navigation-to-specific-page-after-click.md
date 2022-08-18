@@ -36,7 +36,7 @@ namespace SampleApp.UITests
 {:.page-object}
 
 ```cs
-Go.To<SomePage>().
-    ViewAnother.ClickAndGo(); // Returns an instance of AnotherPage.
+Go.To<SomePage>()
+    .ViewAnother.ClickAndGo(); // Returns an instance of AnotherPage.
 ```
 {:.test}

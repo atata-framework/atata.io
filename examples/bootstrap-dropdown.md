@@ -66,9 +66,9 @@ namespace SampleApp.UITests
 {:.page-object}
 
 ```cs
-Go.To<SomePage>().
-    Actions.Item1.Click().
-    Actions.Item3.Click().
-    Actions.Examples.ClickAndGo();
+Go.To<SomePage>()
+    .Actions.Item1.Click()
+    .Actions.Item3.Click()
+    .Actions.Examples.ClickAndGo();
 ```
 {:.test}

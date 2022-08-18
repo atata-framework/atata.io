@@ -51,19 +51,19 @@ namespace SampleApp.UITests
 ### Navigate to Regular User Profile Page
 
 ```cs
-Go.To<SignInPage>().
-    Email.Set("user@mail.com").
-    Password.Set("abc123").
-    SignIn.ClickAndGo<UserProfilePage>();
+Go.To<SignInPage>()
+    .Email.Set("user@mail.com")
+    .Password.Set("abc123")
+    .SignIn.ClickAndGo<UserProfilePage>();
 ```
 {:.test}
 
 ### Navigate to Admin Page
 
 ```cs
-Go.To<SignInPage>().
-    Email.Set("admin@mail.com").
-    Password.Set("abc123").
-    SignIn.ClickAndGo<AdminPage>();
+Go.To<SignInPage>()
+    .Email.Set("admin@mail.com")
+    .Password.Set("abc123")
+    .SignIn.ClickAndGo<AdminPage>();
 ```
 {:.test}

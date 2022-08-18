@@ -17,15 +17,15 @@ Some page has a link which opens new browser window. The test should:
 ## Implementation
 
 ```cs
-Go.To<SomePage>().
+Go.To<SomePage>()
     // Do some actions.
-    LinkThatOpensWindow.Click();
+    .LinkThatOpensWindow.Click();
 
-Go.ToNextWindow<SomeOtherPage>(). // Switches to newly opened window.
+Go.ToNextWindow<SomeOtherPage>() // Switches to newly opened window.
     // TODO: some actions in scope of new window.
-    CloseWindow(); // Closes window and switches back to the previous window.
+    .CloseWindow(); // Closes window and switches back to the previous window.
 
-Go.To<SomePage>(navigate: false).
+Go.To<SomePage>(navigate: false);
    // TODO: Continue to work within the primary window.
 ```
 {:.test}

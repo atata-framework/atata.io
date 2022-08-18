@@ -74,10 +74,10 @@ namespace SampleApp.UITests
 ### Test
 
 ```cs
-Go.To<SomePage>().
-    Editor.Set("Some text").
-    Editor.Should.Equal("Some text").
-    Editor.Set("Another text").
-    Editor.Should.Equal("Another text");
+Go.To<SomePage>()
+    .Editor.Set("Some text")
+    .Editor.Should.Equal("Some text")
+    .Editor.Set("Another text")
+    .Editor.Should.Equal("Another text");
 ```
 {:.test}
