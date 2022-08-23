@@ -37,6 +37,7 @@ nav_links:
   Getting Started: "getting-started"
   Components: "components"
   Attributes: "attributes"
+  Verification: "verification"
   Tutorials: "tutorials"
   Examples: "examples"
   Blog: "blog"
@@ -251,6 +252,13 @@ behaviors:
   - name: Clear Value
   - name: Type Text
   - name: Select Option
+
+verification:
+  - name: General
+  - name: Assertion
+  - name: Expectation
+  - name: Waiting
+  - name: Aggregate Assertion
 
 exclude:
   - LICENSE
