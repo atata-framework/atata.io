@@ -76,13 +76,18 @@ public AtataContextBuilder UseNUnitAggregateAssertionStrategy();
 
 #### Apply NUnit Aggregate Assertion Strategy
 
-When using NUnit, it is recommended to invoke `UseNUnitAggregateAssertionStrategy()` durin
-`AtataContext` configuration in order to enable NUnit's built-in multiple assert functionality.
+When using NUnit, it is recommended to invoke `UseNUnitAggregateAssertionStrategy()` or `UseAllNUnitFeatures()` during
+`AtataContext` configuration to enable NUnit's built-in multiple assert functionality.
 For other testing frameworks (xUnit, MSTest) the native Atata assertion functionality will work well by default.
 
 ```cs
-AtataContext.Configure()
-    // Do some initialization.
-    .UseNUnitAggregateAssertionStrategy()
-    .Build();
+AtataContext.GlobalConfiguration
+    .UseNUnitAggregateAssertionStrategy();
+```
+
+Or better:
+
+```cs
+AtataContext.GlobalConfiguration
+    .UseAllNUnitFeatures();
 ```
