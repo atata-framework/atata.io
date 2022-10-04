@@ -49,6 +49,22 @@ Navigates to the previous window with the specified page object.
 
 Navigates to the specified URL.
 
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
+    <h3><span class="body">ToNewWindow&lt;<span class="type">T</span>&gt;</span><span class="tail">(<span class="type">T</span> pageObject = <span class="keyword">null</span>, <span class="keyword">string</span> url = <span class="keyword">null</span>, <span class="keyword">bool</span> temporarily = <span class="keyword">false</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">T</span> : <span class="type">PageObject</span>&lt;<span class="type">T</span>&gt;</span>
+</div>
+
+Navigates to a new window with the specified page object.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
+    <h3><span class="body">ToNewWindowAsTab&lt;<span class="type">T</span>&gt;</span><span class="tail">(<span class="type">T</span> pageObject = <span class="keyword">null</span>, <span class="keyword">string</span> url = <span class="keyword">null</span>, <span class="keyword">bool</span> temporarily = <span class="keyword">false</span>)</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">T</span> : <span class="type">PageObject</span>&lt;<span class="type">T</span>&gt;</span>
+</div>
+
+Navigates to a new tab window with the specified page object.
+
 #### Usage
 
 ```cs
