@@ -35,15 +35,37 @@ Component.Scope.SendKeys("some text");
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentAttributeProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
-    <h3><span class="body">Attributes</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentDomAttributesProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">DomAttributes</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `UIComponentAttributeProvider<TOwner>` instance that provides an access to the scope element's attributes.
+Gets the `UIComponentDomAttributesProvider<TOwner>` instance that provides an access to the scope element's DOM attributes.
 
 ```cs
-Component.Attributes.Class.Should.Contain("some-class");
-Component.Attributes["data-value"].Should.Equal("val");
+Component.DomAttributes["data-value"].Should.Equal("val");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentDomPropertiesProvider</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">DomProperties</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `UIComponentDomPropertiesProvider<TOwner>` instance that provides an access to the scope element's DOM properties.
+
+```cs
+Component.DomProperties.Id.Should.Be("some-id");
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="type">IEnumerable</span><wbr>&lt;<span class="keyword">string</span>&gt;, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">DomClasses</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `ValueProvider<TValue, TOwner>` instance that provides a list of the scope element's DOM classes.
+
+```cs
+Component.DomClasses.Should.Contain("some-class");
+bool hasSomeClass = Component.DomClasses.Value.Contains("some-class");
 ```
 
 <div class="member">
@@ -93,11 +115,11 @@ Component.Should.BeDisabled();
 ```
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentTriggerSet</span><wbr>&lt;<span class="type">TOwner</span>&gt;</span>
-    <h3><span class="body">Triggers</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+    <span class="head"><span class="keyword">public</span> <span class="type">UIComponentMetadata</span></span>
+    <h3><span class="body">Metadata</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the set of triggers. Provides the functionality to get/add/remove triggers dynamically.
+Gets the metadata of the component. It is possible to query/add/remove attributes in metadata at any moment.
 
 ```cs
 Component.Triggers.Add(new WaitAttribute(2));
