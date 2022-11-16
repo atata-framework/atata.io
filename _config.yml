@@ -3,7 +3,7 @@ short_description: "C#/.NET Test Automation Framework"
 description: "C#/.NET automated web testing full featured framework"
 url: https://atata.io
 baseurl: ""
-timezone: "Europe/Kiev"
+#timezone: "Europe/Kiev"
 
 # Dependencies
 markdown: kramdown
