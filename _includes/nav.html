@@ -25,6 +25,14 @@
                         <li {% if page.url == "/behaviors/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/behaviors/">Behaviors</a></li>
                     </ul>
                 </li>
+                {% elsif link[0] == "Verification" %}
+                <li class="dropdown{% if page.url == "/verification/" or page.url == "/verification/methods/" %} active{% endif %}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verification <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li {% if page.url == "/verification/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/verification/">About Verification</a></li>
+                        <li {% if page.url == "/verification/methods/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/verification/methods/">Verification Methods</a></li>
+                    </ul>
+                </li>
                 {% else %}
                 <li {% if page.url == linkRelative %}class="active"{% endif %}>
                     <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>

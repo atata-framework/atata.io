@@ -626,6 +626,21 @@ img.bordered-image {
     }
 }
 
+ul.member-list {
+    > li {
+        margin: 10px 0 10px 0;
+    }
+
+    .member {
+        color: #000;
+        font-size: 17px;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
+    }
+}
+
 .download-sample-section {
     > a {
         display: inline-block;

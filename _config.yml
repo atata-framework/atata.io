@@ -260,6 +260,19 @@ verification:
   - name: Waiting
   - name: Aggregate Assertion
 
+verification-methods:
+  - name: Basic
+  - name: Exception
+  - name: Boolean
+  - name: String
+  - name: Comparable
+  - name: Size
+  - name: DateTime
+  - name: Enumerable
+  - name: UI Component
+  - name: File
+  - name: Directory
+
 exclude:
   - LICENSE
   - README.md

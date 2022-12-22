@@ -13,34 +13,6 @@ Go.To<SomePage>()
     .SomeParagraph.ComponentSize.Height.Should.BeGreater(50);
 ```
 
-#### Without Retries
-
-To execute an assertion without retries, use `AtOnce`:
-
-```cs
-Component.Should.AtOnce.BeVisible();
-```
-
-#### With Specific Retry Timeout
-
-To execute an assertion with timeout (and/or retry interval) different from default one, use of one the following methods:
-
-```cs
-public TVerificationProvider Within(TimeSpan timeout, TimeSpan? retryInterval = null);
-
-public TVerificationProvider WithinSeconds(double timeoutSeconds, double? retryIntervalSeconds = null);
-
-public TVerificationProvider WithRetryInterval(TimeSpan retryInterval);
-
-public TVerificationProvider WithRetryIntervalSeconds(double retryIntervalSeconds);
-```
-
-For example:
-
-```cs
-Component.Should.WithinSeconds(30).BeVisible();
-```
-
 ### Configuration
 
 The following `AtataContextBuilder` methods are for configuring an assertion functionality:
