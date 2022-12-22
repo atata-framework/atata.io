@@ -20,11 +20,25 @@ public class Control<TOwner> : UIComponent<TOwner>, IControl<TOwner>
     <h3><span class="body">IsEnabled</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the ValueProvider for the value indicating whether the control is enabled.
+Gets the `ValueProvider<bool, TOwner>` for the value indicating whether the control is enabled.
 
 ```cs
 Control.IsEnabled.Should.BeTrue();
+Control.Should.BeEnabled();
 bool isEnabled = Control.IsEnabled;
+```
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">bool</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">IsFocused</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `ValueProvider<bool, TOwner>` for the value indicating whether the control is focused.
+
+```cs
+Control.IsFocused.Should.BeTrue();
+Control.Should.BeFocused();
+bool isFocused = Control.IsFocused;
 ```
 
 #### Methods
