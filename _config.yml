@@ -216,7 +216,7 @@ triggers:
       - WaitForScript
       - WaitForDocumentReadyState
       - WaitForJQueryAjax
-      - WaitForAngularJSAjax
+      - WaitForAngularJS
   - name: Performing
     items:
       - LogInfo

@@ -1,10 +1,10 @@
-Indicates that the waiting should be performed until the AngularJS (v1.*) AJAX is completed. 
+Indicates to wait until Angular (v1) has finished rendering and has no outstanding HTTP calls. 
 By default occurs after the click.
 
 ```cs
 public class SamplePage : Page<_>
 {
-    [WaitForAngularJSAjax]
+    [WaitForAngularJS]
     public Button<_> Save { get; private set; }
 }
 ```
