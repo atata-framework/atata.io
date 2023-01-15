@@ -1,4 +1,5 @@
-Indicates that the Tab key should be pressed on the specified event. By default occurs after the set.
+Indicates that the Tab key should be pressed on the specified event.
+By default occurs after the set.
 
 ```cs
 public class SamplePage : Page<_>

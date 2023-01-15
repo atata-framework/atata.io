@@ -198,7 +198,6 @@ triggers:
       - Trigger
       - TriggerEvents
       - TriggerPriority
-      - TriggerScope
   - name: Verification
     items:
       - VerifyTitle
@@ -213,6 +212,7 @@ triggers:
       - WaitFor
       - WaitForElement
       - WaitSeconds
+      - WaitForAlertBox
       - WaitForScript
       - WaitForDocumentReadyState
       - WaitForJQueryAjax
@@ -221,14 +221,20 @@ triggers:
   - name: Performing
     items:
       - LogInfo
-      - Screenshot
+      - TakeScreenshot
+      - TakePageSnapshot
       - InvokeMethod
+      - InvokeDelegate
       - CloseAlertBox
       - CloseConfirmBox
+      - Focus
+      - Blur
       - PressKeys
       - PressEnter
       - PressEscape
       - PressTab
+      - PressHome
+      - PressEnd
       - ScrollDown
       - ScrollUp
       - ClickParent

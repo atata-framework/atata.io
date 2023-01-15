@@ -17,6 +17,8 @@ Value | Description
 `AfterHover` | Occurs after the hover on the control.
 `BeforeFocus` | Occurs before the control gets the focus.
 `AfterFocus` | Occurs after the control gets the focus.
+`BeforeBlur` | Occurs before the control loses the focus.
+`AfterBlur` | Occurs after the control loses the focus.
 `BeforeScroll` | Occurs before the scrolling to control.
 `AfterScroll` | Occurs after the scrolling to control.
 {:.table.table-members.table-condensed}

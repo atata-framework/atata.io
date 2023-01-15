@@ -1,15 +1,16 @@
-Specifies the condition of the component to wait for. By default occurs upon the page object initialization.
+Specifies the condition of the component to wait for.
+By default occurs upon the page object initialization.
 
 It calls component's `Wait` method passing `Until` value to it.
 
 ```cs
 public class SamplePage : Page<_>
 {
-    // Wait upon page oject initialization until the control is visible.
+    // Wait upon page object initialization until the control is visible.
     [WaitFor]
     public Text<_> ContentBlock { get; private set; }
 
-    // Wait upon page oject de-initialization until the control is missing or hidden.
+    // Wait upon page object de-initialization until the control is missing or hidden.
     [WaitFor(Until.MissingOrHidden, TriggerEvents.DeInit)]
     public Text<_> SavingIndicator { get; private set; }
 }
