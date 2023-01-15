@@ -15,10 +15,8 @@ Take a look at [Getting Started/Set Up/Screenshots](/getting-started/#screenshot
 For example:
 
 ```cs
-AtataContext.Configure()
-    // Do some initialization.
-    .AddScreenshotFileSaving()
-    .Build();
+AtataContext.GlobalConfiguration
+    .ScreenshotConsumers.AddFile();
 ```
 
 There are few ways to capture a screenshot depending on place where you need to do it.
@@ -35,29 +33,27 @@ Go.To<OrdinaryPage>()
 
 ## In Any Place
 
-`AtataContext.Current.Log` contains a set of logging methods as well as `Screenshot`:
-
 ```cs
-AtataContext.Current.Log.Screenshot("optional title");
+AtataContext.Current.TakeScreenshot("optional title");
 ```
 
 ## As a Trigger
 
-Use [Screenshot](/triggers/#screenshot) trigger.
+Use [TakeScreenshot](/triggers/#takescreenshot) trigger.
 Below are just 2 possible scenarios.
 
 ### Before Button Click
 
 ```cs
-[Screenshot]
-// [Screenshot("optional title")] // To pass a title.
+[TakeScreenshot(TriggerEvents.BeforeClick)]
+// [TakeScreenshot("optional title", TriggerEvents.BeforeClick)] // To pass a title.
 public Button<_> Save { get; private set; }
 ```
 
 ### Upon Page Object Initialization
 
 ```cs
-[Screenshot(on: TriggerEvents.Init)]
+[TakeScreenshot(TriggerEvents.Init)]
 public class SomePage : Page<_>
 {
 }
