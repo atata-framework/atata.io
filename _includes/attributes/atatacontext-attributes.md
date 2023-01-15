@@ -36,10 +36,10 @@ Sets all buttons and text inputs to be found by `id` attribute.
 ```cs
 AtataContext.GlobalConfiguration
     .Attributes.Component<SomePage>().Add(
-        new WaitForAngularJSAjaxAttribute());
+        new WaitForAngularAttribute());
 ```
 
-Adds `WaitForAngularJSAjaxAttribute` trigger to `SomePage`.
+Adds `WaitForAngularAttribute` trigger to `SomePage`.
 
 #### Apply to Control Property of Page Object
 
@@ -55,10 +55,10 @@ AtataContext.GlobalConfiguration
 ```cs
 AtataContext.GlobalConfiguration
     .Attributes.Assembly("SomeProduct.SomeAtataComponentsLibrary").Add(
-        new WaitForAngularJSAjaxAttribute
+        new WaitForAngularAttribute
         {
             TargetType = typeof(Page<>)
         });
 ```
 
-Adds `WaitForAngularJSAjaxAttribute` trigger to all page classes that are located in "SomeProduct.SomeAtataComponentsLibrary" library (project).
+Adds `WaitForAngularAttribute` trigger to all page classes that are located in "SomeProduct.SomeAtataComponentsLibrary" library (project).
