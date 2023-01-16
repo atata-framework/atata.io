@@ -66,6 +66,8 @@ getting-started:
   - name: Navigation
     items:
       - Go
+      - By Static URL
+      - By Dynamic URL
       - Transition
 
 components:
