@@ -1,12 +1,15 @@
-The transition from one page object to another is implemented via controls: [Button](/components#button), [Link](/components#link) and [Clickable](/components#clickable). Also the transition can be specified via adding `INavigable<,>` interface to the custom control.
+A transition from one page object to another is implemented via controls:
+[Button](/components#button), [Link](/components#link) and [Clickable](/components#clickable).
+Also a transition can be specified via adding `INavigable<,>` interface to a custom control.
 
 #### Example
 
-For example, having 3 simple pages on the site:
+For example, having 3 simple pages on a site:
 
-* "**Users**" page with users table and "New" link that navigates to the user editor page. Clicking on the user row redirects to the "User Details" page.
-* "**User Editor**" page that contains "Name" input field, "Save" and "Cancel" buttons that redirect back to "Users" page.
-* "**User Details**" page containing the name of the user.
+- "**Users**" page with users table and "New" link that navigates to the "User Editor" page.
+  Clicking on a user row redirects to the "User Details" page.
+- "**User Editor**" page that contains "Name" input field and "Save" button that redirect back to "Users" page.
+- "**User Details**" page containing the name of the user.
 
 `UsersPage.cs`
 {:.file-name}
@@ -49,8 +52,6 @@ namespace SampleApp.UITests
         public TextInput<_> Name { get; private set; }
 
         public Button<UsersPage, _> Save { get; private set; }
-
-        public Button<UsersPage, _> Cancel { get; private set; }
     }
 }
 ```

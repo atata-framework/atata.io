@@ -1,4 +1,5 @@
-The page object navigation starts with `Go` static class. It provides a set of static methods for navigation.
+A page object navigation starts with `Go` static class, or alternatively with `Go` property of `AtataContext` instance.
+Both `Go` approaches provide a set of similar methods for navigation.
 
 #### Methods
 
@@ -71,7 +72,7 @@ Navigates to a new tab window with the specified page object.
 Go.To<HomePage>()
     .Header.Should.Equal("Home");
 
-Go.To<AboutPage>(url: "about")
+Go.To<AboutPage>(url: "/about")
     .Should.Equal("About");
 ```
 {:.test}
