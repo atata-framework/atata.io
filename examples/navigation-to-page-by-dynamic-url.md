@@ -29,30 +29,11 @@ namespace SampleApp.UITests
 {
     using _ = GoogleSearchPage;
 
-    [Url(DefaultUrl)] // The default URL that will be used when no query is provided. Can be omitted.
+    [Url("/search")]
     public class GoogleSearchPage : Page<_>
     {
-        private const string DefaultUrl = "/search";
-
-        private readonly string urlQueryString;
-
-        public GoogleSearchPage(string urlQueryString = null)
-        {
-            this.urlQueryString = urlQueryString;
-        }
-
-        protected override void Navigate()
-        {
-            if (urlQueryString != null)
-                Go.ToUrl($"{DefaultUrl}?{urlQueryString}");
-            else
-                base.Navigate();
-        }
-
-        public static _ ByQuery(string query)
-        {
-            return new _($"q={query}");
-        }
+        public static _ WithQuery(string query) =>
+            new _().AppendNavigationUrl($"?q={query}");
     }
 }
 ```
@@ -63,7 +44,7 @@ namespace SampleApp.UITests
 #### With Query Parameter
 
 ```cs
-Go.To(GoogleSearchPage.ByQuery("test"));
+Go.To(GoogleSearchPage.WithQuery("test"));
 ```
 {:.test}
 
