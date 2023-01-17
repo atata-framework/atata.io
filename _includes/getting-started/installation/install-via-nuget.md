@@ -24,6 +24,10 @@ But be aware to keep version synchronization of browser and driver.
 You are also free to select any test engine framework:
 NUnit, Xunit, MSTest, SpecFlow, etc.
 
+For .NET Core and .NET 5+ projects it is required also to add {% include nuget.md name='Microsoft.NET.Test.Sdk' %}
+package to the project that contains tests (no matter NUnit, xUnit, MSTest, etc.).
+{:.warning}
+
 #### NUnit Project Configuration
 
 In addition to {% include nuget.md name="Atata" %} NuGet package, add the following packages:

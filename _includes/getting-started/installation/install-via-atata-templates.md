@@ -35,6 +35,7 @@ The project is created with NuGet package references:
 - {% include nuget.md name="Atata.WebDriverExtras" %}
 - {% include nuget.md name="Atata.WebDriverSetup" %}
 - {% include nuget.md name="Selenium.WebDriver" %}
+- {% include nuget.md name="Microsoft.NET.Test.Sdk" %}
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
 - {% include nuget.md name="Atata.Configuration.Json" %} (for advanced project)

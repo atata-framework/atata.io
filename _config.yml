@@ -54,7 +54,7 @@ getting-started:
     items:
       - Install via Atata Templates
       - Install via NuGet
-      - .NET Core Configuration|dot-net-core-configuration
+      - Possible Issues
   - name: Usage
     items:
       - Create Project
