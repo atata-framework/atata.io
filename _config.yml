@@ -45,6 +45,11 @@ nav_links:
 
 getting-started:
   - name: Introduction
+  - name: Concepts
+  - name: Packages
+    items:
+      - Main Packages
+      - Additional Packages
   - name: Installation
     items:
       - Install via Atata Templates
@@ -298,6 +303,7 @@ exclude:
 
 links:
     atata_github: https://github.com/atata-framework/atata
+    atata_github_organization: https://github.com/atata-framework
     atata_issues: https://github.com/atata-framework/atata/issues
     atata_webdriverextras_issues: https://github.com/atata-framework/atata-webdriverextras/issues
     atata_gitter: https://gitter.im/atata-framework/atata

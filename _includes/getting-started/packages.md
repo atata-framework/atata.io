@@ -1,0 +1,1 @@
+Atata Framework consists of a set of NuGet packages.

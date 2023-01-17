@@ -185,6 +185,6 @@ There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.
 ```cs
 AtataContext.Configure()
     .UseChrome()
-        .WithArguments("disable-extensions", "start-maximized", "disable-infobars")
+        .WithArguments("disable-extensions", "start-maximized")
     .Build();
 ```

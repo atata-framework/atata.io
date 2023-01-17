@@ -1,11 +1,12 @@
-In `SetUp` method just invoke `AtataContext.Configure()` method that returns `AtataContextBuilder` instance, then invoke configuration methods and finally invoke `Build()` method:
+In `SetUp` method just invoke `AtataContext.Configure()` method that returns `AtataContextBuilder` instance,
+then invoke configuration methods and finally invoke `Build()` method:
 
 ```cs
 [SetUp]
 public void SetUp()
 {
     AtataContext.Configure()
-        // TODO: Invoke additional configuration methods.
+        // TODO: Use configuration methods.
         .Build();
 }
 ```
@@ -21,3 +22,19 @@ public void TearDown()
 ```
 
 It also closes web driver instance as well as a browser.
+
+Also it is recommended to extract a global setup/configuration to global setup method:
+
+```cs
+[SetUpFixture]
+public class SetUpFixture
+{
+    [OneTimeSetUp]
+    public void GlobalSetUp()
+    {
+        AtataContext.GlobalConfiguration
+            // TODO: Use configuration methods.
+            .AutoSetUpDriverToUse();
+    }
+}
+```
