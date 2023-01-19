@@ -38,3 +38,7 @@ public class SetUpFixture
     }
 }
 ```
+
+Consider taking a look at **[Atata.Configuration.Json](https://github.com/atata-framework/atata-configuration-json)**
+for configuration through JSON files.
+{:.info}

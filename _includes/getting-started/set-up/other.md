@@ -21,7 +21,7 @@ Sets the culture by the name. The default value is `CultureInfo.CurrentCulture`.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseTestName</span><span class="tail">(<span class="keyword">string</span> name)</span></h3>
+    <h3><span class="body">UseTestName</span><span class="tail">(<span class="keyword">string</span> testName)</span></h3>
 </div>
 
 Sets the name of the test.
@@ -39,6 +39,34 @@ Sets the factory method of the test name.
 </div>
 
 Defines that the name of the test should be taken from the NUnit test.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTestSuiteName</span><span class="tail">(<span class="keyword">string</span> testSuiteName)</span></h3>
+</div>
+
+Sets the name of the test suite (fixture/class).
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTestSuiteName</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="keyword">string</span>&gt; testSuiteNameFactory)</span></h3>
+</div>
+
+Sets the factory method of the test suite (fixture/class) name.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTestSuiteType</span><span class="tail">(<span class="type">Type</span> testSuiteType)</span></h3>
+</div>
+
+Sets the type of the test suite (fixture/class).
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTestSuiteType</span><span class="tail">(<span class="type">Func</span><wbr>&lt;<span class="type">Type</span>&gt; testSuiteTypeFactory)</span></h3>
+</div>
+
+Sets the factory method of the test suite (fixture/class) type.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
@@ -148,7 +176,7 @@ Defines that an error occurred during the NUnit test execution should be added t
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">TakeScreenshotOnNUnitError</span><span class="tail">(<span class="keyword">string</span> title = <span style="color:#a31515;">&quot;Failed&quot;</span>)</span></h3>
+    <h3><span class="body">TakeScreenshotOnNUnitError</span><span class="tail">(<span class="keyword">string</span> title = <span class="string">"Failed"</span>)</span></h3>
 </div>
 
 Defines that an error occurred during the NUnit test execution should be captured by a screenshot during the cleanup.
@@ -166,6 +194,48 @@ Sets the type of the assertion exception. The default value is `typeof(Atata.Ass
 </div>
 
 Sets the type of the assertion exception. The default value is `typeof(Atata.AssertionException)`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">AddVariable</span><span class="tail">(<span class="keyword">string</span> key, <span class="keyword">object</span> value)</span></h3>
+</div>
+
+Adds the variable.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">AddVariables</span><span class="tail">(<span class="type">IDictionary</span>&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; variables)</span></h3>
+</div>
+
+Adds the variables.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">AddSecretStringToMaskInLog</span><span class="tail">(<span class="keyword">string</span> value, <span class="keyword">string</span> mask = <span class="string">"{*****}"</span>)</span></h3>
+</div>
+
+Adds the secret string to mask in log.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTimeZone</span><span class="tail">(<span class="type">TimeZoneInfo</span> timeZone)</span></h3>
+</div>
+
+Sets the time zone.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseTimeZone</span><span class="tail">(<span class="keyword">string</span> timeZoneId)</span></h3>
+</div>
+
+Sets the time zone by identifier, which corresponds to the `TimeZoneInfo.Id` property.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseUtcTimeZone</span>()</h3>
+</div>
+
+Sets the UTC time zone.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>

@@ -847,6 +847,9 @@ img.bordered-image {
 .member .keyword {
   color: #0000FF;
 }
+.member .string {
+  color: #A31515;
+}
 .member .where {
   font-size: 0.75em;
   margin-left: 80px;
