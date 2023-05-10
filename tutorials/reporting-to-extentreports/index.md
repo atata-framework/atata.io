@@ -23,25 +23,29 @@ the {% include nuget.md name="ExtentReports" %} package should be added to the p
 The functionality for Extent Reports is implemented in 3 class files:
 
 - [**ExtentContext.cs**]({{ page.sources_path }}Infrastructure/ExtentContext.cs) -
-  the main static class responsible for the initialization of Extent Reports.
+  the main static class responsible for an initialization of Extent Reports.
   In this sample it attaches HTML reporter (`ExtentHtmlReporter`).
+  Saves HTML report to AtataContext Artifacts root directory.
   Other Extent reporters can also be attached.
-  Contains `WorkingFolder` property which targets the output folder path,
-  which is by default `Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Report")`.
 - [**ExtentLogConsumer.cs**]({{ page.sources_path }}Infrastructure/ExtentLogConsumer.cs) -
-  is responsible for the reporting of log messages.
+  is responsible for reporting of log messages.
   Also does formatting of message.
-- [**ExtentScreenshotConsumer.cs**]({{ page.sources_path }}Infrastructure/ExtentScreenshotConsumer.cs) -
-  is responsible for the screenshot saving and adding them to report.
+- [**ExtentScreenshotFileEventHandler.cs**]({{ page.sources_path }}Infrastructure/ExtentScreenshotFileEventHandler.cs) -
+  is responsible for screenshot saving and adding them to report.
 
 You can copy these files to your project and modify according to your project's needs.
 
 ## Configuration
 
-In order to connect Extent Reports functionality to Atata add `ExtentLogConsumer` and `ExtentScreenshotConsumer` to `AtataContextBuilder`.
+In order to connect Extent Reports functionality to Atata,
+`ExtentLogConsumer` and `ExtentScreenshotFileEventHandler` should be added to `AtataContextBuilder`.
 
-To perform generation of report file, the `Flush` should be performed as a final action of tests run.
-In NUnit it's good to do it in `OneTimeTearDown` method of `SetUpFixture.cs`.
+### SetUpFixture
+
+1. `ExtentScreenshotFileEventHandler` can be added to `EventSubscriptions` in `SetUpFixture`.
+1. To perform a generation of report file, `ExtentContext.Reports.Flush()` method should be executed
+   as a final action of a tests run.
+   In NUnit a good place for it is `OneTimeTearDown` method of `SetUpFixture.cs`.
 
 [`SetUpFixture.cs`]({{ page.sources_path }}SetUpFixture.cs)
 {:.file-name}
@@ -51,112 +55,162 @@ using Atata;
 using Atata.ExtentReports;
 using NUnit.Framework;
 
-namespace AtataSamples.ExtentReports
-{
-    [SetUpFixture]
-    public class SetUpFixture
-    {
-        [OneTimeSetUp]
-        public void GlobalSetUp()
-        {
-            AtataContext.GlobalConfiguration
-                .UseChrome()
-                    .WithArguments("window-size=1024,768")
-                    .WithLocalDriverPath()
-                .UseBaseUrl("https://atata.io/")
-                .UseCulture("en-US")
-                .UseAllNUnitFeatures()
-                // Extent Reports specific configuration:
-                .AddLogConsumer(new ExtentLogConsumer())
-                .AddScreenshotConsumer(new ExtentScreenshotConsumer());
-        }
+namespace AtataSamples.ExtentReports;
 
-        [OneTimeTearDown]
-        public void GlobalTearDown()
-        {
-            ExtentContext.Reports.Flush();
-        }
+[SetUpFixture]
+public class SetUpFixture
+{
+    [OneTimeSetUp]
+    public void GlobalSetUp()
+    {
+        AtataContext.GlobalConfiguration
+            .UseChrome()
+                .WithArguments("window-size=1024,768", "headless")
+            .UseBaseUrl("https://demo.atata.io/")
+            .UseCulture("en-US")
+            .UseAllNUnitFeatures()
+            .ScreenshotConsumers.AddFile()
+            .EventSubscriptions.Add(new ExtentScreenshotFileEventHandler());
+
+        AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
     }
+
+    [OneTimeTearDown]
+    public void GlobalTearDown() =>
+        ExtentContext.Reports.Flush();
 }
 ```
 
-## UITestFixture
+### UITestFixture
 
 `UITestFixture` is often used as a base UI test fixture class.
-For this sample it is quite simple.
+For this sample the implementation is more complicated as usual,
+because additionally `AtataContext` for fixture is also added.
 
 [`UITestFixture.cs`]({{ page.sources_path }}UITestFixture.cs)
 {:.file-name}
 
 ```cs
 using Atata;
+using Atata.ExtentReports;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
-namespace AtataSamples.ExtentReports
-{
-    [TestFixture]
-    public class UITestFixture
-    {
-        [SetUp]
-        public void SetUp()
-        {
-            AtataContext.Configure().Build();
-        }
+namespace AtataSamples.ExtentReports;
 
-        [TearDown]
-        public void TearDown()
-        {
-            AtataContext.Current?.CleanUp();
-        }
+[TestFixture]
+[Parallelizable(ParallelScope.Fixtures)]
+public class UITestFixture
+{
+    protected AtataContext FixtureContext { get; set; }
+
+    protected virtual bool UseFixtureDriverForTests => false;
+
+    [OneTimeSetUp]
+    public void InitFixtureContext() =>
+        FixtureContext = AtataContext.Configure()
+            .UseDriverInitializationStage(AtataContextDriverInitializationStage.OnDemand)
+            .LogConsumers.Add<ExtentLogConsumer>()
+                .WithMinLevel(LogLevel.Warn)
+            .Build();
+
+    [OneTimeTearDown]
+    public void DisposeFixtureContext() =>
+        FixtureContext?.Dispose();
+
+    [SetUp]
+    public void SetUp()
+    {
+        var testContextBuilder = AtataContext.Configure()
+            .LogConsumers.Add<ExtentLogConsumer>();
+
+        if (UseFixtureDriverForTests)
+            testContextBuilder.UseDriver(FixtureContext.Driver);
+
+        testContextBuilder.Build();
     }
+
+    [TearDown]
+    public void TearDown() =>
+        AtataContext.Current?.CleanUp(quitDriver: !UseFixtureDriverForTests);
+
+    protected virtual TPageObject BeingOn<TPageObject>()
+        where TPageObject : PageObject<TPageObject> =>
+        Go.To<TPageObject>(navigate: false);
 }
 ```
 
 ## Tests
 
-2 sample tests were created in this sample.
+### Tests Using Own Drivers
 
-[`ExtentReportsTests.cs`]({{ page.sources_path }}ExtentReportsTests.cs)
+[`UsingOwnDriverTests.cs`]({{ page.sources_path }}UsingOwnDriverTests.cs)
 {:.file-name}
 
 ```cs
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.ExtentReports
-{
-    public class ExtentReportsTests : UITestFixture
-    {
-        [Test]
-        public void ExtentReports_Test1()
-        {
-            Go.To<HomePage>()
-                .Report.Screenshot()
-                .Header.Should.Contain("Atata");
-        }
+namespace AtataSamples.ExtentReports;
 
-        [Test]
-        public void ExtentReports_Test2()
-        {
-            Go.To<HomePage>()
-                .Report.Screenshot()
-                .AggregateAssert(x => x
-                    .PageTitle.Should.Contain("Atata")
-                    .Header.Should.Contain("Atata"));
-        }
-    }
+public class UsingOwnDriverTests : UITestFixture
+{
+    [Test]
+    public void Test1() =>
+        Go.To<HomePage>()
+            .Report.Screenshot()
+            .Header.Should.Contain("Atata");
+
+    [Test]
+    public void Test2() =>
+        Go.To<HomePage>()
+            .Report.Screenshot()
+            .AggregateAssert(x => x
+                .PageTitle.Should.Contain("Atata")
+                .Header.Should.Contain("Atata"));
 }
 ```
 
-In testing purposes the screenshot is taken after the navigation to the home page.
-Also when the test fails at any moment, the screenshot is taken as well.
+For testing purposes, screenshots are captured right after a navigation to the home page.
+Also when the test fails at any moment, a screenshot is captured as well.
+
+### Tests Reusing Driver
+
+In this test fixture class we create one shared driver for all class tests,
+do navigation once in `SetUpFixture` method,
+then every test starts with already navigated page
+and does its verification.
+
+```cs
+using Atata;
+using NUnit.Framework;
+
+namespace AtataSamples.ExtentReports;
+
+public class UsingSameDriverTests : UITestFixture
+{
+    protected override bool UseFixtureDriverForTests => true;
+
+    [OneTimeSetUp]
+    public void SetUpFixture() =>
+        Go.To<SignInPage>();
+
+    [Test]
+    public void Email() =>
+        BeingOn<SignInPage>()
+            .Email.Should.BeVisible();
+
+    [Test]
+    public void Password() =>
+        BeingOn<SignInPage>()
+            .Password.Should.BeVisible();
+}
+```
 
 ## Results
 
-After the tests run, the generated Extent HTML report can be found by relative path:
-`\AtataSamples.ExtentReports\bin\Debug\netcoreapp2.1\Report\index.html`.
-All screenshot files are stored in the same folder as `index.html` file.
+After a tests run, the generated Extent HTML report can be found by relative path:
+`\AtataSamples.ExtentReports\bin\Debug\net6.0\artifacts\{DATETIME_OF_RUN}\index.html`.
 
 ![Extent Report](report.png)
 
