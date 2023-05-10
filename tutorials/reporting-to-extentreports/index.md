@@ -212,6 +212,6 @@ public class UsingSameDriverTests : UITestFixture
 After a tests run, the generated Extent HTML report can be found by relative path:
 `\AtataSamples.ExtentReports\bin\Debug\net6.0\artifacts\{DATETIME_OF_RUN}\index.html`.
 
-![Extent Report](report.png)
+![Extent Report](report.png?v2)
 
 {{ download-section }}
