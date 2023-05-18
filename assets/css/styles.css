@@ -500,7 +500,7 @@ a.enum-value-reference code {
   padding-top: 7px;
 }
 .home-top-container .home-top-inner-container {
-  /*background-color: $primary-color;*/
+  background-color: #D35D2E;
   padding: 5px 15px 10px 15px;
 }
 .home-top-container .home-top-inner-container h1.home-header {
@@ -509,10 +509,10 @@ a.enum-value-reference code {
   font-weight: bold;
   margin-top: 7px;
   margin-bottom: 0;
-  /*color: white;*/
+  color: white;
 }
 .home-top-container .home-top-inner-container .home-description > p {
-  /*color: white;*/
+  color: white;
   margin: 0 0 12px 0;
   font-size: 40px;
 }
@@ -535,16 +535,16 @@ a.enum-value-reference code {
   text-decoration: underline;
 }
 .home-top-container .ukraine-container {
-  background: linear-gradient(0deg, #F7CE00 50%, #0058B5 50%);
-  padding: 2em 1em;
+  background: linear-gradient(0deg, #F9EAA0 50%, #3A7EC5 50%);
+  padding: 0.5em 1em 0.5em 1em;
 }
 .home-top-container .ukraine-container h2 {
   text-align: center;
   color: white;
-  font-size: 4em;
+  font-size: 2em;
 }
 .home-top-container .ukraine-container p {
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
 h2.home-header {
