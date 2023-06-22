@@ -34,7 +34,8 @@
                     </ul>
                 </li>
                 {% else %}
-                <li {% if page.url == linkRelative %}class="active"{% endif %}>
+                {% assign pageUrlTruncated = page.url | slice: 0, linkRelative.size %}
+                <li {% if pageUrlTruncated == linkRelative %}class="active"{% endif %}>
                     <a href="{{ site.baseurl }}/{{ link[1] }}/">{{ link[0] }}</a>
                 </li>
                 {% endif %}
