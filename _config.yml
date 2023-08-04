@@ -311,7 +311,7 @@ links:
     atata_stackoverflow_ask: https://stackoverflow.com/questions/ask?tags=c%23+atata+automated-tests+ui-automation
     atata_slack: https://atata-framework.slack.com
     atata_slack_invite: https://join.slack.com/t/atata-framework/shared_invite/zt-5j3lyln7-WD1ZtMDzXBhPm0yXLDBzbA
-    atata_youtube: https://www.youtube.com/channel/UCSNfv8sKpUR3a6dqPVy54KQ
+    atata_youtube: https://www.youtube.com/@atataframework
     atata_nuget: https://www.nuget.org/packages/Atata/
     atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras/
     atata_bootstrap_nuget: https://www.nuget.org/packages/Atata.Bootstrap/
