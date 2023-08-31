@@ -74,6 +74,8 @@ getting-started:
       - By Static URL
       - By Dynamic URL
       - Transition
+  - name: Browser Logs Monitoring
+  - name: JavaScript Popup Boxes
 
 components:
   - name: Base Components
