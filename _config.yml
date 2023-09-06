@@ -62,7 +62,7 @@ getting-started:
       - Implement Test
       - View Log
   - name: Demo
-  - name: Set Up
+  - name: Configuration
     items:
       - Driver
       - Logging
