@@ -1,4 +1,4 @@
-Currently this functionality is available only for Chrome and Edge.
+Currently this functionality is available only for Chrome and Edge, both local and remote.
 {:.warning}
 
 The feature brings a monitoring of browser logs, such as warnings and errors, which happen during a test execution.
