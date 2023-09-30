@@ -248,7 +248,7 @@ Specifies the properties map for the driver options.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
-    <h3><span class="body">AddAddionalOption</span><span class="tail">(<span class="keyword">string</span> optionName, <span class="keyword">object</span> optionValue)</span></h3>
+    <h3><span class="body">AddAdditionalOption</span><span class="tail">(<span class="keyword">string</span> optionName, <span class="keyword">object</span> optionValue)</span></h3>
 </div>
 
 Adds the additional option to the driver options.
@@ -319,18 +319,7 @@ The default timeout is 60 seconds.
 
 Specifies the host name of the service.
 The default value is `localhost`.
-This configuration option makes sense for .NET Core 2.0 to be set to `127.0.0.1` for IPv4 and `[::1]` for IPv6.
-There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.0: each WebDriver request takes extra 1 second.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
-    <h3><span class="body">WithFixOfCommandExecutionDelay()</span></h3>
-</div>
-
-Specifies that the fix of driver's HTTP command execution delay should be applied.
-Invokes `WithHostName("127.0.0.1")` method.
-This configuration option makes sense for .NET Core 2.0 that works within IPv4.
-There is a bug (<https://github.com/dotnet/corefx/issues/24104>) in .NET Core 2.0: each WebDriver request takes extra 1 second.
+Can be set to `"127.0.0.1"`, for example when you experience localhost resolve issues.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
@@ -346,9 +335,11 @@ Specifies the ports to ignore.
 
 #### Usage
 
+An example of using headless Chrome.
+
 ```cs
 AtataContext.Configure()
     .UseChrome()
-        .WithArguments("disable-extensions", "start-maximized")
+        .WithArguments("headless=new", "window-size=1200,800")
     .Build();
 ```
