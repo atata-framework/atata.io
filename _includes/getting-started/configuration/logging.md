@@ -1,8 +1,19 @@
-The list of logging methods of `AtataContextBuilder`:
+Atata generates many log entries during execution and send them to log consumers.
+The log consumers can be registered through the methods of `LogConsumers` property of `AtataContextBuilder`.
+
+The list of log consumers methods of `LogConsumersAtataContextBuilder`:
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddLogConsumer<wbr>&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">(<span class="type">TLogConsumer</span> consumer)</span></h3>
+    <h3><span class="body">Add<wbr>&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">()</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TLogConsumer</span> : <span class="type">ILogConsumer</span>, <span class="keyword">new</span>()</span>
+</div>
+
+Adds the log consumer.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TLogConsumer</span>&gt;</span>
+    <h3><span class="body">Add<wbr>&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">(<span class="type">TLogConsumer</span> consumer)</span></h3>
     <span class="where"><span class="keyword">where</span> <span class="type">TLogConsumer</span> : <span class="type">ILogConsumer</span></span>
 </div>
 
@@ -10,47 +21,82 @@ Adds the log consumer.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span><wbr>&lt;<span class="type">ILogConsumer</span>&gt;</span>
-    <h3><span class="body">AddLogConsumer</span><span class="tail">(<span class="keyword">string</span> typeNameOrAlias)</span></h3>
+    <h3><span class="body">Add</span><span class="tail">(<span class="keyword">string</span> typeNameOrAlias)</span></h3>
 </div>
 
-Adds the log consumer.
-`typeNameOrAlias` can accept full type name, custom `ILogConsumer` alias (registered via `LogConsumerAliases.Register` method) or one of the predefined aliases:
-"trace", "debug", "console", "nunit" and "nlog".
+Adds the log consumer by its type name or alias.
+Predefined aliases are defined in `LogConsumerAliases` static class.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TLogConsumer</span>&gt;</span>
+    <h3><span class="body">Configure<wbr>&lt;<span class="type">TLogConsumer</span>&gt;</span><span class="tail">()</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">TLogConsumer</span> : <span class="type">ILogConsumer</span>, <span class="keyword">new</span>()</span>
+</div>
+
+Returns a log consumer builder for existing `TLogConsumer` log consumer or adds a new one.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">TraceLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddTraceLogging()</span></h3>
+    <h3><span class="body">AddTrace()</span></h3>
 </div>
 
 Adds the `TraceLogConsumer` instance that uses `System.Diagnostics.Trace` class for logging.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">DebugLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddDebugLogging()</span></h3>
+    <h3><span class="body">AddDebug()</span></h3>
 </div>
 
 Adds the `DebugLogConsumer` instance that uses `System.Diagnostics.Debug` class for logging.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">ConsoleLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddConsoleLogging()</span></h3>
+    <h3><span class="body">AddConsole()</span></h3>
 </div>
 
 Adds the `ConsoleLogConsumer` instance that uses `System.Console` class for logging.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">NUnitTestContextLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddNUnitTestContextLogging()</span></h3>
+    <h3><span class="body">AddNUnitTestContext()</span></h3>
 </div>
 
 Adds the `NUnitTestContextLogConsumer` instance that uses `NUnit.Framework.TestContext` class for logging.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">NLogConsumer</span>&gt;</span>
-    <h3><span class="body">AddNLogLogging</span><span class="tail">(<span class="keyword">string</span> loggerName = <span class="keyword">null</span>)</span></h3>
+    <h3><span class="body">AddNLog</span><span class="tail">(<span class="keyword">string</span> loggerName = <span class="keyword">null</span>)</span></h3>
 </div>
 
 Adds the `NLogConsumer` instance that uses `NLog.Logger` class for logging.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">NLogFileConsumer</span>&gt;</span>
+    <h3><span class="body">AddNLogFile</span><span class="tail">()</span></h3>
+</div>
+
+Adds the `NLogFileConsumer` instance that uses `NLog.Logger` class for logging into file.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">Log4NetConsumer</span>&gt;</span>
+    <h3><span class="body">AddLog4Net</span><span class="tail">(<span class="keyword">string</span> loggerName = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Adds the `Log4NetConsumer` instance that uses `log4net.ILog` interface for logging.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">Log4NetConsumer</span>&gt;</span>
+    <h3><span class="body">AddLog4Net</span><span class="tail">(<span class="keyword">string</span> repositoryName, <span class="keyword">string</span> loggerName = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Adds the `Log4NetConsumer` instance that uses `log4net.ILog` interface for logging.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span>&lt;<span class="type">Log4NetConsumer</span>&gt;</span>
+    <h3><span class="body">AddLog4Net</span><span class="tail">(<span class="type">Assembly</span> repositoryAssembly, <span class="keyword">string</span> loggerName = <span class="keyword">null</span>)</span></h3>
+</div>
+
+Adds the `Log4NetConsumer` instance that uses `log4net.ILog` interface for logging.
 
 #### Logging Configuration
 
@@ -73,12 +119,9 @@ Specifies the minimum level of the log event to write to the log. The default va
 #### Usage
 
 ```cs
-AtataContext.Configure()
-    .UseChrome()
+AtataContext.GlobalConfiguration
+    .LogConsumers.AddNLogFile()
     .LogConsumers.AddNUnitTestContext()
         .WithoutSectionFinish()
-        .WithMinLevel(LogLevel.Info)
-    .LogConsumers.AddDebug()
-        .WithMinLevel(LogLevel.Debug)
-    .Build();
+        .WithMinLevel(LogLevel.Info);
 ```
