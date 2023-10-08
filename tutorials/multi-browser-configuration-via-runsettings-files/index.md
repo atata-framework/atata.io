@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Multi-Browser Configuration via .runsettings files
+title: Multi-Browser Configuration via .runsettings Files
 description: How to configure multi-browser tests application using `.runsettings` files.
 ---
 
@@ -19,7 +19,7 @@ NUnit is used as a test engine in this tutorial.
 So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Drivers for Chrome and Internet Explorer in this tutorial are setup
+Drivers for Chrome and Firefox in this tutorial are setup
 using {% include nuget.md name="Atata.WebDriverSetup" %} package.
 {:.info}
 
@@ -45,11 +45,11 @@ For example let's define everything in a single JSON file.
       "type": "chrome",
       "alias": "chrome-headless",
       "options": {
-        "arguments": [ "headless", "window-size=1920,1080" ]
+        "arguments": [ "headless=new", "window-size=1920,1080" ]
       }
     },
     {
-      "type": "internetexplorer"
+      "type": "firefox"
     }
   ],
   "baseUrl": "https://demo.atata.io/",
@@ -58,16 +58,16 @@ For example let's define everything in a single JSON file.
 }
 ```
 
-In this example we configure 3 browser kinds: Chrome, Headless Chrome, Internet Explorer.
+In this example we configure 3 browser kinds: Chrome, Headless Chrome, Firefox.
 In case of we have 2 Chrome browsers, the `"alias"` property is added to both of them: `"chrome"` and `"chrome-headless"`.
-For Internet Explorer `"alias"` is not required to be set, because it is single and by default it is `"internetexplorer"`.
+For Firefox `"alias"` is not required to be set, because it is single and by default it is `"firefox"`.
 
-## Configuration of .runsettings Files
+## Configuration of .runsettings files
 
 For each browser configuration that we support, we need to create a separate `.runsettings` file.
 
 Find out more information on `.runsettings` file and how to use it in Visual Studio on
-[Configure unit tests by using a .runsettings file](https://docs.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2019) article.
+[Configure unit tests by using a .runsettings file](https://learn.microsoft.com/en-us/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2022) article.
 {:.info}
 
 `Chrome.runsettings`
@@ -94,14 +94,14 @@ Find out more information on `.runsettings` file and how to use it in Visual Stu
 </RunSettings>
 ```
 
-`InternetExplorer.runsettings`
+`Firefox.runsettings`
 {:.file-name}
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
   <TestRunParameters>
-    <Parameter name="DriverAlias" value="internetexplorer" />
+    <Parameter name="DriverAlias" value="firefox" />
   </TestRunParameters>
 </RunSettings>
 ```
@@ -122,25 +122,21 @@ Now let's bind it all together in `SetUpFixture` class.
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.MultipleBrowsersViaRunSettings
+namespace AtataSamples.MultipleBrowsersViaRunSettings;
+
+[SetUpFixture]
+public class SetUpFixture
 {
-    [SetUpFixture]
-    public class SetUpFixture
+    [OneTimeSetUp]
+    public void GlobalSetUp()
     {
-        [OneTimeSetUp]
-        public void GlobalSetUp()
-        {
-            string driverAlias = TestContext.Parameters.Get("DriverAlias", DriverAliases.Chrome);
+        string driverAlias = TestContext.Parameters.Get("DriverAlias", DriverAliases.Chrome);
 
-            AtataContext.GlobalConfiguration
-                .ApplyJsonConfig()
-                .UseDriver(driverAlias);
+        AtataContext.GlobalConfiguration
+            .ApplyJsonConfig()
+            .UseDriver(driverAlias);
 
-            DriverSetup.GetDefaultConfiguration(BrowserNames.InternetExplorer)
-                .WithX32Architecture();
-
-            AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
-        }
+        AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
     }
 }
 ```
@@ -160,25 +156,21 @@ Nothing is required to be added to specific fixtures or the base `UITestFixture`
 using Atata;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AtataSamples.MultipleBrowsersViaRunSettings
+namespace AtataSamples.MultipleBrowsersViaRunSettings;
+
+[TestClass]
+public static class SetUpFixture
 {
-    [TestClass]
-    public static class SetUpFixture
+    [AssemblyInitialize]
+    public static void AssemblyInit(TestContext context)
     {
-        [AssemblyInitialize]
-        public static void AssemblyInit(TestContext context)
-        {
-            string driverAlias = (context.Properties["DriverAlias"] as string) ?? DriverAliases.Chrome;
+        string driverAlias = (context.Properties["DriverAlias"] as string) ?? DriverAliases.Chrome;
 
-            AtataContext.GlobalConfiguration
-                .ApplyJsonConfig()
-                .UseDriver(driverAlias);
+        AtataContext.GlobalConfiguration
+            .ApplyJsonConfig()
+            .UseDriver(driverAlias);
 
-            DriverSetup.GetDefaultConfiguration(BrowserNames.InternetExplorer)
-                .WithX32Architecture();
-
-            AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
-        }
+        AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
     }
 }
 ```
