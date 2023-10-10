@@ -10,7 +10,7 @@ public class SamplePage : Page<_>
     [WaitFor]
     public Text<_> ContentBlock { get; private set; }
 
-    // Wait upon page object de-initialization until the control is missing or hidden.
+    // Wait upon page object deinitialization until the control is missing or hidden.
     [WaitFor(Until.MissingOrHidden, TriggerEvents.DeInit)]
     public Text<_> SavingIndicator { get; private set; }
 }

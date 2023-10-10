@@ -4,7 +4,7 @@ Value | Description
 ----- | -----------
 `None` | None of the events.
 `Init` | Occurs upon the page object initialization.
-`DeInit` | Occurs upon the page object de-initialization.
+`DeInit` | Occurs upon the page object deinitialization.
 `BeforeAccess` | Occurs before any access to the component.
 `AfterAccess` | Occurs after any access to the component.
 `BeforeGet` | Occurs before the value is taken from the control.
