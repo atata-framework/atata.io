@@ -17,7 +17,7 @@ To clean up the `AtataContext` do the following in the `TearDown` method:
 [TearDown]
 public void TearDown()
 {
-    AtataContext.Current?.CleanUp();
+    AtataContext.Current?.Dispose();
 }
 ```
 
