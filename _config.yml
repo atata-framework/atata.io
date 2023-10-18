@@ -67,6 +67,7 @@ getting-started:
       - Driver
       - Logging
       - Screenshots
+      - Event Subscriptions
       - Other
   - name: Navigation
     items:
