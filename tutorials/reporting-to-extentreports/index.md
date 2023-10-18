@@ -45,7 +45,7 @@ Later a separate Atata.ExtentReports NuGet package is planned to be published.
 ## Configuration
 
 In order to connect Extent Reports functionality to Atata,
-`ExtentLogConsumer`, `ExtentArtifactAddedEventHandler` and `AddArtifactsToExtentReportOnCleanUpEventHandler` should be added to `AtataContextBuilder`.
+`ExtentLogConsumer`, `ExtentArtifactAddedEventHandler` and `AddArtifactsToExtentReportEventHandler` should be added to `AtataContextBuilder`.
 
 ### SetUpFixture
 
