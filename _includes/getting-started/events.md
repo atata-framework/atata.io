@@ -157,7 +157,7 @@ Subscribe it during `AtataContext` building to different events:
 ```cs
 AtataContext.GlobalConfiguration
     .EventSubscriptions.Add<DriverInitEvent>(new UniversalEventHandler())
-    .EventSubscriptions.Add<AtataContextCleanUpEvent>(new UniversalEventHandler());
+    .EventSubscriptions.Add<AtataContextDeInitEvent>(new UniversalEventHandler());
 ```
 
 ### Built-in Events
