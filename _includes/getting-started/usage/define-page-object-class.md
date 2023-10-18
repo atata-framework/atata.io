@@ -2,30 +2,24 @@
 {:.file-name}
 
 ```cs
-using Atata;
+namespace AtataDemo.UITests;
 
-namespace AtataDemo.UITests
+using _ = SignInPage;
+
+[Url("signin")]
+public class SignInPage : Page<_>
 {
-    using _ = SignInPage;
+    public TextInput<_> Email { get; private set; }
 
-    [Url("signin")]
-    [VerifyH1]
-    public class SignInPage : Page<_>
-    {
-        public TextInput<_> Email { get; private set; }
+    public PasswordInput<_> Password { get; private set; }
 
-        public PasswordInput<_> Password { get; private set; }
-
-        public Button<_> SignIn { get; private set; }
-    }
+    public Button<_> SignIn { get; private set; }
 }
 ```
 {:.page-object}
 
-`SignInPage` is a page object class that is marked with a few attributes:
+The aspects of the created page object:
 
-- `[Url("signin")]` - sets the relative URL of the page to be navigated to.
-- `[VerifyH1]` - upon page initialization verifies that the page contains `<h1>` HTML element with "Sign In" text.
-
-Default element search of `Email` and `Password` controls is performed by label.
-Default search of `SignIn` button is performed by its text.
+- `[Url("signin")]` - sets the relative URL of the page to be navigated to. *Good for pages with static URLs.*
+- Default search of `Email` and `Password` controls is performed by label. *Can be changed/configured.*
+- Default search of `SignIn` button is performed by its text.
