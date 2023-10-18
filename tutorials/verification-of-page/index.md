@@ -42,11 +42,10 @@ Create "Atata NUnit Test Fixture" class:
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.PageVerification
+namespace AtataSamples.PageVerification;
+
+public class PlanTests : UITestFixture
 {
-    public class PlanTests : UITestFixture
-    {
-    }
 }
 ```
 
@@ -60,14 +59,13 @@ Create "Atata Page Object" class for the sample `Plans` page:
 ```cs
 using Atata;
 
-namespace AtataSamples.PageVerification
-{
-    using _ = PlansPage;
+namespace AtataSamples.PageVerification;
 
-    [Url("plans")]
-    public class PlansPage : Page<_>
-    {
-    }
+using _ = PlansPage;
+
+[Url("plans")]
+public class PlansPage : Page<_>
+{
 }
 ```
 
@@ -86,29 +84,26 @@ The one thing that is needed to be added to `PlansPage` is the `Header` property
 ```cs
 using Atata;
 
-namespace AtataSamples.PageVerification
-{
-    using _ = PlansPage;
+namespace AtataSamples.PageVerification;
 
-    [Url("plans")]
-    public class PlansPage : Page<_>
-    {
-        public H1<_> Header { get; private set; }
-    }
+using _ = PlansPage;
+
+[Url("plans")]
+public class PlansPage : Page<_>
+{
+    public H1<_> Header { get; private set; }
 }
 ```
 
-Now we can implement test method in `PlanTests` fixture.
+Now we can implement a test method in `PlanTests` fixture.
 
 ```cs
 [Test]
-public void PrimaryPageDataVerification_InTest()
-{
+public void PrimaryPageDataVerification_InTest() =>
     Go.To<PlansPage>()
         .PageTitle.Should.Equal("Plans - Atata Sample App")
         .Header.Should.Equal("Plans")
         .Content.Should.Contain("Please choose your payment plan");
-}
 ```
 
 ### Verify in OnVerify Method
@@ -121,23 +116,22 @@ public void PrimaryPageDataVerification_InTest()
 ```cs
 using Atata;
 
-namespace AtataSamples.PageVerification
+namespace AtataSamples.PageVerification;
+
+using _ = PlansWithOnVerifyPage;
+
+[Url("plans")]
+public class PlansWithOnVerifyPage : Page<_>
 {
-    using _ = PlansWithOnVerifyPage;
+    public H1<_> Header { get; private set; }
 
-    [Url("plans")]
-    public class PlansWithOnVerifyPage : Page<_>
+    protected override void OnVerify()
     {
-        public H1<_> Header { get; private set; }
+        base.OnVerify();
 
-        protected override void OnVerify()
-        {
-            base.OnVerify();
-
-            PageTitle.Should.Equal("Plans - Atata Sample App");
-            Header.Should.Equal("Plans");
-            Content.Should.Contain("Please choose your payment plan");
-        }
+        PageTitle.Should.Equal("Plans - Atata Sample App");
+        Header.Should.Equal("Plans");
+        Content.Should.Contain("Please choose your payment plan");
     }
 }
 ```
@@ -146,10 +140,8 @@ And the test will look this way:
 
 ```cs
 [Test]
-public void PrimaryPageDataVerification_OnVerify()
-{
+public void PrimaryPageDataVerification_OnVerify() =>
     Go.To<PlansWithOnVerifyPage>();
-}
 ```
 
 `OnVerify` method will be invoked during the navigation to the page object.
@@ -166,17 +158,16 @@ to mark a page object class or control properties with them.
 ```cs
 using Atata;
 
-namespace AtataSamples.PageVerification
-{
-    using _ = PlansWithStaticTriggersPage;
+namespace AtataSamples.PageVerification;
 
-    [Url("plans")]
-    [VerifyTitle("Plans - Atata Sample App")]
-    [VerifyH1("Plans")]
-    [VerifyContent("Please choose your payment plan")]
-    public class PlansWithStaticTriggersPage : Page<_>
-    {
-    }
+using _ = PlansWithStaticTriggersPage;
+
+[Url("plans")]
+[VerifyTitle("Plans - Atata Sample App")]
+[VerifyH1("Plans")]
+[VerifyContent("Please choose your payment plan")]
+public class PlansWithStaticTriggersPage : Page<_>
+{
 }
 ```
 
@@ -184,10 +175,8 @@ And the test:
 
 ```cs
 [Test]
-public void PrimaryPageDataVerification_StaticTriggers()
-{
+public void PrimaryPageDataVerification_StaticTriggers() =>
     Go.To<PlansWithStaticTriggersPage>();
-}
 ```
 
 Atata will execute the specified triggers during the navigation to the page object.
@@ -203,21 +192,18 @@ It is helpful when you need to pass the parameters for the triggers using constr
 ```cs
 using Atata;
 
-namespace AtataSamples.PageVerification
-{
-    using _ = PlansWithDynamicTriggersPage;
+namespace AtataSamples.PageVerification;
 
-    [Url("plans")]
-    public class PlansWithDynamicTriggersPage : Page<_>
-    {
-        public PlansWithDynamicTriggersPage()
-        {
-            Metadata.Add(
-                new VerifyTitleAttribute("Plans - Atata Sample App"),
-                new VerifyH1Attribute("Plans"),
-                new VerifyContentAttribute("Please choose your payment plan"));
-        }
-    }
+using _ = PlansWithDynamicTriggersPage;
+
+[Url("plans")]
+public class PlansWithDynamicTriggersPage : Page<_>
+{
+    public PlansWithDynamicTriggersPage() =>
+        Metadata.Add(
+            new VerifyTitleAttribute("Plans - Atata Sample App"),
+            new VerifyH1Attribute("Plans"),
+            new VerifyContentAttribute("Please choose your payment plan"));
 }
 ```
 
@@ -225,10 +211,8 @@ It is possible to add triggers dynamically for the component in constructor or i
 
 ```cs
 [Test]
-public void PrimaryPageDataVerification_DynamicTriggers()
-{
+public void PrimaryPageDataVerification_DynamicTriggers() =>
     Go.To<PlansWithDynamicTriggersPage>();
-}
 ```
 
 ## Verification of Complex Blocks
@@ -281,30 +265,29 @@ And then, in the page object, we can use property of `ControlList` type to manip
 ```cs
 using Atata;
 
-namespace AtataSamples.PageVerification
+namespace AtataSamples.PageVerification;
+
+using _ = PlansPage;
+
+[Url("plans")]
+public class PlansPage : Page<_>
 {
-    using _ = PlansPage;
+    public H1<_> Header { get; private set; }
 
-    [Url("plans")]
-    public class PlansPage : Page<_>
+    public ControlList<PlanItem, _> PlanItems { get; private set; }
+
+    [ControlDefinition("div", ContainingClass = "plan-item", ComponentTypeName = "plan item")]
+    public class PlanItem : Control<_>
     {
-        public H1<_> Header { get; private set; }
+        public H3<_> Title { get; private set; }
 
-        public ControlList<PlanItem, _> PlanItems { get; private set; }
+        [FindByClass]
+        public Currency<_> Price { get; private set; }
 
-        [ControlDefinition("div", ContainingClass = "plan-item", ComponentTypeName = "plan item")]
-        public class PlanItem : Control<_>
-        {
-            public H3<_> Title { get; private set; }
+        [FindByClass("projects-num")]
+        public Number<_> NumberOfProjects { get; private set; }
 
-            [FindByClass]
-            public Currency<_> Price { get; private set; }
-
-            [FindByClass("projects-num")]
-            public Number<_> NumberOfProjects { get; private set; }
-
-            public UnorderedList<Text<_>, _> Features { get; private set; }
-        }
+        public UnorderedList<Text<_>, _> Features { get; private set; }
     }
 }
 ```
@@ -320,8 +303,7 @@ private const string Feature5 = "Feature 5";
 private const string Feature6 = "Feature 6";
 
 [Test]
-public void ComplexPageDataVerification()
-{
+public void ComplexPageDataVerification() =>
     Go.To<PlansPage>()
         .AggregateAssert(x => x
             .PlanItems.Count.Should.Equal(3)
@@ -339,157 +321,164 @@ public void ComplexPageDataVerification()
             .PlanItems[2].Price.Should.Equal(49.99m)
             .PlanItems[2].NumberOfProjects.Should.Equal(10)
             .PlanItems[2].Features.Items.Should.EqualSequence(Feature1, Feature2, Feature3, Feature4, Feature5, Feature6));
-}
 ```
 
 This is it.
 If you run this test, it will succeed and generate the following log to NUnit console:
 
 ```
-2021-02-25 16:18:02.5573  INFO Starting test: ComplexPageDataVerification
-2021-02-25 16:18:02.5842 TRACE > Set up AtataContext
-2021-02-25 16:18:02.5856 TRACE - Set: BaseUrl=https://demo.atata.io/
-2021-02-25 16:18:02.5876 TRACE - Set: ElementFindTimeout=5s; ElementFindRetryInterval=0.5s
-2021-02-25 16:18:02.5911 TRACE - Set: WaitingTimeout=5s; WaitingRetryInterval=0.5s
-2021-02-25 16:18:02.5913 TRACE - Set: VerificationTimeout=5s; VerificationRetryInterval=0.5s
-2021-02-25 16:18:02.5917 TRACE - Set: Culture=en-US
-2021-02-25 16:18:02.6019 TRACE - Set: DriverService=ChromeDriverService on port 52385
-2021-02-25 16:18:03.5670 TRACE - Set: Driver=ChromeDriver (alias=chrome)
-2021-02-25 16:18:03.5689 TRACE < Set up AtataContext (0.984s)
-2021-02-25 16:18:03.6471  INFO Go to "Plans" page
-2021-02-25 16:18:03.7077  INFO Go to URL "https://demo.atata.io/plans"
-2021-02-25 16:18:05.1985  INFO > Aggregate assert "Plans" page
-2021-02-25 16:18:05.2236  INFO - > Assert: plan items count should equal "3"
-2021-02-25 16:18:05.2739 TRACE - - > Find visible elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver
-2021-02-25 16:18:05.3413 TRACE - - < Find visible elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver (0.065s) >> []
-2021-02-25 16:18:05.7474 TRACE - - > Find visible elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver
-2021-02-25 16:18:05.8637 TRACE - - < Find visible elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver (0.114s) >> [Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }, Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }, Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }]
-2021-02-25 16:18:05.8640  INFO - < Assert: plan items count should equal "3" (0.640s)
-2021-02-25 16:18:05.8737  INFO - > Assert: "1st" plan item's "Title" <h3> heading content should equal "Basic"
-2021-02-25 16:18:05.8803 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Title" <h3> heading
-2021-02-25 16:18:05.8885 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
-2021-02-25 16:18:05.9248 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.036s) >> Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:05.9287 TRACE - - - > Find visible element by XPath ".//h3" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:05.9557 TRACE - - - < Find visible element by XPath ".//h3" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 } (0.026s) >> Element { Id=70a0163e-be95-4be1-8aac-bb2bf8554675 }
-2021-02-25 16:18:05.9728 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Title" <h3> heading (0.092s) >> "Basic"
-2021-02-25 16:18:05.9764  INFO - < Assert: "1st" plan item's "Title" <h3> heading content should equal "Basic" (0.102s)
-2021-02-25 16:18:05.9849  INFO - > Assert: "1st" plan item's "Price" element content should equal "$0.00"
-2021-02-25 16:18:05.9871 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Price" element
-2021-02-25 16:18:05.9943 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
-2021-02-25 16:18:06.0131 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.018s) >> Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:06.0180 TRACE - - - > Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:06.0495 TRACE - - - < Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 } (0.031s) >> Element { Id=a108fba5-79f3-41d3-b935-6cf47599e6b1 }
-2021-02-25 16:18:06.0667 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Price" element (0.079s) >> "$0"
-2021-02-25 16:18:06.0691  INFO - < Assert: "1st" plan item's "Price" element content should equal "$0.00" (0.084s)
-2021-02-25 16:18:06.0700  INFO - > Assert: "1st" plan item's "Number of Projects" element content should equal "1"
-2021-02-25 16:18:06.0704 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Number of Projects" element
-2021-02-25 16:18:06.0711 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
-2021-02-25 16:18:06.0928 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.021s) >> Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:06.0936 TRACE - - - > Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:06.1242 TRACE - - - < Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 } (0.030s) >> Element { Id=3e273221-8461-4bb2-9f2d-98a10f20f342 }
-2021-02-25 16:18:06.1403 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Number of Projects" element (0.069s) >> "1"
-2021-02-25 16:18:06.1406  INFO - < Assert: "1st" plan item's "Number of Projects" element content should equal "1" (0.070s)
-2021-02-25 16:18:06.1474  INFO - > Assert: "1st" plan item's "Features" unordered list items should equal sequence ["Feature 1", "Feature 2"]
-2021-02-25 16:18:06.1539 TRACE - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
-2021-02-25 16:18:06.1720 TRACE - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.018s) >> Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:06.1724 TRACE - - > Find visible element by XPath ".//ul" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 }
-2021-02-25 16:18:06.2004 TRACE - - < Find visible element by XPath ".//ul" in Element { Id=ec9be602-f8f2-490e-b188-19ba4d4e0343 } (0.027s) >> Element { Id=d44403b3-ecb9-4356-8eea-64a75598d308 }
-2021-02-25 16:18:06.2007 TRACE - - > Find visible elements by XPath "./*" in Element { Id=d44403b3-ecb9-4356-8eea-64a75598d308 }
-2021-02-25 16:18:06.2458 TRACE - - < Find visible elements by XPath "./*" in Element { Id=d44403b3-ecb9-4356-8eea-64a75598d308 } (0.044s) >> [Element { Id=74a8d829-97f2-4b49-9342-7beea75e8e8f }, Element { Id=f36b5d1a-6e06-4c0d-b06a-ebcf5427a6e4 }]
-2021-02-25 16:18:06.2477 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Features" unordered list's "1st" element
-2021-02-25 16:18:06.2641 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Features" unordered list's "1st" element (0.016s) >> "Feature 1"
-2021-02-25 16:18:06.2645 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Features" unordered list's "2nd" element
-2021-02-25 16:18:06.2813 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "1st" plan item's "Features" unordered list's "2nd" element (0.016s) >> "Feature 2"
-2021-02-25 16:18:06.2820  INFO - < Assert: "1st" plan item's "Features" unordered list items should equal sequence ["Feature 1", "Feature 2"] (0.134s)
-2021-02-25 16:18:06.2831  INFO - > Assert: "2nd" plan item's "Title" <h3> heading content should equal "Plus"
-2021-02-25 16:18:06.2833 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Title" <h3> heading
-2021-02-25 16:18:06.2839 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
-2021-02-25 16:18:06.3107 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.026s) >> Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.3111 TRACE - - - > Find visible element by XPath ".//h3" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.3385 TRACE - - - < Find visible element by XPath ".//h3" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 } (0.027s) >> Element { Id=61df269b-df98-4018-93d8-fe59d17fe146 }
-2021-02-25 16:18:06.3548 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Title" <h3> heading (0.071s) >> "Plus"
-2021-02-25 16:18:06.3552  INFO - < Assert: "2nd" plan item's "Title" <h3> heading content should equal "Plus" (0.072s)
-2021-02-25 16:18:06.3566  INFO - > Assert: "2nd" plan item's "Price" element content should equal "$19.99"
-2021-02-25 16:18:06.3569 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Price" element
-2021-02-25 16:18:06.3581 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
-2021-02-25 16:18:06.3801 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.021s) >> Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.3805 TRACE - - - > Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.4161 TRACE - - - < Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 } (0.035s) >> Element { Id=4e4f433f-6556-47e5-b844-f684361fc137 }
-2021-02-25 16:18:06.4334 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Price" element (0.076s) >> "$19.99"
-2021-02-25 16:18:06.4338  INFO - < Assert: "2nd" plan item's "Price" element content should equal "$19.99" (0.077s)
-2021-02-25 16:18:06.4354  INFO - > Assert: "2nd" plan item's "Number of Projects" element content should equal "3"
-2021-02-25 16:18:06.4356 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Number of Projects" element
-2021-02-25 16:18:06.4362 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
-2021-02-25 16:18:06.4557 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.019s) >> Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.4562 TRACE - - - > Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.4865 TRACE - - - < Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 } (0.030s) >> Element { Id=8a3e80b8-5ba1-4ef3-a72f-314da0f1a8df }
-2021-02-25 16:18:06.5050 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Number of Projects" element (0.069s) >> "3"
-2021-02-25 16:18:06.5054  INFO - < Assert: "2nd" plan item's "Number of Projects" element content should equal "3" (0.070s)
-2021-02-25 16:18:06.5065  INFO - > Assert: "2nd" plan item's "Features" unordered list items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4"]
-2021-02-25 16:18:06.5078 TRACE - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
-2021-02-25 16:18:06.5256 TRACE - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.017s) >> Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.5261 TRACE - - > Find visible element by XPath ".//ul" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 }
-2021-02-25 16:18:06.5573 TRACE - - < Find visible element by XPath ".//ul" in Element { Id=86b9c5f1-a061-4e3f-b074-91ce313e7dc5 } (0.031s) >> Element { Id=2ee573d0-2e79-4569-abf4-2211de02d42f }
-2021-02-25 16:18:06.5578 TRACE - - > Find visible elements by XPath "./*" in Element { Id=2ee573d0-2e79-4569-abf4-2211de02d42f }
-2021-02-25 16:18:06.6378 TRACE - - < Find visible elements by XPath "./*" in Element { Id=2ee573d0-2e79-4569-abf4-2211de02d42f } (0.079s) >> [Element { Id=1185d54b-441b-41ef-a7f2-9e6c2b7de3d5 }, Element { Id=a4505f4b-66c3-4e6b-8218-a545ca3755b0 }, Element { Id=a04445ff-70c0-4671-a89a-a5ad1f2bb680 }, Element { Id=6c8f67ff-a88b-49a1-9e5c-35fdf90deaa9 }]
-2021-02-25 16:18:06.6395 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "1st" element
-2021-02-25 16:18:06.6618 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "1st" element (0.022s) >> "Feature 1"
-2021-02-25 16:18:06.6621 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "2nd" element
-2021-02-25 16:18:06.6842 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "2nd" element (0.022s) >> "Feature 2"
-2021-02-25 16:18:06.6847 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "3rd" element
-2021-02-25 16:18:06.7064 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "3rd" element (0.021s) >> "Feature 3"
-2021-02-25 16:18:06.7069 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "4th" element
-2021-02-25 16:18:06.7247 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "2nd" plan item's "Features" unordered list's "4th" element (0.017s) >> "Feature 4"
-2021-02-25 16:18:06.7251  INFO - < Assert: "2nd" plan item's "Features" unordered list items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4"] (0.218s)
-2021-02-25 16:18:06.7265  INFO - > Assert: "3rd" plan item's "Title" <h3> heading content should equal "Premium"
-2021-02-25 16:18:06.7267 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Title" <h3> heading
-2021-02-25 16:18:06.7272 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
-2021-02-25 16:18:06.7588 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.031s) >> Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.7592 TRACE - - - > Find visible element by XPath ".//h3" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.7921 TRACE - - - < Find visible element by XPath ".//h3" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 } (0.032s) >> Element { Id=2a7f6aa2-df55-45ab-9df7-dd2d600ee9f2 }
-2021-02-25 16:18:06.8109 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Title" <h3> heading (0.084s) >> "Premium"
-2021-02-25 16:18:06.8116  INFO - < Assert: "3rd" plan item's "Title" <h3> heading content should equal "Premium" (0.085s)
-2021-02-25 16:18:06.8132  INFO - > Assert: "3rd" plan item's "Price" element content should equal "$49.99"
-2021-02-25 16:18:06.8135 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Price" element
-2021-02-25 16:18:06.8140 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
-2021-02-25 16:18:06.8315 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.017s) >> Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.8319 TRACE - - - > Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.8638 TRACE - - - < Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 } (0.031s) >> Element { Id=4144717c-de2a-4f8d-b55b-9cb967f7bcbb }
-2021-02-25 16:18:06.8817 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Price" element (0.068s) >> "$49.99"
-2021-02-25 16:18:06.8821  INFO - < Assert: "3rd" plan item's "Price" element content should equal "$49.99" (0.068s)
-2021-02-25 16:18:06.8829  INFO - > Assert: "3rd" plan item's "Number of Projects" element content should equal "10"
-2021-02-25 16:18:06.8833 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Number of Projects" element
-2021-02-25 16:18:06.8838 TRACE - - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
-2021-02-25 16:18:06.9027 TRACE - - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.018s) >> Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.9032 TRACE - - - > Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.9342 TRACE - - - < Find visible element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 } (0.031s) >> Element { Id=efff4759-1cbe-4702-889c-0c89b149471a }
-2021-02-25 16:18:06.9540 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Number of Projects" element (0.070s) >> "10"
-2021-02-25 16:18:06.9544  INFO - < Assert: "3rd" plan item's "Number of Projects" element content should equal "10" (0.071s)
-2021-02-25 16:18:06.9556  INFO - > Assert: "3rd" plan item's "Features" unordered list items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6"]
-2021-02-25 16:18:06.9581 TRACE - - > Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
-2021-02-25 16:18:06.9764 TRACE - - < Find visible element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.018s) >> Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:06.9767 TRACE - - > Find visible element by XPath ".//ul" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 }
-2021-02-25 16:18:07.0097 TRACE - - < Find visible element by XPath ".//ul" in Element { Id=d32ff20d-9bc5-4867-86e8-4e9b977c96f1 } (0.033s) >> Element { Id=ca5a4333-8108-44fa-a011-18525ce7ee49 }
-2021-02-25 16:18:07.0101 TRACE - - > Find visible elements by XPath "./*" in Element { Id=ca5a4333-8108-44fa-a011-18525ce7ee49 }
-2021-02-25 16:18:07.1304 TRACE - - < Find visible elements by XPath "./*" in Element { Id=ca5a4333-8108-44fa-a011-18525ce7ee49 } (0.120s) >> [Element { Id=7eea1193-2270-43cc-b791-a90ec0e7a670 }, Element { Id=fd6fb3b2-84b2-400e-aa3d-92d50df43460 }, Element { Id=fa91db8d-fad1-443f-814f-0016904aeda9 }, Element { Id=196f5cb5-b30c-4e42-8e86-57463e2a90de }, Element { Id=60452609-5e17-4106-8b4c-5c7d24dc32fa }, Element { Id=5b0d4a37-2810-48da-be03-d650d67fab0e }]
-2021-02-25 16:18:07.1316 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "1st" element
-2021-02-25 16:18:07.1544 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "1st" element (0.022s) >> "Feature 1"
-2021-02-25 16:18:07.1550 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "2nd" element
-2021-02-25 16:18:07.1790 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "2nd" element (0.023s) >> "Feature 2"
-2021-02-25 16:18:07.1794 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "3rd" element
-2021-02-25 16:18:07.1982 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "3rd" element (0.018s) >> "Feature 3"
-2021-02-25 16:18:07.1987 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "4th" element
-2021-02-25 16:18:07.2168 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "4th" element (0.018s) >> "Feature 4"
-2021-02-25 16:18:07.2174 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "5th" element
-2021-02-25 16:18:07.2356 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "5th" element (0.018s) >> "Feature 5"
-2021-02-25 16:18:07.2363 TRACE - - > Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "6th" element
-2021-02-25 16:18:07.2541 TRACE - - < Execute behavior ContentSourceAttribute { Source=Text } against "3rd" plan item's "Features" unordered list's "6th" element (0.017s) >> "Feature 6"
-2021-02-25 16:18:07.2545  INFO - < Assert: "3rd" plan item's "Features" unordered list items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6"] (0.298s)
-2021-02-25 16:18:07.2547  INFO < Aggregate assert "Plans" page (2.056s)
-2021-02-25 16:18:07.2785  INFO > Clean up AtataContext
-2021-02-25 16:18:07.4661  INFO < Clean up AtataContext (0.187s)
-2021-02-25 16:18:07.4665  INFO Finished test (4.962s)
-2021-02-25 16:18:07.4668  INFO Pure test execution time: 3.687s
+2023-10-18 18:52:29.6788  INFO Starting test: AtataSamples.PageVerification.PlanTests.ComplexPageDataVerification
+2023-10-18 18:52:29.6911 TRACE > Initialize AtataContext
+2023-10-18 18:52:29.6918 TRACE - Set: BaseUrl=https://demo.atata.io/
+2023-10-18 18:52:29.6928 TRACE - Set: ElementFindTimeout=5s; ElementFindRetryInterval=0.5s
+2023-10-18 18:52:29.6930 TRACE - Set: WaitingTimeout=5s; WaitingRetryInterval=0.5s
+2023-10-18 18:52:29.6931 TRACE - Set: VerificationTimeout=5s; VerificationRetryInterval=0.5s
+2023-10-18 18:52:29.6934 TRACE - Set: Culture=en-US
+2023-10-18 18:52:29.6936 TRACE - Set: Artifacts=D:\dev\atata-samples\PageVerification\AtataSamples.PageVerification\bin\Debug\net6.0\artifacts\20231018T185229\PlanTests\ComplexPageDataVerification
+2023-10-18 18:52:29.6943 TRACE - > Initialize Driver
+2023-10-18 18:52:29.6983 TRACE - - Created ChromeDriverService { Port=59188, ExecutablePath=D:\dev\atata-samples\PageVerification\AtataSamples.PageVerification\bin\Debug\net6.0\drivers\chrome\118.0.5993.70\chromedriver.exe }
+2023-10-18 18:52:31.2293 TRACE - - Created ChromeDriver { Alias=chrome, SessionId=f0a61c3ed0ccb28754dc15f54bfca459 }
+2023-10-18 18:52:31.2350 TRACE - < Initialize Driver (1.537s)
+2023-10-18 18:52:31.2357 TRACE < Initialize AtataContext (1.544s)
+2023-10-18 18:52:31.2679  INFO > Go to "Plans" page by URL https://demo.atata.io/plans
+2023-10-18 18:52:31.2684 TRACE - > Navigate to URL https://demo.atata.io/plans
+2023-10-18 18:52:31.5626 TRACE - < Navigate to URL https://demo.atata.io/plans (0.294s)
+2023-10-18 18:52:31.5775  INFO < Go to "Plans" page by URL https://demo.atata.io/plans (0.309s)
+2023-10-18 18:52:31.5837  INFO > Aggregate assert "Plans" page
+2023-10-18 18:52:31.5907  INFO - > Assert: plan items count should equal 3
+2023-10-18 18:52:31.6093 TRACE - - > Find elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver
+2023-10-18 18:52:31.7237 TRACE - - < Find elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver (0.113s) >> []
+2023-10-18 18:52:32.1083 TRACE - - > Find elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver
+2023-10-18 18:52:32.1180 TRACE - - < Find elements by XPath ".//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')]" in ChromeDriver (0.008s) >> [Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }]
+2023-10-18 18:52:32.1182  INFO - < Assert: plan items count should equal 3 (0.527s)
+2023-10-18 18:52:32.1215  INFO - > Assert: plan items / 1st item / "Title" <h3> heading content should equal "Basic"
+2023-10-18 18:52:32.1236 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Title" <h3> heading
+2023-10-18 18:52:32.1269 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
+2023-10-18 18:52:32.1398 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.012s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.1416 TRACE - - - > Find element by XPath ".//h3" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.1578 TRACE - - - < Find element by XPath ".//h3" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 } (0.016s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_8 }
+2023-10-18 18:52:32.1749 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Title" <h3> heading (0.051s) >> "Basic"
+2023-10-18 18:52:32.1774  INFO - < Assert: plan items / 1st item / "Title" <h3> heading content should equal "Basic" (0.055s)
+2023-10-18 18:52:32.1809  INFO - > Assert: plan items / 1st item / "Price" element content should equal "$0.00"
+2023-10-18 18:52:32.1818 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Price" element
+2023-10-18 18:52:32.1848 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
+2023-10-18 18:52:32.1910 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.006s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.1930 TRACE - - - > Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.2044 TRACE - - - < Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 } (0.011s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_33 }
+2023-10-18 18:52:32.2101 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Price" element (0.028s) >> "$0"
+2023-10-18 18:52:32.2120  INFO - < Assert: plan items / 1st item / "Price" element content should equal "$0.00" (0.031s)
+2023-10-18 18:52:32.2126  INFO - > Assert: plan items / 1st item / "Number of Projects" element content should equal "1"
+2023-10-18 18:52:32.2128 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Number of Projects" element
+2023-10-18 18:52:32.2131 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
+2023-10-18 18:52:32.2184 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.2187 TRACE - - - > Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.2337 TRACE - - - < Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 } (0.014s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_34 }
+2023-10-18 18:52:32.2405 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Number of Projects" element (0.027s) >> "1"
+2023-10-18 18:52:32.2409  INFO - < Assert: plan items / 1st item / "Number of Projects" element content should equal "1" (0.028s)
+2023-10-18 18:52:32.2429  INFO - > Assert: plan items / 1st item / "Features" unordered list / items should equal sequence ["Feature 1", "Feature 2"]
+2023-10-18 18:52:32.2455 TRACE - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver
+2023-10-18 18:52:32.2514 TRACE - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[1]" in ChromeDriver (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.2518 TRACE - - > Find element by XPath ".//ul" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 }
+2023-10-18 18:52:32.2665 TRACE - - < Find element by XPath ".//ul" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_5 } (0.014s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_35 }
+2023-10-18 18:52:32.2670 TRACE - - > Find elements by XPath "./*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_35 }
+2023-10-18 18:52:32.2786 TRACE - - < Find elements by XPath "./*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_35 } (0.011s) >> [Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_36 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_37 }]
+2023-10-18 18:52:32.2810 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Features" unordered list / items / 1st item
+2023-10-18 18:52:32.2875 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Features" unordered list / items / 1st item (0.006s) >> "Feature 1"
+2023-10-18 18:52:32.2878 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Features" unordered list / items / 2nd item
+2023-10-18 18:52:32.2934 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 1st item / "Features" unordered list / items / 2nd item (0.005s) >> "Feature 2"
+2023-10-18 18:52:32.2944  INFO - < Assert: plan items / 1st item / "Features" unordered list / items should equal sequence ["Feature 1", "Feature 2"] (0.051s)
+2023-10-18 18:52:32.2951  INFO - > Assert: plan items / 2nd item / "Title" <h3> heading content should equal "Plus"
+2023-10-18 18:52:32.2952 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Title" <h3> heading
+2023-10-18 18:52:32.2955 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
+2023-10-18 18:52:32.3060 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.010s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3063 TRACE - - - > Find element by XPath ".//h3" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3112 TRACE - - - < Find element by XPath ".//h3" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 } (0.004s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_38 }
+2023-10-18 18:52:32.3167 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Title" <h3> heading (0.021s) >> "Plus"
+2023-10-18 18:52:32.3170  INFO - < Assert: plan items / 2nd item / "Title" <h3> heading content should equal "Plus" (0.021s)
+2023-10-18 18:52:32.3176  INFO - > Assert: plan items / 2nd item / "Price" element content should equal "$19.99"
+2023-10-18 18:52:32.3177 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Price" element
+2023-10-18 18:52:32.3181 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
+2023-10-18 18:52:32.3230 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.004s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3232 TRACE - - - > Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3293 TRACE - - - < Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 } (0.006s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_39 }
+2023-10-18 18:52:32.3351 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Price" element (0.017s) >> "$19.99"
+2023-10-18 18:52:32.3354  INFO - < Assert: plan items / 2nd item / "Price" element content should equal "$19.99" (0.017s)
+2023-10-18 18:52:32.3358  INFO - > Assert: plan items / 2nd item / "Number of Projects" element content should equal "3"
+2023-10-18 18:52:32.3360 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Number of Projects" element
+2023-10-18 18:52:32.3363 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
+2023-10-18 18:52:32.3413 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.004s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3416 TRACE - - - > Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3465 TRACE - - - < Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 } (0.004s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_40 }
+2023-10-18 18:52:32.3519 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Number of Projects" element (0.015s) >> "3"
+2023-10-18 18:52:32.3522  INFO - < Assert: plan items / 2nd item / "Number of Projects" element content should equal "3" (0.016s)
+2023-10-18 18:52:32.3527  INFO - > Assert: plan items / 2nd item / "Features" unordered list / items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4"]
+2023-10-18 18:52:32.3532 TRACE - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver
+2023-10-18 18:52:32.3582 TRACE - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[2]" in ChromeDriver (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3585 TRACE - - > Find element by XPath ".//ul" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 }
+2023-10-18 18:52:32.3636 TRACE - - < Find element by XPath ".//ul" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_6 } (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_41 }
+2023-10-18 18:52:32.3639 TRACE - - > Find elements by XPath "./*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_41 }
+2023-10-18 18:52:32.3692 TRACE - - < Find elements by XPath "./*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_41 } (0.005s) >> [Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_42 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_3 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_43 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_44 }]
+2023-10-18 18:52:32.3697 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 1st item
+2023-10-18 18:52:32.3753 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 1st item (0.005s) >> "Feature 1"
+2023-10-18 18:52:32.3756 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 2nd item
+2023-10-18 18:52:32.3816 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 2nd item (0.005s) >> "Feature 2"
+2023-10-18 18:52:32.3820 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 3rd item
+2023-10-18 18:52:32.3877 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 3rd item (0.005s) >> "Feature 3"
+2023-10-18 18:52:32.3881 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 4th item
+2023-10-18 18:52:32.3940 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 2nd item / "Features" unordered list / items / 4th item (0.005s) >> "Feature 4"
+2023-10-18 18:52:32.3943  INFO - < Assert: plan items / 2nd item / "Features" unordered list / items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4"] (0.041s)
+2023-10-18 18:52:32.3948  INFO - > Assert: plan items / 3rd item / "Title" <h3> heading content should equal "Premium"
+2023-10-18 18:52:32.3949 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Title" <h3> heading
+2023-10-18 18:52:32.3953 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
+2023-10-18 18:52:32.4066 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.011s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4098 TRACE - - - > Find element by XPath ".//h3" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4157 TRACE - - - < Find element by XPath ".//h3" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 } (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_45 }
+2023-10-18 18:52:32.4223 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Title" <h3> heading (0.027s) >> "Premium"
+2023-10-18 18:52:32.4227  INFO - < Assert: plan items / 3rd item / "Title" <h3> heading content should equal "Premium" (0.027s)
+2023-10-18 18:52:32.4239  INFO - > Assert: plan items / 3rd item / "Price" element content should equal "$49.99"
+2023-10-18 18:52:32.4241 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Price" element
+2023-10-18 18:52:32.4244 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
+2023-10-18 18:52:32.4305 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.006s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4309 TRACE - - - > Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4364 TRACE - - - < Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' price ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 } (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_46 }
+2023-10-18 18:52:32.4424 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Price" element (0.018s) >> "$49.99"
+2023-10-18 18:52:32.4427  INFO - < Assert: plan items / 3rd item / "Price" element content should equal "$49.99" (0.018s)
+2023-10-18 18:52:32.4431  INFO - > Assert: plan items / 3rd item / "Number of Projects" element content should equal "10"
+2023-10-18 18:52:32.4432 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Number of Projects" element
+2023-10-18 18:52:32.4434 TRACE - - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
+2023-10-18 18:52:32.4484 TRACE - - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.004s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4486 TRACE - - - > Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4539 TRACE - - - < Find element by XPath ".//*[contains(concat(' ', normalize-space(@class), ' '), ' projects-num ')]/descendant-or-self::*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 } (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_47 }
+2023-10-18 18:52:32.4596 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Number of Projects" element (0.016s) >> "10"
+2023-10-18 18:52:32.4599  INFO - < Assert: plan items / 3rd item / "Number of Projects" element content should equal "10" (0.016s)
+2023-10-18 18:52:32.4603  INFO - > Assert: plan items / 3rd item / "Features" unordered list / items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6"]
+2023-10-18 18:52:32.4607 TRACE - - > Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver
+2023-10-18 18:52:32.4666 TRACE - - < Find element by XPath "(.//div[contains(concat(' ', normalize-space(@class), ' '), ' plan-item ')])[3]" in ChromeDriver (0.005s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4669 TRACE - - > Find element by XPath ".//ul" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 }
+2023-10-18 18:52:32.4718 TRACE - - < Find element by XPath ".//ul" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_7 } (0.004s) >> Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_48 }
+2023-10-18 18:52:32.4721 TRACE - - > Find elements by XPath "./*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_48 }
+2023-10-18 18:52:32.4770 TRACE - - < Find elements by XPath "./*" in Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_48 } (0.004s) >> [Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_49 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_50 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_51 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_52 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_53 }, Element { Id=8F44C8CDE3C8B4192DD58288FF46A3FB_element_54 }]
+2023-10-18 18:52:32.4775 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 1st item
+2023-10-18 18:52:32.4834 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 1st item (0.005s) >> "Feature 1"
+2023-10-18 18:52:32.4838 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 2nd item
+2023-10-18 18:52:32.4891 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 2nd item (0.005s) >> "Feature 2"
+2023-10-18 18:52:32.4894 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 3rd item
+2023-10-18 18:52:32.4948 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 3rd item (0.005s) >> "Feature 3"
+2023-10-18 18:52:32.4951 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 4th item
+2023-10-18 18:52:32.5004 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 4th item (0.005s) >> "Feature 4"
+2023-10-18 18:52:32.5006 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 5th item
+2023-10-18 18:52:32.5057 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 5th item (0.005s) >> "Feature 5"
+2023-10-18 18:52:32.5060 TRACE - - > Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 6th item
+2023-10-18 18:52:32.5113 TRACE - - < Execute behavior GetsContentFromSourceAttribute { Source=Text } against plan items / 3rd item / "Features" unordered list / items / 6th item (0.005s) >> "Feature 6"
+2023-10-18 18:52:32.5116  INFO - < Assert: plan items / 3rd item / "Features" unordered list / items should equal sequence ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5", "Feature 6"] (0.051s)
+2023-10-18 18:52:32.5117  INFO < Aggregate assert "Plans" page (0.927s)
+2023-10-18 18:52:32.5126 TRACE > Deinitialize AtataContext
+2023-10-18 18:52:32.6410 TRACE < Deinitialize AtataContext (0.128s)
+2023-10-18 18:52:32.6428  INFO Finished test
+      Total time: 3.041s
+  Initialization: 1.635s | 53.8 %
+       Test body: 1.276s | 42.0 %
+Deinitialization: 0.128s |  4.2 %
 ```
 
 {{ download-section }}
