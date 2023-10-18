@@ -34,7 +34,7 @@ The functionality for Extent Reports is implemented in 4 class files:
   Also does formatting of message.
 - [**ExtentArtifactAddedEventHandler.cs**]({{ page.sources_path }}Infrastructure/ExtentArtifactAddedEventHandler.cs) -
   is responsible for screenshots adding to report.
-- [**AddArtifactsToExtentReportOnCleanUpEventHandler.cs**]({{ page.sources_path }}Infrastructure/AddArtifactsToExtentReportOnCleanUpEventHandler.cs) -
+- [**AddArtifactsToExtentReportEventHandler.cs**]({{ page.sources_path }}Infrastructure/AddArtifactsToExtentReportEventHandler.cs) -
   adds "Artifacts" markup to test reports.
 
 You can copy [all those files]({{ page.sources_path }}Infrastructure) to your project and modify according to your project's needs.
@@ -132,17 +132,19 @@ public class UITestFixture
         var testContextBuilder = AtataContext.Configure()
             .LogConsumers.Add<ExtentLogConsumer>()
                 .WithMinLevel(LogLevel.Info)
-            .EventSubscriptions.Add(new AddArtifactsToExtentReportOnCleanUpEventHandler());
+            .EventSubscriptions.Add(new AddArtifactsToExtentReportEventHandler());
 
         if (UseFixtureDriverForTests)
-            testContextBuilder.UseDriver(FixtureContext.Driver);
+            testContextBuilder
+                .UseDriver(FixtureContext.Driver)
+                .UseDisposeDriver(false);
 
         testContextBuilder.Build();
     }
 
     [TearDown]
     public void TearDown() =>
-        AtataContext.Current?.CleanUp(quitDriver: !UseFixtureDriverForTests);
+        AtataContext.Current?.Dispose();
 
     protected virtual TPageObject BeingOn<TPageObject>()
         where TPageObject : PageObject<TPageObject> =>
