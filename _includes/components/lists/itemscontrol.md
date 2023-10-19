@@ -34,7 +34,7 @@ ItemsControl.Items.Should.HaveCount(2);
 Gets the item at the specified index.
 
 ```cs
-ItemsControl[0].Should.Exist();
+ItemsControl[0].Should.BePresent();
 ItemsControl[1].Should.Equal(5);
 ItemsControl[2].Content.Should.Equal("Item 1");
 ```
@@ -47,8 +47,8 @@ ItemsControl[2].Content.Should.Equal("Item 1");
 Gets the item that matches the conditions defined by the specified predicate expression.
 
 ```cs
-ItemsControl[x => x.Title == "Product 1"].Should.Exist();
-ItemsControl[x => x.Content == "Some content"].Should.Not.Exist();
+ItemsControl[x => x.Title == "Product 1"].Should.BePresent();
+ItemsControl[x => x.Content == "Some content"].Should.Not.BePresent();
 ```
 
 #### Example

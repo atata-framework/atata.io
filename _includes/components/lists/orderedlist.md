@@ -84,7 +84,7 @@ Go.To<SamplePage>().
     ProductList.Items[x => x.Name == "Book"].Percent.Should.Equal(0.10m).
     ProductList.Items.SelectData(x => x.Name).Should.EqualSequence("Phone", "Book", "Table").
     ProductList.Items[x => x.Name == "Table"].Delete.Click().
-    ProductList.Items[x => x.Name == "Table"].Should.Not.Exist().
+    ProductList.Items[x => x.Name == "Table"].Should.Not.BePresent().
     ProductList.Items.Count.Should.Equal(2);
 ```
 {:.test}

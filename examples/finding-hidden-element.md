@@ -36,6 +36,6 @@ namespace SampleApp.UITests
 
 ```cs
 Go.To<SomePage>().
-    HiddenElement.Should.Exist(); // Verifies that control/element exists on the DOM of the page.
+    HiddenElement.Should.BePresent(); // Verifies that control/element exists on the DOM of the page.
 ```
 {:.test}

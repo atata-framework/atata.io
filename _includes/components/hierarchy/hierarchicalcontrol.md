@@ -45,7 +45,7 @@ Control.Descendants[x => x.Name == "Item 2.2"].Click();
 Gets the child item at the specified index.
 
 ```cs
-Control[0].Should.Exist();
+Control[0].Should.BePresent();
 Control[1].Name.Should.Equal("Item 2");
 ```
 
@@ -57,5 +57,5 @@ Control[1].Name.Should.Equal("Item 2");
 Gets the child item that matches the conditions defined by the specified predicate expression.
 
 ```cs
-Control[x => x.Name == "Item 1"].Should.Exist();
+Control[x => x.Name == "Item 1"].Should.BePresent();
 ```

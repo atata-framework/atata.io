@@ -43,7 +43,7 @@ Gets the rows list.
 
 ```cs
 Table.Rows.Should.HaveCount(2);
-Table.Rows[0].Should.Exist();
+Table.Rows[0].Should.BePresent();
 Table.Rows[x => x.Content == "some content"].Click();
 ```
 
@@ -106,6 +106,6 @@ Default search of the properties of type `Content` and inherited (e.g. `Name` an
 Go.To<SamplePage>().
     Products.Rows[x => x.Name == "Item 1"].Amount.Should.Equal(5).
     Products.Rows[x => x.Name == "Item 1"].Delete().
-    Products.Rows[x => x.Name == "Item 1"].Should.Not.Exist();
+    Products.Rows[x => x.Name == "Item 1"].Should.Not.BePresent();
 ```
 {:.test}

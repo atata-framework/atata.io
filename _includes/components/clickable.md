@@ -49,7 +49,7 @@ Go.To<SamplePage>().
     Open();
 ```
 
-As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Open.Should().Exist()`.
+As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Open.Should().BePresent()`.
 {:.warning}
 
 ### Navigation

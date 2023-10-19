@@ -57,7 +57,7 @@ Items.Should.BeEquivalent("Item 1", "Item 2");
 Gets the control at the specified index.
 
 ```cs
-Items[0].Should.Exist();
+Items[0].Should.BePresent();
 Items[1].Should.Equal(5);
 Items[2].Content.Should.Equal("Item 1");
 ```
@@ -70,8 +70,8 @@ Items[2].Content.Should.Equal("Item 1");
 Gets the control that matches the conditions defined by the specified predicate expression.
 
 ```cs
-Items[x => x.Title == "Product 1"].Should.Exist();
-Items[x => x.Content == "Some content"].Should.Not.Exist();
+Items[x => x.Title == "Product 1"].Should.BePresent();
+Items[x => x.Content == "Some content"].Should.Not.BePresent();
 ```
 
 #### Methods
@@ -150,7 +150,7 @@ Go.To<SamplePage>().
         x.Amount.Should.Equal(10);
     }).
     Products[x => x.Title == "Product 1"].Amount.Should.Equal(5).
-    Products[x => x.Title == "Product 3"].Should.Not.Exist().
+    Products[x => x.Title == "Product 3"].Should.Not.BePresent().
     Products.IndexOf(x => x.Title == "Product 2").Should.Equal(1).
     SelectData(x => x.Title).Should.EqualSequence("Product 1", "Product 2");
 ```

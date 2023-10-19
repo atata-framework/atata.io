@@ -19,7 +19,7 @@ namespace SampleApp.UITests
 ```
 ```cs
 Go.To<SamplePage>().
-    Description.Should.Exist().
+    Description.Should.BePresent().
     Description.Should.Contain("description text");
 ```
 

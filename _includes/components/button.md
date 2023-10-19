@@ -55,7 +55,7 @@ Go.To<SamplePage>().
     Save();
 ```
 
-As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Save.Should().Exist()`.
+As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Save.Should().BePresent()`.
 {:.warning}
 
 ### Navigation
