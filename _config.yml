@@ -191,6 +191,7 @@ control-search:
       - FindByContentOrValue
       - FindByPlaceholder
       - FindByTitle
+      - FindByTestId
       - FindFirst
       - FindLast
       - FindByIndex
