@@ -133,6 +133,14 @@ Returns an existing or creates a new builder for `TDriverBuilder` by the specifi
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseDisposeDriver</span><span class="tail">(<span class="keyword">bool</span> disposeDriver)</span></h3>
+</div>
+
+Sets a value indicating whether to dispose the `AtataContext.Driver` when `AtataContext.Dispose` method is invoked.
+The default value is `true`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseDriverInitializationStage</span><span class="tail">(<span class="type">AtataContextDriverInitializationStage</span> stage)</span></h3>
 </div>
 
