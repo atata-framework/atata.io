@@ -21,6 +21,26 @@ Sets the culture by the name. The default value is `CultureInfo.CurrentCulture`.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseAllNUnitFeatures()</span></h3>
+</div>
+
+Enables all NUnit features for Atata.
+Executes the following methods:
+
+- `UseNUnitTestName()`
+- `UseNUnitTestSuiteName()`
+- `UseNUnitTestSuiteType()`
+- `UseNUnitAssertionExceptionType()`
+- `UseNUnitAggregateAssertionStrategy()`
+- `UseNUnitWarningReportStrategy()`
+- `LogConsumers.AddNUnitTestContext()`
+- `EventSubscriptions.LogNUnitError()`
+- `EventSubscriptions.TakeScreenshotOnNUnitError()`
+- `EventSubscriptions.TakePageSnapshotOnNUnitError()`
+- `EventSubscriptions.AddArtifactsToNUnitTestContext()`
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseTestName</span><span class="tail">(<span class="keyword">string</span> testName)</span></h3>
 </div>
 
@@ -56,6 +76,13 @@ Sets the factory method of the test suite (fixture/class) name.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseNUnitTestSuiteName</span><span class="tail">()</span></h3>
+</div>
+
+Defines that the name of the test suite should be taken from the NUnit test fixture.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseTestSuiteType</span><span class="tail">(<span class="type">Type</span> testSuiteType)</span></h3>
 </div>
 
@@ -67,6 +94,13 @@ Sets the type of the test suite (fixture/class).
 </div>
 
 Sets the factory method of the test suite (fixture/class) type.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseNUnitTestSuiteType</span><span class="tail">()</span></h3>
+</div>
+
+Defines that the type of the test suite should be taken from the NUnit test fixture.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
@@ -185,6 +219,22 @@ Sets the time zone by identifier, which corresponds to the `TimeZoneInfo.Id` pro
 </div>
 
 Sets the UTC time zone.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseDomTestIdAttributeName</span><span class="tail">(<span class="keyword">string</span> name)</span></h3>
+</div>
+
+Sets the name of the DOM test identifier attribute.
+The default value is `"data-testid"`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseDomTestIdAttributeDefaultCase</span><span class="tail">(<span class="type">TermCase</span> defaultCase)</span></h3>
+</div>
+
+Sets the default case of the DOM test identifier attribute.
+The default value is `TermCase.Kebab`.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
