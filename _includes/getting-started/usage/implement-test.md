@@ -10,8 +10,8 @@ public class SignInTests : UITestFixture
     [Test]
     public void SignIn() =>
         Go.To<SignInPage>()
-            .Email.Set("admin@mail.com")
-            .Password.Set("abc123")
+            .Email.Type("admin@mail.com")
+            .Password.Type("abc123")
             .SignIn.Click();
 }
 ```
