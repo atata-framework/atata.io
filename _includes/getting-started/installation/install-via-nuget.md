@@ -49,23 +49,22 @@ Then it sets up an appropriate driver executable for the browser to use.
 using Atata;
 using NUnit.Framework;
 
-namespace SampleApp.UITests
-{
-    [SetUpFixture]
-    public class SetUpFixture
-    {
-        [OneTimeSetUp]
-        public void GlobalSetUp()
-        {
-            AtataContext.GlobalConfiguration
-                .UseChrome()
-                    .WithArguments("start-maximized")
-                .UseBaseUrl("https://atata.io/")
-                .UseCulture("en-US")
-                .UseAllNUnitFeatures();
+namespace SampleApp.UITests;
 
-            AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
-        }
+[SetUpFixture]
+public class SetUpFixture
+{
+    [OneTimeSetUp]
+    public void GlobalSetUp()
+    {
+        AtataContext.GlobalConfiguration
+            .UseChrome()
+                .WithArguments("start-maximized")
+            .UseBaseUrl("https://atata.io/")
+            .UseCulture("en-US")
+            .UseAllNUnitFeatures();
+
+        AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
     }
 }
 ```
@@ -80,24 +79,19 @@ It just starts an Atata session before the test run and closes it after the test
 using Atata;
 using NUnit.Framework;
 
-namespace SampleApp.UITests
-{
-    [TestFixture]
-    [Parallelizable(ParallelScope.Self)]
-    public class UITestFixture
-    {
-        [SetUp]
-        public void SetUp()
-        {
-            AtataContext.Configure().Build();
-        }
+namespace SampleApp.UITests;
 
-        [TearDown]
-        public void TearDown()
-        {
-            AtataContext.Current?.Dispose();
-        }
-    }
+[TestFixture]
+[Parallelizable(ParallelScope.Self)]
+public class UITestFixture
+{
+    [SetUp]
+    public void SetUp() =>
+        AtataContext.Configure().Build();
+
+    [TearDown]
+    public void TearDown() ==>
+        AtataContext.Current?.Dispose();
 }
 ```
 
