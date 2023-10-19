@@ -23,7 +23,7 @@ NUnit is used as a test engine in this tutorial.
 So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
 {:.info}
 
-Drivers for Chrome and Internet Explorer in this tutorial are setup
+Drivers for Chrome and Edge in this tutorial are setup
 using {% include nuget.md name="Atata.WebDriverSetup" %} package.
 {:.info}
 
@@ -36,39 +36,31 @@ Create the following class:
 
 ```cs
 using Atata;
-using Atata.WebDriverSetup;
 using NUnit.Framework;
 
-namespace AtataSamples.MultipleBrowsersViaFixtureArguments
+namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
+
+[SetUpFixture]
+public class SetUpFixture
 {
-    [SetUpFixture]
-    public class SetUpFixture
+    [OneTimeSetUp]
+    public void GlobalSetUp()
     {
-        [OneTimeSetUp]
-        public void GlobalSetUp()
-        {
-            AtataContext.GlobalConfiguration
-                .UseChrome()
-                    .WithArguments("start-maximized")
-                .UseInternetExplorer()
-                // TODO: Specify Internet Explorer settings, like:
-                // WithOptions(x => x.EnableNativeEvents = true).
-                //.UseFirefox().
-                //    WithFixOfCommandExecutionDelay()
-                // TODO: You can also specify remote driver configuration(s):
-                // UseRemoteDriver().
-                // WithAlias("chrome_remote").
-                // WithRemoteAddress("http://127.0.0.1:4444/wd/hub").
-                // WithOptions(new ChromeOptions()).
-                .UseBaseUrl("https://demo.atata.io/")
-                .UseCulture("en-US")
-                .UseAllNUnitFeatures();
+        AtataContext.GlobalConfiguration
+            .UseChrome()
+                .WithArguments("start-maximized")
+            .UseEdge()
 
-            DriverSetup.GetDefaultConfiguration(BrowserNames.InternetExplorer)
-                .WithX32Architecture();
+            // TODO: You can also specify remote driver configuration(s):
+            // .UseRemoteDriver()
+            //     .WithAlias("chrome_remote")
+            //     .WithRemoteAddress("http://127.0.0.1:4444/")
+            //     .WithOptions(new ChromeOptions())
+            .UseBaseUrl("https://demo.atata.io/")
+            .UseCulture("en-US")
+            .UseAllNUnitFeatures();
 
-            AtataContext.GlobalConfiguration.AutoSetUpConfiguredDrivers();
-        }
+        AtataContext.GlobalConfiguration.AutoSetUpConfiguredDrivers();
     }
 }
 ```
@@ -87,36 +79,29 @@ In `SetUpFixture` you can configure all browser drivers you want to use.
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.MultipleBrowsersViaFixtureArguments
+namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
+
+[TestFixture(DriverAliases.Chrome)]
+[TestFixture(DriverAliases.Edge)]
+////[TestFixture("chrome_remote")]
+[Parallelizable]
+public abstract class UITestFixture
 {
-    [TestFixture(DriverAliases.Chrome)]
-    [TestFixture(DriverAliases.InternetExplorer)]
-    //[TestFixture(DriverAliases.Firefox)]
-    //[TestFixture("chrome_remote")]
-    public abstract class UITestFixture
-    {
-        private readonly string driverAlias;
+    private readonly string _driverAlias;
 
-        protected UITestFixture(string driverAlias)
-        {
-            this.driverAlias = driverAlias;
-        }
+    protected UITestFixture(string driverAlias) =>
+        _driverAlias = driverAlias;
 
-        [SetUp]
-        public void SetUp()
-        {
-            AtataContext.Configure()
-                .UseDriver(driverAlias)
-                .UseTestName(() => $"[{driverAlias}]{TestContext.CurrentContext.Test.Name}")
-                .Build();
-        }
+    [SetUp]
+    public void SetUp() =>
+        AtataContext.Configure()
+            .UseDriver(_driverAlias)
+            .UseTestName(() => $"[{_driverAlias}]{TestContext.CurrentContext.Test.Name}")
+            .Build();
 
-        [TearDown]
-        public void TearDown()
-        {
-            AtataContext.Current?.Dispose();
-        }
-    }
+    [TearDown]
+    public void TearDown() =>
+        AtataContext.Current?.Dispose();
 }
 ```
 
@@ -137,14 +122,13 @@ Create simple page object class:
 ```cs
 using Atata;
 
-namespace AtataSamples.MultipleBrowsersViaFixtureArguments
-{
-    using _ = HomePage;
+namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
 
-    public class HomePage : Page<_>
-    {
-        public H1<_> Header { get; private set; }
-    }
+using _ = HomePage;
+
+public class HomePage : Page<_>
+{
+    public H1<_> Header { get; private set; }
 }
 ```
 
@@ -159,35 +143,31 @@ Now we can create specific test fixture with single test. Don't forget to define
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.MultipleBrowsersViaFixtureArguments
-{
-    public class HomeTests : UITestFixture
-    {
-        public HomeTests(string driverAlias)
-            : base(driverAlias)
-        {
-        }
+namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
 
-        [Test]
-        public void Home()
-        {
-            Go.To<HomePage>()
-                .Header.Should.Equal("Atata Sample App");
-        }
+public class HomeTests : UITestFixture
+{
+    public HomeTests(string driverAlias)
+        : base(driverAlias)
+    {
     }
+
+    [Test]
+    public void Home() =>
+        Go.To<HomePage>()
+            .Header.Should.Equal("Atata Sample App");
 }
 ```
 
 ## Run Tests
 
 Build project and open Test Explorer panel in Visual Studio.
-For `Home` test you can find 3 items in the Test Explorer panel:
+For `Home` test you can find 2 items in the Test Explorer panel:
 
-![Test Explorer: group by class](test-explorer-group-by-class.png)
-![Test Explorer: tests](test-explorer-tests.png)
+![Test Explorer: tests](test-explorer-tests.png?v2)
 
 Run all tests and check the results.
 
-*Please note that current tutorial requires Chrome and Internet Explorer browsers to be installed.*
+*Please note that current tutorial requires Chrome and Edge browsers to be installed.*
 
 {{ download-section }}
