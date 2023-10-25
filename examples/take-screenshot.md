@@ -10,7 +10,7 @@ description: How to take/capture screenshot.
 ## Configuration
 
 First of all, the `AtataContext` should be configured to store screenshots.
-Take a look at [Getting Started/Set Up/Screenshots](/getting-started/#screenshots).
+Take a look at [Getting Started / Configuration / Screenshots](/getting-started/#screenshots).
 
 For example:
 
@@ -21,36 +21,42 @@ AtataContext.GlobalConfiguration
 
 There are few ways to capture a screenshot depending on place where you need to do it.
 
-## In Test or Page Object
+## In test or page object
 
 Use `Report.Screenshot(...)` method:
 
 ```cs
 Go.To<OrdinaryPage>()
     .Report.Screenshot();
-    // Report.Screenshot("optional title"); // To pass a title.
+    //.Report.Screenshot("optional title"); // To specify a title.
+    //.Report.Screenshot(ScreenshotKind.FullPage); // To specify a kind (FullPage/Viewport).
 ```
 
-## In Any Place
+## In any place
 
 ```cs
-AtataContext.Current.TakeScreenshot("optional title");
+AtataContext.Current.TakeScreenshot();
 ```
 
-## As a Trigger
+```cs
+AtataContext.Current.Report.Screenshot();
+```
+
+## Using trigger
 
 Use [TakeScreenshot](/triggers/#takescreenshot) trigger.
 Below are just 2 possible scenarios.
 
-### Before Button Click
+### Before button click
 
 ```cs
 [TakeScreenshot(TriggerEvents.BeforeClick)]
-// [TakeScreenshot("optional title", TriggerEvents.BeforeClick)] // To pass a title.
+// [TakeScreenshot("optional title", TriggerEvents.BeforeClick)] // To specify a title.
+// [TakeScreenshot(ScreenshotKind.FullPage, TriggerEvents.BeforeClick)] // To specify a kind.
 public Button<_> Save { get; private set; }
 ```
 
-### Upon Page Object Initialization
+### Upon page object initialization
 
 ```cs
 [TakeScreenshot(TriggerEvents.Init)]
