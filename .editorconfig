@@ -17,3 +17,12 @@ indent_size = 2
 # Config files
 [*.{xml,json,yml,yaml}]
 indent_size = 2
+
+###############################
+# Visual Studio Spell Checker #
+###############################
+
+[*]
+vsspell_section_id = 484a77584dd64a119b1fb8b038d40eae
+vsspell_additional_dictionary_folders_484a77584dd64a119b1fb8b038d40eae = .
+vsspell_dictionary_languages_484a77584dd64a119b1fb8b038d40eae = en-US

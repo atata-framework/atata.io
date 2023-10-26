@@ -304,7 +304,9 @@ exclude:
   - compilerconfig.json
   - compilerconfig.json.defaults
   - .editorconfig
+  - .gitattributes
   - .gitignore
+  - en-US_User.dic
 
 links:
     atata_github: https://github.com/atata-framework/atata
