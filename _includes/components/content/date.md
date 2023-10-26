@@ -4,22 +4,17 @@ Represents any element containing date content. Default search finds the first o
 <span id="date">6/15/2009</span>
 ```
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Date<_> Date { get; private set; }
-    }
+    [FindById]
+    public Date<_> Date { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Date.Should.Equal(new DateTime(2016, 6, 15));
+Go.To<SamplePage>()
+    .Date.Should.Equal(new DateTime(2016, 6, 15));
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.

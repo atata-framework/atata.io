@@ -28,23 +28,18 @@ public class HiddenInput<TOwner> : HiddenInput<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITets
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public HiddenInput<_> SomeHidden { get; private set; }
-    }
+    public HiddenInput<_> SomeHidden { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    SomeHidden.Get(out string hiddenValue). // Gets value and sets to variable.
-    SomeHidden.Should.Equal("somedata"); // Verifies value.
+Go.To<SamplePage>()
+    .SomeHidden.Get(out string hiddenValue) // Gets value and sets to variable.
+    .SomeHidden.Should.Equal("somedata"); // Verifies value.
 ```
 {:.test}

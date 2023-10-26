@@ -10,43 +10,33 @@ Supports `[GoTemporarily]` settings attribute.
 ### Clickable Control
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById("open-button")]
-        public Clickable<_> OpenButton { get; private set; }
-    }
+    [FindById("open-button")]
+    public Clickable<_> OpenButton { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    OpenButton.Click();
+Go.To<SamplePage>()
+    .OpenButton.Click();
 ```
 
 ### Clickable Delegate
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById("open-button")]
-        public ClickableDelegate<_> Open { get; private set; }
-    }
+    [FindById("open-button")]
+    public ClickableDelegate<_> Open { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Open();
+Go.To<SamplePage>()
+    .Open();
 ```
 
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Open.Should().BePresent()`.
@@ -57,39 +47,29 @@ As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` propert
 It is possible to pass another gereric argument of `PageObject` type, meaning that after the click the navigation to this `PageObject` should be performed. Works the same way for the control and delegate.
 
 ```cs
-using Atata;
+using _ = ItemsPage;
 
-namespace SampleApp.UITests
+public class ItemsPage : Page<_>
 {
-    using _ = ItemsPage;
-
-    public class ItemsPage : Page<_>
-    {
-        public ClickableDelegate<ItemPage, _> Open { get; private set; }
-    }
+    public ClickableDelegate<ItemPage, _> Open { get; private set; }
 }
 ```
 ```cs
-using Atata;
+using _ = ItemPage;
 
-namespace SampleApp.UITests
+public class ItemPage : Page<_>
 {
-    using _ = ItemPage;
-
-    public class ItemPage : Page<_>
-    {
-        public Clickable<ItemsPage, _> GoBack { get; private set; }
-    }
+    public Clickable<ItemsPage, _> GoBack { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage1>().
-    Open().
-        GoBack.ClickAndGo();
+Go.To<SamplePage1>()
+    .Open()
+    .GoBack.ClickAndGo();
 ```
 
 Note that `Open` delegate property is being used as the method that returns the instance of `ItemPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `Clickable` class type.
-{:class="info"}
+{:.info}
 
 ### Methods
 

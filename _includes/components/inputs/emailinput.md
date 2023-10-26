@@ -22,23 +22,18 @@ public class EmailInput<TOwner> : Input<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public EmailInput<_> Email { get; private set; }
-    }
+    [FindById]
+    public EmailInput<_> Email { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Email.Set("some@mail.com");
+Go.To<SamplePage>()
+    .Email.Set("some@mail.com");
 ```
 {:.test}

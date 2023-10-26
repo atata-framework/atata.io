@@ -39,27 +39,22 @@ Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindByName]
-        public TextArea<_> Description { get; private set; }
-    }
+    [FindByName]
+    public TextArea<_> Description { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Description.Set("some").
-    Description.Append(" text").
-    Description.Should.Equal("some text").
-    Description.Clear().
-    Description.Should.BeEmpty();
+Go.To<SamplePage>()
+    .Description.Set("some")
+    .Description.Type(" text")
+    .Description.Should.Equal("some text")
+    .Description.Clear()
+    .Description.Should.BeEmpty();
 ```
 {:.test}

@@ -4,22 +4,17 @@ Represents any element containing date and time content. Default search finds th
 <span id="date-time">5/15/2016 1:45 PM</span>
 ```
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public DateTime<_> DateTime { get; private set; }
-    }
+    [FindById]
+    public DateTime<_> DateTime { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    DateTime.Should.Equal(new DateTime(2016, 5, 15, 13, 45, 0));
+Go.To<SamplePage>()
+    .DateTime.Should.Equal(new DateTime(2016, 5, 15, 13, 45, 0));
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.

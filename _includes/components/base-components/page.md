@@ -16,18 +16,13 @@ public class Page<TOwner> : PageObject<TOwner>
 #### Example
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+[VerifyTitle("Sample Page")]
+[VerifyContent("Some inner text")]
+[Url("some/page")]
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    [VerifyTitle("Sample Page")]
-    [VerifyContent("Some inner text")]
-    [Url("some/page")]
-    public class SamplePage : Page<_>
-    {
-    }
 }
 ```
 {:.page-object}

@@ -42,24 +42,19 @@ Component.IsLoaded.Should.BeTrue();
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Image<_> SomeImage { get; private set; }
-    }
+    [FindById]
+    public Image<_> SomeImage { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    SomeImage.Source.Should.EndWith("/images/300x50.png").
-    SomeImage.IsLoaded.Should.BeTrue();
+Go.To<SamplePage>()
+    .SomeImage.Source.Should.EndWith("/images/300x50.png")
+    .SomeImage.IsLoaded.Should.BeTrue();
 ```
 {:.test}

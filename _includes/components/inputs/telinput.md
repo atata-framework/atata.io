@@ -22,23 +22,18 @@ public class TelInput<TOwner> : Input<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public TelInput<_> Phone { get; private set; }
-    }
+    [FindById]
+    public TelInput<_> Phone { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Phone.Set("+1234567890");
+Go.To<SamplePage>()
+    .Phone.Set("+1234567890");
 ```
 {:.test}

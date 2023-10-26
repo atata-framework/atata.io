@@ -27,29 +27,24 @@ public class ListItem<TOwner> : Control<TOwner>
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    public UnorderedList<ListItem<_>, _> UnorderedList { get; private set; }
 
-    public class SamplePage : Page<_>
-    {
-        public UnorderedList<ListItem<_>, _> UnorderedList { get; private set; }
-
-        public OrderedList<ListItem<_>, _> OrderedList { get; private set; }
-    }
+    public OrderedList<ListItem<_>, _> OrderedList { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    UnorderedList.Items.Count.Should.Equal(2).
-    UnorderedList.Items[0].Content.Should.Equal("Item 1").
+Go.To<SamplePage>()
+    .UnorderedList.Items.Count.Should.Equal(2)
+    .UnorderedList.Items[0].Content.Should.Equal("Item 1")
 
-    OrderedList.Items.Should.Not.BeEmpty().
-    OrderedList.Items.Contents.Should.EqualSequence("Item 1", "Item 2");
+    .OrderedList.Items.Should.Not.BeEmpty()
+    .OrderedList.Items.Contents.Should.EqualSequence("Item 1", "Item 2");
 ```
 {:.test}
 

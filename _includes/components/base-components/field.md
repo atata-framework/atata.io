@@ -47,16 +47,23 @@ The example of ``RadioButton`1`` control that is inherited from ``Field`2``:
 public class RadioButton<TOwner> : Field<bool, TOwner>
     where TOwner : PageObject<TOwner>
 {
-    public ValueProvider<bool, TOwner> IsChecked => CreateValueProvider("checked state", () => Value);
+    public ValueProvider<bool, TOwner> IsChecked =>
+        CreateValueProvider("checked state", () => Value);
 
-    protected override bool GetValue()
-    {
-        return Scope.Selected;
-    }
+    protected override bool GetValue() =>
+        Scope.Selected;
 
     public TOwner Check()
     {
-        return Click();
+        OnCheck();
+
+        return Owner;
+    }
+
+    protected virtual void OnCheck()
+    {
+        if (!IsChecked)
+            Click();
     }
 }
 ```

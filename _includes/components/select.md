@@ -74,26 +74,21 @@ public enum CarBrand
 #### Select By Text
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Select<CarBrand, _> Brand { get; private set; }
-    }
+    [FindById]
+    public Select<CarBrand, _> Brand { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Brand.Should.Equal(CarBrand.None).
-    Brand.Set(CarBrand.Audi).
-    Brand.Should.Equal(CarBrand.Audi);
+Go.To<SamplePage>()
+    .Brand.Should.Equal(CarBrand.None)
+    .Brand.Set(CarBrand.Audi)
+    .Brand.Should.Equal(CarBrand.Audi);
 ```
 {:.test}
 
@@ -102,18 +97,13 @@ Go.To<SamplePage>().
 You just need to mark the select property with `[SelectByValue]` attribute and optionally set settings like `Case` and `Format`.
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        [SelectByValue(TermCase.Lower)]
-        public Select<CarBrand, _> Brand { get; private set; }
-    }
+    [FindById]
+    [SelectByValue(TermCase.Lower)]
+    public Select<CarBrand, _> Brand { get; private set; }
 }
 ```
 {:.page-object}
@@ -127,25 +117,20 @@ namespace SampleApp.UITests
 Don't pass data generic type argument to use string variant of control, simply use `Select<_>` (or alternatively `Select<string, _>`).
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Select<_> Brand { get; private set; }
-    }
+    [FindById]
+    public Select<_> Brand { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Brand.Set("Audi").
-    Brand.Should.Equal("Audi");
+Go.To<SamplePage>()
+    .Brand.Set("Audi")
+    .Brand.Should.Equal("Audi");
 ```
 {:.test}
 
@@ -166,25 +151,20 @@ The following sample shows how to select using `int` type together with the form
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        [Format("Priority {0}")]
-        public Select<int, _> Priority { get; private set; }
-    }
+    [FindById]
+    [Format("Priority {0}")]
+    public Select<int, _> Priority { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Priority.Set(3).
-    Priority.Should.Equal(3);
+Go.To<SamplePage>()
+    .Priority.Set(3)
+    .Priority.Should.Equal(3);
 ```
 {:.test}

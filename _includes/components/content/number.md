@@ -4,22 +4,17 @@ Represents any element containing number content. Default search finds the first
 <span id="amount">15</span>
 ```
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Number<_> Amount { get; private set; }
-    }
+    [FindById]
+    public Number<_> Amount { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Amount.Should.Equal(15);
+Go.To<SamplePage>()
+    .Amount.Should.Equal(15);
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.

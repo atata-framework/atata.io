@@ -47,26 +47,21 @@ public enum SomeOption
 ```
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindByName]
-        public RadioButtonList<SomeOption?, _> Options { get; private set; }
-    }
+    [FindByName]
+    public RadioButtonList<SomeOption?, _> Options { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Options.Should.Equal(null).
-    Options.Set(SomeOptions.OptionB).
-    Options.Should.Equal(SomeOptions.OptionB);
+Go.To<SamplePage>()
+    .Options.Should.Equal(null)
+    .Options.Set(SomeOptions.OptionB)
+    .Options.Should.Equal(SomeOptions.OptionB);
 ```
 {:.test}
 
@@ -75,26 +70,21 @@ Go.To<SamplePage>().
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindByName]
-        [FindItemByValue]
-        public RadioButtonList<string, _> Options { get; private set; }
-    }
+    [FindByName]
+    [FindItemByValue]
+    public RadioButtonList<string, _> Options { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Options.Should.Equal(null).
-    Options.Set("OptionB").
-    Options.Should.Equal("OptionB");
+Go.To<SamplePage>()
+    .Options.Should.Equal(null)
+    .Options.Set("OptionB")
+    .Options.Should.Equal("OptionB");
 ```
 {:.test}

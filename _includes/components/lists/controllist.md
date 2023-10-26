@@ -18,7 +18,7 @@ public class ControlList<TItem, TOwner> : UIComponentPart<TOwner>, ISupportsMeta
 Gets the `ValueProvider<int, TOwner>` instance for the controls count.
 
 ```cs
-Items.Count.Get();
+int count = Items.Count.Value;
 Items.Count.Should.Equal(5);
 ```
 
@@ -118,40 +118,36 @@ Selects the specified data (property) set of each control. Data can be a sub-con
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    public ControlList<ProductItem, _> Products { get; private set; }
 
-    public class SamplePage : Page<_>
+    [ControlDefinition("div", ContainingClass = "product")]
+    public class ProductItem : Control<_>
     {
-        public ControlList<ProductItem, _> Products { get; private set; }
+        public H5<_> Title { get; private set; }
 
-        [ControlDefinition("div", ContainingClass = "product")]
-        public class ProductItem : Control<_>
-        {
-            public H5<_> Title { get; private set; }
-
-            [FindByClass]
-            public Number<_> Amount { get; private set; }
-        }
+        [FindByClass]
+        public Number<_> Amount { get; private set; }
     }
 }
 ```
 {:.page-object}
+
 ```cs
-Go.To<SamplePage>().
-    Products.Count.Should.Equal(2).
-    Products[0].Title.Should.Equal("Product 1").
-    Do(_ => _.Products[1], x =>
+Go.To<SamplePage>()
+    .Products.Count.Should.Equal(2)
+    .Products[0].Title.Should.Equal("Product 1")
+    .Do(_ => _.Products[1], x =>
     {
         x.Title.Should.Equal("Product 2");
         x.Amount.Should.Equal(10);
-    }).
-    Products[x => x.Title == "Product 1"].Amount.Should.Equal(5).
-    Products[x => x.Title == "Product 3"].Should.Not.BePresent().
-    Products.IndexOf(x => x.Title == "Product 2").Should.Equal(1).
-    SelectData(x => x.Title).Should.EqualSequence("Product 1", "Product 2");
+    })
+    .Products[x => x.Title == "Product 1"].Amount.Should.Equal(5)
+    .Products[x => x.Title == "Product 3"].Should.Not.BePresent()
+    .Products.IndexOf(x => x.Title == "Product 2").Should.Equal(1)
+    .SelectData(x => x.Title).Should.EqualSequence("Product 1", "Product 2");
 ```
 {:.test}

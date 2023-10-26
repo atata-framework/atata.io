@@ -22,17 +22,12 @@ public class PasswordInput<TOwner> : Input<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindFirst]
-        public PasswordInput<_> Password { get; private set; }
-    }
+    [FindFirst]
+    public PasswordInput<_> Password { get; private set; }
 }
 ```
 {:.page-object}
@@ -40,8 +35,8 @@ namespace SampleApp.UITests
 ```cs
 string password;
 
-Go.To<SamplePage>().
-    Password.SetRandom(out password).
-    Password.Should.Equal(password);
+Go.To<SamplePage>()
+    .Password.SetRandom(out password)
+    .Password.Should.Equal(password);
 ```
 {:.test}

@@ -16,21 +16,16 @@ Supports `[GoTemporarily]` settings attribute.
 ### Button Control
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public Button<_> Save { get; private set; }
-    }
+    public Button<_> Save { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Save.Click();
+Go.To<SamplePage>()
+    .Save.Click();
 ```
 
 ### Button Delegate
@@ -38,21 +33,16 @@ Go.To<SamplePage>().
 It is recommended to use `Button` delegate as it simplifies the use by eliminating `Click` and `ClickAndGo` methods.
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public ButtonDelegate<_> Save { get; private set; }
-    }
+    public ButtonDelegate<_> Save { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Save();
+Go.To<SamplePage>()
+    .Save();
 ```
 
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Save.Should().BePresent()`.
@@ -63,35 +53,25 @@ As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` propert
 It is possible to pass another generic argument of `PageObject` type, meaning that after the click on the button the navigation to this `PageObject` is performed. It works the same way for the control and delegate.
 
 ```cs
-using Atata;
+using _ = SamplePage1;
 
-namespace SampleApp.UITests
+public class SamplePage1 : Page<_>
 {
-    using _ = SamplePage1;
-
-    public class SamplePage1 : Page<_>
-    {
-        public ButtonDelegate<SamplePage2, _> Save { get; private set; }
-    }
+    public ButtonDelegate<SamplePage2, _> Save { get; private set; }
 }
 ```
 ```cs
-using Atata;
+using _ = SamplePage2;
 
-namespace SampleApp.UITests
+public class SamplePage2 : Page<_>
 {
-    using _ = SamplePage2;
-
-    public class SamplePage2 : Page<_>
-    {
-        public Button<SamplePage1, _> GoBack { get; private set; }
-    }
+    public Button<SamplePage1, _> GoBack { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage1>().
-    Save().
-        GoBack.ClickAndGo();
+Go.To<SamplePage1>()
+    .Save()
+    .GoBack.ClickAndGo();
 ```
 
 Note that `Save` delegate property is used as the method that returns the instance of `SamplePage2` class. But for `GoBack` property it is required to call `ClickAndGo` method as it is a property of `Button` class type.

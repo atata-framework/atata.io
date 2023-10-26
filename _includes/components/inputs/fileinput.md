@@ -22,23 +22,18 @@ public class FileInput<TOwner> : Input<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public FileInput<_> SomeFile { get; private set; }
-    }
+    [FindById]
+    public FileInput<_> SomeFile { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    SomeFile.Set(@"d:\some\file\path.txt");
+Go.To<SamplePage>()
+    .SomeFile.Set(@"d:\some\file\path.txt");
 ```
 {:.test}

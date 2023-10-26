@@ -54,44 +54,34 @@ If `temporarily` is to `true`, navigates temporarily preserving current page obj
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public Frame<_> ContentFrame { get; private set; }
-    }
+    public Frame<_> ContentFrame { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-using Atata;
+using _ = FramePage;
 
-namespace SampleApp.UITests
+public class FramePage : Page<_>
 {
-    using _ = FramePage;
-
-    public class FramePage : Page<_>
-    {
-        [FindById]
-        public TextInput<_> TextBox { get; private set; }
-    }
+    [FindById]
+    public TextInput<_> TextBox { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    ContentFrame.SwitchTo<FramePage>(temporarily: true).
-        TextBox.Set("abc").
-        SwitchToRoot<SamplePage>().
+Go.To<SamplePage>()
+    .ContentFrame.SwitchTo<FramePage>(temporarily: true)
+        .TextBox.Set("abc")
+        .SwitchToRoot<SamplePage>()
     // Or use DoWithin method
-    ContentFrame.DoWithin<FramePage>(
-        x => x.TextBox.Should.Equal("abc"));
+    .ContentFrame.DoWithin<FramePage>(x => x
+        .TextBox.Should.Equal("abc"));
 ```
 {:.test}
 
@@ -146,48 +136,36 @@ If `temporarily` is to `true`, navigates temporarily preserving current page obj
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public Frame<FramePage, _> ContentFrame { get; private set; }
-    }
+    public Frame<FramePage, _> ContentFrame { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-using Atata;
+using _ = FramePage;
 
-namespace SampleApp.UITests
+public class FramePage : Page<_>
 {
-    using _ = FramePage;
+    [FindById]
+    public TextInput<_> TextBox { get; private set; }
 
-    public class FramePage : Page<_>
-    {
-        [FindById]
-        public TextInput<_> TextBox { get; private set; }
-
-        public SamplePage SwitchBack()
-        {
-            return SwitchToRoot<SamplePage>();
-        }
-    }
+    public SamplePage SwitchBack() =>
+        SwitchToRoot<SamplePage>();
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    ContentFrame.SwitchTo().
-        TextBox.Set("abc").
-        SwitchBack().
+Go.To<SamplePage>()
+    .ContentFrame.SwitchTo()
+        .TextBox.Set("abc")
+        .SwitchBack()
     // Or use DoWithin method
-    ContentFrame.DoWithin(
-        x => x.TextBox.Should.Equal("abc"));
+    .ContentFrame.DoWithin(x => x
+        .TextBox.Should.Equal("abc"));
 ```
 {:.test}

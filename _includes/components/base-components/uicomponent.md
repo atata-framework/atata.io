@@ -109,7 +109,7 @@ Component.Content.Should.Contain("some value");
 Gets the verification provider that gives a set of verification extension methods.
 
 ```cs
-Component.Should.Exist();
+Component.Should.BePresent();
 Component.Should.Not.BeHidden();
 Component.Should.BeDisabled();
 ```

@@ -23,17 +23,12 @@ public class TimeInput<TOwner> : Input<TimeSpan?, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById(TermCase.Camel)]
-        public TimeInput<_> EventTime { get; private set; }
-    }
+    [FindById(TermCase.Camel)]
+    public TimeInput<_> EventTime { get; private set; }
 }
 ```
 {:.page-object}
@@ -41,9 +36,9 @@ namespace SampleApp.UITests
 ```cs
 TimeSpan time = TimeSpan.FromHours(11.5);
 
-Go.To<SamplePage>().
-    EventTime.Should.BeNull().
-    EventTime.Set(time).
-    EventTime.Should.Equal(time);
+Go.To<SamplePage>()
+    .EventTime.Should.BeNull()
+    .EventTime.Set(time)
+    .EventTime.Should.Equal(time);
 ```
 {:.test}

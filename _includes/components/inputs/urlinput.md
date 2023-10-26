@@ -22,23 +22,18 @@ public class UrlInput<TOwner> : Input<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public UrlInput<_> SomeUrl { get; private set; }
-    }
+    [FindById]
+    public UrlInput<_> SomeUrl { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    SomeUrl.Set("http://someurl.com");
+Go.To<SamplePage>()
+    .SomeUrl.Set("http://someurl.com");
 ```
 {:.test}

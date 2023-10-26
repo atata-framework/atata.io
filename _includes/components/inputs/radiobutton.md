@@ -45,29 +45,24 @@ Checks the control. Also executes `TriggerEvents.BeforeClick` and `TriggerEvents
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    [FindById(TermCase.LowerMerged)]
+    public RadioButton<_> Option1 { get; private set; }
 
-    public class SamplePage : Page<_>
-    {
-        [FindById(TermCase.LowerMerged)]
-        public RadioButton<_> Option1 { get; private set; }
-
-        [FindById(TermCase.LowerMerged)]
-        public RadioButton<_> Option2 { get; private set; }
-    }
+    [FindById(TermCase.LowerMerged)]
+    public RadioButton<_> Option2 { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Option1.Should.BeChecked().
-    Option2.Check().
-    Option1.Should.BeUnchecked().
-    Option2.Should.BeChecked();
+Go.To<SamplePage>()
+    .Option1.Should.BeChecked()
+    .Option2.Check()
+    .Option1.Should.BeUnchecked()
+    .Option2.Should.BeChecked();
 ```
 {:.test}

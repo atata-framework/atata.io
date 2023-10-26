@@ -23,17 +23,12 @@ public class TextInput<TOwner> : Input<string, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public TextInput<_> FirstName { get; private set; }
-    }
+    [FindById]
+    public TextInput<_> FirstName { get; private set; }
 }
 ```
 {:.page-object}

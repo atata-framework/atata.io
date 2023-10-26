@@ -36,43 +36,38 @@ public class UnorderedList<TItem, TOwner> : ItemsControl<TItem, TOwner>
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    [FindById("simple")]
+    public UnorderedList<ListItem<_>, _> SimpleUnorderedList { get; private set; }
 
-    public class SamplePage : Page<_>
+    [FindById]
+    public UnorderedList<ProductItem, _> ProductList { get; private set; }
+
+    public class ProductItem : ListItem<_>
     {
-        [FindById("simple")]
-        public UnorderedList<ListItem<_>, _> SimpleUnorderedList { get; private set; }
+        [FindByIndex(0)]
+        public Text<_> Name { get; private set; }
 
-        [FindById]
-        public UnorderedList<ProductItem, _> ProductList { get; private set; }
-
-        public class ProductItem : ListItem<_>
-        {
-            [FindByIndex(0)]
-            public Text<_> Name { get; private set; }
-
-            [FindByIndex(1)]
-            public Number<_> Amount { get; private set; }
-        }
+        [FindByIndex(1)]
+        public Number<_> Amount { get; private set; }
     }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    SimpleUnorderedList.Items.Count.Should.Equal(2).
-    SimpleUnorderedList.Items[0].Content.Should.Equal("Item 1").
-    SimpleUnorderedList.Items.Contents.Should.EqualSequence("Item 1", "Item 2").
+Go.To<SamplePage>()
+    .SimpleUnorderedList.Items.Count.Should.Equal(2)
+    .SimpleUnorderedList.Items[0].Content.Should.Equal("Item 1")
+    .SimpleUnorderedList.Items.Contents.Should.EqualSequence("Item 1", "Item 2")
 
-    ProductList.Items.Count.Should.Equal(3).
-    ProductList.Items[0].Name.Should.Equal("Phone").
-    ProductList.Items[0].Amount.Should.Equal(20).
-    ProductList.Items[x => x.Name == "Book"].Amount.Should.Equal(30).
-    ProductList.Items.SelectData(x => x.Name).Should.EqualSequence("Phone", "Book", "Table");
+    .ProductList.Items.Count.Should.Equal(3)
+    .ProductList.Items[0].Name.Should.Equal("Phone")
+    .ProductList.Items[0].Amount.Should.Equal(20)
+    .ProductList.Items[x => x.Name == "Book"].Amount.Should.Equal(30)
+    .ProductList.Items.SelectData(x => x.Name).Should.EqualSequence("Phone", "Book", "Table");
 ```
 {:.test}

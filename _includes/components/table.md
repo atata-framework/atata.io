@@ -75,25 +75,20 @@ Table.Rows[x => x.Content == "some content"].Click();
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    [FindById]
+    public Table<ProductTableRow, _> Products { get; private set; }
 
-    public class SamplePage : Page<_>
+    public class ProductTableRow : TableRow<_>
     {
-        [FindById]
-        public Table<ProductTableRow, _> Products { get; private set; }
+        public Text<_> Name { get; private set; }
 
-        public class ProductTableRow : TableRow<_>
-        {
-            public Text<_> Name { get; private set; }
+        public Number<_> Amount { get; private set; }
 
-            public Number<_> Amount { get; private set; }
-
-            public Button<_> Delete { get; private set; }
-        }
+        public Button<_> Delete { get; private set; }
     }
 }
 ```
@@ -103,9 +98,9 @@ Default search of the properties of type `Content` and inherited (e.g. `Name` an
 {:.info}
 
 ``` cs
-Go.To<SamplePage>().
-    Products.Rows[x => x.Name == "Item 1"].Amount.Should.Equal(5).
-    Products.Rows[x => x.Name == "Item 1"].Delete().
-    Products.Rows[x => x.Name == "Item 1"].Should.Not.BePresent();
+Go.To<SamplePage>()
+    .Products.Rows[x => x.Name == "Item 1"].Amount.Should.Equal(5)
+    .Products.Rows[x => x.Name == "Item 1"].Delete()
+    .Products.Rows[x => x.Name == "Item 1"].Should.Not.BePresent();
 ```
 {:.test}

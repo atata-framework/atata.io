@@ -68,36 +68,31 @@ ItemsControl[x => x.Content == "Some content"].Should.Not.BePresent();
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    [FindById]
+    public ItemsControl<ProductItem, _> Products { get; private set; }
 
-    public class SamplePage : Page<_>
+    [ControlDefinition("div", ContainingClass = "product", ComponentTypeName = "product item")]
+    public class ProductItem : Control<_>
     {
-        [FindById]
-        public ItemsControl<ProductItem, _> Products { get; private set; }
+        public H5<_> Title { get; private set; }
 
-        [ControlDefinition("div", ContainingClass = "product", ComponentTypeName = "product item")]
-        public class ProductItem : Control<_>
-        {
-            public H5<_> Title { get; private set; }
-
-            [FindByXPath("span")]
-            public Text<_> Description { get; private set; }
-        }
+        [FindByXPath("span")]
+        public Text<_> Description { get; private set; }
     }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Products.Attributes.Class.Should.Contain("product-list").
-    Products.Items.Count.Should.Equal(2).
-    Products.Items[0].Title.Should.Equal("Product 1").
-    Do(_ => _.Products.Items[1], x =>
+Go.To<SamplePage>()
+    .Products.Attributes.Class.Should.Contain("product-list")
+    .Products.Items.Count.Should.Equal(2)
+    .Products.Items[0].Title.Should.Equal("Product 1")
+    .Do(_ => _.Products.Items[1], x =>
     {
         x.Title.Should.Equal("Product 2");
         x.Description.Should.Equal("Some description");

@@ -18,39 +18,33 @@ public abstract class PopupWindow<TOwner> : PageObject<TOwner>
 The example of popup component for [Bootstrap's Modal](http://getbootstrap.com/javascript/#modals) implemented in [atata-framework/atata-bootstrap](https://github.com/atata-framework/atata-bootstrap):
 
 ```cs
-namespace Atata.Bootstrap
+namespace Atata.Bootstrap;
+
+[PageObjectDefinition("div", ContainingClass = "modal", ComponentTypeName = "modal", IgnoreNameEndings = "PopupWindow,Window,Popup,Modal")]
+[WindowTitleElementDefinition(ContainingClass = TitleClassName)]
+public abstract class BSModal<TOwner> : PopupWindow<TOwner>
+    where TOwner : BSModal<TOwner>
 {
-    [PageObjectDefinition("div", ContainingClass = "modal", ComponentTypeName = "modal", IgnoreNameEndings = "PopupWindow,Window,Popup,Modal")]
-    [WindowTitleElementDefinition(ContainingClass = TitleClassName)]
-    public abstract class BSModal<TOwner> : PopupWindow<TOwner>
-        where TOwner : BSModal<TOwner>
+    private const string TitleClassName = "modal-title";
+
+    protected BSModal(params string[] windowTitleValues)
+        : base(windowTitleValues)
     {
-        private const string TitleClassName = "modal-title";
-
-        protected BSModal(params string[] windowTitleValues)
-            : base(windowTitleValues)
-        {
-        }
-
-        [FindByClass(TitleClassName)]
-        public Text<TOwner> ModalTitle { get; private set; }
     }
+
+    [FindByClass(TitleClassName)]
+    public Text<TOwner> ModalTitle { get; private set; }
 }
 ```
 
 Implementation of the specific modal having the title "Some Modal":
 
 ```cs
-using Atata;
+using _ = SampleModal;
 
-namespace SampleApp.UITests
+[WindowTitle("Some Modal")]
+public class SampleModal : BSModal<_>
 {
-    using _ = SampleModal;
-
-    [WindowTitle("Some Modal")]
-    public class SampleModal : BSModal<_>
-    {
-    }
 }
 ```
 {:.page-object}

@@ -26,17 +26,12 @@ public class DateInput<TOwner> : Input<DateTime?, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public DateInput<_> Birthday { get; private set; }
-    }
+    [FindById]
+    public DateInput<_> Birthday { get; private set; }
 }
 ```
 {:.page-object}
@@ -44,9 +39,9 @@ namespace SampleApp.UITests
 ```cs
 DateTime birthday = new DateTime(1980, 7, 9);
 
-Go.To<SamplePage>().
-    Birthday.Should.BeNull().
-    Birthday.Set(birthday).
-    Birthday.Should.Equal(birthday);
+Go.To<SamplePage>()
+    .Birthday.Should.BeNull()
+    .Birthday.Set(birthday)
+    .Birthday.Should.Equal(birthday);
 ```
 {:.test}

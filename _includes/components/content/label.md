@@ -4,22 +4,17 @@ Represents the `<label>` element. Default search is performed by the content.
 <label for="first-name">First Name</p>
 ```
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public Label<_> FirstNameLabel { get; private set; }
-    }
+    public Label<_> FirstNameLabel { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    FirstNameLabel.Should.Equal("First Name").
-    FirstNameLabel.Attributes.For.Should.Equal("first-name");
+Go.To<SamplePage>()
+    .FirstNameLabel.Should.Equal("First Name")
+    .FirstNameLabel.Attributes.For.Should.Equal("first-name");
 ```
 
 Supports `[Format]` settings attribute.

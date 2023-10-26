@@ -107,7 +107,7 @@ namespace AtataSamples.ConfirmationPopups
                 .Products.Rows.Count.Get(out int count)
 
                 .Products.Rows[x => x.Name == "Table"].DeleteUsingJSConfirm()
-                .Products.Rows[x => x.Name == "Table"].Should.Not.Exist()
+                .Products.Rows[x => x.Name == "Table"].Should.Not.BePresent()
                 .Products.Rows.Count.Should.Equal(count - 1);
         }
     }
@@ -174,12 +174,12 @@ public void DeleteUsingBSModal()
 
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal()
             .Cancel() // Cancel and verify that nothing is deleted.
-        .Products.Rows[x => x.Name == "Chair"].Should.Exist()
+        .Products.Rows[x => x.Name == "Chair"].Should.BePresent()
         .Products.Rows.Count.Should.Equal(count)
 
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal()
             .Delete() // Delete and verify that item is deleted.
-        .Products.Rows[x => x.Name == "Chair"].Should.Not.Exist()
+        .Products.Rows[x => x.Name == "Chair"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```
@@ -247,7 +247,7 @@ public void DeleteUsingBSModal_ViaTrigger()
         .Products.Rows.Count.Get(out int count)
 
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModalViaTrigger()
-        .Products.Rows[x => x.Name == "Chair"].Should.Not.Exist()
+        .Products.Rows[x => x.Name == "Chair"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```
@@ -377,12 +377,12 @@ public void DeleteUsingJQueryConfirm()
 
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm()
             .Cancel() // Cancel and verify that nothing is deleted.
-        .Products.Rows[x => x.Name == "Desk"].Should.Exist()
+        .Products.Rows[x => x.Name == "Desk"].Should.BePresent()
         .Products.Rows.Count.Should.Equal(count)
 
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm()
             .Delete() // Delete and verify that item is deleted.
-        .Products.Rows[x => x.Name == "Desk"].Should.Not.Exist()
+        .Products.Rows[x => x.Name == "Desk"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
 }
 
@@ -393,7 +393,7 @@ public void DeleteUsingJQueryConfirm_ViaTrigger()
         .Products.Rows.Count.Get(out int count)
 
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirmViaTrigger()
-        .Products.Rows[x => x.Name == "Desk"].Should.Not.Exist()
+        .Products.Rows[x => x.Name == "Desk"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```

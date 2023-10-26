@@ -4,22 +4,17 @@ Represents any element containing currency content. Default search finds the fir
 <span id="price">$1,054.50</span>
 ```
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Currency<_> Price { get; private set; }
-    }
+    [FindById]
+    public Currency<_> Price { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Price.Should.Equal(1054.50m);
+Go.To<SamplePage>()
+    .Price.Should.Equal(1054.50m);
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.

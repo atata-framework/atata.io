@@ -14,22 +14,17 @@ public enum Status
 }
 ```
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public Content<Status, _> Status { get; private set; }
-    }
+    [FindById]
+    public Content<Status, _> Status { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Status.Should.Equal(Status.Success);
+Go.To<SamplePage>()
+    .Status.Should.Equal(Status.Success);
 ```
 
 Supports `[Format]` and `[Culture]` settings attributes.

@@ -74,29 +74,24 @@ The example of ``CheckBox`1`` control that is inherited from ``EditableField`2``
 public class CheckBox<TOwner> : EditableField<bool, TOwner>
     where TOwner : PageObject<TOwner>
 {
-    public ValueProvider<bool, TOwner> IsChecked => CreateValueProvider("checked", () => Value);
+    public ValueProvider<bool, TOwner> IsChecked =>
+        CreateValueProvider("checked state", () => Value);
 
-    protected override bool GetValue()
-    {
-        return Scope.Selected;
-    }
+    protected override bool GetValue() =>
+        Scope.Selected;
 
-    protected override void SetValue(bool value)
-    {
-        IWebElement element = Scope;
-        if (element.Selected != value)
-            element.Click();
-    }
+    protected override void SetValue(bool value) =>
+        Context.UIComponentAccessChainScopeCache.ExecuteWithin(() =>
+        {
+            if (GetValue() != value)
+                OnClick();
+        });
 
-    public TOwner Check()
-    {
-        return Set(true);
-    }
+    public TOwner Check() =>
+        Set(true);
 
-    public TOwner Uncheck()
-    {
-        return Set(false);
-    }
+    public TOwner Uncheck() =>
+        Set(false);
 }
 ```
 

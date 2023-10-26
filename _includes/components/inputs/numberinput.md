@@ -23,26 +23,21 @@ public class NumberInput<TOwner> : Input<decimal?, TOwner>
 {:.html}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindById]
-        public NumberInput<_> Amount { get; private set; }
-    }
+    [FindById]
+    public NumberInput<_> Amount { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Amount.Should.BeNull().
-    Amount.Set(25).
-    Amount.Should.Equal(25).
-    Amount.Should.BeInRange(20, 30);
+Go.To<SamplePage>()
+    .Amount.Should.BeNull()
+    .Amount.Set(25)
+    .Amount.Should.Equal(25)
+    .Amount.Should.BeInRange(20, 30);
 ```
 {:.test}

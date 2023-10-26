@@ -10,21 +10,16 @@ Supports `[GoTemporarily]` settings attribute.
 ### Link Control
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public Link<_> Create { get; private set; }
-    }
+    public Link<_> Create { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Create.Click();
+Go.To<SamplePage>()
+    .Create.Click();
 ```
 
 ### Link Delegate
@@ -32,21 +27,16 @@ Go.To<SamplePage>().
 It is recommended to use `Link` delegate as it simplifies the usage by refusing `Click` and `ClickAndGo` methods.
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        public LinkDelegate<_> Create { get; private set; }
-    }
+    public LinkDelegate<_> Create { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage>().
-    Create();
+Go.To<SamplePage>()
+    .Create();
 ```
 
 As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` properties should be performed like methods (extensions), e.g. `Create.Should().BePresent()`.
@@ -54,38 +44,28 @@ As it is a delegate type, the use of `Should`, `Content` and `IsEnabled` propert
 
 ### Navigation
 
-It is possible to pass another gereric argument of `PageObject` type, meaning that after the click the navigation to this `PageObject` should be performed. Works the same way for the control and delegate.
+It is possible to pass another generic argument of `PageObject` type, meaning that after the click the navigation to this `PageObject` should be performed. Works the same way for the control and delegate.
 
 ```cs
-using Atata;
+using _ = ItemsPage;
 
-namespace SampleApp.UITests
+public class ItemsPage : Page<_>
 {
-    using _ = ItemsPage;
-
-    public class ItemsPage : Page<_>
-    {
-        public LinkDelegate<ItemCreationPage, _> Create { get; private set; }
-    }
+    public LinkDelegate<ItemCreationPage, _> Create { get; private set; }
 }
 ```
 ```cs
-using Atata;
+using _ = ItemCreationPage;
 
-namespace SampleApp.UITests
+public class ItemCreationPage : Page<_>
 {
-    using _ = ItemCreationPage;
-
-    public class ItemCreationPage : Page<_>
-    {
-        public Link<ItemsPage, _> GoBack { get; private set; }
-    }
+    public Link<ItemsPage, _> GoBack { get; private set; }
 }
 ```
 ```cs
-Go.To<SamplePage1>().
-    Create().
-        GoBack.ClickAndGo();
+Go.To<SamplePage1>()
+    .Create()
+    .GoBack.ClickAndGo();
 ```
 
 Note that `Create` delegate property is being used as the method that returns the instance of `ItemCreationPage` class. But for `GoBack` property it is needed to call `ClickAndGo` method as it is a property of `Link` class type.

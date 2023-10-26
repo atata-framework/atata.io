@@ -68,28 +68,23 @@ Don't forget to mark the enumeration with `[Flags]` attribute and specify proper
 {:.warning}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
-
-    public class SamplePage : Page<_>
-    {
-        [FindByName]
-        public CheckBoxList<SomeOptions, _> Options { get; private set; }
-    }
+    [FindByName]
+    public CheckBoxList<SomeOptions, _> Options { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Options.Should.Equal(SomeOptions.None).
-    Options.Check(SomeOptions.OptionB | SomeOptions.OptionC).
-    Options.Should.Equal(SomeOptions.OptionB | SomeOptions.OptionC).
-    Options.Uncheck(SomeOptions.OptionB).
-    Options.Should.Equal(SomeOptions.OptionB).
-    Options.Should.Not.HaveChecked(SomeOptions.OptionC);
+Go.To<SamplePage>()
+    .Options.Should.Equal(SomeOptions.None)
+    .Options.Check(SomeOptions.OptionB | SomeOptions.OptionC)
+    .Options.Should.Equal(SomeOptions.OptionB | SomeOptions.OptionC)
+    .Options.Uncheck(SomeOptions.OptionB)
+    .Options.Should.Equal(SomeOptions.OptionB)
+    .Options.Should.Not.HaveChecked(SomeOptions.OptionC);
 ```
 {:.test}

@@ -50,29 +50,24 @@ Unchecks the control. Also executes `TriggerEvents.BeforeSet` and `TriggerEvents
 {% include htmlexample.html html=html %}
 
 ```cs
-using Atata;
+using _ = SamplePage;
 
-namespace SampleApp.UITests
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    [FindByLabel]
+    public CheckBox<_> Option1 { get; private set; }
 
-    public class SamplePage : Page<_>
-    {
-        [FindByLabel]
-        public CheckBox<_> Option1 { get; private set; }
-
-        [FindByLabel]
-        public CheckBox<_> Option2 { get; private set; }
-    }
+    [FindByLabel]
+    public CheckBox<_> Option2 { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SamplePage>().
-    Option1.Check().
-    Option1.Should.BeChecked().
-    Option2.Uncheck().
-    Option2.Should.Not.BeChecked();
+Go.To<SamplePage>()
+    .Option1.Check()
+    .Option1.Should.BeChecked()
+    .Option2.Uncheck()
+    .Option2.Should.Not.BeChecked();
 ```
 {:.test}
