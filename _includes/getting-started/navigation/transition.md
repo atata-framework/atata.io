@@ -17,21 +17,20 @@ For example, having 3 simple pages on a site:
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = UsersPage;
+
+[Url("users")]
+public class UsersPage : Page<_>
 {
-    using _ = UsersPage;
+    public Link<UserEditorPage, _> New { get; private set; }
 
-    [Url("users")]
-    public class UsersPage : Page<_>
+    public Table<UserTableRow, _> Users { get; private set; }
+
+    public class UserTableRow : TableRow<_>, INavigable<UserDetailsPage, _>
     {
-        public Link<UserEditorPage, _> New { get; private set; }
-
-        public Table<UserTableRow, _> Users { get; private set; }
-
-        public class UserTableRow : TableRow<_>, INavigable<UserDetailsPage, _>
-        {
-            public Text<_> Name { get; private set; }
-        }
+        public Text<_> Name { get; private set; }
     }
 }
 ```
@@ -43,16 +42,15 @@ namespace SampleApp.UITests
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = UserEditorPage;
+
+public class UserEditorPage : Page<_>
 {
-    using _ = UserEditorPage;
+    public TextInput<_> Name { get; private set; }
 
-    public class UserEditorPage : Page<_>
-    {
-        public TextInput<_> Name { get; private set; }
-
-        public Button<UsersPage, _> Save { get; private set; }
-    }
+    public Button<UsersPage, _> Save { get; private set; }
 }
 ```
 {:.page-object}
@@ -63,14 +61,13 @@ namespace SampleApp.UITests
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = UserDetailsPage;
+namespace SampleApp.UITests;
 
-    public class UserDetailsPage : Page<_>
-    {
-        public H1<_> Name { get; private set; }
-    }
+using _ = UserDetailsPage;
+
+public class UserDetailsPage : Page<_>
+{
+    public H1<_> Name { get; private set; }
 }
 ```
 {:.page-object}
