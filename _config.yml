@@ -73,6 +73,7 @@ getting-started:
       - Go
       - By Static URL
       - By Dynamic URL
+      - By Combined URL
       - Transition
   - name: Screenshots Taking
   - name: Browser Logs Monitoring
