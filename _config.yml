@@ -195,6 +195,8 @@ control-search:
       - FindByTestId
       - FindByAriaLabel
       - FindByAriaLabelledBy
+      - FindByRelativeElementContent
+      - FindByPrecedingSiblingContent
       - FindFirst
       - FindLast
       - FindByIndex
