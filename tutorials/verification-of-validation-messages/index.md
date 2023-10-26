@@ -44,11 +44,10 @@ Create "Atata NUnit Test Fixture" class:
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.ValidationMessagesVerification
+namespace AtataSamples.ValidationMessagesVerification;
+
+public class SignUpTests : UITestFixture
 {
-    public class SignUpTests : UITestFixture
-    {
-    }
 }
 ```
 
@@ -62,26 +61,25 @@ Create a page object for Sign Up page:
 ```cs
 using Atata;
 
-namespace AtataSamples.ValidationMessagesVerification
+namespace AtataSamples.ValidationMessagesVerification;
+
+using _ = SignUpPage;
+
+[Url("signup")]
+public class SignUpPage : Page<_>
 {
-    using _ = SignUpPage;
+    public TextInput<_> FirstName { get; private set; }
 
-    [Url("signup")]
-    public class SignUpPage : Page<_>
-    {
-        public TextInput<_> FirstName { get; private set; }
+    public TextInput<_> LastName { get; private set; }
 
-        public TextInput<_> LastName { get; private set; }
+    public TextInput<_> Email { get; private set; }
 
-        public TextInput<_> Email { get; private set; }
+    public PasswordInput<_> Password { get; private set; }
 
-        public PasswordInput<_> Password { get; private set; }
+    [FindByLabel("I agree to terms of service and privacy policy")]
+    public CheckBox<_> Agreement { get; private set; }
 
-        [FindByLabel("I agree to terms of service and privacy policy")]
-        public CheckBox<_> Agreement { get; private set; }
-
-        public Button<_> SignUp { get; private set; }
-    }
+    public Button<_> SignUp { get; private set; }
 }
 ```
 
@@ -118,13 +116,12 @@ Validation message is a text inside the `<span>` element, so inherit it form `Te
 ```cs
 using Atata;
 
-namespace AtataSamples.ValidationMessagesVerification
+namespace AtataSamples.ValidationMessagesVerification;
+
+[ControlDefinition("div[contains(concat(' ', normalize-space(@class), ' '), ' has-error ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' help-block ')]")]
+public class ValidationMessage<TOwner> : Text<TOwner>
+    where TOwner : PageObject<TOwner>
 {
-    [ControlDefinition("div[contains(concat(' ', normalize-space(@class), ' '), ' has-error ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' help-block ')]")]
-    public class ValidationMessage<TOwner> : Text<TOwner>
-        where TOwner : PageObject<TOwner>
-    {
-    }
 }
 ```
 
@@ -137,22 +134,21 @@ And now we need to define a class representing the collection of validation mess
 using Atata;
 using OpenQA.Selenium;
 
-namespace AtataSamples.ValidationMessagesVerification
+namespace AtataSamples.ValidationMessagesVerification;
+
+public class ValidationMessageList<TOwner> : AssociatedControlList<ValidationMessage<TOwner>, TOwner>
+    where TOwner : PageObject<TOwner>
 {
-    public class ValidationMessageList<TOwner> : AssociatedControlList<ValidationMessage<TOwner>, TOwner>
-        where TOwner : PageObject<TOwner>
+    protected override ValidationMessage<TOwner> CreateAssociatedControl(Control<TOwner> control)
     {
-        protected override ValidationMessage<TOwner> CreateAssociatedControl(Control<TOwner> control)
+        var validationMessageDefinition = UIComponentResolver.GetControlDefinition(typeof(ValidationMessage<TOwner>));
+
+        PlainScopeLocator scopeLocator = new PlainScopeLocator(By.XPath("ancestor::" + validationMessageDefinition.ScopeXPath))
         {
-            var validationMessageDefinition = UIComponentResolver.GetControlDefinition(typeof(ValidationMessage<TOwner>));
+            SearchContext = control.Scope
+        };
 
-            PlainScopeLocator scopeLocator = new PlainScopeLocator(By.XPath("ancestor::" + validationMessageDefinition.ScopeXPath))
-            {
-                SearchContext = control.Scope
-            };
-
-            return Component.Controls.Create<ValidationMessage<TOwner>>(control.ComponentName, scopeLocator);
-        }
+        return Component.Controls.Create<ValidationMessage<TOwner>>(control.ComponentName, scopeLocator);
     }
 }
 ```
@@ -161,7 +157,7 @@ What does it do?
 First of all, it inherits `AssociatedControlList` - special control list class that provides a basic functionality to get associated/dependent control to another control.
 So our class represents the list of associated controls of `ValidationMessage<TOwner>` type.
 
-In `CreateAssociatedControl` method it creates scope locator for validation message.
+In `CreateAssociatedControl` method it creates a scope locator for validation message.
 Scope locator will first search the bound control, for example `<input>` of First Name,
 and then will look in HTML document for validation message control, relatively to bound control,
 that matches the XPath that we defined for `ValidationMessage<TOwner>`.
@@ -187,21 +183,12 @@ And the final thing is to add a property of `ValidationMessageList<TOwner>` type
 {:.file-name}
 
 ```cs
-using Atata;
-
-namespace AtataSamples.ValidationMessagesVerification
+public class SignUpPage : Page<_>
 {
-    using _ = SignUpPage;
+    // Input properties...
 
-    [Url("signup")]
-    public class SignUpPage : Page<_>
-    {
-        // Input properties...
-
-        public ValidationMessageList<_> ValidationMessages { get; private set; }
-    }
+    public ValidationMessageList<_> ValidationMessages { get; private set; }
 }
-
 ```
 
 For any other page objects that use the same validation approach we just also need to add `ValidationMessages` property.
@@ -216,8 +203,7 @@ Now we can use all this stuff together. Let's create 3 tests for validation mess
 
 ```cs
 [Test]
-public void Validation_Required()
-{
+public void Validation_Required() =>
     Go.To<SignUpPage>()
         .SignUp.Click()
         .AggregateAssert(page => page
@@ -227,7 +213,6 @@ public void Validation_Required()
             .ValidationMessages[x => x.Password].Should.Equal("is required")
             .ValidationMessages[x => x.Agreement].Should.Equal("is required")
             .ValidationMessages.Should.HaveCount(5));
-}
 ```
 
 ### Verify Messages of Minimum Length
@@ -236,8 +221,7 @@ public void Validation_Required()
 
 ```cs
 [Test]
-public void Validation_MinLength()
-{
+public void Validation_MinLength() =>
     Go.To<SignUpPage>()
         .FirstName.Set("a")
         .LastName.Set("a")
@@ -247,7 +231,6 @@ public void Validation_MinLength()
             .ValidationMessages[x => x.FirstName].Should.Equal("minimum length is 2")
             .ValidationMessages[x => x.LastName].Should.Equal("minimum length is 2")
             .ValidationMessages[x => x.Password].Should.Equal("minimum length is 6"));
-}
 ```
 
 ### Verify Message of Incorrect Email
@@ -256,8 +239,7 @@ public void Validation_MinLength()
 
 ```cs
 [Test]
-public void Validation_IncorrectEmail()
-{
+public void Validation_IncorrectEmail() =>
     Go.To<SignUpPage>()
         .Email.Set("some@email")
         .SignUp.Click()
@@ -265,7 +247,6 @@ public void Validation_IncorrectEmail()
         .Email.Type(".com")
         .SignUp.Click()
         .ValidationMessages[x => x.Email].Should.Not.BePresent();
-}
 ```
 
 ## Verification Message Extension Methods
@@ -280,15 +261,14 @@ First of all, let's modify `ValidationMessage<TOwner>` class by adding `Should` 
 ```cs
 using Atata;
 
-namespace AtataSamples.ValidationMessagesVerification
+namespace AtataSamples.ValidationMessagesVerification;
+
+[ControlDefinition("div[contains(concat(' ', normalize-space(@class), ' '), ' has-error ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' help-block ')]")]
+public class ValidationMessage<TOwner> : Text<TOwner>
+    where TOwner : PageObject<TOwner>
 {
-    [ControlDefinition("div[contains(concat(' ', normalize-space(@class), ' '), ' has-error ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' help-block ')]")]
-    public class ValidationMessage<TOwner> : Text<TOwner>
-        where TOwner : PageObject<TOwner>
-    {
-        public new FieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> Should =>
-            new FieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner>(this);
-    }
+    public new FieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> Should =>
+        new(this);
 }
 ```
 
@@ -300,34 +280,25 @@ Then we can start the creation of verification extension methods:
 ```cs
 using Atata;
 
-namespace AtataSamples.ValidationMessagesVerification
+namespace AtataSamples.ValidationMessagesVerification;
+
+public static class ValidationMessageExtensions
 {
-    public static class ValidationMessageExtensions
-    {
-        public static TOwner BeRequired<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should)
-            where TOwner : PageObject<TOwner>
-        {
-            return should.Equal("is required");
-        }
+    public static TOwner BeRequired<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should)
+        where TOwner : PageObject<TOwner> =>
+        should.Equal("is required");
 
-        public static TOwner HaveIncorrectFormat<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should)
-            where TOwner : PageObject<TOwner>
-        {
-            return should.Equal("has incorrect format");
-        }
+    public static TOwner HaveIncorrectFormat<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should)
+        where TOwner : PageObject<TOwner> =>
+        should.Equal("has incorrect format");
 
-        public static TOwner HaveMinLength<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should, int length)
-            where TOwner : PageObject<TOwner>
-        {
-            return should.Equal($"minimum length is {length}");
-        }
+    public static TOwner HaveMinLength<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should, int length)
+        where TOwner : PageObject<TOwner> =>
+        should.Equal($"minimum length is {length}");
 
-        public static TOwner HaveMaxLength<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should, int length)
-            where TOwner : PageObject<TOwner>
-        {
-            return should.Equal($"maximum length is {length}");
-        }
-    }
+    public static TOwner HaveMaxLength<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should, int length)
+        where TOwner : PageObject<TOwner> =>
+        should.Equal($"maximum length is {length}");
 }
 ```
 
@@ -339,8 +310,7 @@ Now we can update our tests with the use of extension methods.
 
 ```cs
 [Test]
-public void Validation_Required_UsingExtensions()
-{
+public void Validation_Required_UsingExtensions() =>
     Go.To<SignUpPage>()
         .SignUp.Click()
         .AggregateAssert(page => page
@@ -350,11 +320,9 @@ public void Validation_Required_UsingExtensions()
             .ValidationMessages[x => x.Password].Should.BeRequired()
             .ValidationMessages[x => x.Agreement].Should.BeRequired()
             .ValidationMessages.Should.HaveCount(5));
-}
 
 [Test]
-public void Validation_MinLength_UsingExtensions()
-{
+public void Validation_MinLength_UsingExtensions() =>
     Go.To<SignUpPage>()
         .FirstName.Set("a")
         .LastName.Set("a")
@@ -367,8 +335,7 @@ public void Validation_MinLength_UsingExtensions()
 }
 
 [Test]
-public void Validation_IncorrectEmail_UsingExtensions()
-{
+public void Validation_IncorrectEmail_UsingExtensions() =>
     Go.To<SignUpPage>()
         .Email.Set("some@email")
         .SignUp.Click()
@@ -376,7 +343,6 @@ public void Validation_IncorrectEmail_UsingExtensions()
         .Email.Type(".com")
         .SignUp.Click()
         .ValidationMessages[x => x.Email].Should.Not.BePresent();
-}
 ```
 
 {{ download-section }}

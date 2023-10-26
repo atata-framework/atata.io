@@ -60,26 +60,25 @@ Define the table with specific `ProductTableRow` sub-class, which describes prod
 ```cs
 using Atata;
 
-namespace AtataSamples.ConfirmationPopups
+namespace AtataSamples.ConfirmationPopups;
+
+using _ = ProductsPage;
+
+[Url("products")]
+public class ProductsPage : Page<_>
 {
-    using _ = ProductsPage;
+    public Table<ProductTableRow, _> Products { get; private set; }
 
-    [Url("products")]
-    public class ProductsPage : Page<_>
+    public class ProductTableRow : TableRow<_>
     {
-        public Table<ProductTableRow, _> Products { get; private set; }
+        public Text<_> Name { get; private set; }
 
-        public class ProductTableRow : TableRow<_>
-        {
-            public Text<_> Name { get; private set; }
+        public Currency<_> Price { get; private set; }
 
-            public Currency<_> Price { get; private set; }
+        public Number<_> Amount { get; private set; }
 
-            public Number<_> Amount { get; private set; }
-
-            [CloseConfirmBox]
-            public ButtonDelegate<_> DeleteUsingJSConfirm { get; private set; }
-        }
+        [CloseConfirmBox]
+        public ButtonDelegate<_> DeleteUsingJSConfirm { get; private set; }
     }
 }
 ```
@@ -96,21 +95,18 @@ Create `ProductTests` test class inherited from `UITestFixture` with the test:
 using Atata;
 using NUnit.Framework;
 
-namespace AtataSamples.ConfirmationPopups
-{
-    public class ProductTests : UITestFixture
-    {
-        [Test]
-        public void DeleteUsingJSConfirm()
-        {
-            Go.To<ProductsPage>()
-                .Products.Rows.Count.Get(out int count)
+namespace AtataSamples.ConfirmationPopups;
 
-                .Products.Rows[x => x.Name == "Table"].DeleteUsingJSConfirm()
-                .Products.Rows[x => x.Name == "Table"].Should.Not.BePresent()
-                .Products.Rows.Count.Should.Equal(count - 1);
-        }
-    }
+public class ProductTests : UITestFixture
+{
+    [Test]
+    public void DeleteUsingJSConfirm() =>
+        Go.To<ProductsPage>()
+            .Products.Rows.Count.Get(out int count)
+
+            .Products.Rows[x => x.Name == "Table"].DeleteUsingJSConfirm()
+            .Products.Rows[x => x.Name == "Table"].Should.Not.BePresent()
+            .Products.Rows.Count.Should.Equal(count - 1);
 }
 ```
 
@@ -137,17 +133,16 @@ Create `DeletionConfirmationBSModal<TNavigateTo>` page object class inherited fr
 using Atata;
 using Atata.Bootstrap;
 
-namespace AtataSamples.ConfirmationPopups
-{
-    [Name("Deletion Confirmation")]
-    [WindowTitle("Confirmation")]
-    public class DeletionConfirmationBSModal<TNavigateTo> : BSModal<DeletionConfirmationBSModal<TNavigateTo>>
-        where TNavigateTo : PageObject<TNavigateTo>
-    {
-        public ButtonDelegate<TNavigateTo, DeletionConfirmationBSModal<TNavigateTo>> Delete { get; private set; }
+namespace AtataSamples.ConfirmationPopups;
 
-        public ButtonDelegate<TNavigateTo, DeletionConfirmationBSModal<TNavigateTo>> Cancel { get; private set; }
-    }
+[Name("Deletion Confirmation")]
+[WindowTitle("Confirmation")]
+public class DeletionConfirmationBSModal<TNavigateTo> : BSModal<DeletionConfirmationBSModal<TNavigateTo>>
+    where TNavigateTo : PageObject<TNavigateTo>
+{
+    public ButtonDelegate<TNavigateTo, DeletionConfirmationBSModal<TNavigateTo>> Delete { get; private set; }
+
+    public ButtonDelegate<TNavigateTo, DeletionConfirmationBSModal<TNavigateTo>> Cancel { get; private set; }
 }
 ```
 
@@ -167,8 +162,7 @@ In `ProductTests` class implement test:
 
 ```cs
 [Test]
-public void DeleteUsingBSModal()
-{
+public void DeleteUsingBSModal() =>
     Go.To<ProductsPage>()
         .Products.Rows.Count.Get(out int count)
 
@@ -181,7 +175,6 @@ public void DeleteUsingBSModal()
             .Delete() // Delete and verify that item is deleted.
         .Products.Rows[x => x.Name == "Chair"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
-}
 ```
 
 The test does:
@@ -203,21 +196,18 @@ Another option to close simple popups is to use a custom trigger. Let's create o
 ```cs
 using Atata;
 
-namespace AtataSamples.ConfirmationPopups
-{
-    public class ConfirmDeletionViaBSModalAttribute : TriggerAttribute
-    {
-        public ConfirmDeletionViaBSModalAttribute(TriggerEvents on = TriggerEvents.AfterClick, TriggerPriority priority = TriggerPriority.Medium)
-            : base(on, priority)
-        {
-        }
+namespace AtataSamples.ConfirmationPopups;
 
-        protected override void Execute<TOwner>(TriggerContext<TOwner> context)
-        {
-            Go.To<DeletionConfirmationBSModal<TOwner>>(temporarily: true)
-                .Delete();
-        }
+public class ConfirmDeletionViaBSModalAttribute : TriggerAttribute
+{
+    public ConfirmDeletionViaBSModalAttribute(TriggerEvents on = TriggerEvents.AfterClick, TriggerPriority priority = TriggerPriority.Medium)
+        : base(on, priority)
+    {
     }
+
+    protected override void Execute<TOwner>(TriggerContext<TOwner> context) =>
+        Go.To<DeletionConfirmationBSModal<TOwner>>(temporarily: true)
+            .Delete();
 }
 ```
 
@@ -241,15 +231,13 @@ Then implement test:
 
 ```cs
 [Test]
-public void DeleteUsingBSModal_ViaTrigger()
-{
+public void DeleteUsingBSModal_ViaTrigger() =>
     Go.To<ProductsPage>()
         .Products.Rows.Count.Get(out int count)
 
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModalViaTrigger()
         .Products.Rows[x => x.Name == "Chair"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
-}
 ```
 
 The approach with trigger is easy to use, as you just invoke a method (e.g. `DeleteUsingBSModalViaTrigger`) and popup is confirmed behind the scene.
@@ -289,14 +277,13 @@ Let's define generic base page object for jQuery confirm box:
 ```cs
 using Atata;
 
-namespace AtataSamples.ConfirmationPopups
+namespace AtataSamples.ConfirmationPopups;
+
+[PageObjectDefinition("div", ContainingClass = "jconfirm-box", ComponentTypeName = "confirm box")]
+[WindowTitleElementDefinition("span", ContainingClass = "jconfirm-title")]
+public class JQueryConfirmBox<TOwner> : PopupWindow<TOwner>
+    where TOwner : JQueryConfirmBox<TOwner>
 {
-    [PageObjectDefinition("div", ContainingClass = "jconfirm-box", ComponentTypeName = "confirm box")]
-    [WindowTitleElementDefinition("span", ContainingClass = "jconfirm-title")]
-    public class JQueryConfirmBox<TOwner> : PopupWindow<TOwner>
-        where TOwner : JQueryConfirmBox<TOwner>
-    {
-    }
 }
 ```
 
@@ -308,19 +295,18 @@ And now, for our deletion confirmation popup we can implement specific page obje
 ```cs
 using Atata;
 
-namespace AtataSamples.ConfirmationPopups
-{
-    [Name("Deletion Confirmation")]
-    [WindowTitle("Confirmation")]
-    public class DeletionJQueryConfirmBox<TNavigateTo> : JQueryConfirmBox<DeletionJQueryConfirmBox<TNavigateTo>>
-        where TNavigateTo : PageObject<TNavigateTo>
-    {
-        [Term(TermCase.MidSentence)]
-        public ButtonDelegate<TNavigateTo, DeletionJQueryConfirmBox<TNavigateTo>> Delete { get; private set; }
+namespace AtataSamples.ConfirmationPopups;
 
-        [Term(TermCase.MidSentence)]
-        public ButtonDelegate<TNavigateTo, DeletionJQueryConfirmBox<TNavigateTo>> Cancel { get; private set; }
-    }
+[Name("Deletion Confirmation")]
+[WindowTitle("Confirmation")]
+public class DeletionJQueryConfirmBox<TNavigateTo> : JQueryConfirmBox<DeletionJQueryConfirmBox<TNavigateTo>>
+    where TNavigateTo : PageObject<TNavigateTo>
+{
+    [Term(TermCase.MidSentence)]
+    public ButtonDelegate<TNavigateTo, DeletionJQueryConfirmBox<TNavigateTo>> Delete { get; private set; }
+
+    [Term(TermCase.MidSentence)]
+    public ButtonDelegate<TNavigateTo, DeletionJQueryConfirmBox<TNavigateTo>> Cancel { get; private set; }
 }
 ```
 
@@ -332,21 +318,18 @@ The same way as for Bootstrap Modal, implement trigger:
 ```cs
 using Atata;
 
-namespace AtataSamples.ConfirmationPopups
-{
-    public class ConfirmDeletionViaJQueryConfirmBoxAttribute : TriggerAttribute
-    {
-        public ConfirmDeletionViaJQueryConfirmBoxAttribute(TriggerEvents on = TriggerEvents.AfterClick, TriggerPriority priority = TriggerPriority.Medium)
-            : base(on, priority)
-        {
-        }
+namespace AtataSamples.ConfirmationPopups;
 
-        protected override void Execute<TOwner>(TriggerContext<TOwner> context)
-        {
-            Go.To<DeletionJQueryConfirmBox<TOwner>>(temporarily: true)
-                .Delete();
-        }
+public class ConfirmDeletionViaJQueryConfirmBoxAttribute : TriggerAttribute
+{
+    public ConfirmDeletionViaJQueryConfirmBoxAttribute(TriggerEvents on = TriggerEvents.AfterClick, TriggerPriority priority = TriggerPriority.Medium)
+        : base(on, priority)
+    {
     }
+
+    protected override void Execute<TOwner>(TriggerContext<TOwner> context) =>
+        Go.To<DeletionJQueryConfirmBox<TOwner>>(temporarily: true)
+            .Delete();
 }
 ```
 
@@ -370,8 +353,7 @@ In `ProductTests` class implement 2 tests for jQuery Confirm using different app
 
 ```cs
 [Test]
-public void DeleteUsingJQueryConfirm()
-{
+public void DeleteUsingJQueryConfirm() =>
     Go.To<ProductsPage>()
         .Products.Rows.Count.Get(out int count)
 
@@ -384,18 +366,15 @@ public void DeleteUsingJQueryConfirm()
             .Delete() // Delete and verify that item is deleted.
         .Products.Rows[x => x.Name == "Desk"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
-}
 
 [Test]
-public void DeleteUsingJQueryConfirm_ViaTrigger()
-{
+public void DeleteUsingJQueryConfirm_ViaTrigger() =>
     Go.To<ProductsPage>()
         .Products.Rows.Count.Get(out int count)
 
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirmViaTrigger()
         .Products.Rows[x => x.Name == "Desk"].Should.Not.BePresent()
         .Products.Rows.Count.Should.Equal(count - 1);
-}
 ```
 
 ## Video Guide
