@@ -74,6 +74,7 @@ getting-started:
       - By Static URL
       - By Dynamic URL
       - By Combined URL
+      - URL Template Variables
       - Transition
   - name: Screenshots Taking
   - name: Browser Logs Monitoring
