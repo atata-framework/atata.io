@@ -193,6 +193,8 @@ control-search:
       - FindByPlaceholder
       - FindByTitle
       - FindByTestId
+      - FindByAriaLabel
+      - FindByAriaLabelledBy
       - FindFirst
       - FindLast
       - FindByIndex
