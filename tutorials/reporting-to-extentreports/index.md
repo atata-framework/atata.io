@@ -145,10 +145,6 @@ public class UITestFixture
     [TearDown]
     public void TearDown() =>
         AtataContext.Current?.Dispose();
-
-    protected virtual TPageObject BeingOn<TPageObject>()
-        where TPageObject : PageObject<TPageObject> =>
-        Go.To<TPageObject>(navigate: false);
 }
 ```
 
@@ -209,12 +205,12 @@ public class UsingSameDriverTests : UITestFixture
 
     [Test]
     public void Email() =>
-        BeingOn<SignInPage>()
+        Go.On<SignInPage>()
             .Email.Should.BeVisible();
 
     [Test]
     public void Password() =>
-        BeingOn<SignInPage>()
+        Go.On<SignInPage>()
             .Password.Should.BeVisible();
 }
 ```
