@@ -13,6 +13,30 @@ Navigates to the specified page object.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
+    <h3><span class="body">On&lt;<span class="type">T</span>&gt;</span><span class="tail">()</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">T</span> : <span class="type">PageObject</span>&lt;<span class="type">T</span>&gt;</span>
+</div>
+
+Continues with the specified page object type.
+Firstly, checks whether the current `AtataContext.PageObject`
+is `T`, if it is, returns it; otherwise, creates a new instance of `T` without navigation.
+The method is useful in case when in a particular step method (BDD step, for example)
+you don't have an instance of current page object but you are sure that a browser is on the needed page.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
+    <h3><span class="body">OnOrTo&lt;<span class="type">T</span>&gt;</span><span class="tail">()</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">T</span> : <span class="type">PageObject</span>&lt;<span class="type">T</span>&gt;</span>
+</div>
+
+Continues with the specified page object type or navigates to it.
+Firstly, checks whether the current `AtataContext.PageObject`
+is `T`, if it is, returns it; otherwise, creates a new instance of `T` with navigation.
+The method is useful in case when in a particular step method (BDD step, for example)
+you don't have an instance of current page object and you are not sure that a browser is on the needed page, but can be.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
     <h3><span class="body">ToWindow&lt;<span class="type">T</span>&gt;</span><span class="tail">(<span class="type">T</span> pageObject, <span class="keyword">string</span> windowName, <span class="keyword">bool</span> temporarily = <span class="keyword">false</span>)</span></h3>
     <span class="where"><span class="keyword">where</span> <span class="type">T</span> : <span class="type">PageObject</span>&lt;<span class="type">T</span>&gt;</span>
 </div>
