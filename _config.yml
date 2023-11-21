@@ -66,6 +66,7 @@ getting-started:
       - Driver
       - Logging
       - Screenshots
+      - Page Snapshots
       - Event Subscriptions
       - Other
   - name: Navigation
@@ -78,6 +79,7 @@ getting-started:
       - Transition
   - name: Reporting
   - name: Screenshots Taking
+  - name: Page Snapshots Taking
   - name: Browser Logs Monitoring
   - name: JavaScript Popup Boxes
   - name: Events
