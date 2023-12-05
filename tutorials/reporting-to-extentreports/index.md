@@ -132,6 +132,7 @@ public class UITestFixture
         var testContextBuilder = AtataContext.Configure()
             .LogConsumers.Add<ExtentLogConsumer>()
                 .WithMinLevel(LogLevel.Info)
+                .WithSectionEnd(LogSectionEndOption.IncludeForBlocks)
             .EventSubscriptions.Add(new AddArtifactsToExtentReportEventHandler());
 
         if (UseFixtureDriverForTests)
@@ -218,8 +219,8 @@ public class UsingSameDriverTests : UITestFixture
 ## Results
 
 After a tests run, the generated Extent HTML report can be found by relative path:
-`\AtataSamples.ExtentReports\bin\Debug\net7.0\artifacts\{DATETIME_OF_RUN}\Report.html`.
+`\AtataSamples.ExtentReports\bin\Debug\net6.0\artifacts\{DATETIME_OF_RUN}\Report.html`.
 
-![Extent Report](report.png?v3)
+![Extent Report](report.png?v4)
 
 {{ download-section }}
