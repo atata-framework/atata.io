@@ -217,7 +217,6 @@ control-search:
     items:
       - FindSettings
       - TermFindSettings
-      - ControlFinding
 
 triggers:
   - name: General
