@@ -1,6 +1,6 @@
 Represents the text input control (`<input type="text">`).
 Default search is performed by the label.
-Handles any `input` element with `type="text"` or without the defined type attribute.
+Handles any `input` element with `type="text"` or without the defined `type` attribute.
 
 {% include inherited.md from="Input" %}
 
@@ -10,7 +10,7 @@ Supports `[Format]` and `[RandomizeStringSettings]` settings attributes.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='text' or not(@type)]")]
+[ControlDefinition("input[@type='text' or not(@type)]", ComponentTypeName = "text input")]
 public class TextInput<TOwner> : Input<string, TOwner>
     where TOwner : PageObject<TOwner>
 ```

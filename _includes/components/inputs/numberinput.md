@@ -1,6 +1,6 @@
 Represents the number input control.
 Default search is performed by the label.
-Handles any `input` element with `type="number"`, `type="text"` or without the defined type attribute.
+Handles any `input` element with `type="number"`, `type="text"` or without the defined `type` attribute.
 
 {% include inherited.md from="Input" %}
 
@@ -10,7 +10,7 @@ Supports `[Format]`, `[Culture]` and `[RandomizeNumberSettings]` settings attrib
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='number' or @type='text' or not(@type)]")]
+[ControlDefinition("input[@type='number' or @type='text' or not(@type)]", ComponentTypeName = "number input")]
 public class NumberInput<TOwner> : Input<decimal?, TOwner>
     where TOwner : PageObject<TOwner>
 ```

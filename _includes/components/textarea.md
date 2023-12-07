@@ -1,34 +1,25 @@
-Represents the text area control. 
+Represents the text area control (`<textarea>`).
 Default search is performed by the label.
 
-Supports `[Format]` and `[RandomizeStringSettings]` settings attributes.
-{:.info}
+{% include inherited.md from="EditableTextField" %}
 
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='text' or not(@type)]")]
-public class TextInput<TOwner> : Input<string, TOwner>
+[ControlDefinition("textarea", IgnoreNameEndings = "TextArea", ComponentTypeName = "text area")]
+[FindByLabel]
+public class TextArea<TOwner> : EditableTextField<string, TOwner>
     where TOwner : PageObject<TOwner>
 ```
 
-#### Methods
+#### Properties
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">Append</span><span class="tail">(<span class="keyword">string</span> value)</span></h3>
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Placeholder</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Appends the specified value.
-Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">Clear()</span></h3>
-</div>
-
-Clears the value.
-Also executes `TriggerEvents.BeforeSet` and `TriggerEvents.AfterSet` triggers.
+Gets the `ValueProvider<string, TOwner>` of the `placeholder` DOM property.
 
 #### Example
 

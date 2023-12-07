@@ -7,15 +7,18 @@ Currently as a data type supports only enum (with `[Flags]`) types.
 
 {% include inherited.md from="EditableField" %}
 
-Supports `[FindItemByLabel]`, `[FindItemByValue]`, `[Format]` and `[Culture]` settings attributes.
+Supports attributes: `[FindItemByLabel]`, `[FindItemByValue]`, `[FindItemByParentContent]`,
+`[FindItemByPrecedingSiblingContent]`, `[FindItemByFollowingSiblingContent]`,
+`[FindItemByRelativeElementContent]`, `[Format]`, `[Culture]`.
 {:.info}
 
 #### Syntax
 
 ```cs
 [ControlDefinition("input[@type='checkbox']", ComponentTypeName = "checkbox list", IgnoreNameEndings = "CheckBoxes,CheckBoxList,CheckBoxGroup,Options,OptionGroup")]
-[ControlFinding(FindTermBy.Name)]
-public class CheckBoxList<T, TOwner> : OptionList<T, TOwner>
+[FindByName]
+[FindItemByLabel]
+public class CheckBoxList<TValue, TOwner> : OptionList<TValue, TOwner>
     where TOwner : PageObject<TOwner>
 ```
 

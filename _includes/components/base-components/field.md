@@ -1,6 +1,9 @@
-Represents the base class for the field controls. It can be used for HTML elements containing content (like `<h1>`, `<span>`, etc.) representing content as a field value, as well as for `<input>` and other elements.
+Represents the base class for the field controls.
+It can be used for HTML elements containing content (like `<h1>`, `<span>`, etc.)
+representing content as a field value, as well as for `<input>` and other elements.
 
-The only abstract member of ``Field`2`` is `protected abstract T GetValue()` method that is required to be overridden. Value of the field can be input's value attribute, some other attribute, text content or a set of data.
+The only abstract member of `Field<TValue, TOwner>` is `protected abstract TValue GetValue()` method that is required to be overridden.
+Value of the field can be input's value attribute, some other attribute, text content or a set of data.
 {:.warning}
 
 Inherited class can support `[Format]`, `[Culture]` and other settings attributes.
@@ -9,14 +12,14 @@ Inherited class can support `[Format]`, `[Culture]` and other settings attribute
 #### Syntax
 
 ```cs
-public abstract class Field<T, TOwner> : Control<TOwner>, IEquatable<TValue>, IObjectProvider<TValue, TOwner>, IConvertsValueToString<TValue>
+public abstract class Field<TValue, TOwner> : Control<TOwner>, IEquatable<TValue>, IObjectProvider<TValue, TOwner>, IConvertsValueToString<TValue>
     where TOwner : PageObject<TOwner>
 ```
 
 #### Properties
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">T</span></span>
+    <span class="head"><span class="keyword">public</span> <span class="type">TValue</span></span>
     <h3><span class="body">Value</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
@@ -25,14 +28,14 @@ Gets the value. Also executes `TriggerEvents.BeforeGet` and `TriggerEvents.After
 #### Methods
 
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">T</span></span>
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">Get</span><span class="tail">(<span class="keyword">out</span> <span class="type">T</span> value)</span></h3>
 </div>
 
 Gets the value and records it to `value` parameter.
 
 <div class="member">
-    <span class="head"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="type">T</span></span>
+    <span class="head"><span class="keyword">protected abstract</span> <span class="type">TValue</span></span>
     <h3><span class="body">GetValue()</span></h3>
 </div>
 
@@ -40,7 +43,7 @@ Gets the value.
 
 #### Example
 
-The example of ``RadioButton`1`` control that is inherited from ``Field`2``:
+The example of `RadioButton<TOwner>` control that is inherited from `Field<TValue, TOwner>`:
 
 ```cs
 [ControlDefinition("input[@type='radio']")]

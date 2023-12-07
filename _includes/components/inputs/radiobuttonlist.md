@@ -7,17 +7,29 @@ As a data type supports enum, string, numeric and other types.
 
 {% include inherited.md from="EditableField" %}
 
-Supports `[FindItemByLabel]`, `[FindItemByValue]`, `[Format]` and `[Culture]` settings attributes.
+Supports attributes: `[FindItemByLabel]`, `[FindItemByValue]`, `[FindItemByParentContent]`,
+`[FindItemByPrecedingSiblingContent]`, `[FindItemByFollowingSiblingContent]`,
+`[FindItemByRelativeElementContent]`, `[Format]`, `[Culture]`.
 {:.info}
 
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='radio']", IgnoreNameEndings = "RadioButtons,RadioButtonList,Radios,RadioGroup,Buttons,ButtonList,Options,OptionGroup")]
-[ControlFinding(FindTermBy.Name)]
-public class RadioButtonList<T, TOwner> : OptionList<T, TOwner>
+[ControlDefinition("input[@type='radio']", IgnoreNameEndings = "RadioButtons,RadioButtonList,Radios,RadioGroup,Buttons,ButtonList,Options,OptionGroup", ComponentTypeName = "radio button list")]
+[FindByName]
+[FindItemByLabel]
+public class RadioButtonList<TValue, TOwner> : OptionList<TValue, TOwner>
     where TOwner : PageObject<TOwner>
 ```
+
+#### Methods
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">ToggleRandom()</span></h3>
+</div>
+
+Sets random unselected value.
 
 #### Example #1: Using Enum
 

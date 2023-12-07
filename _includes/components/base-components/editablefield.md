@@ -1,7 +1,10 @@
-Represents the base class for editable field controls. It can be used for controls like `<input>`, `<select>` and other editable controls.
+Represents the base class for editable field controls.
+It can be used for controls like `<input>`, `<select>` and other editable controls.
 
-Abstract methods of ``EditableField`2`` are: `protected abstract T GetValue()` and `protected abstract void SetValue(T value)`.
+Abstract methods of `EditableField<TValue, TOwner>` are: `protected abstract TValue GetValue()` and `protected abstract void SetValue(TValue value)`.
 {:.warning}
+
+{% include inherited.md from="Field" %}
 
 Inherited class can support `[Format]`, `[Culture]` and other settings attributes.
 {:.info}
@@ -9,7 +12,7 @@ Inherited class can support `[Format]`, `[Culture]` and other settings attribute
 #### Syntax
 
 ```cs
-public abstract class EditableField<T, TOwner> : Field<T, TOwner>
+public abstract class EditableField<TValue, TOwner> : Field<TValue, TOwner>
     where TOwner : PageObject<TOwner>
 ```
 
@@ -28,7 +31,7 @@ Override `GetIsReadOnly` method to change the behavior.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">Set</span><span class="tail">(<span class="type">T</span> value)</span></h3>
+    <h3><span class="body">Set</span><span class="tail">(<span class="type">TValue</span> value)</span></h3>
 </div>
 
 Sets the value. 
@@ -44,7 +47,7 @@ For value generation uses randomization attributes, for example: `RandomizeStrin
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">SetRandom</span><span class="tail">(<span class="keyword">out</span> <span class="type">T</span> value)</span></h3>
+    <h3><span class="body">SetRandom</span><span class="tail">(<span class="keyword">out</span> <span class="type">TValue</span> value)</span></h3>
 </div>
 
 Sets the random value and records it to `value` parameter. 
@@ -52,7 +55,7 @@ For value generation uses randomization attributes, for example: `RandomizeStrin
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">SetRandom</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">T</span>&gt; callback)</span></h3>
+    <h3><span class="body">SetRandom</span><span class="tail">(<span class="type">Action</span><wbr>&lt;<span class="type">TValue</span>&gt; callback)</span></h3>
 </div>
 
 Sets the random value and invokes `callback`. 
@@ -60,14 +63,14 @@ For value generation uses randomization attributes, for example: `RandomizeStrin
 
 <div class="member">
     <span class="head"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span></span>
-    <h3><span class="body">SetValue</span><span class="tail">(<span class="type">T</span> value)</span></h3>
+    <h3><span class="body">SetValue</span><span class="tail">(<span class="type">TValue</span> value)</span></h3>
 </div>
 
 Sets the value.
 
 #### Example
 
-The example of ``CheckBox`1`` control that is inherited from ``EditableField`2``:
+The example of `CheckBox<TOwner>` control that is inherited from `EditableField<TValue, TOwner>`:
 
 ```cs
 [ControlDefinition("input[@type='checkbox']", ComponentTypeName = "checkbox")]

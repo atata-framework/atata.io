@@ -9,10 +9,21 @@ Supports `[Format]` settings attribute.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='file']", Visibility = Visibility.Any)]
+[ControlDefinition("input[@type='file']", Visibility = Visibility.Any, ComponentTypeName = "file input")]
+[SetsValueUsingSendKeys]
+[ClearsValueUsingClearMethodOrScript]
 public class FileInput<TOwner> : Input<string, TOwner>
     where TOwner : PageObject<TOwner>
 ```
+
+#### Properties
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">ValueProvider</span><wbr>&lt;<span class="keyword">string</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">Accept</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
+</div>
+
+Gets the `ValueProvider<string, TOwner>` of the <c>accept</c> DOM property.
 
 #### Example
 

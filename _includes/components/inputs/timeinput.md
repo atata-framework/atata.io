@@ -1,6 +1,6 @@
 Represents the time input control.
 Default search is performed by the label.
-Handles any `input` element with `type="time"`, `type="text"` or without the defined type attribute.
+Handles any `input` element with `type="time"`, `type="text"` or without the defined `type` attribute.
 
 {% include inherited.md from="Input" %}
 
@@ -10,7 +10,7 @@ Supports `[Format]` and `[Culture]` settings attributes.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='text' or @type='time' or not(@type)]")]
+[ControlDefinition("input[@type='text' or @type='time' or not(@type)]", ComponentTypeName = "time input")]
 public class TimeInput<TOwner> : Input<TimeSpan?, TOwner>
     where TOwner : PageObject<TOwner>
 ```

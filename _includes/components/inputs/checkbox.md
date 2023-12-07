@@ -7,7 +7,7 @@ Default search is performed by the label.
 
 ```cs
 [ControlDefinition("input[@type='checkbox']", ComponentTypeName = "checkbox", IgnoreNameEndings = "Checkbox,CheckBox,Option")]
-[ControlFinding(FindTermBy.Label)]
+[FindByLabel]
 public class CheckBox<TOwner> : EditableField<bool, TOwner>, ICheckable<TOwner>
     where TOwner : PageObject<TOwner>
 ```

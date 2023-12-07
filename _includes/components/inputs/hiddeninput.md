@@ -9,9 +9,9 @@ Supports `[Format]` and `[Culture]` settings attributes.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='hidden']", Visibility = Visibility.Hidden)]
-[ControlFinding(typeof(FindFirstAttribute))]
-public class HiddenInput<T, TOwner> : Input<T, TOwner>
+[ControlDefinition("input[@type='hidden']", Visibility = Visibility.Hidden, ComponentTypeName = "hidden input")]
+[FindFirst]
+public class HiddenInput<TValue, TOwner> : Input<TValue, TOwner>
     where TOwner : PageObject<TOwner>
 ```
 

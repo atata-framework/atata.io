@@ -2,13 +2,22 @@ Represents the base class for the controls.
 
 {% include inherited.md from="UIComponent" %}
 
-Inherited class supports `[ControlDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
+Inherited class supports `[ControlDefinition]`, `[FindSettings]`, `[TermFindSettings]`, `[Format]` and `[Culture]` settings attributes.
 {:.info}
 
 #### Syntax
 
 ```cs
 [ControlDefinition(ComponentTypeName = "control")]
+[ClicksUsingClickMethod]
+[DoubleClicksUsingActions]
+[RightClicksUsingActions]
+[HoversUsingActions]
+[FocusesUsingScript]
+[BlursUsingScript]
+[DragsAndDropsUsingActions]
+[DragsAndDropsToOffsetUsingActions]
+[ScrollsUsingScrollToElementAction]
 public class Control<TOwner> : UIComponent<TOwner>, IControl<TOwner>
     where TOwner : PageObject<TOwner>
 ```

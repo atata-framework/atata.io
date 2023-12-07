@@ -95,6 +95,7 @@ components:
       - FrameSetPage
       - Field
       - EditableField
+      - EditableTextField
   - name: Dynamic Controls
   - name: Inputs
     items:
@@ -104,6 +105,7 @@ components:
       - NumberInput
       - DateInput
       - TimeInput
+      - LocalDateTimeInput
       - FileInput
       - HiddenInput
       - CheckBox

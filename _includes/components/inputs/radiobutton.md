@@ -6,8 +6,8 @@ Default search is performed by the label.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='radio']", IgnoreNameEndings = "RadioButton,Radio,Button,Option")]
-[ControlFinding(FindTermBy.Label)]
+[ControlDefinition("input[@type='radio']", IgnoreNameEndings = "RadioButton,Radio,Button,Option", ComponentTypeName = "radio button")]
+[FindByLabel]
 public class RadioButton<TOwner> : Field<bool, TOwner>, ICheckable<TOwner>
     where TOwner : PageObject<TOwner>
 ```
@@ -19,7 +19,7 @@ public class RadioButton<TOwner> : Field<bool, TOwner>, ICheckable<TOwner>
     <h3><span class="body">IsChecked</span><span class="tail"> { <span class="keyword">get</span>; }</span></h3>
 </div>
 
-Gets the `ValueProvider<bool, TOwner>` instance of the checked state value.
+Gets the `ValueProvider<bool, TOwner>` of the value indicating whether the control is checked.
 
 #### Methods
 

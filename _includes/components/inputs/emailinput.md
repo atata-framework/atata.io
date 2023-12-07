@@ -9,7 +9,7 @@ Supports `[Format]` and `[RandomizeStringSettings]` settings attributes.
 #### Syntax
 
 ```cs
-[ControlDefinition("input[@type='email']")]
+[ControlDefinition("input[@type='email']", ComponentTypeName = "email input")]
 public class EmailInput<TOwner> : Input<string, TOwner>
     where TOwner : PageObject<TOwner>
 ```
