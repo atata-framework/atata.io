@@ -4,9 +4,9 @@ The extension provides the following templates:
 
 - Project templates:
   - Atata NUnit Basic Test Project (.NET 6)
-  - Atata NUnit Basic Test Project (.NET 7)
+  - Atata NUnit Basic Test Project (.NET 8)
   - Atata NUnit Advanced Test Project (.NET 6)
-  - Atata NUnit Advanced Test Project (.NET 7)
+  - Atata NUnit Advanced Test Project (.NET 8)
 - Item templates:
   - Atata Page Object
   - Atata Base Page Object
@@ -20,11 +20,11 @@ The extension provides the following templates:
 When extension is installed, you can create a project of one of Atata project types.
 In Visual Studio:
 
-1. Go to **File/New/Project...** or **File/Add/New Project...** (to add to existing solution)
-1. Type **Atata** into search box or choose **Atata** in "project types" drop-down
-1. Choose template (e.g.: **Atata NUnit Advanced Test Project (.NET 6)**) and specify project name and location
+1. Go to **File/New/Project...** or **File/Add/New Project...** (to add to existing solution).
+1. Type **Atata** into search box or choose **Atata** in "project types" drop-down.
+1. Choose template, e.g., **Atata NUnit Advanced Test Project (.NET 8)**, and specify project name and location.
 
-![Atata Templates project](/assets/images/atata-templates/new-project-window.png?v4)
+![Atata Templates project](/assets/images/atata-templates/new-project-window.png?v5)
 
 #### Project References
 
