@@ -19,9 +19,24 @@ Navigates to the specified page object.
 
 Continues with the specified page object type.
 Firstly, checks whether the current `AtataContext.PageObject`
-is `T`, if it is, returns it; otherwise, creates a new instance of `T` without navigation.
+is `T`, if it is, returns it;
+otherwise, creates a new instance of `T` without navigation.
 The method is useful in case when in a particular step method (BDD step, for example)
 you don't have an instance of current page object but you are sure that a browser is on the needed page.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
+    <h3><span class="body">OnRefreshed&lt;<span class="type">T</span>&gt;</span><span class="tail">()</span></h3>
+    <span class="where"><span class="keyword">where</span> <span class="type">T</span> : <span class="type">PageObject</span>&lt;<span class="type">T</span>&gt;</span>
+</div>
+
+Continues with the specified page object type with rage refresh.
+Firstly, checks whether the current `AtataContext.PageObject`
+is `T`, if it is, returns it;
+otherwise, creates a new instance of `T` without navigation.
+Then a page is refreshed.
+The method is useful in case when you reuse a single test suite driver by tests and
+want to refresh a page on start of each test to ensure that the page is in clean start state.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>
