@@ -331,6 +331,33 @@ Can be set to `"127.0.0.1"`, for example when you experience localhost resolve i
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithCreateRetries</span><span class="tail">(<span class="keyword">int</span> createRetries)</span></h3>
+</div>
+
+Specifies the count of possible driver creation retries in case exceptions occur during creation.
+The default value is `2`.
+Set `0` to omit retries.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithInitialHealthCheck</span><span class="tail">(<span class="keyword">bool</span> enable = <span class="keyword">true</span>)</span></h3>
+</div>
+
+Enables or disables an initial health check.
+By default it is disabled.
+When enabled, the default health check function requests `IWebDriver.Url`.
+The health check function can be changed by using `WithInitialHealthCheckFunction(Func<IWebDriver, bool>)` method.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
+    <h3><span class="body">WithInitialHealthCheckFunction</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">IWebDriver</span>, <span class="keyword">bool</span>&gt; function)</span></h3>
+</div>
+
+Sets the initial health check function.
+The default function requests `IWebDriver.Url`.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">{DriverAtataContextBuilder}</span></span>
     <h3><span class="body">WithPortsToIgnore</span><span class="tail">(<span class="keyword">params int</span>[] portsToIgnore)</span></h3>
 </div>
 
