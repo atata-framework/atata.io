@@ -2,7 +2,7 @@ Represents the base class for the popup window page objects.
 
 {% include inherited.md from="PageObject" %}
 
-Inherited class supports `[PageObjectDefinition]`, `[WindowTitleElementDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+Inherited class supports `[PageObjectDefinition]`, `[WindowTitleElementDefinition]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
 {:.info}
 
 #### Syntax

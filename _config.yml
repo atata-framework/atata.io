@@ -116,10 +116,14 @@ components:
       - TelInput
       - UrlInput
       - SearchInput
+  - name: Text Editors
+    items:
+      - TextArea
+      - ContentEditor
+      - FrameWrappedContentEditor
   - name: Select
     items:
       - Option
-  - name: TextArea
   - name: Button
   - name: Link
   - name: Clickable

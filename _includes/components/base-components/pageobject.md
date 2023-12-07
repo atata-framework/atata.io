@@ -2,7 +2,7 @@ Represents the base class for the page objects. Also executes `TriggerEvents.Ini
 
 {% include inherited.md from="UIComponent" %}
 
-Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]`, `[FormatSettings]` and `[Culture]` settings attributes.
+Inherited class supports `[PageObjectDefinition]`, `[FindSettings]`, `[TermFindSettings]`, `[FormatSettings]` and `[Culture]` settings attributes.
 {:.info}
 
 #### Syntax

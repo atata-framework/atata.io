@@ -14,11 +14,13 @@ public abstract class UIComponent
 and
 
 ```cs
+[GetsContentFromSource(ContentSource.Text)]
 public abstract class UIComponent<TOwner> : UIComponent, IUIComponent<TOwner>
     where TOwner : PageObject<TOwner>
 ```
 
-`TOwner` is the type of the owner page object. Declaring any control or page object requires specifying `TOwner`.
+`TOwner` is the type of the owner page object.
+Declaring any control or page object requires specifying `TOwner`.
 {:.info}
 
 #### Properties

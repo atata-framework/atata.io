@@ -2,7 +2,7 @@ Represents the whole HTML page and is the main base class to inherit for the pag
 
 {% include inherited.md from="PageObject" %}
 
-Inherited class supports `[PageObjectDefinition]`, `[ControlFinding]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
+Inherited class supports `[PageObjectDefinition]`, `[FindSettings]`, `[TermFindSettings]` and `[Culture]` settings attributes.
 {:.info}
 
 #### Syntax

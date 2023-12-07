@@ -6,9 +6,9 @@ Default search finds the first occurring `<option>` element.
 #### Syntax
 
 ```cs
-[ControlDefinition("option", IgnoreNameEndings = "Option")]
-[ControlFinding(typeof(FindFirstAttribute))]
-public class Option<T, TOwner> : Field<T, TOwner>
+[ControlDefinition("option", IgnoreNameEndings = "Option", ComponentTypeName = "option")]
+[FindFirst]
+public class Option<TValue, TOwner> : Field<TValue, TOwner>
     where TOwner : PageObject<TOwner>
 ```
 

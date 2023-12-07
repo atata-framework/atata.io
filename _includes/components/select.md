@@ -6,15 +6,17 @@ Default option selection is performed by text using `SelectByTextAttribute`.
 
 {% include inherited.md from="EditableField" %}
 
-Supports `[SelectByText]`, `[SelectByValue]`, `[SelectByLabel]`, `[SelectBy]`, `[Format]` and `[Culture]` settings attributes.
+Supports attributes: `[SelectsOptionByText]`, `[SelectsOptionByValue]`,
+`[SelectsOptionByLabelAttribute]`, `[SelectsOptionByAttribute]`, `[Format]`, `[Culture]`.
 {:.info}
 
 ### Syntax
 
 ```cs
-[ControlDefinition("select", IgnoreNameEndings = "Select")]
-[ControlFinding(FindTermBy.Label)]
-public class Select<T, TOwner> : EditableField<T, TOwner>
+[ControlDefinition("select", IgnoreNameEndings = "Select", ComponentTypeName = "select")]
+[FindByLabel]
+[SelectsOptionByText]
+public class Select<TValue, TOwner> : EditableField<TValue, TOwner>
     where TOwner : PageObject<TOwner>
 ```
 
@@ -43,6 +45,15 @@ Gets the index of the selected option.
 
 There are different approaches to configure `Select` control using different types of data.
 {:.info}
+
+### Methods
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Option</span>&lt;<span class="type">TValue</span>, <span class="type">TOwner</span>&gt;</span>
+    <h3><span class="body">GetOption(<span class="type">TValue</span> value)</span></h3>
+</div>
+
+Gets the option by the associated value.
 
 ### Example #1: Select Using Enum
 
