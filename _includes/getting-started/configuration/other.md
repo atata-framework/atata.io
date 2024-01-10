@@ -24,7 +24,7 @@ Sets the culture by the name. The default value is `CultureInfo.CurrentCulture`.
     <h3><span class="body">UseAllNUnitFeatures()</span></h3>
 </div>
 
-Enables all NUnit features for Atata.
+Enables all Atata features for NUnit.
 Executes the following methods:
 
 - `UseNUnitTestName()`
@@ -33,11 +33,31 @@ Executes the following methods:
 - `UseNUnitAssertionExceptionType()`
 - `UseNUnitAggregateAssertionStrategy()`
 - `UseNUnitWarningReportStrategy()`
+- `UseNUnitAssertionFailureReportStrategy()`
 - `LogConsumers.AddNUnitTestContext()`
 - `EventSubscriptions.LogNUnitError()`
 - `EventSubscriptions.TakeScreenshotOnNUnitError()`
 - `EventSubscriptions.TakePageSnapshotOnNUnitError()`
 - `EventSubscriptions.AddArtifactsToNUnitTestContext()`
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseSpecFlowNUnitFeatures()</span></h3>
+</div>
+
+Enables all Atata features for SpecFlow+NUnit.
+Executes the following methods:
+
+- `UseNUnitTestName()`
+- `UseNUnitTestSuiteName()`
+- `UseNUnitTestSuiteType()`
+- `UseNUnitAssertionExceptionType()`
+- `UseNUnitAggregateAssertionStrategy()`
+- `UseNUnitWarningReportStrategy()`
+- `UseNUnitAssertionFailureReportStrategy()`
+- `EventSubscriptions.LogNUnitError()`
+- `EventSubscriptions.TakeScreenshotOnNUnitError()`
+- `EventSubscriptions.TakePageSnapshotOnNUnitError()`
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
