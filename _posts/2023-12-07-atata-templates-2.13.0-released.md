@@ -1,6 +1,6 @@
 ---
 title: "Atata Templates 2.13.0 is Released"
-description: "Atata Templates 2.13.0 Visual Studio extension is released .NET 8 project templates and an update of package references."
+description: "Atata Templates 2.13.0 Visual Studio extension is released with .NET 8 project templates and an update of package references."
 release_version: "2.13.0"
 ---
 
