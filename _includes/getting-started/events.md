@@ -164,7 +164,7 @@ AtataContext.GlobalConfiguration
 
 #### AtataContext Events
 
-- `AtataContextPreInitEvent` - occurs when `AtataContext` driver is initializing.
+- `AtataContextPreInitEvent` - occurs before `AtataContext` initialization.
 - `AtataContextInitStartedEvent` - occurs when `AtataContext` is started to initialize.
 - `AtataContextInitCompletedEvent` - occurs when `AtataContext` is initialized.
 - `AtataContextDeInitEvent` - occurs when `AtataContext` is deinitializing.
