@@ -11,8 +11,8 @@ For example:\
 Atata by itself writes a lot of log entries during execution,
 but custom log entries and artifact files can be reported as well.
 
-There is also [Reporting to Extent Reports](/tutorials/reporting-to-extentreports/) tutorial,
-which describes how to configure Atata reporting to Extent Reports.
+There is also [Reporting to ExtentReports](/tutorials/reporting-to-extentreports/) tutorial,
+which describes how to configure Atata reporting to ExtentReports.
 {:.info}
 
 ### Report&lt;TOwner&gt; class

@@ -1,11 +1,11 @@
 ---
 layout: article
-title: Reporting to Extent Reports
-description: How to configure Atata reporting to Extent Reports.
+title: Reporting to ExtentReports
+description: How to configure Atata reporting to ExtentReports.
 sources_path: https://github.com/atata-framework/atata-samples/blob/master/ExtentReports/AtataSamples.ExtentReports/
 ---
 
-How to configure Atata reporting to [Extent Reports](https://extentreports.com/).
+How to configure Atata reporting to [ExtentReports](https://extentreports.com/).
 {:.lead}
 
 {% capture download-section %}
@@ -22,37 +22,44 @@ as it's used in the sample project.
 
 ## Implementation
 
-The functionality for Extent Reports is implemented in 4 class files:
+The functionality for ExtentReports is implemented in 6 class files:
 
 - [**ExtentContext.cs**]({{ page.sources_path }}Infrastructure/ExtentContext.cs) -
-  the main static class responsible for an initialization of Extent Reports.
-  In this sample it attaches HTML reporter (`ExtentHtmlReporter`).
-  Saves HTML report to AtataContext Artifacts root directory.
+  the main static class responsible for an initialization of ExtentReports.
+  In this sample it attaches HTML reporter (`ExtentSparkReporter`).
+  Saves HTML report to `AtataContext` Artifacts root directory.
   Other Extent reporters can also be attached.
 - [**ExtentLogConsumer.cs**]({{ page.sources_path }}Infrastructure/ExtentLogConsumer.cs) -
   is responsible for reporting of log messages.
-  Also does formatting of message.
-- [**ExtentArtifactAddedEventHandler.cs**]({{ page.sources_path }}Infrastructure/ExtentArtifactAddedEventHandler.cs) -
-  is responsible for screenshots adding to report.
-- [**AddArtifactsToExtentReportEventHandler.cs**]({{ page.sources_path }}Infrastructure/AddArtifactsToExtentReportEventHandler.cs) -
-  adds "Artifacts" markup to test reports.
+- [**AddScreenshotToExtentLogEventHandler.cs**]({{ page.sources_path }}Infrastructure/AddScreenshotToExtentLogEventHandler.cs) -
+  adds screenshots to report.
+- [**AddArtifactListToExtentLogEventHandler.cs**]({{ page.sources_path }}Infrastructure/AddArtifactListToExtentLogEventHandler.cs) -
+  adds "Artifacts" list to report. 
+  Basically, a list of test artifact files, e.g., screenshots, snapshots, traces, etc.
+- [**StartExtentTestItemEventHandler.cs**]({{ page.sources_path }}Infrastructure/StartExtentTestItemEventHandler.cs) -
+  creates/starts `ExtentTest` node.
+- [**EndExtentTestItemEventHandler.cs**]({{ page.sources_path }}Infrastructure/EndExtentTestItemEventHandler.cs) -
+  ends `ExtentTest` node.
 
 You can copy [all those files]({{ page.sources_path }}Infrastructure) to your project and modify according to your project's needs.
 
-Later a separate Atata.ExtentReports NuGet package is planned to be published.
+Later a separate Atata.ExtentReports NuGet package is planned to be created and published.
 {:.info}
 
 ## Configuration
 
-In order to connect Extent Reports functionality to Atata,
-`ExtentLogConsumer`, `ExtentArtifactAddedEventHandler` and `AddArtifactsToExtentReportEventHandler` should be added to `AtataContextBuilder`.
+In order to connect ExtentReports functionality to Atata,
+a configuration of `AtataContext.GlobalConfiguration` can be done in `SetUpFixture.GlobalSetUp`.
 
 ### SetUpFixture
 
-1. `ExtentArtifactAddedEventHandler` can be added to `EventSubscriptions` in `SetUpFixture`.
-1. To perform a generation of report file, `ExtentContext.Reports.Flush()` method should be executed
+1. `ExtentLogConsumer` should be added to `LogConsumers`.
+1. `StartExtentTestItemEventHandler`, `AddScreenshotToExtentLogEventHandler`,
+   `AddArtifactListToExtentLogEventHandler` and `EndExtentTestItemEventHandler`
+   should be added to `EventSubscriptions`.
+1. To perform a generation of report file, `ExtentContext.Flush()` method should be executed
    as a final action of a tests run.
-   In NUnit a good place for it is `OneTimeTearDown` method of `SetUpFixture.cs`.
+   In NUnit a good place for it is `OneTimeTearDown` method of `SetUpFixture`.
 
 [`SetUpFixture.cs`]({{ page.sources_path }}SetUpFixture.cs)
 {:.file-name}
@@ -76,16 +83,22 @@ public class SetUpFixture
             .UseBaseUrl("https://demo.atata.io/")
             .UseCulture("en-US")
             .UseAllNUnitFeatures()
-            .LogConsumers.AddNLogFile()
             .ScreenshotConsumers.AddFile()
-            .EventSubscriptions.Add(new ExtentArtifactAddedEventHandler());
+            .LogConsumers.AddNLogFile()
+            .LogConsumers.Add<ExtentLogConsumer>()
+                .WithMinLevel(LogLevel.Info)
+                .WithSectionEnd(LogSectionEndOption.IncludeForBlocks)
+            .EventSubscriptions.Add(new StartExtentTestItemEventHandler())
+            .EventSubscriptions.Add(new AddScreenshotToExtentLogEventHandler())
+            .EventSubscriptions.Add(new AddArtifactListToExtentLogEventHandler())
+            .EventSubscriptions.Add(new EndExtentTestItemEventHandler());
 
         AtataContext.GlobalConfiguration.AutoSetUpDriverToUse();
     }
 
     [OneTimeTearDown]
     public void GlobalTearDown() =>
-        ExtentContext.Reports.Flush();
+        ExtentContext.Flush();
 }
 ```
 
@@ -100,7 +113,6 @@ because additionally `AtataContext` for fixture is also added.
 
 ```cs
 using Atata;
-using Atata.ExtentReports;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
@@ -118,8 +130,6 @@ public class UITestFixture
     public void InitFixtureContext() =>
         FixtureContext = AtataContext.Configure()
             .UseDriverInitializationStage(AtataContextDriverInitializationStage.OnDemand)
-            .LogConsumers.Add<ExtentLogConsumer>()
-                .WithMinLevel(LogLevel.Warn)
             .Build();
 
     [OneTimeTearDown]
@@ -129,11 +139,7 @@ public class UITestFixture
     [SetUp]
     public void SetUp()
     {
-        var testContextBuilder = AtataContext.Configure()
-            .LogConsumers.Add<ExtentLogConsumer>()
-                .WithMinLevel(LogLevel.Info)
-                .WithSectionEnd(LogSectionEndOption.IncludeForBlocks)
-            .EventSubscriptions.Add(new AddArtifactsToExtentReportEventHandler());
+        var testContextBuilder = AtataContext.Configure();
 
         if (UseFixtureDriverForTests)
             testContextBuilder
@@ -221,6 +227,6 @@ public class UsingSameDriverTests : UITestFixture
 After a tests run, the generated Extent HTML report can be found by relative path:
 `\AtataSamples.ExtentReports\bin\Debug\net6.0\artifacts\{DATETIME_OF_RUN}\Report.html`.
 
-![Extent Report](report.png?v4)
+![Extent Report](report.png?v5)
 
 {{ download-section }}

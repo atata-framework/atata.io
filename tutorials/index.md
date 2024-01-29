@@ -17,8 +17,8 @@ description: "List of Atata tutorials."
   <br>How to configure multi-browser tests application using `.runsettings` files.
 * [Multi-Browser Configuration via Fixture Arguments](/tutorials/multi-browser-configuration-via-fixture-arguments/)
   <br>How to configure multi-browser tests application using NUnit fixture arguments.
-* [Reporting to Extent Reports](/tutorials/reporting-to-extentreports/)
-  <br>How to configure Atata reporting to Extent Reports.
+* [Reporting to ExtentReports](/tutorials/reporting-to-extentreports/)
+  <br>How to configure Atata reporting to ExtentReports.
 {:.link-item-list}
 
 ## Sample Projects
