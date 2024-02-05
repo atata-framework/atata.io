@@ -16,7 +16,7 @@ and saved as .HTML file without styles.
 Take a look at [Getting Started / Configuration / Page Snapshots](/getting-started/#page-snapshots)
 on how to configure the functionality.
 
-There are few ways to capture a screenshot depending on place where you need to do it.
+There are few ways to capture a page snapshot depending on place where you need to do it.
 
 ### Take in test or page object
 
