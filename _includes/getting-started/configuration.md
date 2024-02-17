@@ -11,7 +11,7 @@ public void SetUp()
 }
 ```
 
-To clean up the `AtataContext` do the following in the `TearDown` method:
+To clean up the `AtataContext`, call its `Dispose` method in the `TearDown` method:
 
 ```cs
 [TearDown]
@@ -21,9 +21,9 @@ public void TearDown()
 }
 ```
 
-It also closes web driver instance as well as a browser.
+The `Dispose` method also, by default, closes a web driver instance as well as a browser.
 
-Also it is recommended to extract a global setup/configuration to global setup method:
+Also, it is recommended to extract a global setup/configuration to the global setup method:
 
 ```cs
 [SetUpFixture]
