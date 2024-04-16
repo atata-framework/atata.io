@@ -11,8 +11,6 @@ so the result page snapshot may not 100% be equal to an original page.
 For other browsers a snapshot is taken using `IWebDriver.PageSource` property
 and saved as .HTML file without styles.
 
-### Configuration
-
 Take a look at [Getting Started / Configuration / Page Snapshots](/getting-started/#page-snapshots)
 on how to configure the functionality.
 

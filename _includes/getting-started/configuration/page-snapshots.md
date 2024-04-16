@@ -45,4 +45,4 @@ The default value is an instance of `CdpOrPageSourcePageSnapshotStrategy`.
 </div>
 
 Sets the file name template of page snapshots.
-The default value is `"{snapshot-number:D2}{snapshot-pageobjectname: - *}{snapshot-pageobjecttypename: *}{snapshot-title: - *}"`.
+The default value is `"{snapshot-number:D2}{snapshot-pageobjectname: *}{snapshot-pageobjecttypename: *}{snapshot-title: - *}"`.

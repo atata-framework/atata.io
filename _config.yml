@@ -3,7 +3,6 @@ short_description: "C#/.NET Test Automation Framework"
 description: "C#/.NET automated web testing full featured framework"
 url: https://atata.io
 baseurl: ""
-#timezone: "Europe/Kiev"
 
 # Dependencies
 markdown: kramdown
@@ -40,6 +39,7 @@ nav_links:
   Verification: "verification"
   Tutorials: "tutorials"
   Examples: "examples"
+  Upgrade: "upgrade"
   Blog: "blog"
   Contact: "contact"
 
@@ -68,6 +68,7 @@ getting-started:
       - Screenshots
       - Page Snapshots
       - Event Subscriptions
+      - Global Properties
       - Other
   - name: Navigation
     items:

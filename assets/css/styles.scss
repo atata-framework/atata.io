@@ -193,7 +193,12 @@ a.enum-value-reference {
 $navbar-md-padding-horizontal: 5px;
 
 @media (min-width: 768px) {
-    @media (max-width: 991px) {
+    @media (max-width: 855px) {
+        .navbar-default .navbar-nav a {
+            font-size: 0.82em;
+        }
+    }
+    @media (max-width: 1048px) {
         .navbar-default .navbar-nav a {
             padding-left: $navbar-md-padding-horizontal;
             padding-right: $navbar-md-padding-horizontal;
@@ -282,6 +287,10 @@ $navbar-md-padding-horizontal: 5px;
 h2.home-header {
     margin-top: 25px;
     margin-bottom: 10px;
+
+    &.borderless {
+        border: none;
+    }
 
     @media (min-width: 480px) {
         text-align: center;
@@ -395,6 +404,9 @@ div.highlighter-rouge {
 code.highlighter-rouge {
     word-break: break-word;
     overflow-wrap: break-word;
+    color: #9E1E40;
+    font-size: 1em;
+    background: none;
 }
 
 .github-corner {
@@ -510,6 +522,10 @@ div.home-usage-section {
     > .post-list-item:not(:last-child) {
         margin-bottom: 40px;
     }
+}
+
+.glyphicon-fire {
+    color: #FF6A00;
 }
 
 /*.post-footer {

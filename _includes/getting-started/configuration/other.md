@@ -21,6 +21,23 @@ Sets the culture by the name. The default value is `CultureInfo.CurrentCulture`.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
+    <h3><span class="body">UseArtifactsPathTemplate</span><span class="tail">(<span class="keyword">string</span> directoryPathTemplate)</span></h3>
+</div>
+
+Sets the Artifacts directory path template.
+The default value is `"{test-suite-name-sanitized:/*}{test-name-sanitized:/*}"`.
+
+The list of predefined variables:
+- `{test-name-sanitized}`
+- `{test-name}`
+- `{test-suite-name-sanitized}`
+- `{test-suite-name}`
+- `{test-start}`
+- `{test-start-utc}`
+- `{driver-alias}`
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
     <h3><span class="body">UseAllNUnitFeatures()</span></h3>
 </div>
 
@@ -218,27 +235,6 @@ Adds the variables.
 </div>
 
 Adds the secret string to mask in log.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseTimeZone</span><span class="tail">(<span class="type">TimeZoneInfo</span> timeZone)</span></h3>
-</div>
-
-Sets the time zone.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseTimeZone</span><span class="tail">(<span class="keyword">string</span> timeZoneId)</span></h3>
-</div>
-
-Sets the time zone by identifier, which corresponds to the `TimeZoneInfo.Id` property.
-
-<div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>
-    <h3><span class="body">UseUtcTimeZone</span>()</h3>
-</div>
-
-Sets the UTC time zone.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">AtataContextBuilder</span></span>

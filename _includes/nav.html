@@ -33,6 +33,15 @@
                         <li {% if page.url == "/verification/methods/" %}class="active"{% endif %}><a href="{{ site.baseurl }}/verification/methods/">Verification Methods</a></li>
                     </ul>
                 </li>
+                {% elsif link[0] == "Upgrade" %}
+                {% assign upgradePageUrlTruncated = page.url | slice: 0, 9 %}
+                <li class="dropdown{% if upgradePageUrlTruncated == "/upgrade/" %} active{% endif %}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Upgrade <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li {% if page.url == "/upgrade/to-atata-2/" %}class="active" {% endif %}><a href="{{ site.baseurl }}/upgrade/to-atata-2/">Upgrade to Atata 2</a></li>
+                        <li {% if page.url == "/upgrade/to-atata-3/" %}class="active" {% endif %}><a href="{{ site.baseurl }}/upgrade/to-atata-3/">Upgrade to Atata 3</a></li>
+                    </ul>
+                </li>
                 {% else %}
                 {% assign pageUrlTruncated = page.url | slice: 0, linkRelative.size %}
                 <li {% if pageUrlTruncated == linkRelative %}class="active"{% endif %}>

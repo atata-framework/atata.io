@@ -1,18 +1,20 @@
 ---
 layout: article
-title: Migrating to Atata v2
-description: How to migrate to Atata v2 considering breaking changes.
+title: Upgrade to Atata 2
+description: How to upgrade to Atata 2 considering breaking changes.
+redirect_from:
+  - /tutorials/migrating-to-atata-v2/
 ---
 
 {{ page.description }}
 {:.lead}
 
-## First Steps
+## First steps
 
 The first migration step is to ensure or upgrade your Atata to v1.14.0.
 Then fix all Atata warnings telling that some class/member is obsolete, as those items should be removed in v2.
 
-## Atata Targeting Only .NET Standard 2.0
+## Atata targeting only .NET Standard 2.0
 
 The Atata package now targets .NET Standard 2.0,
 which supports .NET 5+, .NET Framework 4.6.1+ and .NET Core/Standard 2.0+.
@@ -21,9 +23,9 @@ Dropped support of .NET 4.0 - .NET 4.6.
 Thus, if your project uses the .NET Framework version prior to 4.6.1,
 either upgrade the project to the newer version or just stay with Atata v1.
 
-## Migrating Selenium.WebDriver to v4
+## Upgrade Selenium.WebDriver to v4
 
-The biggest change in Atata v2 is the upgrade of Selenium.WebDriver to v4.
+The biggest change in Atata 2 is the upgrade of Selenium.WebDriver to v4.
 Please check out the [Upgrade to Selenium 4](https://www.selenium.dev/documentation/webdriver/getting_started/upgrade_to_selenium_4/)
 to see what changed and make appropriate modifications after the upgrade to Atata v2.
 Pay attention to driver configuration changes.
@@ -31,7 +33,7 @@ All WebDriver configuration changes are reflected in Atata and Atata.Configurati
 Check out the updated [Atata.Configuration.Json / JSON Schema](https://github.com/atata-framework/atata-configuration-json#json-schema)
 if you use Atata JSON configuration files.
 
-## `IWebDriver` is Used Instead of `RemoteWebDriver`
+## `IWebDriver` is used instead of `RemoteWebDriver`
 
 A usage of `RemoteWebDriver` was everywhere replaced with `IWebDriver`:
 
@@ -43,20 +45,20 @@ A usage of `RemoteWebDriver` was everywhere replaced with `IWebDriver`:
 - `DriverAtataContextBuilder<TBuilder>.CreateDriver` method
 - `DriverAtataContextBuilder<TBuilder, TService, TOptions>.CreateDriver` method
 
-### Driver Usage Changes
+### Driver usage changes
 
 - `Driver.ExecuteScript(...)` -> `Driver.AsScriptExecutor().ExecuteScript(...)`
 - `Driver.GetScreenshot()` -> `Driver.AsScreenshotTaker().GetScreenshot()`
 
 Most other properties and methods of `RemoteWebDriver` are also present in `IWebDriver`.
 
-## Default Control Visibility is Changed from `Visible` to `Any`
+## Default control `Visibility` is changed from `Visible` to `Any`
 
 In Atata v1 when `Visibility` of control is not specified explicitly, `Visibility.Visible` is used by default to find the control's element, which filters only visible elements. That is useful filtering in a case when you have hidden HTML elements on a page and don't want Atata to find and interact with hidden elements. But a drawback of such filtering is performance decrease, as each element visibility check is a separate WebDriver command request.
 
 Ensure that you want this feature to be enabled for your website under test. If you have a lot of hidden/invisible HTML elements (for example, check grey HTML tags in browser developer tools) and you still want Atata to filter them out, you may consider disabling this feature. Right after the upgrade to Atata v2, run all your tests and check out the test failures. If there are not many failures because of elements visibility, and they can be solved by setting `Visibility.Visible` to particular controls, then you are good to go with this feature. Otherwise, you can consider the ability to disable this feature globally.
 
-### Set Visible Visibility by Default Globally
+### Set `Visible` by default globally
 
 `Visibility.Any` behavior can be easily reverted to the one with `Visibility.Visible` filter that was in Atata v1 by one of the following ways:
 
@@ -72,9 +74,9 @@ Ensure that you want this feature to be enabled for your website under test. If 
    }
    ```
 
-### Set Visible Visibility to Particular Controls
+### Set `Visible` to particular controls
 
-#### Set in FindAttribute
+#### Set in `FindAttribute`
 
 ```cs
 [FindBy("some-id")]
@@ -84,7 +86,7 @@ Ensure that you want this feature to be enabled for your website under test. If 
 [FindBy("some-id", Visibility = Visibility.Visible)]
 ```
 
-#### Set in ControlDefinitionAttribute
+#### Set in `ControlDefinitionAttribute`
 
 ```cs
 [ControlDefinition("li")]
@@ -94,7 +96,7 @@ Ensure that you want this feature to be enabled for your website under test. If 
 [ControlDefinition("li", Visibility = Visibility.Visible)]
 ```
 
-#### Set in FindSettingsAttribute
+#### Set in `FindSettingsAttribute`
 
 ```cs
 [FindSettings(OuterXPath = "./")]
@@ -104,7 +106,7 @@ Ensure that you want this feature to be enabled for your website under test. If 
 [FindSettings(OuterXPath = "./", Visibility = Visibility.Visible)]
 ```
 
-#### Add FindOnlyVisibleAttribute
+#### Add `FindOnlyVisibleAttribute`
 
 ```cs
 [FindBy("some-id")]
@@ -119,18 +121,17 @@ public TextInput<_> Name { get; private set; }
 
 You can also declare `[FindOnlyVisible(TargetAllChildren = true)]` on page object or parent control to target it to all child controls.
 
-#### Add to Dynamic Control
+#### Set for dynamic control
 
 ```cs
 var input = page.Find<TextInput<SomePage>>(new FindByNameAttribute("name1"));
 ```
 ->
-
 ```cs
 var input = page.Find<TextInput<SomePage>>(new FindByNameAttribute("name1").Visible());
 ```
 
-## The `""` is Returned Instead of `null` as Value of String-Based Field Component
+## The `""` is returned instead of `null` as value of string-based field component
 
 In Atata v1, when input or content field is empty, `null` is returned as a value.
 In Atata v2, an empty string is returned instead.
@@ -147,9 +148,9 @@ to:
 SomeInput.Should.BeEmpty();
 ```
 
-## Renaming and Changes of Frequently Used Classes and Members
+## Renaming and changes of frequently used classes and members
 
-### Component Finding
+### Component finding
 
 - `ComponentScopeLocateOptions` -> `ComponentScopeFindOptions`
 - `ComponentScopeLocateResult` -> `ComponentScopeFindResult`
@@ -166,7 +167,7 @@ SomeInput.Should.BeEmpty();
 - `AtataBuildingContext.LogConsumers` -> `AtataBuildingContext.LogConsumerConfigurations`
 - `AtataContextInitEvent` -> `AtataContextInitStartedEvent`
 
-### Data/Object Provider
+### Data/Object provider
 
 - `DataProvider<TData, TOwner>` -> `ValueProvider<TData, TOwner>`
 - `IDataProvider<out TData, out TOwner>` -> `IObjectProvider<TData, TOwner>`
@@ -185,7 +186,7 @@ SomeInput.Should.BeEmpty();
 - `[Wait(...)]` -> `[WaitSeconds(...)]`
 - `ExtendedStringFormatter` -> `AtataTemplateStringFormatter`
 
-## All Breaking Changes
+## All breaking changes
 
 - {% include issue.md id=580 type='mn' %} Change getting of content to skip whitespace text nodes using `ContentSource` values: `FirstChildTextNode`, `LastChildTextNode` and `ChildTextNodesTrimmedAndSpaceJoined`
 - {% include issue.md id=581 type='mj' %} Return `""` instead of `null` as value of string-based field component

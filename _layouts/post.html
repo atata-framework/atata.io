@@ -2,26 +2,24 @@
 layout: default
 ---
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2" role="main">
-        <div class="post-header">
-            {% if page.image %}
-            <img src="/assets/images/{{ page.image }}" alt="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title }}{% endif %}" width="120" height="63" class="pull-right hidden-xs" />
-            {% endif %}
-            <h1>{{ page.title }}</h1>
-            <p class="meta">
-                <span class="date">{{ page.date | date: "%B %e, %Y" }}</span> by <a href="{{ site.author.url }}">{{ site.author.name }}</a>
-            </p>
-        </div>
-        <hr>
-        <div class="post">
-            {{ content }}
-        </div>
-        {% comment %}
-        <div class="post-footer">
-            {% include sharebuttons.html page=page %}
-        </div>
-        {% include comments.html %}
-        {% endcomment %}
+<div role="main">
+    <div class="post-header">
+        {% if page.image %}
+        <img src="/assets/images/{{ page.image }}" alt="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title }}{% endif %}" width="120" height="63" class="pull-right hidden-xs" />
+        {% endif %}
+        <h1>{{ page.title }}</h1>
+        <p class="meta">
+            <span class="date">{{ page.date | date: "%B %e, %Y" }}</span> by <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+        </p>
     </div>
+    <hr>
+    <div class="post">
+        {{ content }}
+    </div>
+    {% comment %}
+    <div class="post-footer">
+        {% include sharebuttons.html page=page %}
+    </div>
+    {% include comments.html %}
+    {% endcomment %}
 </div>

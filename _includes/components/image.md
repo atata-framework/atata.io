@@ -1,5 +1,5 @@
 Represents the image control (`<img>`).
-Default search finds the first occurring `<img>` element..
+Default search is performed by `alt` attribute using `FindByAltAttribute`.
 
 #### Syntax
 
@@ -37,7 +37,7 @@ Component.IsLoaded.Should.BeTrue();
 
 {% capture html %}
 <img id="some-image" src="/assets/images/300x50.png"
-     alt="Some Image">
+     alt="Some image">
 {% endcapture %}
 {% include htmlexample.html html=html %}
 

@@ -1,14 +1,5 @@
-### Configuration
-
-First of all, the `AtataContext` should be configured to store screenshots.
-Take a look at [Getting Started / Configuration / Screenshots](/getting-started/#screenshots).
-
-For example:
-
-```cs
-AtataContext.GlobalConfiguration
-    .ScreenshotConsumers.AddFile();
-```
+Take a look at [Getting Started / Configuration / Screenshots](/getting-started/#screenshots)
+on how to configure the functionality.
 
 There are few ways to capture a screenshot depending on place where you need to do it.
 

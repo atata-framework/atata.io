@@ -55,6 +55,11 @@ Writes an informational log message.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Warn</span><span class="tail">(<span class="type">Exception</span> exception)</span></h3>
+</div>
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">Warn</span><span class="tail">(<span class="keyword">string</span> message)</span></h3>
 </div>
 
@@ -67,6 +72,11 @@ Writes a warning log message.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Error</span><span class="tail">(<span class="type">Exception</span> exception)</span></h3>
+</div>
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
     <h3><span class="body">Error</span><span class="tail">(<span class="keyword">string</span> message)</span></h3>
 </div>
 
@@ -76,6 +86,11 @@ Writes a warning log message.
 </div>
 
 Writes an error log message.
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Fatal</span><span class="tail">(<span class="type">Exception</span> exception)</span></h3>
+</div>
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>

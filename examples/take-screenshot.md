@@ -7,18 +7,6 @@ description: How to take/capture screenshot.
 {{ page.description }}
 {:.lead}
 
-## Configuration
-
-First of all, the `AtataContext` should be configured to store screenshots.
-Take a look at [Getting Started / Configuration / Screenshots](/getting-started/#screenshots).
-
-For example:
-
-```cs
-AtataContext.GlobalConfiguration
-    .ScreenshotConsumers.AddFile();
-```
-
 There are few ways to capture a screenshot depending on place where you need to do it.
 
 ## In test or page object
