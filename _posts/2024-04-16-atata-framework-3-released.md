@@ -1,6 +1,7 @@
 ---
 title: "Atata Framework 3 is Released"
 description: "Atata Framework 3 is released with a set of improvements and removal of deprecated functionality."
+image: "atata-3.0.0-released.png"
 release_version: "3.0.0"
 ---
 
