@@ -167,7 +167,7 @@ The navigation trace logs, basically, duplicated the wrapping informational logs
 ## Other Atata packages releases
 
 - [Atata.WebDriverExtras 3.0.0](https://github.com/atata-framework/atata-webdriverextras/releases/tag/v3.0.0)
-<!--- [Atata.HtmlValidation 3.0.0](https://github.com/atata-framework/atata-htmlvalidation/releases/tag/v3.0.0)-->
+- [Atata.HtmlValidation 3.0.0](https://github.com/atata-framework/atata-htmlvalidation/releases/tag/v3.0.0)
 - [Atata.Bootstrap 3.0.0](https://github.com/atata-framework/atata-bootstrap/releases/tag/v3.0.0)
 - [Atata.KendoUI 3.0.0](https://github.com/atata-framework/atata-kendoui/releases/tag/v3.0.0)
 - [Atata.Templates 3.0.0](https://github.com/atata-framework/atata-templates/releases/tag/v3.0.0)
