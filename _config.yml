@@ -1,6 +1,6 @@
 title: Atata
-short_description: "C#/.NET Test Automation Framework"
-description: "C#/.NET automated web testing full featured framework"
+short_description: "C#/.NET test automation framework"
+description: "C#/.NET web test automation full-featured framework"
 url: https://atata.io
 baseurl: ""
 
@@ -324,8 +324,12 @@ exclude:
   - en-US_User.dic
 
 links:
-    atata_github: https://github.com/atata-framework/atata
     atata_github_organization: https://github.com/atata-framework
+    atata_github: https://github.com/atata-framework/atata
+    atata_configuration_json_github: https://github.com/atata-framework/atata-configuration-json
+    atata_htmlvalidation_github: https://github.com/atata-framework/atata-htmlvalidation
+    atata_bootstrap_github: https://github.com/atata-framework/atata-bootstrap
+    atata_kendoui_github: https://github.com/atata-framework/atata-kendoui
     atata_issues: https://github.com/atata-framework/atata/issues
     atata_webdriverextras_issues: https://github.com/atata-framework/atata-webdriverextras/issues
     atata_twitter: https://twitter.com/AtataFramework
@@ -335,8 +339,4 @@ links:
     atata_slack_invite: https://join.slack.com/t/atata-framework/shared_invite/zt-5j3lyln7-WD1ZtMDzXBhPm0yXLDBzbA
     atata_youtube: https://www.youtube.com/@atataframework
     atata_nuget: https://www.nuget.org/packages/Atata/
-    atata_webdriverextras_nuget: https://www.nuget.org/packages/Atata.WebDriverExtras/
-    atata_bootstrap_nuget: https://www.nuget.org/packages/Atata.Bootstrap/
-    atata_kendoui_nuget: https://www.nuget.org/packages/Atata.KendoUI/
-    atata_configuration_json_nuget: https://www.nuget.org/packages/Atata.Configuration.Json/
     atata_templates: https://marketplace.visualstudio.com/items?itemName=YevgeniyShunevych.AtataTemplates

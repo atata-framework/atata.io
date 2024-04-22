@@ -1,4 +1,4 @@
-# [Atata Framework Documentation](https://atata.io)
+# [Atata Framework documentation](https://atata.io)
 
 [![Docs](https://img.shields.io/badge/docs-Atata_Framework-orange.svg)](https://atata.io)
 [![Twitter](https://img.shields.io/badge/follow-@AtataFramework-blue.svg)](https://twitter.com/AtataFramework)
@@ -6,7 +6,7 @@
 
 Documentation for the [Atata Framework](https://github.com/atata-framework/atata).
 
-## Setup Documentation
+## Setup documentation
 
 ### Jekyll
 
@@ -15,17 +15,19 @@ Therefore, Ruby and Jekyll should be installed.
 To configure Jekyll for Atata documentation locally follow [Jekyll on Windows](https://jekyllrb.com/docs/installation/windows/) installation instructions.
 [RubyInstaller](https://rubyinstaller.org/downloads/) can be used to install Ruby.
 
-### Ruby Gems
+### Ruby gems
 
 Install Ruby gems using command shell:
 
 ```
 gem install jekyll bundler
-gem install github-pages
-gem install tzinfo-data
 ```
+
+### Build
+
+In order to build the documentation, execute the command: `bundle exec jekyll build` or run `build.bat`.
 
 ## License
 
-Atata is an open source software, licensed under the Apache License 2.0.
+Atata is an open-source software, licensed under the Apache License 2.0.
 See [LICENSE](LICENSE) for details.
