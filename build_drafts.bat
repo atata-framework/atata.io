@@ -1,1 +1,1 @@
- bundle exec jekyll build --drafts
+bundle exec jekyll build --drafts
