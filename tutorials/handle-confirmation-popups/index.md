@@ -44,7 +44,7 @@ In Visual Studio create a project for Atata automated testing using the [guide](
 ### Reference Atata.Bootstrap
 
 Add a reference to {% include nuget.md name="Atata.Bootstrap" %} NuGet package.
-It contains [`BSModal<TOwner>`](https://github.com/atata-framework/atata-bootstrap/blob/master/src/Atata.Bootstrap/BSModal%601.cs) component that will be needed later.
+It contains [`BSModal<TOwner>`](https://github.com/atata-framework/atata-bootstrap/blob/main/src/Atata.Bootstrap/BSModal%601.cs) component that will be needed later.
 
 ## JS Confirm
 
@@ -84,7 +84,7 @@ public class ProductsPage : Page<_>
 ```
 
 The popup closing functionality is bound to `DeleteUsingJSConfirm` button with `[CloseConfirmBox]` Atata attribute which does the magic.
-Check [`CloseConfirmBoxAttribute`](https://github.com/atata-framework/atata/blob/master/src/Atata/Attributes/Triggers/CloseConfirmBoxAttribute.cs) sources if you are interested in what is going on behind the scene.
+Check [`CloseConfirmBoxAttribute`](https://github.com/atata-framework/atata/blob/main/src/Atata/Attributes/Triggers/CloseConfirmBoxAttribute.cs) sources if you are interested in what is going on behind the scene.
 
 Create `ProductTests` test class inherited from `UITestFixture` with the test:
 

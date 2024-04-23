@@ -235,5 +235,5 @@ More information:
 
 ## Sample Project
 
-Check out [atata-framework/atata-sample-app-tests](https://github.com/atata-framework/atata-sample-app-tests) repository, which contains [`HtmlPageValidationTests`](https://github.com/atata-framework/atata-sample-app-tests/blob/master/test/AtataSampleApp.UITests/HtmlPageValidationTests.cs) test class that validates HTML of some pages.
-It also contains a sample [`.htmlvalidate.json`](https://github.com/atata-framework/atata-sample-app-tests/blob/master/test/AtataSampleApp.UITests/.htmlvalidate.json) configuration file.
+Check out [atata-framework/atata-sample-app-tests](https://github.com/atata-framework/atata-sample-app-tests) repository, which contains [`HtmlPageValidationTests`](https://github.com/atata-framework/atata-sample-app-tests/blob/main/test/AtataSampleApp.UITests/HtmlPageValidationTests.cs) test class that validates HTML of some pages.
+It also contains a sample [`.htmlvalidate.json`](https://github.com/atata-framework/atata-sample-app-tests/blob/main/test/AtataSampleApp.UITests/.htmlvalidate.json) configuration file.

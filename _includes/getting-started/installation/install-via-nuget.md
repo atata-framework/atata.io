@@ -97,12 +97,12 @@ public class UITestFixture
 
 #### Xunit Project Configuration
 
-Check out [Xunit Atata sample project](https://github.com/atata-framework/atata-samples/tree/master/Xunit).
+Check out [Xunit Atata sample project](https://github.com/atata-framework/atata-samples/tree/main/Xunit).
 
 #### MSTest Project Configuration
 
-Check out [MSTest Atata sample project](https://github.com/atata-framework/atata-samples/tree/master/MSTest).
+Check out [MSTest Atata sample project](https://github.com/atata-framework/atata-samples/tree/main/MSTest).
 
 #### SpecFlow Project Configuration
 
-Check out [SpecFlow Atata sample project](https://github.com/atata-framework/atata-samples/tree/master/SpecFlow).
+Check out [SpecFlow Atata sample project](https://github.com/atata-framework/atata-samples/tree/main/SpecFlow).

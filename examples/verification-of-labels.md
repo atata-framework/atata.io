@@ -53,7 +53,7 @@ namespace SampleApp.UITests
 
 Note that `LabelList<TOwner>` gets a [`Label<TOwner>`](/components/#label) for particular control using its element `id` attribute that equals the `for` attribute of `<label>` element.
 If there is no `for/id` association between label and control `LabelList<TOwner>` will not be able to find such label and
-you may need to implement custom analogue of `LabelList<TOwner>` ([check source file of its implementation](https://github.com/atata-framework/atata/blob/master/src/Atata/Components/LabelList%601.cs)).
+you may need to implement custom analogue of `LabelList<TOwner>` ([check source file of its implementation](https://github.com/atata-framework/atata/blob/main/src/Atata/Components/LabelList%601.cs)).
 {:.warning}
 
 ### Verify Labels in Test

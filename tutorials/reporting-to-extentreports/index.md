@@ -2,7 +2,7 @@
 layout: article
 title: Reporting to ExtentReports
 description: How to configure Atata reporting to ExtentReports.
-sources_path: https://github.com/atata-framework/atata-samples/blob/master/ExtentReports/AtataSamples.ExtentReports/
+sources_path: https://github.com/atata-framework/atata-samples/blob/main/ExtentReports/AtataSamples.ExtentReports/
 ---
 
 How to configure Atata reporting to [ExtentReports](https://extentreports.com/).
