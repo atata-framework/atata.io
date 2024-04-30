@@ -315,9 +315,14 @@ hr.home-links-border {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #465C66;
+    color: $heading-color;
     word-break: break-word;
     overflow-wrap: break-word;
+
+    code.highlighter-rouge {
+        color: $heading-color;
+        padding: 0;
+    }
 }
 
 code.language-nugetpm {
