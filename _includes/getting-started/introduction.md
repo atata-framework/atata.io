@@ -1,4 +1,4 @@
-**Atata Framework** - C#/.NET web test automation full-featured framework based on Selenium WebDriver.
+**Atata Framework** - C#/.NET web UI test automation full-featured framework based on Selenium WebDriver.
 It uses a fluent page object pattern;
 has a built-in logging system;
 contains a unique triggers functionality;
