@@ -191,14 +191,16 @@ a.enum-value-reference {
 }
 
 $navbar-md-padding-horizontal: 5px;
+$navbar-lg-padding-horizontal: 8px;
 
 @media (min-width: 768px) {
-    @media (max-width: 855px) {
+    @media (max-width: 880px) {
         .navbar-default .navbar-nav a {
             font-size: 0.82em;
         }
     }
-    @media (max-width: 1048px) {
+
+    @media (max-width: 970px) {
         .navbar-default .navbar-nav a {
             padding-left: $navbar-md-padding-horizontal;
             padding-right: $navbar-md-padding-horizontal;
@@ -207,6 +209,13 @@ $navbar-md-padding-horizontal: 5px;
 
     .navbar-default .navbar-header a {
         padding-right: $navbar-md-padding-horizontal;
+    }
+}
+
+@media (min-width: 971px) {
+    .navbar-default .navbar-nav a {
+        padding-left: $navbar-lg-padding-horizontal;
+        padding-right: $navbar-lg-padding-horizontal;
     }
 }
 

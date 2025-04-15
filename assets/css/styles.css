@@ -474,12 +474,12 @@ a.enum-value-reference code {
   border-bottom: 2px solid #D35D2E;
 }
 
-@media (min-width: 768px) and (max-width: 855px) {
+@media (min-width: 768px) and (max-width: 880px) {
   .navbar-default .navbar-nav a {
     font-size: 0.82em;
   }
 }
-@media (min-width: 768px) and (max-width: 1048px) {
+@media (min-width: 768px) and (max-width: 970px) {
   .navbar-default .navbar-nav a {
     padding-left: 5px;
     padding-right: 5px;
@@ -488,6 +488,12 @@ a.enum-value-reference code {
 @media (min-width: 768px) {
   .navbar-default .navbar-header a {
     padding-right: 5px;
+  }
+}
+@media (min-width: 971px) {
+  .navbar-default .navbar-nav a {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 .menu-item-highlighted {

@@ -33,7 +33,7 @@ author:
   email: yevgeniy.shunevych@gmail.com
 
 nav_links:
-  Getting Started: "getting-started"
+  Get Started: "getting-started"
   Components: "components"
   Attributes: "attributes"
   Verification: "verification"
@@ -41,7 +41,9 @@ nav_links:
   Examples: "examples"
   Upgrade: "upgrade"
   Blog: "blog"
+  Consulting: "consulting"
   Contact: "contact"
+  Donate: "donate"
 
 getting-started:
   - name: Introduction
