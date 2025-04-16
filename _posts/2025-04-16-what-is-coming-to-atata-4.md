@@ -231,6 +231,11 @@ Starting with v4, Atata is fully compatible with C# nullable reference types.
 All types and members marked as obsolete before v4 have been removed, as is customary with major Atata releases.
 Before upgrading, ensure all obsolete Atata warnings in your code are resolved.
 
+## Release date
+
+Beta version of Atata 4 is expected to be released in May 2025.
+The final release is planned for summer 2025.
+
 ## P.S.
 
 Any feedback is welcome.
