@@ -1,6 +1,7 @@
 ---
 title: "What's coming to Atata 4"
 description: "..."
+image: "atata-4.png"
 ---
 
 Introducing upcoming Atata 4 key features and improvements.
