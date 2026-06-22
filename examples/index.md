@@ -5,19 +5,19 @@ title: Examples
 
 ## General
 
-* [Page Object Inheritance](/examples/page-object-inheritance/)
+* [Page object inheritance](/examples/page-object-inheritance/)
   <br>How to implement base page object and inherit it.
-* [Switch Between Browser Windows](/examples/switch-between-browser-windows/)
+* [Switch between browser windows](/examples/switch-between-browser-windows/)
   <br>How to switch to newly opened browser window.
-* [Finding Hidden Element](/examples/finding-hidden-element/)
+* [Finding hidden element](/examples/finding-hidden-element/)
   <br>How to find hidden control/element on a page.
-* [Verification of Labels](/examples/verification-of-labels/)
-  <br>How to verify the text of labels associated with inputs.
-* [Take Screenshot](/examples/take-screenshot/)
+* [Verification of labels](/examples/verification-of-labels/)
+  <br>How to verify a text of labels associated with inputs.
+* [Take screenshot](/examples/take-screenshot/)
   <br>How to take/capture screenshot.
-* [Override ControlDefinitionAttribute for Property of Control Type](/examples/override-controldefinitionattribute-for-property-of-control-type/)
+* [Override ControlDefinitionAttribute for property of Control type](/examples/override-controldefinitionattribute-for-property-of-control-type/)
   <br>How to set ControlDefinitionAttribute for property of Control type.
-* [Set ControlDefinitionAttribute for Property of ControlList Type](/examples/set-controldefinitionattribute-for-property-of-controllist-type/)
+* [Set ControlDefinitionAttribute for property of ControlList type](/examples/set-controldefinitionattribute-for-property-of-controllist-type/)
   <br>How to set ControlDefinitionAttribute for property of ControlList type.
 * [Custom ControlDefinitionAttribute](/examples/custom-controldefinitionattribute/)
   <br>How to create custom ControlDefinitionAttribute.
@@ -27,51 +27,51 @@ title: Examples
 
 ## Navigation
 
-* [Navigation to Page by Static URL](/examples/navigation-to-page-by-static-url/)
+* [Navigation to page by static URL](/examples/navigation-to-page-by-static-url/)
   <br>How to perform the navigation to the page by static URL.
-* [Navigation to Page by Dynamic URL](/examples/navigation-to-page-by-dynamic-url/)
+* [Navigation to page by dynamic URL](/examples/navigation-to-page-by-dynamic-url/)
   <br>How to perform the navigation to the page by dynamic/parameterized URL.
-* [Navigation to Specific Page After Click](/examples/navigation-to-specific-page-after-click/)
+* [Navigation to specific page after click](/examples/navigation-to-specific-page-after-click/)
   <br>How to perform the navigation to specific page after the button/link click.
-* [Navigation to Particular Pages After Click](/examples/navigation-to-particular-pages-after-click/)
+* [Navigation to particular pages after click](/examples/navigation-to-particular-pages-after-click/)
   <br>How to perform the navigation to one of particular pages after the button/link click.
-* [Navigation to Any Page After Click](/examples/navigation-to-any-page-after-click/)
+* [Navigation to any page after click](/examples/navigation-to-any-page-after-click/)
   <br>How to perform the navigation to different pages after the button/link click.
-* [Navigation to Popup And Back](/examples/navigation-to-popup-and-back/)
+* [Navigation to popup and back](/examples/navigation-to-popup-and-back/)
   <br>How to perform the navigation to popup page object and back.
 {:.link-item-list}
 
 ## Waiting
 
-* [Wait for Element upon Page Initialization](wait-for-element-upon-page-initialization/)
+* [Wait for element upon page initialization](wait-for-element-upon-page-initialization/)
   <br>How to wait for an element upon page initialization.
-* [Wait Until Element Is Hidden upon Page Initialization](wait-until-element-is-hidden-upon-page-initialization/)
+* [Wait until element is hidden upon page initialization](wait-until-element-is-hidden-upon-page-initialization/)
   <br>How to wait for an element to become hidden upon page initialization.
 {:.link-item-list}
 
-## Custom Controls
+## Custom controls
 
-* [Custom Rich Text Editor Based on contenteditable](custom-rich-text-editor-based-on-contenteditable/)
+* [Custom rich text editor based on contenteditable](custom-rich-text-editor-based-on-contenteditable/)
   <br>How to implement custom control for rich text editor that is based on contenteditable HTML attribute.
 {:.link-item-list}
 
-## Custom Verification Extension Methods
+## Custom verification extension methods
 
-* [Custom Verification Extension Method for Generic Page Object](custom-verification-extension-method-for-generic-page-object/)
+* [Custom verification extension method for generic page object](custom-verification-extension-method-for-generic-page-object/)
   <br>How to implement custom verification extension method for a generic page object.
-* [Custom Verification Extension Method for Specific Page Object](custom-verification-extension-method-for-specific-page-object/)
+* [Custom verification extension method for specific page object](custom-verification-extension-method-for-specific-page-object/)
   <br>How to implement custom verification extension method for a specific page object.
 {:.link-item-list}
 
-## Custom Triggers
+## Custom triggers
 
-* [Custom Trigger: Wait for Loading Indicator](custom-trigger-wait-for-loading-indicator/)
+* [Custom trigger: wait for loading indicator](custom-trigger-wait-for-loading-indicator/)
   <br>How to implement custom trigger that waits for a specific element presence and then absence.
 {:.link-item-list}
 
 ## Bootstrap
 
-* [Bootstrap Dropdown (BSDropdownToggle&lt;TOwner&gt;)](/examples/bootstrap-dropdown/)
+* [Bootstrap dropdown (BSDropdownToggle&lt;TOwner&gt;)](/examples/bootstrap-dropdown/)
   <br>How to interact with Bootstrap dropdown component.
 {:.link-item-list}
 

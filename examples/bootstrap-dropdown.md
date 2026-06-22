@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Bootstrap Dropdown (BSDropdownToggle<TOwner>)
+title: Bootstrap dropdown (BSDropdownToggle<TOwner>)
 description: How to interact with Bootstrap dropdown component.
 ---
 
@@ -42,24 +42,23 @@ To use `BSDropdownToggle<TOwner>` control add a reference to [Atata.Bootstrap](h
 using Atata;
 using Atata.Bootstrap;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SomePage;
+
+public class SomePage : Page<_>
 {
-    using _ = SomePage;
+    public ActionsDropdownToggle Actions { get; private set; }
 
-    public class SomePage : Page<_>
+    public class ActionsDropdownToggle : BSDropdownToggle<_>
     {
-        public ActionsDropdownToggle Actions { get; private set; }
+        public Link<_> Item1 { get; private set; }
 
-        public class ActionsDropdownToggle : BSDropdownToggle<_>
-        {
-            public Link<_> Item1 { get; private set; }
+        public Link<_> Item2 { get; private set; }
 
-            public Link<_> Item2 { get; private set; }
+        public Link<_> Item3 { get; private set; }
 
-            public Link<_> Item3 { get; private set; }
-
-            public Link<ExamplesPage, _> Examples { get; private set; }
-        }
+        public Link<ExamplesPage, _> Examples { get; private set; }
     }
 }
 ```

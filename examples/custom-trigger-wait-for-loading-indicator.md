@@ -1,6 +1,6 @@
 ﻿---
 layout: article
-title: "Custom Trigger: Wait for Loading Indicator"
+title: "Custom trigger: wait for loading indicator"
 description: How to implement custom trigger that waits for a specific element presence and then absence.
 ---
 
@@ -32,47 +32,45 @@ after that, it has to wait until the loading indicator element is hidden and onl
 
 ## Implementation
 
-### Trigger Implementation
+### Trigger implementation
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    public class WaitForLoadingIndicatorAttribute : WaitForElementAttribute
-    {
-        public WaitForLoadingIndicatorAttribute(TriggerEvents on = TriggerEvents.Init)
-            : base(WaitBy.Class, "loading-indicator", Until.VisibleThenMissingOrHidden, on)
-        {
-            // On some pages with quick loading the indicator can even not appear.
-            // For such case we can decrease the time of element presence and declare that timeout exception should not be thrown.
-            // Meaning if within 2 seconds the element will not appear then OK, continue the execution.
-            // Note that this settings can differ depending on specific indicator behavior.
-            PresenceTimeout = 2; // Sets max waiting time in seconds for the presence of an element.
-            ThrowOnPresenceFailure = false; // Do not throw exception if indicator is not found.
+namespace SampleApp.UITests;
 
-            AbsenceTimeout = 10; // Sets max waiting time in seconds for the absence of an element.
-        }
+public class WaitForLoadingIndicatorAttribute : WaitForElementAttribute
+{
+    public WaitForLoadingIndicatorAttribute(TriggerEvents on = TriggerEvents.Init)
+        : base(WaitBy.Class, "loading-indicator", Until.VisibleThenMissingOrHidden, on)
+    {
+        // On some pages with quick loading the indicator can even not appear.
+        // For such case we can decrease the time of element presence and declare that timeout exception should not be thrown.
+        // Meaning if within 2 seconds the element will not appear then OK, continue the execution.
+        // Note that this settings can differ depending on specific indicator behavior.
+        PresenceTimeout = 2; // Sets max waiting time in seconds for the presence of an element.
+        ThrowOnPresenceFailure = false; // Do not throw exception if indicator is not found.
+
+        AbsenceTimeout = 10; // Sets max waiting time in seconds for the absence of an element.
     }
 }
 ```
 
-### Using Custom Trigger on Page Object
+### Using custom trigger on page object
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    [WaitForLoadingIndicator]
-    public class SomePage : Page<_>
-    {
-        // Applies trigger to the button that activates the loading indicator.
-        [WaitForLoadingIndicator(TriggerEvents.AfterClick)]
-        public Button<_> SomeButton { get; private set; }
-    }
+using _ = SomePage;
+
+[WaitForLoadingIndicator]
+public class SomePage : Page<_>
+{
+    // Applies trigger to the button that activates the loading indicator.
+    [WaitForLoadingIndicator(TriggerEvents.AfterClick)]
+    public Button<_> SomeButton { get; private set; }
 }
 ```
 {:.page-object}

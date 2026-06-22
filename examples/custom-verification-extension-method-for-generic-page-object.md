@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Custom Verification Extension Method for Generic Page Object
+title: Custom verification extension method for generic page object
 description: How to implement custom verification extension method for a generic page object.
 ---
 
@@ -9,22 +9,21 @@ description: How to implement custom verification extension method for a generic
 
 ## Given
 
-There are similar page verifications in tests that are possible to extract to extention methods.
+There are similar page verifications in tests that are possible to extract to extension methods.
 
 ## Implementation
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+public static class IPageObjectVerificationProviderExtensions
 {
-    public static class IPageObjectVerificationProviderExtensions
+    public static TPageObject BeOnEditPage<TPageObject>(this IPageObjectVerificationProvider<TPageObject> should)
+        where TPageObject : PageObject<TPageObject>
     {
-        public static TPageObject BeOnEditPage<TPageObject>(this IPageObjectVerificationProvider<TPageObject> should)
-            where TPageObject : PageObject<TPageObject>
-        {
-            return should.Component.PageUrl.Should.WithSettings(should).Contain("/Edit.aspx");
-        }
+        return should.Component.PageUrl.Should.WithSettings(should).Contain("/Edit.aspx");
     }
 }
 ```

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Set ControlDefinitionAttribute for Property of ControlList Type
+title: Set ControlDefinitionAttribute for property of ControlList type
 description: How to set ControlDefinitionAttribute for property of ControlList type.
 ---
 
@@ -21,15 +21,14 @@ To set a control definition at the property level, add `ControlDefinitionAttrbiu
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    public class SomePage : Page<_>
-    {
-        [ControlDefinition("p", ContainingClass = "some-class")] // Sets the definition of Text<_> items.
-        public ControlList<Text<_>, _> SomeParagraphs { get; private set; }
-    }
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    [ControlDefinition("p", ContainingClass = "some-class")] // Sets the definition of Text<_> items.
+    public ControlList<Text<_>, _> SomeParagraphs { get; private set; }
 }
 ```
 {:.page-object}

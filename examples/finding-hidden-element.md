@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Finding Hidden Element
+title: Finding hidden element
 description: How to find hidden control/element on a page.
 ---
 
@@ -21,21 +21,20 @@ To find hidden element, set [Visibility](/control-search/#visibility) property o
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    public class SomePage : Page<_>
-    {
-        [FindById("some-id", Visibility = Visibility.Hidden)] // Or Visibility.Any to find element regardless of visibility.
-        public Control<_> HiddenElement { get; private set; }
-    }
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    [FindById("some-id", Visibility = Visibility.Hidden)] // Or Visibility.Any to find element regardless of visibility.
+    public Control<_> HiddenElement { get; private set; }
 }
 ```
 {:.page-object}
 
 ```cs
-Go.To<SomePage>().
-    HiddenElement.Should.BePresent(); // Verifies that control/element exists on the DOM of the page.
+Go.To<SomePage>()
+    .HiddenElement.Should.BePresent(); // Verifies that the control/element exists in the DOM of the page.
 ```
 {:.test}

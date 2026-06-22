@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Wait for Element upon Page Initialization
+title: Wait for element upon page initialization
 description: How to wait for an element upon page initialization.
 ---
 
@@ -26,38 +26,36 @@ and only then start interaction with the page.
 
 You can choose one of the solutions below.
 
-### Using [WaitForElement](/triggers/#waitforelement) Trigger
+### Using [WaitForElement](/triggers/#waitforelement) trigger
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    [WaitForElement(WaitBy.Id, "content-block", WaitUntil.Visible, TriggerEvents.Init)]
-    public class SomePage : Page<_>
-    {
-    }
+using _ = SomePage;
+
+[WaitForElement(WaitBy.Id, "content-block", WaitUntil.Visible, TriggerEvents.Init)]
+public class SomePage : Page<_>
+{
 }
 ```
 {:.page-object}
 
-### Using [WaitFor](/triggers/#waitfor) Trigger
+### Using [WaitFor](/triggers/#waitfor) trigger
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    public class SomePage : Page<_>
-    {
-        [FindById]
-        [WaitFor(Until.Visible)] // By default executes on TriggerEvents.Init.
-        public Control<_> ContentBlock { get; private set; }
-    }
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    [FindById]
+    [WaitFor(Until.Visible)] // By default executes on TriggerEvents.Init.
+    public Control<_> ContentBlock { get; private set; }
 }
 ```
 {:.page-object}

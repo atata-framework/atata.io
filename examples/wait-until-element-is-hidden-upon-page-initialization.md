@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Wait Until Element Is Hidden upon Page Initialization
+title: Wait until element is hidden upon page initialization
 description: How to wait for an element to become hidden upon page initialization.
 ---
 
@@ -27,38 +27,36 @@ and only then start interaction with the page.
 
 You can choose one of the solutions below.
 
-### Using [WaitForElement](/triggers/#waitforelement) Trigger
+### Using [WaitForElement](/triggers/#waitforelement) trigger
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    [WaitForElement(WaitBy.Class, "loading-indicator", WaitUntil.MissingOrHidden, TriggerEvents.Init)]
-    public class SomePage : Page<_>
-    {
-    }
+using _ = SomePage;
+
+[WaitForElement(WaitBy.Class, "loading-indicator", WaitUntil.MissingOrHidden, TriggerEvents.Init)]
+public class SomePage : Page<_>
+{
 }
 ```
 {:.page-object}
 
-### Using [WaitFor](/triggers/#waitfor) Trigger
+### Using [WaitFor](/triggers/#waitfor) trigger
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    public class SomePage : Page<_>
-    {
-        [FindByClass]
-        [WaitFor(Until.MissingOrHidden)] // By default executes on TriggerEvents.Init.
-        public Control<_> LoadingIndicator { get; private set; }
-    }
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    [FindByClass]
+    [WaitFor(Until.MissingOrHidden)] // By default executes on TriggerEvents.Init.
+    public Control<_> LoadingIndicator { get; private set; }
 }
 ```
 {:.page-object}

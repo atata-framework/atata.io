@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Verification of Labels
-description: How to verify the text of labels associated with inputs.
+title: Verification of labels
+description: How to verify a text of labels associated with inputs.
 ---
 
 {{ page.description }}
@@ -33,20 +33,19 @@ of `LabelList<_>` type to your page object with any name, preferably `Labels`.
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SomePage;
+
+public class SomePage : Page<_>
 {
-    using _ = SomePage;
+    [FindById]
+    public TextInput<_> FirstName { get; private set; }
 
-    public class SomePage : Page<_>
-    {
-        [FindById]
-        public TextInput<_> FirstName { get; private set; }
+    [FindById]
+    public TextInput<_> LastName { get; private set; }
 
-        [FindById]
-        public TextInput<_> LastName { get; private set; }
-
-        public LabelList<_> Labels { get; private set; }
-    }
+    public LabelList<_> Labels { get; private set; }
 }
 ```
 {:.page-object}
@@ -56,7 +55,7 @@ If there is no `for/id` association between label and control `LabelList<TOwner>
 you may need to implement custom analogue of `LabelList<TOwner>` ([check source file of its implementation](https://github.com/atata-framework/atata/blob/main/src/Atata/Components/LabelList%601.cs)).
 {:.warning}
 
-### Verify Labels in Test
+### Verify labels in test
 
 ```cs
 Go.To<SomePage>()
@@ -67,5 +66,5 @@ Go.To<SomePage>()
 ```
 {:.test}
 
-Also for specific pointwise label manipulation it's always possible to declare and use individual [`Label<TOwner>`](/components/#label) properties.
+Also for specific point-wise label manipulation it's always possible to declare and use individual [`Label<TOwner>`](/components/#label) properties.
 {:.info}

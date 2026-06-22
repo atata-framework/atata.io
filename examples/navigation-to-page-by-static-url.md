@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Navigation to Page by Static URL
+title: Navigation to page by static URL
 description: How to perform the navigation to the page by static URL.
 ---
 
@@ -18,14 +18,13 @@ All you need is to add `Url` attribute to the page object class and pass it eith
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = BlogPage;
+namespace SampleApp.UITests;
 
-    [Url("/blog/")]
-    public class BlogPage : Page<_>
-    {
-    }
+using _ = BlogPage;
+
+[Url("/blog/")]
+public class BlogPage : Page<_>
+{
 }
 ```
 {:.page-object}

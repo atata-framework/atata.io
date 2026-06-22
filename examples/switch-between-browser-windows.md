@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Switch Between Browser Windows
+title: Switch between browser windows
 description: How to switch to newly opened browser window.
 ---
 
@@ -30,38 +30,36 @@ Go.To<SomePage>(navigate: false);
 ```
 {:.test}
 
-### Page Object for Primary Window
+### Page object for primary window
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SomePage;
+
+public class SomePage : Page<_>
 {
-    using _ = SomePage;
+    public Link<_> LinkThatOpensWindow { get; private set; }
 
-    public class SomePage : Page<_>
-    {
-        public Link<_> LinkThatOpensWindow { get; private set; }
-
-        // Other page object members...
-    }
+    // Other page object members...
 }
 ```
 {:.page-object}
 
-### Page Object for Opened Window
+### Page object for opened window
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomeOtherPage;
+namespace SampleApp.UITests;
 
-    public class SomeOtherPage : Page<_>
-    {
-        // Page object members...
-    }
+using _ = SomeOtherPage;
+
+public class SomeOtherPage : Page<_>
+{
+    // Page object members...
 }
 ```
 {:.page-object}

@@ -20,32 +20,32 @@ To create a custom control definition attribute, create a new class inherited fr
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+public class ErrorMessageDefinitionAttribute : ControlDefinitionAttribute
 {
-    public class ErrorMessageDefinitionAttribute : ControlDefinitionAttribute
+    public ErrorMessageDefinitionAttribute()
+        : base("p") // Sets the base XPath of the scope element.
     {
-        public ErrorMessageDefinitionAttribute()
-            : base("p") // Sets the base XPath of the scope element.
-        {
-            ContainingClass = "error-message"; // Sets the containing CSS class name.
-            ComponentTypeName = "error message"; // Sets the name of the component type.
-                                                 // It is used in report log messages to describe the component type.
-        }
+        ContainingClass = "error-message"; // Sets the containing CSS class name.
+        ComponentTypeName = "error message"; // Sets the name of the component type.
+                                             // It is used in report log messages to describe the component type.
     }
 }
 ```
 {:.attribute}
 
 ```cs
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+using Atata;
 
-    public class SomePage : Page<_>
-    {
-        [ErrorMessageDefinition]
-        public Text<_> ErrorMessage { get; private set; }
-    }
+namespace SampleApp.UITests;
+
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    [ErrorMessageDefinition]
+    public Text<_> ErrorMessage { get; private set; }
 }
 ```
 {:.page-object}

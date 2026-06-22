@@ -24,30 +24,29 @@ To use `KendoGrid<TRow, TOwner>` control add a reference to {% include nuget.md 
 using Atata;
 using Atata.KendoUI;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SomePage;
+
+public class SomePage : Page<_>
 {
-    using _ = SomePage;
+    public KendoGrid<CarRow, _> Cars { get; private set; }
 
-    public class SomePage : Page<_>
+    public class CarRow : KendoGridRow<_>
     {
-        public KendoGrid<CarRow, _> Cars { get; private set; }
+        public Text<_> CarMake { get; private set; }
 
-        public class CarRow : KendoGridRow<_>
-        {
-            public Text<_> CarMake { get; private set; }
+        public Text<_> CarModel { get; private set; }
 
-            public Text<_> CarModel { get; private set; }
+        public Content<int, _> Year { get; private set; }
 
-            public Content<int, _> Year { get; private set; }
+        public Text<_> Category { get; private set; }
 
-            public Text<_> Category { get; private set; }
+        public Text<_> AirConditioner { get; private set; }
 
-            public Text<_> AirConditioner { get; private set; }
-
-            public ValueProvider<bool?, _> HasAirConditioner => CreateValueProvider<bool?>(
-                "has air conditioner",
-                () => AirConditioner == "Yes");
-        }
+        public ValueProvider<bool?, _> HasAirConditioner => CreateValueProvider<bool?>(
+            "has air conditioner",
+            () => AirConditioner == "Yes");
     }
 }
 ```

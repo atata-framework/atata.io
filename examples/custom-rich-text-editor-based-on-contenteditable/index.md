@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Custom Rich Text Editor Based on contenteditable
+title: Custom rich text editor based on contenteditable
 description: How to implement custom control for rich text editor that is based on contenteditable HTML attribute.
 ---
 
@@ -21,7 +21,7 @@ This example, for simplification, covers only interaction with the text editing 
 
 ## Implementation
 
-### Define Control Definition
+### Define control definition
 
 First of all you need to defined text exitor control's definition using browser dev tools.
 You can, for example, search for `[contenteditable="true"]` element.
@@ -30,7 +30,7 @@ You can, for example, search for `[contenteditable="true"]` element.
 
 The `note-editable` class is unique and can be used to detect the editing area.
 
-### Create Custom Control
+### Create custom control
 
 You need to create a custom control for the specific text exitor.
 Note that this example covers only interaction with text editing area, without toolbar buttons.
@@ -38,13 +38,12 @@ Note that this example covers only interaction with text editing area, without t
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+[ControlDefinition(ContainingClass = "note-editable", ComponentTypeName = "text editor")]
+public class SummernoteEditingArea<TOwner> : ContentEditor<TOwner>
+    where TOwner : PageObject<TOwner>
 {
-    [ControlDefinition(ContainingClass = "note-editable", ComponentTypeName = "text editor")]
-    public class SummernoteEditingArea<TOwner> : ContentEditor<TOwner>
-        where TOwner : PageObject<TOwner>
-    {
-    }
 }
 ```
 
@@ -54,19 +53,18 @@ that is created specifically for `contenteditable` components.
 It is also possible to use `ContentEditor<TOwner>` directly.
 {:.info}
 
-### Use Custom Control
+### Use custom control
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    public class SomePage : Page<_>
-    {
-        public SummernoteEditingArea<_> Editor { get; private set; }
-    }
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    public SummernoteEditingArea<_> Editor { get; private set; }
 }
 ```
 {:.page-object}

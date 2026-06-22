@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Navigation to Any Page After Click
+title: Navigation to any page after click
 description: How to perform the navigation to different pages after the button/link click.
 ---
 
@@ -32,23 +32,22 @@ For example, to admin page or regular user profile page, depending on user accou
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SignInPage;
+
+public class SignInPage : Page<_>
 {
-    using _ = SignInPage;
+    public TextInput<_> Email { get; private set; }
 
-    public class SignInPage : Page<_>
-    {
-        public TextInput<_> Email { get; private set; }
+    public PasswordInput<_> Password { get; private set; }
 
-        public PasswordInput<_> Password { get; private set; }
-
-        public Button<_> SignIn { get; private set; }
-    }
+    public Button<_> SignIn { get; private set; }
 }
 ```
 {:.page-object}
 
-### Navigate to Regular User Profile Page
+### Navigate to regular user profile page
 
 ```cs
 Go.To<SignInPage>()
@@ -58,7 +57,7 @@ Go.To<SignInPage>()
 ```
 {:.test}
 
-### Navigate to Admin Page
+### Navigate to admin page
 
 ```cs
 Go.To<SignInPage>()

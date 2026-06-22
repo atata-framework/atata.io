@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Navigation to Particular Pages After Click
+title: Navigation to particular pages after click
 description: How to perform the navigation to one of particular pages after the button/link click.
 ---
 
@@ -32,33 +32,32 @@ For example, to admin page or regular user profile page, depending on user accou
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SignInPage;
+
+public class SignInPage : Page<_>
 {
-    using _ = SignInPage;
+    public TextInput<_> Email { get; private set; }
 
-    public class SignInPage : Page<_>
+    public PasswordInput<_> Password { get; private set; }
+
+    public Button<_> SignIn { get; private set; }
+
+    public UserProfilePage SignInAsUser()
     {
-        public TextInput<_> Email { get; private set; }
+        return SignIn.ClickAndGo<UserProfilePage>();
+    }
 
-        public PasswordInput<_> Password { get; private set; }
-
-        public Button<_> SignIn { get; private set; }
-
-        public UserProfilePage SignInAsUser()
-        {
-            return SignIn.ClickAndGo<UserProfilePage>();
-        }
-
-        public AdminPage SignInAsAdmin()
-        {
-            return SignIn.ClickAndGo<AdminPage>();
-        }
+    public AdminPage SignInAsAdmin()
+    {
+        return SignIn.ClickAndGo<AdminPage>();
     }
 }
 ```
 {:.page-object}
 
-### Navigate to Regular User Profile Page
+### Navigate to regular user profile page
 
 ```cs
 Go.To<SignInPage>()
@@ -68,7 +67,7 @@ Go.To<SignInPage>()
 ```
 {:.test}
 
-### Navigate to Admin Page
+### Navigate to admin page
 
 ```cs
 Go.To<SignInPage>()

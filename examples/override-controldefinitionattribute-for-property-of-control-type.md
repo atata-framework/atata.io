@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Override ControlDefinitionAttribute for Property of Control Type
+title: Override ControlDefinitionAttribute for property of Control type
 description: How to set ControlDefinitionAttribute for property of Control type.
 ---
 
@@ -22,15 +22,14 @@ To override a default control definition at the property level, add `ControlDefi
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = SomePage;
+namespace SampleApp.UITests;
 
-    public class SomePage : Page<_>
-    {
-        [ControlDefinition("input[@type='CheckBox']", ComponentTypeName = "checkbox")] // Overrides the default definition of the checkbox control.
-        public CheckBox<_> SomeCheckBox { get; private set; }
-    }
+using _ = SomePage;
+
+public class SomePage : Page<_>
+{
+    [ControlDefinition("input[@type='CheckBox']", ComponentTypeName = "checkbox")] // Overrides the default definition of the checkbox control.
+    public CheckBox<_> SomeCheckBox { get; private set; }
 }
 ```
 {:.page-object}

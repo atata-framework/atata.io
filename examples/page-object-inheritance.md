@@ -1,92 +1,87 @@
 ---
 layout: article
-title: Page Object Inheritance
+title: Page object inheritance
 description: How to implement base page object and inherit it.
 ---
 
 {{ page.description }}
 {:.lead}
 
-## Base Page Object
+## Base page object
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+public class BasePage<TOwner> : Page<TOwner>
+    where TOwner : BasePage<TOwner>
 {
-    public class BasePage<TOwner> : Page<TOwner>
-        where TOwner : BasePage<TOwner>
+    public TextInput<TOwner> SomeInput { get; private set; }
+
+    public TOwner SomeMethod()
     {
-        public TextInput<TOwner> SomeInput { get; private set; }
+        // TODO: Do something.
 
-        public TOwner SomeMethod()
-        {
-            // TODO: Do something.
-
-            return (TOwner)this;
-        }
+        return (TOwner)this;
     }
 }
 ```
 {:.page-object}
 
-## Inherited Page Object
+## Inherited page object
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = InheritedPage;
+namespace SampleApp.UITests;
 
-    public class InheritedPage : BasePage<_>
+using _ = InheritedPage;
+
+public class InheritedPage : BasePage<_>
+{
+    public TextInput<_> SomeOtherInput { get; private set; }
+}
+```
+{:.page-object}
+
+## Inherited page object with extra triggers
+
+```cs
+using Atata;
+
+namespace SampleApp.UITests;
+
+using _ = InheritedPage;
+
+[VerifyTitle("Some Title")]
+public class InheritedPage : BasePage<_>
+{
+    protected override void OnInit()
     {
-        public TextInput<_> SomeOtherInput { get; private set; }
+        base.OnInit();
+
+        SomeInput.Triggers.Add(new PressEnterAttribute(TriggerEvents.AfterSet));
     }
 }
 ```
 {:.page-object}
 
-## Inherited Page Object with Extra Triggers
+## Base page object with nested custom control
 
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+public class BasePage<TOwner> : Page<TOwner>
+    where TOwner : BasePage<TOwner>
 {
-    using _ = InheritedPage;
+    public FooterSection Footer { get; private set; }
 
-    [VerifyTitle("Some Title")]
-    public class InheritedPage : BasePage<_>
+    [ControlDefinition("footer")]
+    public class FooterSection : Control<TOwner>
     {
-        protected override void OnInit()
-        {
-            base.OnInit();
-
-            SomeInput.Triggers.Add(new PressEnterAttribute(TriggerEvents.AfterSet));
-        }
-    }
-}
-
-```
-{:.page-object}
-
-## Base Page Object with Nested Custom Control
-
-```cs
-using Atata;
-
-namespace SampleApp.UITests
-{
-    public class BasePage<TOwner> : Page<TOwner>
-        where TOwner : BasePage<TOwner>
-    {
-        public FooterSection Footer { get; private set; }
-
-        [ControlDefinition("footer")]
-        public class FooterSection : Control<TOwner>
-        {
-        }
     }
 }
 ```

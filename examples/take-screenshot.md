@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Take Screenshot
+title: Take screenshot
 description: How to take/capture screenshot.
 ---
 

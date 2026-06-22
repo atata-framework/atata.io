@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Navigation to Specific Page After Click
+title: Navigation to specific page after click
 description: How to perform the navigation to specific page after the button/link click.
 ---
 
@@ -20,17 +20,16 @@ The last one is the type of current page object, typically `_`.
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
+namespace SampleApp.UITests;
+
+using _ = SomePage;
+
+public class SomePage : Page<_>
 {
-    using _ = SomePage;
+    public Button<AnotherPage, _> ViewAnother { get; private set; }
 
-    public class SomePage : Page<_>
-    {
-        public Button<AnotherPage, _> ViewAnother { get; private set; }
-
-        // Or using link:
-        //public Link<AnotherPage, _> ViewAnother { get; private set; }
-    }
+    // Or using link:
+    //public Link<AnotherPage, _> ViewAnother { get; private set; }
 }
 ```
 {:.page-object}

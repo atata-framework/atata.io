@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Navigation to Page by Dynamic URL
+title: Navigation to page by dynamic URL
 description: How to perform the navigation to the page by dynamic/parameterized URL.
 ---
 
@@ -25,30 +25,29 @@ is the `BaseUrl` of `AtataContext`.
 ```cs
 using Atata;
 
-namespace SampleApp.UITests
-{
-    using _ = GoogleSearchPage;
+namespace SampleApp.UITests;
 
-    [Url("/search")]
-    public class GoogleSearchPage : Page<_>
-    {
-        public static _ WithQuery(string query) =>
-            new _().AppendNavigationUrl($"?q={query}");
-    }
+using _ = GoogleSearchPage;
+
+[Url("/search")]
+public class GoogleSearchPage : Page<_>
+{
+    public static _ WithQuery(string query) =>
+        new _().AppendNavigationUrl($"?q={query}");
 }
 ```
 {:.page-object}
 
 ### Usage
 
-#### With Query Parameter
+#### With query parameter
 
 ```cs
 Go.To(GoogleSearchPage.WithQuery("test"));
 ```
 {:.test}
 
-#### Without Query Parameter
+#### Without query parameter
 
 ```cs
 Go.To<GoogleSearchPage>();
