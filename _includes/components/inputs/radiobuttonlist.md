@@ -31,7 +31,7 @@ public class RadioButtonList<TValue, TOwner> : OptionList<TValue, TOwner>
 
 Sets random unselected value.
 
-#### Example #1: Using Enum
+#### Example #1: Using `enum`
 
 {% capture html %}
 <label class="radio-inline">
@@ -77,7 +77,7 @@ Go.To<SamplePage>()
 ```
 {:.test}
 
-#### Example #2: Using String
+#### Example #2: Using `string`
 
 {% include htmlexample.html html=html %}
 

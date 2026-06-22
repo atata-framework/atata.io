@@ -13,7 +13,7 @@ or
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
-### Button Control
+### Button control
 
 ```cs
 using _ = SamplePage;
@@ -28,7 +28,7 @@ Go.To<SamplePage>()
     .Save.Click();
 ```
 
-### Button Delegate
+### Button delegate
 
 It is recommended to use `Button` delegate as it simplifies the use by eliminating `Click` and `ClickAndGo` methods.
 

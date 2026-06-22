@@ -55,7 +55,7 @@ There are different approaches to configure `Select` control using different typ
 
 Gets the option by the associated value.
 
-### Example #1: Select Using Enum
+### Example #1: Select using `enum`
 
 {% capture html %}
 <select id="brand">
@@ -82,7 +82,7 @@ public enum CarBrand
 }
 ```
 
-#### Select By Text
+#### Select by text
 
 ```cs
 using _ = SamplePage;
@@ -103,7 +103,7 @@ Go.To<SamplePage>()
 ```
 {:.test}
 
-#### Select By Value
+#### Select by value
 
 You just need to mark the select property with `[SelectByValue]` attribute and optionally set settings like `Case` and `Format`.
 
@@ -121,7 +121,7 @@ public class SamplePage : Page<_>
 
 `TermCase.Lower` is defined in `SelectByValueAttribute` because option values are lowercase in this example (e.g. "volvo").
 
-### Example #2: Select Using String
+### Example #2: Select using `string`
 
 {% include htmlexample.html html=html %}
 
@@ -145,7 +145,7 @@ Go.To<SamplePage>()
 ```
 {:.test}
 
-### Example #3: Select Using Int
+### Example #3: Select using `int`
 
 It is also possible to select an option by `int` and other types.
 The following sample shows how to select using `int` type together with the formatting.

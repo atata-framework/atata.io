@@ -7,7 +7,7 @@ Represents the `<a>` link control. Default search is performed by the content.
 Supports `[GoTemporarily]` settings attribute.
 {:.info}
 
-### Link Control
+### Link control
 
 ```cs
 using _ = SamplePage;
@@ -22,7 +22,7 @@ Go.To<SamplePage>()
     .Create.Click();
 ```
 
-### Link Delegate
+### Link delegate
 
 It is recommended to use `Link` delegate as it simplifies the usage by refusing `Click` and `ClickAndGo` methods.
 

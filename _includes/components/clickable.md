@@ -7,7 +7,7 @@ Represents any HTML element. Default search finds the first occurring element.
 Supports `[GoTemporarily]` settings attribute.
 {:class="info"}
 
-### Clickable Control
+### Clickable control
 
 ```cs
 using _ = SamplePage;
@@ -23,7 +23,7 @@ Go.To<SamplePage>()
     .OpenButton.Click();
 ```
 
-### Clickable Delegate
+### Clickable delegate
 
 ```cs
 using _ = SamplePage;
