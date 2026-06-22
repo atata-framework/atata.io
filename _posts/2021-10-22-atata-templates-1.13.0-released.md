@@ -12,7 +12,7 @@ Visual Studio extension is released with update of Atata package reference.
 
 ## Changelog
 
-### Changes and Enhancements
+### Changes and enhancements
 
 - &#8203;{% include issue.md repo='tm' id=53 type='mj' %} Update Atata package reference to v1.13.0
 

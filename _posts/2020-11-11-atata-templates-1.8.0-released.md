@@ -12,13 +12,13 @@ Visual Studio extension is released with the new "Atata NUnit Advanced Test Proj
 
 ## Changelog
 
-### New Features
+### New features
 
 - &#8203;{% include issue.md repo='tm' id=28 type='mj' %} Add "Atata NUnit Advanced Test Project (.NET Core)" project template
 - &#8203;{% include issue.md repo='tm' id=36 type='mj' %} Add `SetUpFixture.cs` to "Atata NUnit Basic Test Project (.NET Core)" project template
 - &#8203;{% include issue.md repo='tm' id=37 type='mj' %} Add `SetUpFixture.cs` to "Atata NUnit Basic Test Project (.NET Framework)" project template
 
-### Changes and Enhancements
+### Changes and enhancements
 
 - &#8203;{% include issue.md repo='tm' id=29 type='mn' %} Add `CopyLocalLockFileAssemblies` project property to "Atata NUnit Test Project (.NET Core)" project template
 - &#8203;{% include issue.md repo='tm' id=30 type='mj' %} Rename "Atata NUnit Test Project (.NET Framework)" project template to "Atata NUnit Basic Test Project (.NET Framework)"

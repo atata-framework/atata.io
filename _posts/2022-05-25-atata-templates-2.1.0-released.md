@@ -12,7 +12,7 @@ Visual Studio extension is released with fixes and an update of package referenc
 
 ## Changelog
 
-### Changes and Enhancements
+### Changes and enhancements
 
 * &#8203;{% include issue.md repo='tm' id=59 type='mj' %} Drop support of old Visual Studio versions: 2012, 2013 and 2015
 - &#8203;{% include issue.md repo='tm' id=60 type='mj' %} Update package references to latest versions

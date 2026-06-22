@@ -12,11 +12,11 @@ Visual Studio extension is released with support of Visual Studio 2022 and updat
 
 ## Changelog
 
-### New Features
+### New features
 
 * &#8203;{% include issue.md repo='tm' id=56 type='mj' %} Add support of Visual Studio 2022
 
-### Changes and Enhancements
+### Changes and enhancements
 
 - &#8203;{% include issue.md repo='tm' id=55 type='mj' %} Update package references to latest versions
   - `Atata` - v1.14.0

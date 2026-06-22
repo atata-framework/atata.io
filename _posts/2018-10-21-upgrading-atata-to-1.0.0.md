@@ -13,7 +13,7 @@ description: "How to upgrade Atata to 1.0.0 by resolving breaking changes."
 It is recommended to get familiar with Atata changes first.
 This article is to help you to avoid migrating issues if you use Atata 0.17.0 or prior and want to upgrade to 1.0.0.
 
-## Update Other Atata.* Packages
+## Update Other Atata.* packages
 
 First of all when updating `Atata` package, update all other secondary Atata packages too:
 {% include nuget.md name="Atata.Configuration.Json" %},
@@ -22,7 +22,7 @@ First of all when updating `Atata` package, update all other secondary Atata pac
 
 It is important, as these packages were also updated to 1.0.0 version considering changes of primary Atata package.
 
-## WebDriver and Atata Obsolete Functionality Cleanup
+## WebDriver and Atata obsolete functionality cleanup
 
 The following 3 issues made cleanup of obsolete and deleted functionality:
 
@@ -32,14 +32,14 @@ The following 3 issues made cleanup of obsolete and deleted functionality:
 
 So if after update to v1.0.0 you got complilation errors in Visual Studio, review these issues.
 
-## Changed Behavior of FindSettingsAttribute and TermFindSettingsAttribute
+## Changed behavior of `FindSettingsAttribute` and `TermFindSettingsAttribute`
 
 If you use `FindSettingsAttribute` and `TermFindSettingsAttribute` in your project,
 you will probably get warnings in Visual Studio because all non-parameterless constructors of these attributes became obsolete.
 Also you can get error failures during execution of tests.
 So please update your usages of `FindSettingsAttribute` and `TermFindSettingsAttribute` as follows.
 
-### At Assembly Level
+### At assembly level
 
 Before:
 
@@ -55,7 +55,7 @@ Now:
 [assembly: TermFindSettings(TargetAttributeType = typeof(FindByNameAttribute), /*...*/)]
 ```
 
-### At Class Level
+### At class level
 
 Before:
 

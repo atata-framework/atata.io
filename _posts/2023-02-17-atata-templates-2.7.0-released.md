@@ -12,12 +12,12 @@ Visual Studio extension is released with an update of package references and new
 
 ## Changelog
 
-### New Features
+### New features
 
 - &#8203;{% include issue.md repo='tm' id=67 type='mj' %} Add "Atata NUnit Basic Test Project (.NET 6.0)" project template
 - &#8203;{% include issue.md repo='tm' id=68 type='mj' %} Add "Atata NUnit Advanced Test Project (.NET 6.0)" project template
 
-### Changes and Enhancements
+### Changes and enhancements
 
 - &#8203;{% include issue.md repo='tm' id=66 type='mj' %} Update package references to latest versions
   - Atata - v2.7.0

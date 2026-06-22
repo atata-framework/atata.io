@@ -11,7 +11,7 @@ description: "Atata Templates 0.15.0 has been released with new templates. Check
 
 ## Changelog
 
-### New Features
+### New features
 
 * {% include issue.md repo='tm' id=2 type='mj' %} Add **"Atata NUnit Test Fixture"** item template
 * {% include issue.md repo='tm' id=3 type='mj' %} Add **"Atata NUnit Base Test Fixture"** item template
@@ -20,7 +20,7 @@ description: "Atata Templates 0.15.0 has been released with new templates. Check
 * {% include issue.md repo='tm' id=8 type='mj' %} Add **"Atata Components Library (.NET Standard)"** project template
 * {% include issue.md repo='tm' id=9 type='mj' %} Add **"Atata Base Page Object"** item template
 
-### Changes and Enhancements
+### Changes and enhancements
 
 * {% include issue.md repo='tm' id=1 type='mj' %} Update package references to latest versions
 * {% include issue.md repo='tm' id=4 type='mn' %} Rename "Atata Test Project" project template to **"Atata NUnit Test Project (.NET Framework)"**

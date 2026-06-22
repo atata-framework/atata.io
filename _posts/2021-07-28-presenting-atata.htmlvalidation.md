@@ -35,7 +35,7 @@ Find out more information on the library on
 
 ## Usage
 
-### Using ValidateHtml Extension Method
+### Using `ValidateHtml` extension method
 
 The primary way to execute validations is using `ValidateHtml` extension method:
 
@@ -58,21 +58,21 @@ The required version will be installed if "html-validate" package is not install
 By default, when validation fails, throws an assertion exception with a message containing a list of HTML errors.
 Produces a warning instead of assertion exception if `asWarning` argument is set to `true`.
 
-#### Validate by Default
+#### Validate by default
 
 ```cs
 Go.To<OrdinaryPage>(url: "some/url")
     .ValidateHtml();
 ```
 
-#### Validate As Warning
+#### Validate as warning
 
 ```cs
 Go.To<OrdinaryPage>(url: "some/url")
     .ValidateHtml(asWarning: true);
 ```
 
-#### Validate With Custom Options
+#### Validate with custom options
 
 ```cs
 var options = new HtmlValidationOptions
@@ -86,14 +86,14 @@ Go.To<OrdinaryPage>(url: "some/url")
     .ValidateHtml(options);
 ```
 
-#### Validate With Options Based on Default Ones
+#### Validate with options based on default ones
 
 ```cs
 Go.To<OrdinaryPage>(url: "some/url")
     .ValidateHtml(HtmlValidationOptions.Default.CloneWith(x => x.ConfigPath = "another/config.json"));
 ```
 
-### Using ValidateHtmlAttribute Trigger
+### Using `ValidateHtmlAttribute` trigger
 
 `ValidateHtmlAttribute` - the trigger attribute that indicates that the page HTML should be validated on the specified event.
 By default occurs upon the page object initialization.
@@ -102,7 +102,7 @@ Invokes `ValidateHtml` method using `HtmlValidationOptions.Default` options.
 Has `public bool AsWarning { get; set; }` property that gets or sets a value indicating whether to produce a warning instead of assertion exception on validation failure.
 The default value is `false`.
 
-#### Apply to Certain Page Object
+#### Apply to certain page object
 
 ```cs
 [ValidateHtml]
@@ -111,14 +111,14 @@ public class SomePage : Page<_>
 }
 ```
 
-#### Apply to All Page Objects
+#### Apply to all page objects
 
 ```cs
 AtataContext.GlobalConfiguration
     .Attributes.Global.Add(new ValidateHtmlAttribute { TargetType = typeof(PageObject<>) });
 ```
 
-### Using HtmlValidator
+### Using `HtmlValidator`
 
 This approach is a bit low-level one.
 Can be used without active `AtataContext`.
@@ -143,7 +143,7 @@ if (!result.IsSuccessful)
 }
 ```
 
-## Validation Results
+## Validation results
 
 The results of failed validation using `ValidateHtml` method can be found in few places.
 
@@ -170,7 +170,7 @@ More information:
   https://html-validate.org/rules/element-required-attributes.html
 ```
 
-### Result File
+### Result file
 
 By default, the result file that is saved to Atata Artifacts directory is generated using "codeframe" formatter,
 which provides nice detailed report.
@@ -233,7 +233,7 @@ More information:
 ...
 ```
 
-## Sample Project
+## Sample project
 
 Check out [atata-framework/atata-sample-app-tests](https://github.com/atata-framework/atata-sample-app-tests) repository, which contains [`HtmlPageValidationTests`](https://github.com/atata-framework/atata-sample-app-tests/blob/main/test/AtataSampleApp.UITests/HtmlPageValidationTests.cs) test class that validates HTML of some pages.
 It also contains a sample [`.htmlvalidate.json`](https://github.com/atata-framework/atata-sample-app-tests/blob/main/test/AtataSampleApp.UITests/.htmlvalidate.json) configuration file.

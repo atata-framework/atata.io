@@ -12,12 +12,12 @@ Visual Studio extension is released with added usage of [Atata.WebDriverSetup](h
 
 ## Changelog
 
-### New Features
+### New features
 
 - &#8203;{% include issue.md repo='tm' id=42 type='mj' %} Add `Atata.WebDriverSetup` package to project templates
 - &#8203;{% include issue.md repo='tm' id=43 type='mj' %} `Add SampleTests` class to project templates
 
-### Changes and Enhancements
+### Changes and enhancements
 
 - &#8203;{% include issue.md repo='tm' id=41 type='mj' %} Update package references to latest versions
   - `Atata` - v1.10.0

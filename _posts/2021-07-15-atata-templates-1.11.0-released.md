@@ -12,13 +12,13 @@ Visual Studio extension is released with features added to test project template
 
 ## Changelog
 
-### New Features
+### New features
 
 - &#8203;{% include issue.md repo='tm' id=47 type='mj' %} Add `FileScreenshotConsumer` to `AtataContext` in test project templates
 - &#8203;{% include issue.md repo='tm' id=48 type='mj' %} Set Artifacts as Chrome download directory in `Atata.json` of "Atata NUnit Advanced Test Project (.NET Core)"
 - &#8203;{% include issue.md repo='tm' id=49 type='mj' %} Add `nlog-file` log consumer to `Atata.json` in "Atata NUnit Advanced Test Project (.NET Core)"
 
-### Changes and Enhancements
+### Changes and enhancements
 
 - &#8203;{% include issue.md repo='tm' id=45 type='mj' %} Remove `<CopyLocalLockFileAssemblies>` from .NET Core project templates
 - &#8203;{% include issue.md repo='tm' id=46 type='mj' %} Update package references to latest versions
