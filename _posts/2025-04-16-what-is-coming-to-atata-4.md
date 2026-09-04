@@ -163,7 +163,7 @@ Category and external source properties have been added to log entry.
 v3: `2025-04-16 12:34:06.466` - the current local timestamp\
 v4: `00:00:00.001` - the time elapsed since the start of the corresponding `AtataContext`.
 
-### Category
+### Categories
 
 Use `ForCategory` method of `ILogManager` to log messages with a specific category.
 
@@ -181,17 +181,17 @@ Context.Log.ForCategory<SomeClass>().Info("Some other message");
 
 Category, at the moment, is not consumed in Atata itself, but it is available for custom purposes.
 
-### External source
+### Log sources
 
-Use `ForExternalSource` method of `ILogManager` to log messages with a specific external source.
+Use `ForSource` method of `ILogManager` to log messages with a specific external source.
 
 ```cs
-Context.Log.ForExternalSource("Some source").Debug("Some message");
+Context.Log.ForSource("Some source").Debug("Some message");
 ```
 ->
 
 ```
-00:00:00.001 hDrP DEBUG <Some source> Some message
+00:00:00.001 hDrP DEBUG {Some source} Some message
 ```
 
 For example, browser logs are now reported with "Browser" external source:
