@@ -40,7 +40,7 @@ Go.To<SomePage>()
     .Accept(); // or Cancel()
 ```
 
-### Verify Popup Text
+### Verify popup text
 
 Use `Text` property of popup box classes to get or verify the text of popup.
 

@@ -1,34 +1,24 @@
 When a page object's URL is dynamic (contains identifiers in path, query parameters, etc.),
 one of the following approaches can be used for assigning a dynamic URL to a page object.
 
-#### Pass URL in Go.To Method
+#### Pass URL in `Go.To` method
 
 ```cs
 Go.To<UserPage>(url: $"/user/{userId}");
 ```
 {:.test}
 
-#### Set NavigationUrl
+#### `SetNavigationUrl`/`AppendNavigationUrl` methods
 
-`PageObject<TOwner>` has the `NavigationUrl` property which can be assigned in a page object's constructor.
-Static URL (a value of `UrlAttribute`) is also written to `NavigationUrl` in a base constructor,
-so you can combine static URL part with dynamic part.
+`PageObject<TOwner>` has functionality to set a navigation URL of the page object before navigation.
+So you can set a dynamic URL in the constructor of page object or elsewhere before navigation.
+
+Static URL (a value of `UrlAttribute`) can be combined with a dynamic URL part.
 
 ##### Example 1
 
 ```cs
-public class UserPage : Page<_>
-{
-    public UserPage(int? id = null)
-    {
-        if (id.HasValue)
-            NavigationUrl = $"/user/{id}";
-    }
-}
-```
-
-```cs
-Go.To(new UserPage(42));
+Go.To(new UserPage().SetNavigationUrl($"/user/{id}"));
 ```
 
 ##### Example 2
@@ -36,14 +26,10 @@ Go.To(new UserPage(42));
 ```cs
 public class UserPage : Page<_>
 {
-    // Default constructor is needed for non-direct navigation, for example via link click.
-    public UserPage()
+    public UserPage(int? id = null)
     {
-    }
-
-    public UserPage(int id)
-    {
-        NavigationUrl = $"/user/{id}";
+        if (id.HasValue)
+            SetNavigationUrl($"/user/{id}");
     }
 }
 ```
@@ -57,8 +43,29 @@ Go.To(new UserPage(42));
 ```cs
 public class UserPage : Page<_>
 {
+    // Default constructor is needed for non-direct navigation, for example via link click.
+    public UserPage()
+    {
+    }
+
+    public UserPage(int id)
+    {
+        SetNavigationUrl($"/user/{id}");
+    }
+}
+```
+
+```cs
+Go.To(new UserPage(42));
+```
+
+##### Example 4
+
+```cs
+public class UserPage : Page<_>
+{
     public static _ ById(int id) =>
-        new() { NavigationUrl = $"/user/{id}" };
+        new _().SetNavigationUrl($"/user/{id}");
 }
 ```
 
@@ -66,18 +73,18 @@ public class UserPage : Page<_>
 Go.To(UserPage.ById(42));
 ```
 
-##### Example 4
+##### Example 5
 
-Static URL can be combined with dynamic part.
+Use `AppendNavigationUrl` instead of `SetNavigationUrl` to combine static URL with a dynamic part.
 
 ```cs
 [Url("/search")]
 public class GoogleSearchPage : Page<_>
 {
-    public GoogleSearchPage(string query = null)
+    public GoogleSearchPage(string? query = null)
     {
-        if (query != null)
-            NavigationUrl += $"?q={query}"; // "/search" + $"?q={query}" = "/search?q={query}"
+        if (query is not null)
+            AppendNavigationUrl($"?q={query}"); // "/search" + $"?q={query}" = "/search?q={query}"
     }
 }
 ```
@@ -89,7 +96,7 @@ Go.To(new GoogleSearchPage("keyword"));
 ```
 
 
-##### Example 5
+##### Example 6
 
 Similar to the previous example, but uses static method instead of constructor.
 

@@ -1,6 +1,6 @@
 Defines the settings to apply for the specified finding strategy of a control.
 
-#### Example: Apply Within Assembly
+#### Example: Apply within assembly
 
 For example, it is possible to replace the default strategy of control search with the custom one.
 
@@ -10,7 +10,7 @@ The following example sets `CustomFindByLabelStrategy` as a search strategy of `
 [assembly: FindSettings(TargetAttributeType = typeof(FindByLabelAttribute), Strategy = typeof(CustomFindByLabelStrategy))]
 ```
 
-#### Example: Apply Within Class
+#### Example: Apply within class
 
 It is possible to set settings for all child controls of page object or control.
 

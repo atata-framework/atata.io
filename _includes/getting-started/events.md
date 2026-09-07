@@ -11,16 +11,28 @@ The `IEventBus` object is accessible through the `EventBus` property of `AtataCo
 ```cs
 void Publish<TEvent>(TEvent eventData);
 
+Task PublishAsync<TEvent>(TEvent eventData);
+
+Task PublishAsync<TEvent>(TEvent eventData, CancellationToken cancellationToken);
+
 object Subscribe<TEvent>(Action eventHandler);
 
 object Subscribe<TEvent>(Action<TEvent> eventHandler);
 
 object Subscribe<TEvent>(Action<TEvent, AtataContext> eventHandler);
 
+object Subscribe<TEvent>(Func<CancellationToken, Task> eventHandler);
+
+object Subscribe<TEvent>(Func<TEvent, CancellationToken, Task> eventHandler);
+
+object Subscribe<TEvent>(Func<TEvent, AtataContext, CancellationToken, Task> eventHandler);
+
 object Subscribe<TEvent, TEventHandler>()
     where TEventHandler : class, IEventHandler<TEvent>, new();
 
 object Subscribe<TEvent>(IEventHandler<TEvent> eventHandler);
+
+object Subscribe<TEvent>(IAsyncEventHandler<TEvent> eventHandler);
 
 void Unsubscribe(object subscription);
 
@@ -29,6 +41,8 @@ void UnsubscribeHandler(object eventHandler);
 void UnsubscribeAll<TEvent>();
 
 void UnsubscribeAll(Type eventType);
+
+void UnsubscribeAll();
 ```
 
 ### IEventHandler
@@ -39,6 +53,17 @@ The event handler interface to implement for event handler classes:
 public interface IEventHandler<in TEvent>
 {
     void Handle(TEvent eventData, AtataContext context);
+}
+```
+
+### IAsyncEventHandler
+
+The event handler interface to implement for async event handler classes:
+
+```cs
+public interface IAsyncEventHandler<in TEvent>
+{
+    Task HandleAsync(TEvent eventData, AtataContext context, CancellationToken cancellationToken);
 }
 ```
 
@@ -53,59 +78,89 @@ public interface IConditionalEventHandler<in TEvent> : IEventHandler<TEvent>
 }
 ```
 
-### EventSubscriptionsAtataContextBuilder
+### IConditionalAsyncEventHandler
 
-`EventSubscriptionsAtataContextBuilder` - the builder of event subscriptions, which is available through `EventSubscriptions` property of `AtataContextBuilder`.
-It provides the methods to subscribe to Atata and custom events during `AtataContext` building.
-
-The list of its methods:
+The event handler interface to implement for conditional async event handler classes:
 
 ```cs
-public EventSubscriptionsAtataContextBuilder Add<TEvent>(Action eventHandler);
+public interface IConditionalAsyncEventHandler<in TEvent> : IAsyncEventHandler<TEvent>
+{
+    bool CanHandle(TEvent eventData, AtataContext context);
+}
+```
 
-public EventSubscriptionsAtataContextBuilder Add<TEvent>(Action<TEvent> eventHandler);
+### EventSubscriptionsBuilder&lt;TRootBuilder&gt;
 
-public EventSubscriptionsAtataContextBuilder Add<TEvent>(Action<TEvent, AtataContext> eventHandler);
+`EventSubscriptionsBuilder<TRootBuilder>` - a base abstract builder of event subscriptions.
+Its inherited classes are:
+- `AtataContextEventSubscriptionsBuilder` - available through `EventSubscriptions` property of `AtataContextBuilder`.
+- `AtataSessionEventSubscriptionsBuilder<TSessionBuilder>`- available through `EventSubscriptions` property of `AtataSessionBuilder<TSession, TBuilder>`. 
 
-public EventSubscriptionsAtataContextBuilder Add<TEvent, TEventHandler>()
-    where TEventHandler : class, IEventHandler<TEvent>, new();
+The base builder class provides methods to subscribe to Atata and custom events.
 
-public EventSubscriptionsAtataContextBuilder Add<TEvent>(IEventHandler<TEvent> eventHandler);
+#### Methods
 
-public EventSubscriptionsAtataContextBuilder Add(Type eventHandlerType);
+```cs
+public TRootBuilder Add<TEvent>(Action eventHandler);
 
-public EventSubscriptionsAtataContextBuilder Add(Type eventType, Type eventHandlerType);
+public TRootBuilder Add<TEvent>(Action<TEvent> eventHandler);
+
+public TRootBuilder Add<TEvent>(Action<TEvent, AtataContext> eventHandler);
+
+public TRootBuilder Add<TEvent>(Func<CancellationToken, Task> eventHandler);
+
+public TRootBuilder Add<TEvent>(Func<TEvent, CancellationToken, Task> eventHandler);
+
+public TRootBuilder Add<TEvent>(Func<TEvent, AtataContext, CancellationToken, Task> eventHandler);
+
+public TRootBuilder Add<TEvent, TEventHandler>()
+    where TEventHandler : class, new();
+
+public TRootBuilder Add<TEvent>(IEventHandler<TEvent> eventHandler);
+
+public TRootBuilder Add<TEvent>(IAsyncEventHandler<TEvent> eventHandler);
+
+public TRootBuilder Add(Type eventHandlerType);
+
+public TRootBuilder Add(Type eventType, Type eventHandlerType);
+
+public TRootBuilder RemoveAll(Predicate<EventSubscriptionItem> match);
+```
+
+`AtataContextEventSubscriptionsBuilder` contains one additional method that give an ability so subscribe on events for specified scopes only:
+
+```cs
+public EventSubscriptionsBuilder<AtataContextBuilder> For(AtataContextScopes scopes);
 ```
 
 ### Usage
 
-#### Subscribe Action Event Handler
+#### Subscribe action event handler
 
 ```cs
-AtataContext.GlobalConfiguration
-    .EventSubscriptions.Add<DriverInitEvent>(e => e.Driver.Maximize());
+builder.EventSubscriptions.Add<WebDriverInitCompletedEvent>(e => e.Driver.Maximize());
 ```
 
-#### Subscribe Action Event Handler as a Method
+#### Subscribe action event handler as a method
 
-Method can have no parameters, single event type parameter, or event type parameter with `AtataContext` parameter.
+A method can have no parameters, single event type parameter, or event type parameter with `AtataContext` parameter.
 
 Examples:
 
 ```cs
-private static void OnDriverInit()
+private static void OnWebDriverInitCompleted()
 {
 }
 ```
 
 ```cs
-private static void OnDriverInit(DriverInitEvent eventData)
+private static void OnWebDriverInitCompleted(WebDriverInitCompletedEvent eventData)
 {
 }
 ```
 
 ```cs
-private static void OnDriverInit(DriverInitEvent eventData, AtataContext context)
+private static void OnWebDriverInitCompleted(WebDriverInitCompletedEvent eventData, AtataContext context)
 {
 }
 ```
@@ -113,18 +168,17 @@ private static void OnDriverInit(DriverInitEvent eventData, AtataContext context
 Then subscribe it:
 
 ```cs
-AtataContext.GlobalConfiguration
-    .EventSubscriptions.Add<DriverInitEvent>(OnDriverInit);
+builder.EventSubscriptions.Add<WebDriverInitCompletedEvent>(OnWebDriverInitCompleted);
 ```
 
-#### Create and Subscribe Specific Event Handler Class
+#### Create and subscribe specific event handler class
 
-Create an event handler class, for example for `DriverInitEvent`:
+Create an event handler class, for example for `WebDriverInitCompletedEvent`:
 
 ```cs
-public class DriverInitEventHandler : IEventHandler<DriverInitEvent>
+public class WebDriverInitCompletedEventHandler : IEventHandler<WebDriverInitCompletedEvent>
 {
-    public void Handle(DriverInitEvent eventData, AtataContext context)
+    public void Handle(WebDriverInitCompletedEvent eventData, AtataContext context)
     {
         // TODO: Implement.
     }
@@ -134,13 +188,12 @@ public class DriverInitEventHandler : IEventHandler<DriverInitEvent>
 Subscribe it during `AtataContext` building:
 
 ```cs
-AtataContext.GlobalConfiguration
-    .EventSubscriptions.Add(new DriverInitEventHandler());
+builder.EventSubscriptions.Add(new WebDriverInitCompletedEventHandler());
 ```
 
-#### Create and Subscribe Universal Event Handler Class
+#### Create and subscribe universal event handler class
 
-Create a univeral event handler class, which can be used to subscribe to any event type:
+Create a universal event handler class, which can be used to subscribe to any event type:
 
 ```cs
 private class UniversalEventHandler : IEventHandler<object>
@@ -155,32 +208,47 @@ private class UniversalEventHandler : IEventHandler<object>
 Subscribe it during `AtataContext` building to different events:
 
 ```cs
-AtataContext.GlobalConfiguration
-    .EventSubscriptions.Add<DriverInitEvent>(new UniversalEventHandler())
-    .EventSubscriptions.Add<AtataContextDeInitEvent>(new UniversalEventHandler());
+builder
+    .EventSubscriptions.Add<WebDriverInitCompletedEvent>(new UniversalEventHandler())
+    .EventSubscriptions.Add<AtataContextInitCompletedEvent>(new UniversalEventHandler());
 ```
 
-### Built-in Events
+### Built-in events
 
-#### AtataContext Events
+#### AtataContext events
 
 - `AtataContextPreInitEvent` - occurs before `AtataContext` initialization.
 - `AtataContextInitStartedEvent` - occurs when `AtataContext` is started to initialize.
 - `AtataContextInitCompletedEvent` - occurs when `AtataContext` is initialized.
-- `AtataContextDeInitEvent` - occurs when `AtataContext` is deinitializing.
+- `AtataContextDeInitStartedEvent` - occurs when `AtataContext` is started to deinitialize.
 - `AtataContextDeInitCompletedEvent` - occurs when `AtataContext` is deinitialized.
 
-#### Driver Events
+#### AtataSession events
 
-- `DriverInitEvent` - occurs when `AtataContext` driver is initializing.
-- `DriverDeInitEvent` - occurs when `AtataContext` driver is deinitializing.
+- `AtataSessionAssignedToContextEvent` - occurs when `AtataSession` is assigned to `AtataContext`.
+- `AtataSessionUnassignedFromContextEvent` - occurs when `AtataSession` is unassigned from `AtataContext`.
+- `AtataSessionInitStartedEvent` - occurs when `AtataSession` is started to initialize.
+- `AtataSessionInitCompletedEvent` - occurs when `AtataSession` is initialized.
+- `AtataSessionDeInitStartedEvent` - occurs when `AtataSession` is started to deinitialize.
+- `AtataSessionDeInitCompletedEvent` - occurs when `AtataSession` is deinitialized.
 
-#### PageObject Events
-
-- `PageObjectInitEvent` - occurs when `PageObject<TOwner>` is started to initialize.
-- `PageObjectInitCompletedEvent` - occurs when `PageObject<TOwner>` is initialized.
-- `PageObjectDeInitEvent` - occurs when `PageObject<TOwner>` is deinitialized.
-
-#### Artifact Events
+#### Artifact events
 
 - `ArtifactAddedEvent` - occurs when an artifact file is saved.
+
+#### PageObject events
+
+- `PageObjectInitStartedEvent` - occurs when `PageObject<TOwner>` is started to initialize.
+- `PageObjectTransitionInCompletedEvent` - occurs when `PageObject<TOwner>` transition in is completed.
+  That is, navigation to the current page object occurred in the same browser tab
+  by interacting with the previous page object, rather than by directly navigating to a URL.
+- `PageObjectTransitionOutCompletedEvent` - occurs when `PageObject<TOwner>` transition out is completed.
+  That is, navigation to the next page object occurred in the same browser tab
+  by interacting with the current page object, rather than by directly navigating to a URL.
+- `PageObjectInitCompletedEvent` - occurs when `PageObject<TOwner>` is initialized.
+- `PageObjectDeInitCompletedEvent` - occurs when `PageObject<TOwner>` is deinitialized.
+
+#### WebDriver events
+
+- `WebDriverInitCompletedEvent` - occurs when `WebDriverSession.Driver` is initialized.
+- `WebDriverDeInitStartedEvent` - occurs when `WebDriverSession.Driver` is started to deinitialize.

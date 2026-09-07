@@ -17,11 +17,12 @@ public Button<_> AddProduct { get; private set; }
 
 #### Configuration
 
-The DOM test identifier attribute can be configuured through
+The DOM test identifier attribute can be configured through
 `UseDomTestIdAttributeName` and `UseDomTestIdAttributeDefaultCase` methods of `AtataContextBuilder`.
 
 ```cs
-AtataContext.GlobalConfiguration
+builder.Sessions.AddWebDriver(x => x
+    //...
     .UseDomTestIdAttributeName("data-autoid")
-    .UseDomTestIdAttributeDefaultCase(TermCase.PascalKebab);
+    .UseDomTestIdAttributeDefaultCase(TermCase.PascalKebab));
 ```

@@ -7,7 +7,7 @@
   then, if value to set is not `null` or empty,
   executes `TextTypeBehaviorAttribute` behavior.
 - **`SetsValueUsingScriptAttribute`** - the behavior for control value set by executing
-  `HTMLElement.value = '{value}'; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
+  `HTMLElement.focus(); HTMLElement.value = '{value}'; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
 - **`SetsValueUsingSendKeysAttribute`** - the behavior for control value set by `IWebElement.SendKeys(string)` method.
   `IWebElement.SendKeys(string)` method is invoked only when the value is not null or empty.
 - **`SetsValueUsingClearAndSendKeysAttribute`** - the behavior for control value set by invoking

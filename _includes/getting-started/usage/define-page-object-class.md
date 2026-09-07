@@ -7,7 +7,7 @@ namespace AtataDemo.UITests;
 using _ = SignInPage;
 
 [Url("signin")]
-public class SignInPage : Page<_>
+public sealed class SignInPage : Page<_>
 {
     public TextInput<_> Email { get; private set; }
 

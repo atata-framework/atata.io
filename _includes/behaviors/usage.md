@@ -5,10 +5,10 @@ In order to apply a needed behavior to a certain control, just apply an appropri
 public Button<_> Save { get; private set; }
 ```
 
-### Custom Behavior
+### Custom behavior
 
 In order to create a custom implementation of a specific behavior,
-create a new class inherited for behavior's base class and write a behavior implementation inside an overriden `Execute` method.
+create a new class inherited for behavior's base class and write a behavior implementation inside an overridden `Execute` method.
 
 ```cs
 public class ClicksUsingCustomWayAttribute : ClickBehaviorAttribute

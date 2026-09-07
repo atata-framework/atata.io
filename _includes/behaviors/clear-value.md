@@ -7,9 +7,9 @@ Responsible for the `EditableTextField<TValue, TOwner>.Clear()` method action.
   the behavior for control value clearing by `IWebElement.Clear()` method.
 - **`ClearsValueUsingClearMethodOrScriptAttribute`** - the behavior for control value clearing by trying to execute`IWebElement.Clear()` method.
   If `InvalidElementStateException` occurs, then clears the value by executing
-  `HTMLElement.value = ''; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
+  `HTMLElement.focus(); HTMLElement.value = ''; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
 - **`ClearsValueUsingScriptAttribute`** - the behavior for control value clearing by executing
-  `HTMLElement.value = ''; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
+  `HTMLElement.focus(); HTMLElement.value = ''; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
 - **`ClearsValueUsingCtrlADeleteKeysAttribute`** - the behavior for control value clearing by performing "Ctrl+A, Delete" keyboard shortcut.
 - **`ClearsValueUsingHomeShiftEndDeleteKeysAttribute`** - the behavior for control value clearing by performing "Home, Shift+End, Delete" keyboard shortcut.
 - **`ClearsValueUsingShiftHomeDeleteKeysAttribute`** - the behavior for control value clearing by performing "Shift+Home, Delete" keyboard shortcut.

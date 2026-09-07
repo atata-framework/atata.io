@@ -15,4 +15,4 @@ Responsible for the `EditableTextField<TValue, TOwner>.Type(string)` method acti
   `FocusBehaviorAttribute` behavior and then invoking `IWebElement.SendKeys(string)` method
   for character by character with interval defined in `TypingIntervalInSeconds` property.
 - **`TypesTextUsingScriptAttribute`** - the behavior for control text typing by executing
-  `HTMLElement.value += '{value}'; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.
+  `HTMLElement.focus(); HTMLElement.value += '{value}'; HTMLElement.dispatchEvent(new Event('change'));` JavaScript.

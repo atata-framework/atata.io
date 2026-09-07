@@ -12,7 +12,7 @@ There are 2 implemented strategies/approaches of aggregate assertion:
 
 `AggregateAssert` methods are present in `PageObject<TOwner>` and `AtataContext`.
 
-#### Aggregate Assert Page Object
+#### Aggregate assert page object
 
 ```cs
 Go.To<SomeUserPage>()
@@ -32,7 +32,7 @@ Go.To<SomeUserPage>()
     });
 ```
 
-#### Aggregate Assert Component
+#### Aggregate assert component
 
 ```cs
 Go.To<SomeUserPage>()
@@ -43,10 +43,10 @@ Go.To<SomeUserPage>()
     });
 ```
 
-#### Aggregate Assert Block
+#### Aggregate assert block
 
 ```cs
-AtataContext.Current.AggregateAssert(() =>
+AtataContext.Current!.AggregateAssert(() =>
 {
     Go.To<SomeUserPage>()
         .ContactDetails.FirstName.Should.Equal("John")
@@ -71,23 +71,18 @@ public AtataContextBuilder UseAggregateAssertionStrategy(IAggregateAssertionStra
 public AtataContextBuilder UseAggregateAssertionStrategy<TAggregateAssertionStrategy>()
     where TAggregateAssertionStrategy : IAggregateAssertionStrategy, new();
 
+// Available in Atata.NUnit package only:
 public AtataContextBuilder UseNUnitAggregateAssertionStrategy();
 ```
 
-#### Apply NUnit Aggregate Assertion Strategy
+#### Apply NUnit aggregate assertion strategy
 
-When using NUnit, it is recommended to invoke `UseNUnitAggregateAssertionStrategy()` or `UseAllNUnitFeatures()` during
+When using NUnit, it is recommended to use Atata.NUnit package with default configuration.
+
+Alternatively, call `UseNUnitAggregateAssertionStrategy()` during
 `AtataContext` configuration to enable NUnit's built-in multiple assert functionality.
 For other testing frameworks (xUnit, MSTest) the native Atata assertion functionality will work well by default.
 
 ```cs
-AtataContext.GlobalConfiguration
-    .UseNUnitAggregateAssertionStrategy();
-```
-
-Or better:
-
-```cs
-AtataContext.GlobalConfiguration
-    .UseAllNUnitFeatures();
+builder.UseNUnitAggregateAssertionStrategy();
 ```

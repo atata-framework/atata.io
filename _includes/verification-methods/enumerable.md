@@ -105,6 +105,9 @@ for example `List<int>`, `string[]`, `ControlList<Text<TOwner>, TOwner>`, etc.
         ConsistOfSingle<wbr>(<span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TObject</span>, <span class="keyword">bool</span>&gt;&gt; predicateExpression)
     </li>
     <li class="member">
+        ConsistOfSingle<wbr>(<span class="type">TObject</span> expected)
+    </li>
+    <li class="member">
         ConsistSequentiallyOf<wbr>(<span class="keyword">params</span> <span class="type">Expression</span><wbr>&lt;<span class="type">Func</span><wbr>&lt;<span class="type">TObject</span>, <span class="keyword">bool</span>&gt;&gt;[] predicateExpressions)
     </li>
 </ul>
@@ -138,6 +141,7 @@ sut.Should.ConsistOnlyOf(x => x > 0 && x < 10);
 sut.Should.ConsistOnlyOf(x => x > 0, "are positive");
 sut.Should.Not.ConsistOnlyOf(1);
 sut.Should.Not.ConsistOfSingle(x => x == 1);
+sut.Should.Not.ConsistOfSingle(1);
 sut.Should.ConsistSequentiallyOf(x => x == 0 || x == 1, x => x == 2, x => x == 3, x => x >= 4);
 ```
 

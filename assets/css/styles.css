@@ -614,6 +614,11 @@ p.info {
   padding: 4px 10px;
 }
 
+p.call-to-action {
+  border-left: 4px solid #DA35FF;
+  padding: 4px 10px;
+}
+
 p.file-name {
   margin-bottom: 0;
   font-style: italic;

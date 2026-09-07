@@ -1,7 +1,6 @@
 Template variables are allowed in `UrlAttribute` and `Go.To` method's `url` parameter.
 The URL can be represented in a template format, like `"/organization/{OrganizationId}/"`.
-The template is filled with `AtataContext.Variables` by using `AtataContext.FillUriTemplateString(string)`
-method (see [#738](https://github.com/atata-framework/atata/issues/738)).
+The template is filled with `AtataContext.Variables` by using `AtataContext.FillUriTemplateString(string)` method.
 
 *In order to output a `{` use `{{ '{{' }}`, and to output a `}` use `}}`.*
 
@@ -10,24 +9,27 @@ Before navigation ensure that a variable is set in AtataContext.
 #### Set variable directly into `AtataContext`
 
 ```cs
-AtataContext.Current.Variables["OrganizationId"] = 42;
+AtataContext.ResolveCurrent().Variables["OrganizationId"] = 42;
 ```
 
-#### Set variable during `AtataContext` configuration
+#### Set variable directly into session
 
 ```cs
-AtataContext.Configure().
-    AddVariable("OrganizationId", 42);
+AtataContext.ResolveCurrent().Sessions.Get<WebDriverSession>().Variables["OrganizationId"] = 42;
 ```
 
-#### Set variable in JSON config
+#### Set variable for `AtataContext` during configuration
 
-```json
-{
-  "variables": {
-    "OrganizationId": 42
-  }
-}
+```cs
+builder.UseVariable("OrganizationId", 42);
+```
+
+#### Set variable for session during configuration
+
+```cs
+builder.Sessions.AddWebDriver(x => x
+    //...
+    .UseVariable("OrganizationId", 42));
 ```
 
 #### Use template in `UrlAttribute`
@@ -47,4 +49,24 @@ Go.To<OrganizationPage>();
 
 ```cs
 Go.To<OrganizationPage>(url: "/organization/{OrganizationId}/");
+```
+
+#### Use template in page object's navigation URL
+
+{% raw %}
+```cs
+[Url("/search")]
+public class UserPage : Page<_>
+{
+    public static _ ById(int id) =>
+        new _().SetNavigationUrl($"/organization/{{OrganizationId}}/user/{id}");
+}
+```
+{% endraw %}
+
+Notice that `OrganizationId` is wrapped with `{{ '{{' }}` and `}}` to output `{` and `}` in an interpolated string.
+{:.info}
+
+```cs
+Go.To(UserPage.ById(42));
 ```

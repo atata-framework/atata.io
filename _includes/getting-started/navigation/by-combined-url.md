@@ -1,6 +1,6 @@
-`Go.To` method's `url` argument value combines with page object's `NavigationUrl`
+`Go.To` method's `url` argument value combines with page object's navigation URL data
 if it starts with one of: `?`, `&`, `;`, `#`.
-For other cases `url` argument value replaces the `NavigationUrl`.
+For other cases `url` argument value replaces the page object's navigation URL.
 Basically, you can combine static URL part with dynamic one.
 
 #### Example

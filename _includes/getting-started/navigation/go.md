@@ -1,7 +1,7 @@
-A page object navigation starts with `Go` static class, or alternatively with `Go` property of `AtataContext` instance.
+A page object navigation starts with `Go` static class, or alternatively with `Go` property of `WebDriverSession` instance.
 Both `Go` approaches provide a set of similar methods for navigation.
 
-#### Methods
+#### `Go` static class methods
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">T</span></span>

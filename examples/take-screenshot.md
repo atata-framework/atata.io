@@ -23,11 +23,11 @@ Go.To<OrdinaryPage>()
 ## In any place
 
 ```cs
-AtataContext.Current.TakeScreenshot();
+WebSession.Current!.TakeScreenshot();
 ```
 
 ```cs
-AtataContext.Current.Report.Screenshot();
+WebSession.Current!.Report.Screenshot();
 ```
 
 ## Using trigger

@@ -3,12 +3,12 @@ layout: summary-page
 title: Consulting
 ---
 
-Unlock the full potential of Atata Framework with expert consulting and tailored support directly from the creator.
+Unlock the full potential of Atata Framework with expert consulting and tailored support directly from the creator, [{{ site.author.name }}](https://www.linkedin.com/in/yevgeniy-shunevych).
 
 Whether you're just getting started with Atata or managing a complex test automation solution,
 I offer personalized consulting services to help your team accelerate, optimize, and succeed with Atata.
 
-In addition to Atata, I have an experience and can help with .NET unit testing, REST/gRPC API testing, etc.
+In addition to Atata, I have an experience and can help with .NET unit testing, REST/gRPC API testing, E2E testing, etc.
 
 ### &#128640; What I offer
 
@@ -33,9 +33,9 @@ In addition to Atata, I have an experience and can help with .NET unit testing, 
 ### &#128100; Why work with me?
 
 As the author of the Atata Framework, I bring a deep understanding of its architecture, design philosophy, and capabilities.
-My goal is to empower your team to write cleaner, more efficient, and maintainable tests-faster.
+My goal is to empower your team to write cleaner, more efficient, and maintainable tests faster.
 
-I have 18 years of experience in C#/.NET software development:
+I am a Senior .NET Full-Stack Developer with 20 years of experience in C#/.NET software development:
 enterprise, web, desktop and automated testing.
 Having worked in different teams and projects, I understand the challenges teams face and can provide practical solutions.
 
@@ -43,4 +43,4 @@ Having worked in different teams and projects, I understand the challenges teams
 
 Need advice, support, or want to kick off a consulting project?
 Contact me via [LinkedIn](https://www.linkedin.com/in/yevgeniy-shunevych) or email (*{{ site.author.email }}*)
-to discuss how I can help your team thrive with Atata.
+to discuss how I can help your team thrive with Atata Framework or in automated testing in general.

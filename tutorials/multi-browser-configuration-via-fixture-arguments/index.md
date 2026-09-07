@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Multi-Browser Configuration via Fixture Arguments
+title: Multi-browser configuration via fixture arguments
 description: How to configure multi-browser tests application using NUnit fixture arguments.
 ---
 
@@ -16,136 +16,123 @@ This tutorial of multi-browser configuration is an alternative approach to [Mult
 It is actually recommended to use `.runsettings` approach.
 {:.warning}
 
-Create a new Visual Studio tests project or use an existent one.
-Use the [guide](/getting-started/#installation) to create a new Atata tests project.
+## Prerequisites
 
-NUnit is used as a test engine in this tutorial.
-So ensure to reference {% include nuget.md name="NUnit" %} and {% include nuget.md name="NUnit3TestAdapter" %} packages.
-{:.info}
+Create a new Atata NUnit basic test project using the [guide](/getting-started/#installation).
 
 Drivers for Chrome and Edge in this tutorial are setup
 using {% include nuget.md name="Atata.WebDriverSetup" %} package.
 {:.info}
 
-## SetUpFixture
+## Global fixture
 
-Create the following class:
+Create or update the following class:
 
-`SetUpFixture.cs`
+`GlobalFixture.cs`
 {:.file-name}
 
 ```cs
-using Atata;
-using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
 
 namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
 
-[SetUpFixture]
-public class SetUpFixture
+public sealed class GlobalFixture : AtataGlobalFixture
 {
-    [OneTimeSetUp]
-    public void GlobalSetUp()
+    protected override void ConfigureAtataContextBaseConfiguration(AtataContextBuilder builder)
     {
-        AtataContext.GlobalConfiguration
-            .UseChrome()
-                .WithArguments("start-maximized")
-            .UseEdge()
+        builder.Sessions.AddWebDriver(x => x
+            .UseStartScopes(AtataContextScopes.Test)
+            .ConfigureChrome(x => x
+                .WithArguments(
+                    "start-maximized",
+                    "disable-search-engine-choice-screen"))
+            .ConfigureEdge(x => x
+                .WithArguments(
+                    "start-maximized",
+                    "disable-search-engine-choice-screen"))
+            .ConfigureFirefox()
+            .ConfigureRemoteDriver("chrome-remote", x => x
+                .WithRemoteAddress("http://127.0.0.1:8888/wd/hub")
+                .WithOptions(new ChromeOptions
+                {
+                    // TODO: Set specific options.
+                }))
+            .UseBaseUrl("https://demo.atata.io/"));
 
-            // TODO: You can also specify remote driver configuration(s):
-            // .UseRemoteDriver()
-            //     .WithAlias("chrome_remote")
-            //     .WithRemoteAddress("http://127.0.0.1:4444/")
-            //     .WithOptions(new ChromeOptions())
-            .UseBaseUrl("https://demo.atata.io/")
-            .UseCulture("en-US")
-            .UseAllNUnitFeatures();
-
-        AtataContext.GlobalConfiguration.AutoSetUpConfiguredDrivers();
+        builder.LogConsumers.AddNLogFile();
     }
+
+    protected override void ConfigureGlobalAtataContext(AtataContextBuilder builder) =>
+        builder.SetUpWebDriversConfigured();
 }
 ```
 
-In `SetUpFixture` you can configure all browser drivers you want to use.
-`GlobalSetUp` method is invoked only once before all tests execution.
+In `GlobalFixture` you can configure all browser drivers you want to use.
+Notice that `builder.SetUpWebDriversConfigured();` will setup all drivers configured in `ConfigureAtataContextBaseConfiguration` method.
 
-## UITestFixture
+## Base test suite
 
-`UITestFixture` is often used as a base UI test fixture class.
+Create a custom `TestSuite` class to use it as a base test suite class instead of standard `AtataTestSuite`.
 
-`UITestFixture.cs`
+`TestSuite.cs`
 {:.file-name}
 
 ```cs
-using Atata;
-using NUnit.Framework;
-
 namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
 
-[TestFixture(DriverAliases.Chrome)]
-[TestFixture(DriverAliases.Edge)]
-////[TestFixture("chrome_remote")]
+[TestFixture(WebDriverAliases.Chrome)]
+[TestFixture(WebDriverAliases.Edge)]
+////[TestFixture(WebDriverAliases.Firefox)]
+////[TestFixture("chrome-remote")]
 [Parallelizable]
-public abstract class UITestFixture
+public abstract class TestSuite : AtataTestSuite
 {
     private readonly string _driverAlias;
 
-    protected UITestFixture(string driverAlias) =>
+    protected TestSuite(string driverAlias) =>
         _driverAlias = driverAlias;
 
-    [SetUp]
-    public void SetUp() =>
-        AtataContext.Configure()
-            .UseDriver(_driverAlias)
-            .UseTestName(() => $"[{_driverAlias}]{TestContext.CurrentContext.Test.Name}")
-            .Build();
-
-    [TearDown]
-    public void TearDown() =>
-        AtataContext.Current?.Dispose();
+    protected override void ConfigureTestAtataContext(AtataContextBuilder builder) =>
+        builder.Sessions.ConfigureWebDriver(x => x
+            .UseDriver(_driverAlias));
 }
 ```
 
 Using `[TestFixture(...)]` attribute you can specify any number of drivers you want to use passing driver alias as a parameter.
-Driver alias is passed to fixture via constructor argument and then is used in `SetUp` method to specify which driver to use for particular test (`UseDriver(driverAlias)`).
+Driver alias is passed to fixture via constructor argument and then is used in `ConfigureTestAtataContext` method to specify which driver to use for particular test (`UseDriver(driverAlias)`).
 
 Instead of using `[TestFixture]` attribute you can also use `[TestFixtureSource]` attribute.
 
-You can also specify custom test name considering driver alias, like above.
+## Page object
 
-## Page Object
-
-Create simple page object class:
+Create a simple page object class:
 
 `HomePage.cs`
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
 
 using _ = HomePage;
 
-public class HomePage : Page<_>
+public sealed class HomePage : Page<_>
 {
     public H1<_> Header { get; private set; }
 }
 ```
 
-## Test Fixture
+## Test suite
 
-Now we can create specific test fixture with single test. Don't forget to define constructor and pass the argument to the base `UITestFixture` class.
+Now we can create a specific test suite class with a single test.
+Don't forget to define a constructor and pass the argument to the base `TestSuite` class.
 
 `HomeTests.cs`
 {:.file-name}
 
 ```cs
-using Atata;
-using NUnit.Framework;
-
 namespace AtataSamples.MultipleBrowsersViaFixtureArguments;
 
-public class HomeTests : UITestFixture
+public sealed class HomeTests : TestSuite
 {
     public HomeTests(string driverAlias)
         : base(driverAlias)
@@ -155,11 +142,11 @@ public class HomeTests : UITestFixture
     [Test]
     public void Home() =>
         Go.To<HomePage>()
-            .Header.Should.Equal("Atata Sample App");
+            .Header.Should.Be("Atata Sample App");
 }
 ```
 
-## Run Tests
+## Run tests
 
 Build project and open Test Explorer panel in Visual Studio.
 For `Home` test you can find 2 items in the Test Explorer panel:

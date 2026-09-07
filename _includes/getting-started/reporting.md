@@ -4,9 +4,9 @@ All artifact files can be placed to the `AtataContext.Artifacts` directory.
 By default, as it is recommended to be, `AtataContext.Artifacts` directory is unique per test.
 
 The default Artifacts path follows the template:\
-`{working_directory}\artifacts\{tests_run_timestamp}\{test_suite_name}\{test_name}"`\
+`{working_directory}\artifacts\{tests_run_timestamp}\{namespace_subpath}\{test_suite_name}\{test_name}"`\
 For example:\
-`{project_directory}\bin\Debug\net7.0\artifacts\20231014T112506\SomeTests\Test1`
+`{project_directory}\bin\Debug\net10.0\artifacts\20260512T112506\SomeFeature\SomeTests\Test1`
 
 Atata by itself writes a lot of log entries during execution,
 but custom log entries and artifact files can be reported as well.
@@ -15,13 +15,13 @@ There is also [Reporting to ExtentReports](/tutorials/reporting-to-extentreports
 which describes how to configure Atata reporting to ExtentReports.
 {:.info}
 
-### Report&lt;TOwner&gt; class
+### `IReport<TOwner>` interface
 
-The main class for reporting is `Report<TOwner>`.
-An instance of `Report<TOwner>` can be got by `Report` property of either `AtataContext` or `PageObject<TOwner>`.
+The main interface for reporting is `IReport<out TOwner>`.
+An instance of `IReport<TOwner>` can be got by `Report` property of either `AtataContext`, `AtataSession`, or `PageObject<TOwner>`.
 
 ```cs
-AtataContext.Current.Report.Info("Hello world!");
+AtataContext.ResolveCurrent().Report.Info("Hello world!");
 
 Go.To<SomePage>()
     .Report.Step("Doing some step", x => x
@@ -114,16 +114,18 @@ Writes a critical log message.
     <h3><span class="body">Setup&lt;<span class="type">TResult</span>&gt;</span><span class="tail">(<span class="keyword">string</span> message, <span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">TResult</span>&gt; function)</span></h3>
 </div>
 
-Executes the specified action/function and represents it in a log as a setup section with the specified message.
-The setup action time is not counted as a "Test body" execution time, but counted as "Setup" time.
-
 <div class="member">
-    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
-    <h3><span class="body">Setup&lt;<span class="type">TPageObject</span>&gt;</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">TPageObject</span>&gt; function)</span></h3>
+    <span class="head"><span class="keyword">public</span> <span class="type">Task</span></span>
+    <h3><span class="body">SetupAsync</span><span class="tail">(<span class="keyword">string</span> message, <span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">Task</span>&gt; action)</span></h3>
 </div>
 
-Executes the specified function and represents it in a log as a setup section with the message like `"Set up "<Some>" page"`.
-The setup function time is not counted as a "Test body" execution time, but counted as "Setup" time.
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Task</span>&lt;<span class="type">TResult</span>&gt;</span>
+    <h3><span class="body">SetupAsync&lt;<span class="type">TResult</span>&gt;</span><span class="tail">(<span class="keyword">string</span> message, <span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">Task</span>&lt;<span class="type">TResult</span>&gt;&gt; function)</span></h3>
+</div>
+
+Executes the specified action/function and represents it in a log as a setup section with the specified message.
+The setup action time is not counted as a "Test body" execution time, but counted as "Setup" time.
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
@@ -135,7 +137,24 @@ The setup function time is not counted as a "Test body" execution time, but coun
     <h3><span class="body">Step&lt;<span class="type">TResult</span>&gt;</span><span class="tail">(<span class="keyword">string</span> message, <span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">TResult</span>&gt; function)</span></h3>
 </div>
 
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Task</span></span>
+    <h3><span class="body">StepAsync</span><span class="tail">(<span class="keyword">string</span> message, <span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">Task</span>&gt; action)</span></h3>
+</div>
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">Task</span>&lt;<span class="type">TResult</span>&gt;</span>
+    <h3><span class="body">StepAsync&lt;<span class="type">TResult</span>&gt;</span><span class="tail">(<span class="keyword">string</span> message, <span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">Task</span>&lt;<span class="type">TResult</span>&gt;&gt; function)</span></h3>
+</div>
+
 Executes the specified action/function and represents it in a log as a section with the specified message.
+
+### `IWebSessionReport<TOwner>` interface
+
+`IWebSessionReport<out TOwner>` interface instance is returned by `Report` property of `WebSession` and `WebDriverSession` classes.
+It inherits from `IReport<TOwner>` interface and adds some methods related to web sessions, such as taking screenshots and page snapshots.
+
+#### Methods
 
 <div class="member">
     <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
@@ -157,3 +176,17 @@ Takes a screenshot of the current page of a certain kind with an optionally spec
 </div>
 
 Takes a snapshot (HTML or MHTML file) of the current page with an optionally specified title.
+
+### `PageObjectReportExtensions` class
+
+`PageObjectReportExtensions` class contains an extension method for `IReport<TOwner>` interface, which is related to page objects.
+
+#### Methods
+
+<div class="member">
+    <span class="head"><span class="keyword">public</span> <span class="type">TOwner</span></span>
+    <h3><span class="body">Setup&lt;<span class="type">TPageObject</span>&gt;</span><span class="tail">(<span class="type">Func</span>&lt;<span class="type">TOwner</span>, <span class="type">TPageObject</span>&gt; function)</span></h3>
+</div>
+
+Executes the specified function and represents it in a log as a setup section with the message like `"Set up "<Some>" page"`.
+The setup function time is not counted as a "Test body" execution time, but counted as "Setup" time.

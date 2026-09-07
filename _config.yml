@@ -27,13 +27,13 @@ permalink: /blog/:year/:month/:day/:title/
 excerpt_separator: <!--more-->
 
 author:
-  name: Yevgeniy Shunevych
+  name: Yevhenii Shunevych
   github: YevgeniyShunevych
   url: https://github.com/YevgeniyShunevych
   email: yevgeniy.shunevych@gmail.com
 
 nav_links:
-  Get Started: "getting-started"
+  Get started: "getting-started"
   Components: "components"
   Attributes: "attributes"
   Verification: "verification"
@@ -48,47 +48,66 @@ nav_links:
 getting-started:
   - name: Introduction
   - name: Concepts
+    items:
+      - Overview
+      - AtataContext
+      - AtataSession
+      - Artifacts
+      - Logs
+      - State
   - name: Packages
     items:
-      - Main Packages
-      - Additional Packages
+      - Main packages
+      - Additional packages
+      - Packages selection
   - name: Installation
     items:
       - Install via Atata Templates
       - Install via NuGet
+      - Atata with NUnit
+      - Atata with xUnit
+      - Atata with MSTest
+      - Atata with Reqnroll and NUnit
   - name: Usage
     items:
-      - Create Project
-      - Define Page Object Class
-      - Implement Test
-      - View Log
+      - Create project
+      - Define page object class
+      - Implement test
+      - View log
   - name: Demo
   - name: Configuration
     items:
-      - Driver
+      - Basic configuration example
+      - Advanced configuration example
+      - Predefined configuration places
+      - Custom builder creation
+      - AtataContextBuilder
+      - Global properties
+      - Sessions
+      - Session
+      - WebDriver session
+      - WebDriver
       - Logging
       - Screenshots
-      - Page Snapshots
-      - Event Subscriptions
-      - Global Properties
-      - Other
+      - Page snapshots
+      - Event subscriptions
   - name: Navigation
     items:
       - Go
-      - By Static URL
-      - By Dynamic URL
-      - By Combined URL
-      - URL Template Variables
+      - By static URL
+      - By dynamic URL
+      - By combined URL
+      - URL template variables
       - Transition
   - name: Reporting
-  - name: Screenshots Taking
-  - name: Page Snapshots Taking
-  - name: Browser Logs Monitoring
-  - name: JavaScript Popup Boxes
+  - name: Screenshots taking
+  - name: Page snapshots taking
+  - name: Browser logs monitoring
+  - name: JavaScript popup boxes
   - name: Events
 
 components:
-  - name: Base Components
+  - name: Base components
     items:
       - UIComponent
       - Control
@@ -99,7 +118,7 @@ components:
       - Field
       - EditableField
       - EditableTextField
-  - name: Dynamic Controls
+  - name: Dynamic controls
   - name: Inputs
     items:
       - Input
@@ -119,7 +138,7 @@ components:
       - TelInput
       - UrlInput
       - SearchInput
-  - name: Text Editors
+  - name: Text editors
     items:
       - TextArea
       - ContentEditor
@@ -134,7 +153,7 @@ components:
   - name: Table
   - name: Content
     items:
-      - Enum Content
+      - Enum content
       - Text
       - H1-H6
       - Label
@@ -161,35 +180,35 @@ components:
 
 attributes:
   - name: General
-  - name: Attribute Levels
+  - name: Attribute levels
     items:
-      - Declared Level
-      - Parent Component Level
-      - Assembly Level
-      - Global Level
-      - Component Level
+      - Declared level
+      - Parent component level
+      - Assembly level
+      - Global level
+      - Component level
   - name: MulticastAttribute
     items:
       - Properties
       - "Example #1"
       - "Example #2"
-  - name: AtataContext Attributes
+  - name: AtataContext attributes
 
 control-search:
   - name: General
     items:
       - Term
-      - Multiple Terms
+      - Multiple terms
       - TermMatch
       - TermCase
       - Visibility
       - ScopeSource
       - FindAs
-  - name: Base Attributes
+  - name: Base attributes
     items:
       - FindAttribute
       - TermFindAttribute
-  - name: Find Attributes
+  - name: Find attributes
     items:
       - FindById
       - FindByName
@@ -216,7 +235,7 @@ control-search:
       - FindByIndex
       - FindByColumnHeader
       - FindByColumnIndex
-  - name: Settings Attributes
+  - name: Settings attributes
     items:
       - FindSettings
       - TermFindSettings
@@ -244,6 +263,10 @@ triggers:
       - WaitForAlertBox
       - WaitForScript
       - WaitForDocumentReadyState
+      - WaitForDomMutationEnd
+      - WaitForDomMutationStartAndEnd
+      - WaitForPageObjectDomMutationEnd
+      - WaitForPageObjectDomMutationStartAndEnd
       - WaitForJQueryAjax
       - WaitForAngular
       - WaitForAngularJS
@@ -274,27 +297,27 @@ behaviors:
   - name: General
   - name: Usage
   - name: Click
-  - name: Double Click
-  - name: Right Click
+  - name: Double click
+  - name: Right click
   - name: Hover
   - name: Focus
   - name: Blur
   - name: Scroll
-  - name: Drag and Drop
-  - name: Drag and Drop to Offset
-  - name: Get Content
-  - name: Get Value
-  - name: Set Value
-  - name: Clear Value
-  - name: Type Text
-  - name: Select Option
+  - name: Drag and drop
+  - name: Drag and drop to offset
+  - name: Get content
+  - name: Get value
+  - name: Set value
+  - name: Clear value
+  - name: Type text
+  - name: Select option
 
 verification:
   - name: General
   - name: Assertion
   - name: Expectation
   - name: Waiting
-  - name: Aggregate Assertion
+  - name: Aggregate assertion
 
 verification-methods:
   - name: Basic
@@ -305,7 +328,8 @@ verification-methods:
   - name: Size
   - name: DateTime
   - name: Enumerable
-  - name: UI Component
+  - name: UI component
+  - name: Uri
   - name: File
   - name: Directory
 
@@ -328,13 +352,9 @@ exclude:
 links:
     atata_github_organization: https://github.com/atata-framework
     atata_github: https://github.com/atata-framework/atata
-    atata_configuration_json_github: https://github.com/atata-framework/atata-configuration-json
-    atata_htmlvalidation_github: https://github.com/atata-framework/atata-htmlvalidation
-    atata_bootstrap_github: https://github.com/atata-framework/atata-bootstrap
-    atata_kendoui_github: https://github.com/atata-framework/atata-kendoui
     atata_issues: https://github.com/atata-framework/atata/issues
     atata_webdriverextras_issues: https://github.com/atata-framework/atata-webdriverextras/issues
-    atata_twitter: https://twitter.com/AtataFramework
+    atata_x: https://x.com/AtataFramework
     atata_stackoverflow: https://stackoverflow.com/questions/tagged/atata
     atata_stackoverflow_ask: https://stackoverflow.com/questions/ask?tags=c%23+atata+automated-tests+ui-automation
     atata_slack: https://atata-framework.slack.com

@@ -3,7 +3,7 @@ Defines the term settings to apply for the specified finding strategy of a contr
 Inherited from [FindSettingsAttribute](#findsettings){:.class-reference}.
 {:.info}
 
-#### Example: Apply Within Assembly
+#### Example: Apply within assembly
 
 For example, if all `name` attributes in the site are formatted lowercase without the separator (e.g. "firstname"),
 you can apply the following attribute in assembly/project containing page objects:
@@ -12,26 +12,19 @@ you can apply the following attribute in assembly/project containing page object
 [assembly: TermFindSettings(TargetAttributeType = typeof(FindByNameAttribute), Case = TermCase.LowerMerged)]
 ```
 
-#### Example: Apply Within Class
+#### Example: Apply within class
 
 Or define it at the UIComponent level (page object or parent control). For example, for the specific page:
 
 ```cs
-using Atata;
-
-namespace SampleApp.UITests
+[TermFindSettings(TargetAnyType = true, TargetAttributeType = typeof(FindByLabelAttribute), Match = TermMatch.Contains, Case = TermCase.Sentence, Format = "{0}:")]
+public class SamplePage : Page<_>
 {
-    using _ = SamplePage;
+    [FindByLabel]
+    public TextInput<_> FirstName { get; private set; }
 
-    [TermFindSettings(TargetAnyType = true, TargetAttributeType = typeof(FindByLabelAttribute), Match = TermMatch.Contains, Case = TermCase.Sentence, Format = "{0}:")]
-    public class SamplePage : Page<_>
-    {
-        [FindByLabel]
-        public TextInput<_> FirstName { get; private set; }
-
-        [FindByLabel]
-        public TextInput<_> LastName { get; private set; }
-    }
+    [FindByLabel]
+    public TextInput<_> LastName { get; private set; }
 }
 ```
 

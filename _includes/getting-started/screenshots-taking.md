@@ -17,11 +17,11 @@ Go.To<OrdinaryPage>()
 ### Take in any place
 
 ```cs
-AtataContext.Current.TakeScreenshot();
+WebDriverSession.Current!.TakeScreenshot();
 ```
 
 ```cs
-AtataContext.Current.Report.Screenshot();
+WebDriverSession.Current!.Report.Screenshot();
 ```
 
 ### Take using trigger
@@ -59,36 +59,37 @@ Full-page screenshots can be enabled to be taken by default instead of viewport 
 
 ##### Configuration
 
-Use `Screenshots` property of `AtataContextBuilder`:
+Use `Screenshots` property of `WebDriverSessionBuilder`:
 
 ```cs
-public ScreenshotsAtataContextBuilder Screenshots { get; }
+public ScreenshotsWebDriverSessionBuilder Screenshots { get; }
 ```
 
-`ScreenshotsAtataContextBuilder` contains the following methods:
+`ScreenshotsWebDriverSessionBuilder` contains the following methods:
 
 ```cs
 // Used by default.
-public ScreenshotsAtataContextBuilder UseWebDriverViewportStrategy();
+public WebDriverSessionBuilder UseWebDriverViewportStrategy();
 
 // Works only for Firefox.
-public ScreenshotsAtataContextBuilder UseWebDriverFullPageStrategy();
+public WebDriverSessionBuilder UseWebDriverFullPageStrategy();
 
 // Works only for Chrome and Edge.
-public ScreenshotsAtataContextBuilder UseCdpFullPageStrategy();
+public WebDriverSessionBuilder UseCdpFullPageStrategy();
 
 // *** Recommended to use for full-page screenshots, regardless of browser/driver.
-public ScreenshotsAtataContextBuilder UseFullPageOrViewportStrategy();
+public WebDriverSessionBuilder UseFullPageOrViewportStrategy();
 
 // To use custom strategy.
-public ScreenshotsAtataContextBuilder UseStrategy(IScreenshotStrategy strategy);
+public WebDriverSessionBuilder UseStrategy(IScreenshotStrategy strategy);
 ```
 
 ###### Usage
 
 ```cs
-AtataContext.GlobalConfiguration
-    .Screenshots.UseFullPageOrViewportStrategy();
+builder.Sessions.AddWebDriver(x => x
+    //...
+    .Screenshots.UseFullPageOrViewportStrategy());
 ```
 
 #### Explicitly take full-page screenshots
@@ -101,7 +102,7 @@ It is allowed to explicitly specify `ScreenshotKind` enum value depending whethe
 ##### Examples
 
 ```cs
-AtataContext.Current.TakeScreenshot(ScreenshotKind.FullPage);
+WebDriverSession.Current!.TakeScreenshot(ScreenshotKind.FullPage);
 ```
 
 ```cs
@@ -111,9 +112,4 @@ Go.To<SomePage>()
 
 ```cs
 [TakeScreenshot(ScreenshotKind.FullPage, TriggerEvents.Init)]
-```
-
-```cs
-AtataContext.GlobalConfiguration
-    .TakeScreenshotOnNUnitError(ScreenshotKind.FullPage);
 ```

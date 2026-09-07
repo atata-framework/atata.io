@@ -27,7 +27,7 @@ The methods apply to `IObjectVerificationProvider` of a `DirectoryInfo` object.
 ### Usage
 
 ```cs
-var sut = AtataContext.Current.Artifacts;
+var sut = AtataContext.Current!.Artifacts;
 
 sut.Directories["dir1"].Should.Exist();
 sut.Should.ContainDirectory("dir1");

@@ -7,7 +7,7 @@ when the first assertion fails, the expectation functionality is for the help.
 An expectation doesn't throw an exception on failure, but it writes a warning assertion result to the log and adds it to `AtataContext.Current.PendingFailureAssertionResults` collection.
 When on `TearDown` `AtataContext.Current?.Dispose()` is invoked,
 after the actual cleaning it will throw aggregate assertion exception with all found expectation failures.
-When using NUnit (`AtataContextBuilder.UseNUnitWarningReportStrategy()`),
+When using Atata.NUnit (`AtataContextBuilder.UseNUnitWarningReportStrategy()`),
 it will record every expectation failure as NUnit warning, which is similar.
 It is also absolutely valid to use expectations inside `AggregateAssert` sections.
 
@@ -31,6 +31,7 @@ public AtataContextBuilder UseVerificationRetryInterval(TimeSpan interval);
 
 public AtataContextBuilder UseWarningReportStrategy(IWarningReportStrategy strategy);
 
+// Available in Atata.NUnit package only:
 public AtataContextBuilder UseNUnitWarningReportStrategy();
 ```
 

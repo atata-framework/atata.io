@@ -1,5 +1,5 @@
 Demo [atata-framework/atata-sample-app-tests](https://github.com/atata-framework/atata-sample-app-tests) UI tests application demonstrates different testing approaches and features of Atata Framework.
-It uses [Atata Sample App](https://demo.atata.io/) ([repository](https://github.com/atata-framework/atata-sample-app)) as a testing website and NUnit 3 as a test engine.
+It uses [Atata Sample App](https://demo.atata.io/) ([repository](https://github.com/atata-framework/atata-sample-app)) as a testing website and NUnit as a test engine.
 
 ### Features
 
@@ -14,10 +14,10 @@ It uses [Atata Sample App](https://demo.atata.io/) ([repository](https://github.
 - Logging, screenshots and snapshots.
 - Page HTML validation.
 
-### Sample Test
+### Sample test
 
 ```cs
-public class UserTests : UITestFixture
+public sealed class UserTests : TestSuite
 {
     [Test]
     public void Create() =>

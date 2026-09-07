@@ -15,8 +15,7 @@ Defines the settings to apply for the `VerifyTitleAttribute` trigger.
 For example, set the default title format in global Atata configuration:
 
 ```cs
-AtataContext.GlobalConfiguration
-    .Attributes.Global.Add(new VerifyTitleSettingsAttribute { Format = "{0} - Atata Sample App" });
+builder.Attributes.Global.Add(new VerifyTitleSettingsAttribute { Format = "{0} - Atata Sample App" });
 ```
 
 Or using assembly attribute:

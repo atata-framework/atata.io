@@ -1,11 +1,9 @@
-**Atata Framework** - C#/.NET web UI test automation full-featured framework based on Selenium WebDriver.
-It uses a fluent page object pattern;
-has a built-in logging system;
-contains a unique triggers functionality;
-has a set of ready-to-use components.
-One of the key ideas of the framework is to provide a simple and intuitive syntax for defining and using page objects.
-A page object implementation requires as less code as possible.
-You can describe a page object class without any methods and only have a set of properties marked with attributes representing page components.
+**Atata Framework** is a full-featured C#/.NET test automation framework built around a powerful context-driven architecture and session-based execution model.
+It provides an intuitive, fluent page object pattern for web UI testing, which remains its core capability,
+while Atata 4 expands beyond web UI automation into a universal, extensible testing ecosystem.
+Designed to minimize boilerplate, Atata enables clean, declarative test components using properties, attributes, and reusable building blocks.
+With customizable built-in logging, a unique event-driven trigger system, and a rich ecosystem of ready-to-use components,
+Atata provides a consistent foundation for building maintainable and scalable automated tests across different testing domains.
 
 The framework is completely open-source and hosted on GitHub as
 [Atata Framework organization]({{ site.links.atata_github_organization }}) under the Apache License 2.0.

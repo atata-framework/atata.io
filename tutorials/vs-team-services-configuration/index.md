@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Visual Studio Team Services Configuration (OBSOLETE)
+title: Visual Studio Team Services configuration (OBSOLETE)
 description: How to configure Atata test automation build on Visual Studio Team Services using any browser.
 ---
 
@@ -14,34 +14,34 @@ I will also show how to view Atata execution log and failed test details.
 
 *You may also use this artcile as an instruction even for pure WebDriver .NET test automation, as it mostly describes VS Team Servcies configuration.*
 
-## Video Guide
+## Video guide
 
 {% include video.html id="9uAv4P1jUj4" %}
 
-## Prepare Team Services Project
+## Prepare Team Services project
 
 Let's assume that we have a VS Team Services account with some auto-tests hosted in sources.
 For testing purposes I used tests from [atata-framework/atata-sample-app-tests](https://github.com/atata-framework/atata-sample-app-tests) repository.
 
 How to sign up for Visual Studio Team Services: [Create your VSTS account with a personal Microsoft account or a work/school/organization account](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
 
-## Create Build Agent
+## Create build agent
 
 If PhantomJS driver is good for you, you may navigate to "Create Build" section (and skip 9th point), as custom build agent is not required in this case.
 Otherwise you will need a machine for custom build agent with installed browser(s).
 
-### Prepare Build Machine
+### Prepare build machine
 
 1. It is needed to have Visual Studio installed on the server machine.
 1. Install needed browser(s) (e.g. Google Chrome).
 
-### Prepare Account Permissions
+### Prepare account permissions
 
 You can find the complete documentation on permissions configuration here:
 [Prepare permissions](https://docs.microsoft.com/en-us/vsts/build-release/actions/agents/prepare-permissions).
 Create personal access token and copy it.
 
-### Configure Build Agent
+### Configure build agent
 
 The process of configuration is described here:
 [Download and configure the agent](https://docs.microsoft.com/en-us/vsts/build-release/actions/agents/v2-windows#download-and-configure-the-agent).
@@ -64,7 +64,7 @@ But I will try to describe it for our needs shortly.
 The build agent is created and run as a service.
 You can go to `https://{your-account}.visualstudio.com/_admin/_AgentPool` to check the agent.
 
-## Create Build
+## Create build
 
 1. Navigate to projects page `https://{your-account}.visualstudio.com/_projects` and select the project.
 1. Using top menu navigate to "Build & Release/Builds".
@@ -82,7 +82,7 @@ You can go to `https://{your-account}.visualstudio.com/_admin/_AgentPool` to che
 1. Click on your newly created build (e.g. "Build & Run Auto-Tests").
 1. Click "Queue new build..." button and then "OK" on popup.
 
-## View Test Results
+## View test results
 
 After the build is finished you can check the test results.
 

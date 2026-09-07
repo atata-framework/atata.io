@@ -1,1 +1,1 @@
-Lat's create a simple test automation project example with a test for [Sign In](https://demo.atata.io/signin) page.
+Let's create a simple web UI test automation project example with a test for [Sign In](https://demo.atata.io/signin) page.

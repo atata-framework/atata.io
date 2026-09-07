@@ -30,10 +30,13 @@
         EndWithIgnoringCase<wbr>(<span class="keyword">string</span> expected)
     </li>
     <li class="member">
-        Match<wbr>(<span class="keyword">string</span> pattern)
+        MatchRegex<wbr>(<span class="keyword">string</span> pattern)
     </li>
     <li class="member">
-        Match<wbr>(<span class="keyword">string</span> pattern, <span class="type">RegexOptions</span> regexOptions)
+        MatchRegex<wbr>(<span class="keyword">string</span> pattern, <span class="type">RegexOptions</span> regexOptions)
+    </li>
+    <li class="member">
+        MatchWildcardPattern<wbr>(<span class="keyword">string</span> pattern)
     </li>
     <li class="member">
         MatchAny<wbr>(<span class="type">TermMatch</span> match, <span class="keyword">params string</span>[] expected)
@@ -71,8 +74,9 @@ sut.Should.StartWith("Hello");
 sut.Should.StartWithIgnoringCase("hello");
 sut.Should.EndWith("World");
 sut.Should.EndWithIgnoringCase("world");
-sut.Should.Match("^Hello");
-sut.Should.Match("^hello", RegexOptions.IgnoreCase);
+sut.Should.MatchRegex("^Hello");
+sut.Should.MatchRegex("^hello", RegexOptions.IgnoreCase);
+sut.Should.MatchWildcardPattern("Hello *");
 sut.Should.MatchAny(TermMatch.Contains, "Hi", "Hello");
 sut.Should.ContainAll("World", "Hello");
 sut.Should.StartWithAny("Hi", "Hello");

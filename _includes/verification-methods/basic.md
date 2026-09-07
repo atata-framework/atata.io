@@ -8,13 +8,16 @@ The basic verification methods.
         Satisfy<wbr>(<span class="type">Func</span><wbr>&lt;<span class="type">TObject</span>, <span class="keyword">bool</span>&gt; predicate, <span class="keyword">string</span> message)
     </li>
     <li class="member">
-        Equal<wbr>(<span class="type">TObject</span> expected)
-    </li>
-    <li class="member">
         Be<wbr>(<span class="type">TObject</span> expected)
     </li>
     <li class="member">
         BeNull<wbr>()
+    </li>
+    <li class="member">
+        BeDefault<wbr>()
+    </li>
+    <li class="member">
+        BeNullOrDefault<wbr>()
     </li>
 </ul>
 
@@ -30,6 +33,8 @@ sut.Should.Satisfy(x => x.Key == "a" && x.Value == 1, "have a:1");
 ```cs
 var sut = "abc".ToSutSubject();
 
-sut.Should.Be(42);
+sut.Should.Be("abc");
 sut.Should.Not.BeNull();
+sut.Should.Not.BeDefault();
+sut.Should.Not.BeNullOrDefault();
 ```

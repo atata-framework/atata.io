@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Verification of Validation Messages
+title: Verification of validation messages
 description: How to verify validation messages on web pages using Atata Framework.
 ---
 
@@ -18,7 +18,7 @@ In this tutorial, I would like to demonstrate Atata Framework abilities of valid
 There are tons of different approaches to display validation/error messages.
 It is impossible to cover all cases, so I will try to cover one sample, but I hope you will get the idea to apply it to specific websites.
 
-## Page Under Test
+## Page under test
 
 For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/signup>.
 
@@ -26,47 +26,42 @@ For testing purposes of this tutorial, the following test page is used: <https:/
 
 The page has the following validators: required, min length, max length and email.
 
-## Set Up Test Project
+## Set up test project
 
-### Create Project
+### Create project
 
 First of all, let's create a project for tests (e.g., named "AtataSamples.ValidationMessagesVerification").
 In Visual Studio create a project for Atata automated testing using the [guide](/getting-started/#installation).
 
-### Create Test Fixture Class
+### Create test suite class
 
-Create "Atata NUnit Test Fixture" class:
+Create a test suite class:
 
 `SignUpTests.cs`
 {:.file-name}
 
 ```cs
-using Atata;
-using NUnit.Framework;
-
 namespace AtataSamples.ValidationMessagesVerification;
 
-public class SignUpTests : UITestFixture
+public sealed class SignUpTests : AtataTestSuite
 {
 }
 ```
 
-### Create Page Object Class
+### Create page object class
 
-Create a page object for Sign Up page:
+Create a page object for the "Sign Up" page:
 
 `SignUpPage.cs`
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ValidationMessagesVerification;
 
 using _ = SignUpPage;
 
 [Url("signup")]
-public class SignUpPage : Page<_>
+public sealed class SignUpPage : Page<_>
 {
     public TextInput<_> FirstName { get; private set; }
 
@@ -83,7 +78,7 @@ public class SignUpPage : Page<_>
 }
 ```
 
-## Validation Message Components
+## Validation message components
 
 Now we need to implement a functionality for validation messages.
 First of all, we need to detect HTML element responsible for validation message and the path to it.
@@ -114,15 +109,14 @@ Validation message is a text inside the `<span>` element, so inherit it form `Te
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ValidationMessagesVerification;
 
 [ControlDefinition("div[contains(concat(' ', normalize-space(@class), ' '), ' has-error ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' help-block ')]")]
-public class ValidationMessage<TOwner> : Text<TOwner>
+public sealed class ValidationMessage<TOwner> : Text<TOwner>
     where TOwner : PageObject<TOwner>
 {
 }
+
 ```
 
 And now we need to define a class representing the collection of validation message components:
@@ -131,22 +125,16 @@ And now we need to define a class representing the collection of validation mess
 {:.file-name}
 
 ```cs
-using Atata;
-using OpenQA.Selenium;
-
 namespace AtataSamples.ValidationMessagesVerification;
 
-public class ValidationMessageList<TOwner> : AssociatedControlList<ValidationMessage<TOwner>, TOwner>
+public sealed class ValidationMessageList<TOwner> : AssociatedControlList<ValidationMessage<TOwner>, TOwner>
     where TOwner : PageObject<TOwner>
 {
     protected override ValidationMessage<TOwner> CreateAssociatedControl(Control<TOwner> control)
     {
         var validationMessageDefinition = UIComponentResolver.GetControlDefinition(typeof(ValidationMessage<TOwner>));
 
-        PlainScopeLocator scopeLocator = new PlainScopeLocator(By.XPath("ancestor::" + validationMessageDefinition.ScopeXPath))
-        {
-            SearchContext = control.Scope
-        };
+        PlainScopeLocator scopeLocator = new(control, By.XPath("ancestor::" + validationMessageDefinition.ScopeXPath));
 
         return Component.Controls.Create<ValidationMessage<TOwner>>(control.ComponentName, scopeLocator);
     }
@@ -183,7 +171,7 @@ And the final thing is to add a property of `ValidationMessageList<TOwner>` type
 {:.file-name}
 
 ```cs
-public class SignUpPage : Page<_>
+public sealed class SignUpPage : Page<_>
 {
     // Input properties...
 
@@ -195,9 +183,10 @@ For any other page objects that use the same validation approach we just also ne
 
 ## Tests
 
-Now we can use all this stuff together. Let's create 3 tests for validation messages verification in `SignUpTests` class.
+Now we can use all this stuff together.
+Let's create 3 tests for validation messages verification in `SignUpTests` class.
 
-### Verify Messages of Required Fields
+### Verify messages of required fields
 
 ![Sign Up page's required validation messages](signup-required-fields.png)
 
@@ -207,15 +196,15 @@ public void Validation_Required() =>
     Go.To<SignUpPage>()
         .SignUp.Click()
         .AggregateAssert(page => page
-            .ValidationMessages[x => x.FirstName].Should.Equal("is required")
-            .ValidationMessages[x => x.LastName].Should.Equal("is required")
-            .ValidationMessages[x => x.Email].Should.Equal("is required")
-            .ValidationMessages[x => x.Password].Should.Equal("is required")
-            .ValidationMessages[x => x.Agreement].Should.Equal("is required")
+            .ValidationMessages[x => x.FirstName].Should.Be("is required")
+            .ValidationMessages[x => x.LastName].Should.Be("is required")
+            .ValidationMessages[x => x.Email].Should.Be("is required")
+            .ValidationMessages[x => x.Password].Should.Be("is required")
+            .ValidationMessages[x => x.Agreement].Should.Be("is required")
             .ValidationMessages.Should.HaveCount(5));
 ```
 
-### Verify Messages of Minimum Length
+### Verify messages of minimum length
 
 ![Sign Up page's min length validation messages](signup-min-length.png)
 
@@ -228,12 +217,12 @@ public void Validation_MinLength() =>
         .Password.Set("a")
         .SignUp.Click()
         .AggregateAssert(page => page
-            .ValidationMessages[x => x.FirstName].Should.Equal("minimum length is 2")
-            .ValidationMessages[x => x.LastName].Should.Equal("minimum length is 2")
-            .ValidationMessages[x => x.Password].Should.Equal("minimum length is 6"));
+            .ValidationMessages[x => x.FirstName].Should.Be("minimum length is 2")
+            .ValidationMessages[x => x.LastName].Should.Be("minimum length is 2")
+            .ValidationMessages[x => x.Password].Should.Be("minimum length is 6"));
 ```
 
-### Verify Message of Incorrect Email
+### Verify message of incorrect email
 
 ![Sign Up page's incorrect email validation message](signup-incorrect-email.png)
 
@@ -243,13 +232,13 @@ public void Validation_IncorrectEmail() =>
     Go.To<SignUpPage>()
         .Email.Set("some@email")
         .SignUp.Click()
-        .ValidationMessages[x => x.Email].Should.Equal("has incorrect format")
+        .ValidationMessages[x => x.Email].Should.Be("has incorrect format")
         .Email.Type(".com")
         .SignUp.Click()
         .ValidationMessages[x => x.Email].Should.Not.BePresent();
 ```
 
-## Verification Message Extension Methods
+## Verification message extension methods
 
 Tests look OK but there is a nicer way to verify validation messages.
 We can extract verifications to extension methods.
@@ -259,12 +248,10 @@ First of all, let's modify `ValidationMessage<TOwner>` class by adding `Should` 
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ValidationMessagesVerification;
 
 [ControlDefinition("div[contains(concat(' ', normalize-space(@class), ' '), ' has-error ')]//span[contains(concat(' ', normalize-space(@class), ' '), ' help-block ')]")]
-public class ValidationMessage<TOwner> : Text<TOwner>
+public sealed class ValidationMessage<TOwner> : Text<TOwner>
     where TOwner : PageObject<TOwner>
 {
     public new FieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> Should =>
@@ -278,33 +265,31 @@ Then we can start the creation of verification extension methods:
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ValidationMessagesVerification;
 
 public static class ValidationMessageExtensions
 {
     public static TOwner BeRequired<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should)
         where TOwner : PageObject<TOwner> =>
-        should.Equal("is required");
+        should.Be("is required");
 
     public static TOwner HaveIncorrectFormat<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should)
         where TOwner : PageObject<TOwner> =>
-        should.Equal("has incorrect format");
+        should.Be("has incorrect format");
 
     public static TOwner HaveMinLength<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should, int length)
         where TOwner : PageObject<TOwner> =>
-        should.Equal($"minimum length is {length}");
+        should.Be($"minimum length is {length}");
 
     public static TOwner HaveMaxLength<TOwner>(this IFieldVerificationProvider<string, ValidationMessage<TOwner>, TOwner> should, int length)
         where TOwner : PageObject<TOwner> =>
-        should.Equal($"maximum length is {length}");
+        should.Be($"maximum length is {length}");
 }
 ```
 
 Now we keep validation message strings in one place and will just operate validation verification extension methods.
 
-## Tests Using Extension Methods
+## Tests using extension methods
 
 Now we can update our tests with the use of extension methods.
 
@@ -320,6 +305,7 @@ public void Validation_Required_UsingExtensions() =>
             .ValidationMessages[x => x.Password].Should.BeRequired()
             .ValidationMessages[x => x.Agreement].Should.BeRequired()
             .ValidationMessages.Should.HaveCount(5));
+        .ValidationMessages.Should.HaveCount(5));
 
 [Test]
 public void Validation_MinLength_UsingExtensions() =>
@@ -332,7 +318,6 @@ public void Validation_MinLength_UsingExtensions() =>
             .ValidationMessages[x => x.FirstName].Should.HaveMinLength(2)
             .ValidationMessages[x => x.LastName].Should.HaveMinLength(2)
             .ValidationMessages[x => x.Password].Should.HaveMinLength(6));
-}
 
 [Test]
 public void Validation_IncorrectEmail_UsingExtensions() =>

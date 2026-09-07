@@ -12,10 +12,10 @@ The extension provides the following templates:
   - Atata Base Page Object
   - Atata Control
   - Atata Trigger
-  - Atata NUnit Test Fixture
-  - Atata NUnit Base Test Fixture
+  - Atata NUnit Test Suite
+  - Atata NUnit Base Test Suite
 
-#### Create Project
+#### Create project
 
 When extension is installed, you can create a project of one of Atata project types.
 In Visual Studio:
@@ -26,16 +26,16 @@ In Visual Studio:
 
 ![Atata Templates project](/assets/images/atata-templates/new-project-window.png?v6)
 
-#### Project References
+#### Project references
 
 The project is created with NuGet package references:
 
 - {% include nuget.md name="Atata" %}
+- {% include nuget.md name="Atata.NUnit" %}
 - {% include nuget.md name="Atata.WebDriverSetup" %}
 - {% include nuget.md name="Microsoft.NET.Test.Sdk" %}
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
-- {% include nuget.md name="Atata.Configuration.Json" %} (for advanced project)
 - {% include nuget.md name="NLog" %} (for advanced project)
 
 #### Configuration
@@ -45,33 +45,29 @@ as a project is by default configured to automatically download appropriate driv
 by use of {% include nuget.md name="Atata.WebDriverSetup" %} package.
 
 In the created project you can specify your testing site base URL and appropriate driver in
-`SetUpFixture.cs` or `Atata.local.json` class, depending on type of project (basic or advanced).
+`GlobalFixture.cs` or `local.runsettings`, depending on a type of project (basic or advanced).
 
 ```cs
-AtataContext.GlobalConfiguration
-    .UseChrome()
-        .WithArguments("start-maximized")
+builder.Sessions.AddWebDriver(x => x
+    .UseStartScopes(AtataContextScopes.Test)
     .UseBaseUrl("https://atata.io/")
     //...
 ```
 
-```js
-{
-  "baseUrl": "https://atata.io/"
-  // Other environment specific configuration properties can be added here.
-}
+```xml
+<BaseUrl>https://atata.io/</BaseUrl>
 ```
 
 Just replace `"https://atata.io/"` string with your URL.
 
-#### Test Fixtures
+#### Test fixtures
 
-The created project also contains ready to use `SampleTests.cs` fixture, which can be either modified or removed:
+The created project also contains ready to use `SampleTests.cs` test suite, which can be either modified or removed:
 
 ```cs
 namespace AtataUITests1;
 
-public class SampleTests : UITestFixture
+public sealed class SampleTests : AtataTestSuite
 {
     [Test]
     public void SampleTest() =>
@@ -80,10 +76,10 @@ public class SampleTests : UITestFixture
 }
 ```
 
-Further test fixture classes are recommended to inherit from `UITestFixture`,
-or just choose "Atata NUnit Test Fixture" item template in "Add New Item Window".
+Further test suite classes are recommended to inherit from `AtataTestSuite`, or custom `TestSuite`,
+or just choose "Atata NUnit Test Suite" item template in "Add New Item Window".
 
-#### Create Project Targeting Other .NET Version
+#### Create project targeting other .NET version
 
 1. Create a project using one of the project templates: "Atata NUnit Basic Test Project (.NET 8)", "Atata NUnit Advanced Test Project (.NET 8)".
 1. Open project `.csproj` file.

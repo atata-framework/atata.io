@@ -4,8 +4,7 @@
 ```cs
 namespace AtataDemo.UITests;
 
-[TestFixture]
-public class SignInTests : UITestFixture
+public sealed class SignInTests : AtataTestSuite
 {
     [Test]
     public void SignIn() =>

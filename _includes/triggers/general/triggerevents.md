@@ -3,8 +3,10 @@ The flags enumeration that specifies the trigger events.
 Value | Description
 ----- | -----------
 `None` | None of the events.
-`Init` | Occurs upon the page object initialization.
-`DeInit` | Occurs upon the page object deinitialization.
+`Init` | Occurs during page object initialization.
+`DeInit` | Occurs during page object deinitialization.
+`PageObjectTransitionIn` | Occurs when a page object transition in is completed. That is, navigation to the current page object occurred in the same browser tab by interacting with the previous page object, rather than by directly navigating to a URL.
+`PageObjectTransitionOut` | Occurs when a page object transition out is completed. That is, navigation to the next page object occurred in the same browser tab by interacting with the current page object, rather than by directly navigating to a URL.
 `BeforeAccess` | Occurs before any access to the component.
 `AfterAccess` | Occurs after any access to the component.
 `BeforeGet` | Occurs before the value is taken from the control.

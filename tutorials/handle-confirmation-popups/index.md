@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Handle Confirmation Popups
+title: Handle confirmation popups
 description: How to handle different confirmation popups using Atata Framework.
 ---
 
@@ -22,7 +22,7 @@ In this tutorial, I would like to show how to easily handle confirmation popups 
 Tests application will handle: JS confirm, Bootstrap modal and jQuery Confirm box.
 The ideas, covered in the article, can be applied to any other kinds of popups.
 
-## Page Under Test
+## Page under test
 
 For testing purposes of this tutorial, the following test page is used: <https://demo.atata.io/products>.
 
@@ -34,9 +34,9 @@ Each item has 3 different delete buttons that confirm deletion via appropriate p
 [Bootstrap modal]({{ bs_modal_url }}) and
 [jquery-confirm]({{ jq_confirm_url }}).
 
-## Set Up Test Project
+## Set up test project
 
-### Create Project
+### Create project
 
 First of all, let's create a project for tests (e.g., named "AtataSamples.ConfirmationPopups").
 In Visual Studio create a project for Atata automated testing using the [guide](/getting-started/#installation).
@@ -46,7 +46,7 @@ In Visual Studio create a project for Atata automated testing using the [guide](
 Add a reference to {% include nuget.md name="Atata.Bootstrap" %} NuGet package.
 It contains [`BSModal<TOwner>`](https://github.com/atata-framework/atata-bootstrap/blob/main/src/Atata.Bootstrap/BSModal%601.cs) component that will be needed later.
 
-## JS Confirm
+## JS confirm
 
 Let's start with the simplest [JS confirm]({{ js_confirm_url }}) popup.
 It's being used rarely nowadays, but anyway it can be met on the web.
@@ -58,18 +58,16 @@ Define the table with specific `ProductTableRow` sub-class, which describes prod
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ConfirmationPopups;
 
 using _ = ProductsPage;
 
 [Url("products")]
-public class ProductsPage : Page<_>
+public sealed class ProductsPage : Page<_>
 {
     public Table<ProductTableRow, _> Products { get; private set; }
 
-    public class ProductTableRow : TableRow<_>
+    public sealed class ProductTableRow : TableRow<_>
     {
         public Text<_> Name { get; private set; }
 
@@ -92,12 +90,9 @@ Create `ProductTests` test class inherited from `UITestFixture` with the test:
 {:.file-name}
 
 ```cs
-using Atata;
-using NUnit.Framework;
-
 namespace AtataSamples.ConfirmationPopups;
 
-public class ProductTests : UITestFixture
+public sealed class ProductTests : AtataTestSuite
 {
     [Test]
     public void DeleteUsingJSConfirm() =>
@@ -106,7 +101,7 @@ public class ProductTests : UITestFixture
 
             .Products.Rows[x => x.Name == "Table"].DeleteUsingJSConfirm()
             .Products.Rows[x => x.Name == "Table"].Should.Not.BePresent()
-            .Products.Rows.Count.Should.Equal(count - 1);
+            .Products.Rows.Count.Should.Be(count - 1);
 }
 ```
 
@@ -117,7 +112,7 @@ The test does:
 1. Verifies that the product does not exist any more in the list.
 1. Verifies products count to be less by one.
 
-## Bootstrap Modal
+## Bootstrap modal
 
 Now let's get to [Bootstrap modal]({{ bs_modal_url }}) confirmation popup.
 
@@ -130,9 +125,6 @@ Create `DeletionConfirmationBSModal<TNavigateTo>` page object class inherited fr
 {:.file-name}
 
 ```cs
-using Atata;
-using Atata.Bootstrap;
-
 namespace AtataSamples.ConfirmationPopups;
 
 [Name("Deletion Confirmation")]
@@ -149,7 +141,7 @@ public class DeletionConfirmationBSModal<TNavigateTo> : BSModal<DeletionConfirma
 Add property to `ProductTableRow`:
 
 ```cs
-public class ProductTableRow : TableRow<_>
+public sealed class ProductTableRow : TableRow<_>
 {
     //...
 
@@ -169,12 +161,12 @@ public void DeleteUsingBSModal() =>
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal()
             .Cancel() // Cancel and verify that nothing is deleted.
         .Products.Rows[x => x.Name == "Chair"].Should.BePresent()
-        .Products.Rows.Count.Should.Equal(count)
+        .Products.Rows.Count.Should.Be(count)
 
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModal()
             .Delete() // Delete and verify that item is deleted.
         .Products.Rows[x => x.Name == "Chair"].Should.Not.BePresent()
-        .Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows.Count.Should.Be(count - 1);
 ```
 
 The test does:
@@ -186,7 +178,7 @@ The test does:
 1. Verifies that the product does not exist any more in the list.
 1. Verifies products count to be less by one.
 
-### Handle Bootstrap Modal via Trigger
+### Handle Bootstrap modal via trigger
 
 Another option to close simple popups is to use a custom trigger. Let's create one.
 
@@ -194,11 +186,9 @@ Another option to close simple popups is to use a custom trigger. Let's create o
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ConfirmationPopups;
 
-public class ConfirmDeletionViaBSModalAttribute : TriggerAttribute
+public sealed class ConfirmDeletionViaBSModalAttribute : TriggerAttribute
 {
     public ConfirmDeletionViaBSModalAttribute(TriggerEvents on = TriggerEvents.AfterClick, TriggerPriority priority = TriggerPriority.Medium)
         : base(on, priority)
@@ -217,7 +207,7 @@ Now we need to bind this trigger to button.
 Add property to `ProductTableRow`:
 
 ```cs
-public class ProductTableRow : TableRow<_>
+public sealed class ProductTableRow : TableRow<_>
 {
     //...
     
@@ -237,12 +227,12 @@ public void DeleteUsingBSModal_ViaTrigger() =>
 
         .Products.Rows[x => x.Name == "Chair"].DeleteUsingBSModalViaTrigger()
         .Products.Rows[x => x.Name == "Chair"].Should.Not.BePresent()
-        .Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows.Count.Should.Be(count - 1);
 ```
 
 The approach with trigger is easy to use, as you just invoke a method (e.g. `DeleteUsingBSModalViaTrigger`) and popup is confirmed behind the scene.
 
-## JQuery Confirm
+## JQuery confirm
 
 And finally [jquery-confirm]({{ jq_confirm_url }}).
 
@@ -275,8 +265,6 @@ Let's define generic base page object for jQuery confirm box:
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ConfirmationPopups;
 
 [PageObjectDefinition("div", ContainingClass = "jconfirm-box", ComponentTypeName = "confirm box")]
@@ -293,8 +281,6 @@ And now, for our deletion confirmation popup we can implement specific page obje
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ConfirmationPopups;
 
 [Name("Deletion Confirmation")]
@@ -316,11 +302,9 @@ The same way as for Bootstrap Modal, implement trigger:
 {:.file-name}
 
 ```cs
-using Atata;
-
 namespace AtataSamples.ConfirmationPopups;
 
-public class ConfirmDeletionViaJQueryConfirmBoxAttribute : TriggerAttribute
+public sealed class ConfirmDeletionViaJQueryConfirmBoxAttribute : TriggerAttribute
 {
     public ConfirmDeletionViaJQueryConfirmBoxAttribute(TriggerEvents on = TriggerEvents.AfterClick, TriggerPriority priority = TriggerPriority.Medium)
         : base(on, priority)
@@ -336,7 +320,7 @@ public class ConfirmDeletionViaJQueryConfirmBoxAttribute : TriggerAttribute
 Add 2 properties to `ProductTableRow`:
 
 ```cs
-public class ProductTableRow : TableRow<_>
+public sealed class ProductTableRow : TableRow<_>
 {
     //...
 
@@ -360,12 +344,12 @@ public void DeleteUsingJQueryConfirm() =>
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm()
             .Cancel() // Cancel and verify that nothing is deleted.
         .Products.Rows[x => x.Name == "Desk"].Should.BePresent()
-        .Products.Rows.Count.Should.Equal(count)
+        .Products.Rows.Count.Should.Be(count)
 
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirm()
             .Delete() // Delete and verify that item is deleted.
         .Products.Rows[x => x.Name == "Desk"].Should.Not.BePresent()
-        .Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows.Count.Should.Be(count - 1);
 
 [Test]
 public void DeleteUsingJQueryConfirm_ViaTrigger() =>
@@ -374,10 +358,10 @@ public void DeleteUsingJQueryConfirm_ViaTrigger() =>
 
         .Products.Rows[x => x.Name == "Desk"].DeleteUsingJQueryConfirmViaTrigger()
         .Products.Rows[x => x.Name == "Desk"].Should.Not.BePresent()
-        .Products.Rows.Count.Should.Equal(count - 1);
+        .Products.Rows.Count.Should.Be(count - 1);
 ```
 
-## Video Guide
+## Video guide
 
 You may also check the video that shows step by step development and execution of tests.
 

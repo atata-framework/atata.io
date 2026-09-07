@@ -29,11 +29,11 @@ Go.To<OrdinaryPage>()
 ### Take in any place
 
 ```cs
-AtataContext.Current.TakePageSnapshot();
+WebDriverSession.Current!.TakePageSnapshot();
 ```
 
 ```cs
-AtataContext.Current.Report.PageSnapshot();
+WebDriverSession.Current!.Report.PageSnapshot();
 ```
 
 ### Take using trigger

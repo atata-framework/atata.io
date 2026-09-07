@@ -20,6 +20,5 @@ public class SomePage : Page<_>
 Apply the trigger globally for all `Init` and `AfterClick` events:
 
 ```cs
-AtataContext.GlobalConfiguration
-    .Attributes.Global.Add(new WaitForAngularAttribute(TriggerEvents.Init | TriggerEvents.AfterClick));
+builder.Attributes.Global.Add(new WaitForAngularAttribute(TriggerEvents.Init | TriggerEvents.AfterClick));
 ```
