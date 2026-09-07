@@ -1,6 +1,6 @@
 ---
 title: "Atata Framework 4 Release"
-description: "Atata Framework 4 introduces a session-based WebDriver separation with configurable AtataContext, session pooling/borrowing, and a simplified modular configuration."
+description: "Atata Framework 4 introduces session-based WebDriver separation, hierarchical AtataContext, session pooling & sharing, new modules, and more - moving Atata toward a universal automation framework."
 image: "atata-4.png"
 release_version: "4.0.0"
 ---
