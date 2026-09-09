@@ -8,7 +8,7 @@ How to configure multi-environment tests application using environment variables
 {:.lead}
 
 {% capture download-section %}
-{% include download-sample.html folder="MultipleBrowsersViaRunSettings" %}
+{% include download-sample.html folder="Configuration.MultiEnvViaRunSettingsAndJson" %}
 {% endcapture %}
 {{ download-section }}
 
