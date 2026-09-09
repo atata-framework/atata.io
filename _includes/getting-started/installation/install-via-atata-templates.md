@@ -12,8 +12,8 @@ The extension provides the following templates:
   - Atata Base Page Object
   - Atata Control
   - Atata Trigger
-  - Atata NUnit Test Suite
-  - Atata NUnit Base Test Suite
+  - Atata Test Suite
+  - Atata Global Fixture
 
 #### Create project
 
