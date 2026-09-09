@@ -31,12 +31,12 @@ In Visual Studio:
 The project is created with NuGet package references:
 
 - {% include nuget.md name="Atata" %}
+- {% include nuget.md name="Atata.NLog" %} (for advanced project)
 - {% include nuget.md name="Atata.NUnit" %}
 - {% include nuget.md name="Atata.WebDriverSetup" %}
 - {% include nuget.md name="Microsoft.NET.Test.Sdk" %}
 - {% include nuget.md name="NUnit" %}
 - {% include nuget.md name="NUnit3TestAdapter" %}
-- {% include nuget.md name="NLog" %} (for advanced project)
 
 #### Configuration
 
