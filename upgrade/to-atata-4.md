@@ -149,7 +149,7 @@ The default value of `AssemblyNamePatternToFindTypes` property of `AtataContextG
 - `RemoteDriverBuilder` -> `RemoteWebDriverBuilder`.
   In `RemoteWebDriverBuilder` the `IWebDriver CreateDriver(...)` protected virtual method was changed to `RemoteWebDriver CreateRemoteWebDriver(...)`.
 
-### Renamed types where old are still available as obsolete
+### Renamed types that are still available as obsolete
 
 - `AtataContextDeInitEvent` -> `AtataContextDeInitStartedEvent`
 - `PageObjectInitEvent` -> `PageObjectInitStartedEvent`
