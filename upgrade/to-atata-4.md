@@ -23,10 +23,14 @@ In `AtataContextBuilder` obsolete methods were removed: `UseUtcTimeZone`, `UseTi
 `AtataBuildingContext` was removed.
 Its members were extracted to `AtataContextBuilder` and other builder classes.
 
-In `AtataContextBuilder` the `ArtifactsPathTemplate` property and the `UseArtifactsPathTemplate` method were removed.
+`AtataContextBuilder.UseArtifactsPathTemplate` method together with `AtataBuildingContext.ArtifactsPathTemplate` property were removed.
 Introduced `IArtifactsPathFactory` and its implementations, where `TestInfoBasedHierarchicalArtifactsPathFactory` is the default one.
 Added `ArtifactsPathFactory` and `RootNamespace` properties to `AtataContextGlobalProperties`.
 For custom path template, create custom class implementing `IArtifactsPathFactory` and register it via `AtataContext.GlobalProperties.UseArtifactsPathFactory(...)` method. 
+
+`AtataContextBuilder.UseDriverInitializationStage` method together with `AtataBuildingContext.DriverInitializationStage` property were removed.
+`AtataContextDriverInitializationStage` enum was also removed.
+If you used "on-demand" driver initialization stage, consider using static or dynamic `WebDriverSession` building. 
 
 ## JSON configuration
 
